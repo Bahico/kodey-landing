@@ -1,86 +1,118 @@
+'use client'
+import "./home.css";
+import LiquidGlass from 'liquid-glass-react'
+
+
+
+
+
 export default function Home() {
+
+
   return (
-    <div className="bg-white relative w-full">
+    <div className="relative w-full">
+      <LiquidGlass
+        displacementScale={64}
+        blurAmount={0.1}
+        saturation={130}
+        aberrationIntensity={2}
+        elasticity={0.35}
+        cornerRadius={100}
+        padding="8px 16px"
+        onClick={() => console.log('Button clicked!')}
+      >
+        <span className="text-white font-medium">Click Me</span>
+      </LiquidGlass>
       
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center w-full">
-        <div className="absolute inset-0 opacity-65">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-50 to-indigo-100"></div>
-        </div>
-
-        <div className="relative z-10 flex items-center justify-between w-full">
-          <div>
-            <h1 className="text-7xl font-light text-gray-600 mb-8">
-              мобильных приложений<br />
-              и цифровых сервисов
-            </h1>
-            <button className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-10 py-5 rounded-2xl text-2xl font-semibold hover:shadow-lg transition-shadow">
-              Оставить заявку
-            </button>
-            <p className="text-xl text-gray-500 mt-6">
-              Мы свяжемся с вами в течении 24 часов<br />
-              с момента оформления заявки.
-            </p>
+      <section className="relative min-h-screen flex justify-center w-full pt-10">
+        <div className="container">
+          <div className="absolute inset-0 opacity-65">
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br ">
+              <img src="images/background/background1.svg" className="w-3/4 absolute background-1" alt="" />
+            </div>
           </div>
 
-          <div className="relative">
-            <img src="/images/home/7546c655c3c9169934869b5c59b6d45d1ec248d1.png" alt="Hero" className="w-[583px] h-[875px] transform rotate-y-190" />
+          <div className="relative z-10 flex items-center justify-between w-full">
+            <div className="flex flex-col gap-10">
+              <h1 className="text-7xl primary-gradient font-bold">Разработка</h1>
+
+              <h1 className="text-7xl font-light text-gray-600 mb-8">
+                мобильных приложений<br />
+                и цифровых сервисов
+              </h1>
+              <button className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-10 py-5 rounded-2xl text-2xl font-semibold hover:shadow-lg transition-shadow">
+                Оставить заявку
+              </button>
+              <p className="text-xl text-gray-500 mt-6">
+                Мы свяжемся с вами в течении 24 часов<br />
+                с момента оформления заявки.
+              </p>
+            </div>
+
+            <div className="relative">
+              <img src="/images/home/7546c655c3c9169934869b5c59b6d45d1ec248d1.png" alt="Hero" className="w-[583px] h-[875px] transform rotate-y-190 mr-[-40px]" />
+            </div>
           </div>
         </div>
+        
       </section>
 
       {/* Human Factor Section */}
-      <section className="bg-black text-white py-32 px-16">
-        <div className="max-w-7xl mx-auto flex items-center gap-40">
-          <div className="flex-1">
-            <h2 className="text-6xl font-bold mb-8">
-              Человеческий <span className="text-gray-400">фактор</span>
-            </h2>
-            <p className="text-3xl font-light text-gray-400 mb-12">
-              Мы не роботы. Хотя любим автоматизацию
-            </p>
-            <p className="text-xl leading-relaxed text-gray-300 mb-16">
-              Мы — небольшая, но сплочённая IT-команда, объединяющая разработчиков с разным опытом и специализациями.
-              Создаём сайты, мобильные приложения, Telegram-ботов и внутренние сервисы.
-              <br /><br />
-              Нам важна простота в коммуникации, прозрачность в работе и результат, за который не стыдно.
-              <br /><br />
-              Работаем как единый механизм: каждый знает своё дело и усиливает команду.
-            </p>
-            <button className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-10 py-5 rounded-2xl text-xl font-medium flex items-center gap-3 hover:shadow-lg transition-shadow">
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-              </svg>
-              Подсмотреть за нами
-            </button>
-          </div>
+      <section className="bg-black text-white w-full flex justify-center rounded-t-[60px]">
+        <div className="container mt-20">
+          <div className="w-full flex items-center gap-40">
+            <div className="flex-1">
+              <h2 className="text-6xl font-bold mb-8">
+                Человеческий <span className="text-gray-400">фактор</span>
+              </h2>
+              <p className="text-3xl font-light text-gray-400 mb-12">
+                Мы не роботы. Хотя любим автоматизацию
+              </p>
+              <p className="text-xl leading-relaxed text-gray-300 mb-16">
+                Мы — небольшая, но сплочённая IT-команда, объединяющая разработчиков с разным опытом и специализациями.
+                Создаём сайты, мобильные приложения, Telegram-ботов и внутренние сервисы.
+                <br /><br />
+                Нам важна простота в коммуникации, прозрачность в работе и результат, за который не стыдно.
+                <br /><br />
+                Работаем как единый механизм: каждый знает своё дело и усиливает команду.
+              </p>
+              <button className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-10 py-5 rounded-2xl text-xl font-medium flex items-center gap-3 hover:shadow-lg transition-shadow">
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+                Подсмотреть за нами
+              </button>
+            </div>
 
-          <div className="flex-1">
-            <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl p-8 relative">
-              <div className="bg-white bg-opacity-20 rounded-2xl p-6 text-center">
-                <h3 className="text-3xl font-semibold text-white mb-2">Евгений</h3>
-                <p className="text-purple-200">
-                  &lt; <span className="text-blue-300">Back-end developer</span> &gt;
-                </p>
-              </div>
-              <div className="absolute top-1/2 left-4 transform -translate-y-1/2">
-                <button className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
-                </button>
-              </div>
-              <div className="absolute top-1/2 right-4 transform -translate-y-1/2">
-                <button className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
+            <div className="flex-1">
+              <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl p-8 relative">
+                <div className="bg-white bg-opacity-20 rounded-2xl p-6 text-center">
+                  <h3 className="text-3xl font-semibold text-white mb-2">Евгений</h3>
+                  <p className="text-purple-200">
+                    &lt; <span className="text-blue-300">Back-end developer</span> &gt;
+                  </p>
+                </div>
+                <div className="absolute top-1/2 left-4 transform -translate-y-1/2">
+                  <button className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                </div>
+                <div className="absolute top-1/2 right-4 transform -translate-y-1/2">
+                  <button className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
+      
       </section>
 
       {/* Route to Production Section */}
