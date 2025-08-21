@@ -1,17 +1,16 @@
 export default function Home() {
   return (
     <div className="bg-white relative w-full">
-      {/* Header */}
       
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center px-16 pt-24">
+      <section className="relative min-h-screen flex items-center w-full">
         <div className="absolute inset-0 opacity-65">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-50 to-indigo-100"></div>
         </div>
 
         <div className="relative z-10 flex items-center justify-between w-full">
-          <div className="max-w-2xl">
+          <div>
             <h1 className="text-7xl font-light text-gray-600 mb-8">
               мобильных приложений<br />
               и цифровых сервисов
@@ -26,8 +25,7 @@ export default function Home() {
           </div>
 
           <div className="relative">
-            <div className="w-[583px] h-[875px] bg-gradient-to-br from-blue-400 to-blue-600 rounded-3xl transform rotate-12 scale-110"></div>
-            <div className="absolute inset-0 w-[583px] h-[875px] bg-gradient-to-br from-blue-400 to-blue-600 rounded-3xl transform -rotate-12 scale-110"></div>
+            <img src="/images/home/7546c655c3c9169934869b5c59b6d45d1ec248d1.png" alt="Hero" className="w-[583px] h-[875px] transform rotate-y-190" />
           </div>
         </div>
       </section>

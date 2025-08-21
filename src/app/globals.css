@@ -14,7 +14,6 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
     --foreground: #ededed;
   }
 }
@@ -23,4 +22,25 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.rotate-y-190 {
+  transform: rotateY(190deg);
+}
+
+.primary-gradient {
+  background: radial-gradient(50% 50% at 50% 50%, #00C8FF 0%, #004DFF 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.primary-gradient-svg {
+  fill: url(#primary-gradient);
+}
+
+/* Define the gradient for SVG use */
+.primary-gradient-def {
+  --gradient-start: #00C8FF;
+  --gradient-end: #004DFF;
 }
