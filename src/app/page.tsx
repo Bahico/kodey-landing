@@ -45,17 +45,21 @@ export default function Home() {
       </section>
 
       {/* Human Factor Section */}
-      <section className="bg-black text-white w-full flex justify-center rounded-t-[60px]">
-        <div className="container mt-20">
-          <div className="w-full flex items-center gap-40">
+      <section className="bg-black text-white w-full flex justify-center rounded-t-[60px] relative right-background">
+        <div className="absolute top-60 left-10 w-[900px] h-[1000px] z-0">
+          <img src="images/background/background1.svg" className="w-3/4 absolute background-1" alt="" />
+        </div>
+
+        <div className="container mt-40 flex flex-col items-center">
+          <div className="w-full flex justify-center gap-20">
             <div className="flex-1">
               <h2 className="text-6xl font-bold mb-8">
                 Человеческий <span className="text-gray-400">фактор</span>
               </h2>
-              <p className="text-3xl font-light text-gray-400 mb-12">
+              <p className="text-2xl text-[#929292] mb-12">
                 Мы не роботы. Хотя любим автоматизацию
               </p>
-              <p className="text-xl leading-relaxed text-gray-300 mb-16">
+              <p className="text-xl leading-relaxed text-gray-300 mb-16 pl-16">
                 Мы — небольшая, но сплочённая IT-команда, объединяющая разработчиков с разным опытом и специализациями.
                 Создаём сайты, мобильные приложения, Telegram-ботов и внутренние сервисы.
                 <br /><br />
@@ -63,7 +67,7 @@ export default function Home() {
                 <br /><br />
                 Работаем как единый механизм: каждый знает своё дело и усиливает команду.
               </p>
-              <button className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-10 py-5 rounded-2xl text-xl font-medium flex items-center gap-3 hover:shadow-lg transition-shadow">
+              <button className="bg-gradient-to-r from-blue-500 ml-16 to-blue-600 text-white px-10 py-5 rounded-2xl text-xl font-medium flex items-center gap-3 hover:shadow-lg transition-shadow">
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                 </svg>
@@ -71,27 +75,30 @@ export default function Home() {
               </button>
             </div>
 
-            <div className="flex-1">
+            <div className="flex-1 flex justify-end pr-20">
               <div className="rounded-3xl w-[480px] h-[640px] relative">
-                <img src="/images/home/f4bdbf1790d07ba513b62e141ee9ed8f8ff6e090.png" className="w-full object-cover h-full transform rotate-y-190 rounded-3xl mr-[-40px] absolute top-0 left-0" alt="" />
+                <img src="/images/home/f4bdbf1790d07ba513b62e141ee9ed8f8ff6e090.png" className="w-full object-cover h-full transform rotate-y-190 rounded-3xl mr-[-40px] absolute top-0 left-0 grayscale hover:grayscale-0 transition" alt="" />
                 
-                <div className="border border-gray-200 bg-opacity-30 backdrop-blur-md rounded-2xl p-6 w-[calc(100%-64px)] text-center absolute bottom-8 left-8">
+                <div className="flex flex-col justify-center items-center border border-gray-200 bg-opacity-30 backdrop-blur-md rounded-2xl h-[100px] w-[calc(100%-64px)] text-center absolute bottom-8 left-8">
+                  
                   <h3 className="text-3xl font-semibold text-white mb-2">Евгений</h3>
-                  <p className="text-purple-200">
-                    &lt; <span className="text-blue-300">Back-end developer</span> &gt;
-                  </p>
+                  <div className="text-purple-200 flex gap-3">
+                    {'<'}
+                    <span className="text-[#00C8FF]">Back-end developer</span>
+                    {'>'}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      
+
       </section>
 
       {/* Route to Production Section */}
-      <section className="bg-black text-white py-32 px-16">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
+      <section className="bg-black text-white flex justify-center pt-40">
+        <div className="container flex flex-col">
+          <div className="mb-20">
             <h2 className="text-6xl font-bold mb-8">
               Маршрут <span className="text-gray-400">в продакшн</span>
             </h2>
