@@ -1,6 +1,5 @@
 'use client'
 import "./home.css";
-import LiquidGlass from 'liquid-glass-react'
 
 
 
@@ -11,20 +10,6 @@ export default function Home() {
 
   return (
     <div className="relative w-full">
-      <LiquidGlass
-        displacementScale={64}
-        blurAmount={0.1}
-        saturation={130}
-        aberrationIntensity={2}
-        elasticity={0.35}
-        cornerRadius={100}
-        padding="8px 16px"
-        onClick={() => console.log('Button clicked!')}
-      >
-        <span className="text-white font-medium">Click Me</span>
-      </LiquidGlass>
-      
-
       {/* Hero Section */}
       <section className="relative min-h-screen flex justify-center w-full pt-10">
         <div className="container">
@@ -87,26 +72,14 @@ export default function Home() {
             </div>
 
             <div className="flex-1">
-              <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl p-8 relative">
-                <div className="bg-white bg-opacity-20 rounded-2xl p-6 text-center">
+              <div className="rounded-3xl w-[480px] h-[640px] relative">
+                <img src="/images/home/f4bdbf1790d07ba513b62e141ee9ed8f8ff6e090.png" className="w-full object-cover h-full transform rotate-y-190 rounded-3xl mr-[-40px] absolute top-0 left-0" alt="" />
+                
+                <div className="border border-gray-200 bg-opacity-30 backdrop-blur-md rounded-2xl p-6 w-[calc(100%-64px)] text-center absolute bottom-8 left-8">
                   <h3 className="text-3xl font-semibold text-white mb-2">Евгений</h3>
                   <p className="text-purple-200">
                     &lt; <span className="text-blue-300">Back-end developer</span> &gt;
                   </p>
-                </div>
-                <div className="absolute top-1/2 left-4 transform -translate-y-1/2">
-                  <button className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                    </svg>
-                  </button>
-                </div>
-                <div className="absolute top-1/2 right-4 transform -translate-y-1/2">
-                  <button className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
                 </div>
               </div>
             </div>
