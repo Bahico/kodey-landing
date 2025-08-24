@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-
+import Image from "next/image";
 
 import "./globals.css";
-import "./layout.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -140,15 +139,6 @@ export default function RootLayout({
                     140158, с. Узбекистан,<br />
                     г. Самарканд, ул. улица Авесто, д.78В
                   </p>
-                </div>
-              </div>
-
-              <div className="w-40">
-                <div className="flex flex-col gap-4">
-
-                </div>
-                <div>
-                  
                 </div>
               </div>
             </div>

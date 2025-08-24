@@ -6,12 +6,16 @@ import History from "./home-components/history";
 import Location from "./home-components/location";
 import Internal from "./home-components/internal";
 import Contact from "./home-components/contact";
+import Image from "next/image";
+import { Player, Controls } from '@lottiefiles/react-lottie-player';
+
 
 export default function Home() {
 
 
   return (
     <div className="relative w-full">
+
       {/* Hero Section */}
       <section className="relative flex justify-center w-full pt-10">
         <div className="container">
@@ -43,8 +47,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-        
+
       </section>
+
+
 
       {/* Human Factor Section */}
       <section className="bg-black text-white w-full flex justify-center rounded-t-[60px] relative right-background">
@@ -71,7 +77,7 @@ export default function Home() {
               </p>
               <button className="bg-gradient-to-r from-blue-500 ml-16 to-blue-600 text-white px-10 py-5 rounded-2xl text-xl font-medium flex items-center gap-3 hover:shadow-lg transition-shadow">
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                 </svg>
                 Подсмотреть за нами
               </button>
@@ -80,9 +86,9 @@ export default function Home() {
             <div className="flex-1 flex justify-end pr-20">
               <div className="rounded-3xl w-[480px] h-[640px] relative">
                 <img src="/images/home/f4bdbf1790d07ba513b62e141ee9ed8f8ff6e090.png" className="w-full object-cover h-full transform rotate-y-190 rounded-3xl mr-[-40px] absolute top-0 left-0 grayscale hover:grayscale-0 transition-all duration-300" alt="" />
-                
+
                 <div className="flex flex-col justify-center items-center border border-gray-200 bg-opacity-30 backdrop-blur-md rounded-2xl h-[100px] w-[calc(100%-64px)] text-center absolute bottom-8 left-8">
-                  
+
                   <h3 className="text-3xl font-semibold text-white mb-2">Евгений</h3>
                   <div className="text-purple-200 flex gap-3">
                     {'<'}

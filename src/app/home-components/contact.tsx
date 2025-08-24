@@ -65,7 +65,7 @@ export default function Contact() {
                 </div>
 
                 <div className="absolute top-0 right-0 w-[50%] h-full bg-gradient-to-br rounded-3xl overflow-hidden">
-                    <Image src="/images/home/48c20b59329df46824f434a9a8326311165d3bc6.png" alt="contact" fill className="object-cover" />
+                    <Image src="/images/home/48c20b59329df46824f434a9a8326311165d3bc6.png" alt="contact" fill className="object-contain" />
                 </div>
             </div>
         </section>
