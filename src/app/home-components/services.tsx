@@ -51,7 +51,7 @@ export default function Services() {
                     </p>
                 </div>
 
-                <div className="flex overflow-x-auto pb-10 gap-12">
+                <div className="flex overflow-x-auto pb-10 gap-12 scrollbar-hide">
                     {services.map((service, index) => (
                         <div key={index} className={`group relative h-[730px] flex items-end w-[465px] min-w-[465px] rounded-2xl ${service.active ? 'bg-black bg-opacity-90' : 'bg-black bg-opacity-60'}`}>
                             <div className="absolute top-0 w-full h-[600px] flex justify-center items-center z-10">

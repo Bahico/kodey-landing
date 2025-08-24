@@ -4,6 +4,8 @@ import Steps from "./home-components/steps";
 import Services from "./home-components/services";
 import History from "./home-components/history";
 import Location from "./home-components/location";
+import Internal from "./home-components/internal";
+import Contact from "./home-components/contact";
 
 export default function Home() {
 
@@ -107,157 +109,11 @@ export default function Home() {
       {/* Location Section */}
       <Location />
 
+      {/* Internal Section */}
+      <Internal />
+
       {/* Contact Section */}
-      <section className="bg-black text-white py-32 px-16">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-6xl font-bold mb-8">
-              Отправить <span className="text-gray-400">сигнал</span>
-            </h2>
-            <p className="text-3xl font-light text-gray-400">
-              Опишите задачу — мы на связи и готовы принимать данные
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 gap-20">
-            <div>
-              <h3 className="text-3xl font-semibold text-gray-800 mb-8">Какая задача нас ждет ?</h3>
-              
-              <div className="grid grid-cols-3 gap-4 mb-12">
-                {[
-                  "Telegram - bot", "Telegram - app", "Сайт (лендинг)",
-                  "Сайт (многостраничный)", "Мобильное приложение", "CRM",
-                  "Аутстафф", "Другое"
-                ].map((service, index) => (
-                  <button key={index} className="px-8 py-4 rounded-full shadow-md bg-white bg-opacity-10 hover:bg-opacity-20 transition-colors text-gray-800 font-medium">
-                    {service}
-                  </button>
-                ))}
-              </div>
-
-              <div className="space-y-8">
-                <div>
-                  <label className="block text-gray-600 text-base mb-2">Имя*</label>
-                  <input type="text" className="w-full bg-transparent border-b-2 border-gray-300 text-2xl text-gray-800 py-2 focus:border-blue-500 outline-none" placeholder="Виктор |" />
-                </div>
-                <div>
-                  <label className="block text-gray-800 text-2xl mb-2">Телефон*</label>
-                  <input type="tel" className="w-full bg-transparent border-b-2 border-gray-300 text-2xl text-gray-800 py-2 focus:border-blue-500 outline-none" />
-                </div>
-                <div>
-                  <label className="block text-gray-800 text-2xl mb-2">Email*</label>
-                  <input type="email" className="w-full bg-transparent border-b-2 border-gray-300 text-2xl text-gray-800 py-2 focus:border-blue-500 outline-none" />
-                </div>
-                <div>
-                  <label className="block text-gray-800 text-2xl mb-2">Краткое техническое задание</label>
-                  <textarea className="w-full bg-transparent border-b-2 border-gray-300 text-2xl text-gray-800 py-2 focus:border-blue-500 outline-none resize-none" rows={4}></textarea>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4 mt-8 mb-8">
-                <input type="checkbox" className="w-8 h-8 rounded border-2 border-gray-300" />
-                <span className="text-gray-500 text-xl">Я соглашаюсь на обработку персональных данных</span>
-              </div>
-
-              <button className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-10 py-5 rounded-2xl text-2xl font-semibold hover:shadow-lg transition-shadow">
-                Оставить заявку
-              </button>
-            </div>
-
-            <div className="relative">
-              <div className="w-full h-[640px] bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-600 transform rotate-12 scale-110"></div>
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-600 transform -rotate-12 scale-110"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-black text-white py-32 px-16 rounded-t-[100px]">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-4 gap-16">
-            <div>
-              <h3 className="text-6xl font-bold mb-8">
-                Всегда<br />
-                <span className="text-gray-500">на связи</span>
-              </h3>
-              <p className="text-3xl font-light text-white mb-8">
-                С 12:00 до 20:00<br />
-                по МСК
-              </p>
-            </div>
-
-            <div className="space-y-6">
-              <a href="#" className="block text-xl font-medium hover:text-blue-400 transition-colors">Главная</a>
-              <a href="#" className="block text-xl font-medium hover:text-blue-400 transition-colors">Кейсы</a>
-              <a href="#" className="block text-xl font-medium hover:text-blue-400 transition-colors">Услуги</a>
-              <a href="#" className="block text-xl font-medium hover:text-blue-400 transition-colors">Блог</a>
-              <a href="#" className="block text-xl font-medium hover:text-blue-400 transition-colors">Связаться</a>
-            </div>
-
-            <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                <span className="text-xl font-medium">+998 00 000 00 00</span>
-              </div>
-              <div className="flex items-center gap-4">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                <span className="text-xl font-medium">mail@kodey.com</span>
-              </div>
-              <div className="flex items-center gap-4">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                </svg>
-                <span className="text-xl font-medium">@kodey.manager</span>
-              </div>
-              <div className="pt-4">
-                <p className="text-gray-400 text-base leading-relaxed">
-                  140158, с. Узбекистан,<br />
-                  г. Самарканд, ул. улица Авесто, д.78В
-                </p>
-              </div>
-            </div>
-
-            <div className="text-right">
-              <div className="flex justify-end mb-8">
-                <div className="flex gap-4">
-                  <button className="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-colors">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17l9.2-9.2M17 17V7H7" />
-                    </svg>
-                  </button>
-                  <button className="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-colors">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17l9.2-9.2M17 17V7H7" />
-                    </svg>
-                  </button>
-                  <button className="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-colors">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17l9.2-9.2M17 17V7H7" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-700 mt-16 pt-8 flex justify-between items-center">
-            <div>
-              <p className="text-white text-xl">OOO "CHAT-BOT-START"</p>
-              <p className="text-white text-xl">@2025</p>
-            </div>
-            <div>
-              <p className="text-white text-xl">Политика конфиденциальности</p>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Contact />
     </div>
   );
 }

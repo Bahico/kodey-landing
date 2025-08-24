@@ -52,7 +52,7 @@ export default function Steps() {
 
                 <div className="flex items-center gap-40">
                     {/* Timeline Steps */}
-                    <div className="flex-1 space-y-12 h-80 snap-y snap-mandatory overflow-y-auto">
+                    <div className="flex-1 space-y-12 h-80 snap-y snap-mandatory overflow-y-auto scrollbar-hide">
                         {steps.map((step, index) => (
                             <div key={index} className="relative snap-start mb-20 ">
                                 <div className={`text-4xl font-semibold mb-4 ${step.active ? 'text-blue-400' : 'text-gray-500'}`}>
