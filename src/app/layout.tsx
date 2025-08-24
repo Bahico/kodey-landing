@@ -93,7 +93,7 @@ export default function RootLayout({
 
         {children}
 
-        <footer className="bg-black text-white flex justify-center py-16 w-full rounded-t-[100px]">
+        <footer className="bg-[#0D0D0D] text-white flex justify-center py-16 w-full rounded-t-[100px] relative z-10">
           <div className="container">
             <div className="grid grid-cols-4 gap-16">
               <div>
