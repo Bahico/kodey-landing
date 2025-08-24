@@ -48,11 +48,11 @@ export default function Internal() {
                 </div>
 
                 {/* Blog Posts Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10 items-center">
+                <div className="flex items-center gap-10 overflow-x-auto">
                     {posts.map((post) => (
-                        <div key={post.id} className="lg:col-span-1" onClick={() => handleClick(post.id)}>
+                        <div key={post.id} className="min-w-[274px] lg:min-w-[300px]" onClick={() => handleClick(post.id)}>
                             <div className={`flex flex-col gap-6 ${activeIndex === post.id ? '' : 'pt-10 pb-20 unactive'}`}>
-                                <div className={`relative w-full overflow-hidden rounded-lg ${activeIndex === post.id ? 'h-[444px]' : 'h-[296px]'}`}>
+                                <div className={`relative w-full overflow-hidden rounded-lg ${activeIndex === post.id ? 'h-[180px] lg:h-[444px]' : 'h-[120px] lg:h-[296px]'}`}>
                                     <Image
                                         src={post.img}
                                         alt={post.title}

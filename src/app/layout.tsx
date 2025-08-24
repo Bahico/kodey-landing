@@ -96,49 +96,59 @@ export default function RootLayout({
 
         {children}
 
-        <footer className="bg-[#0D0D0D] text-white flex justify-center py-16 w-full rounded-t-[100px] relative z-10 hidden">
+        <footer className="bg-[#0D0D0D] text-white flex justify-center py-8 sm:py-12 md:py-16 w-full rounded-t-[50px] sm:rounded-t-[75px] md:rounded-t-[100px] relative z-10 px-4 sm:px-6 lg:px-8">
           <div className="container">
-            <div className="grid grid-cols-4 gap-16">
-              <div>
-                <h3 className="text-6xl font-bold mb-8">
-                  Всегда<br />
-                  <span className="text-gray-500">на связи</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-12 md:gap-16">
+              <div className="col-span-4 lg:col-span-1 text-center lg:text-left">
+                <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 md:mb-8">
+                  Всегда<br className="hidden sm:block" />
+                  <span className="text-gray-500 ml-2">на связи</span>
                 </h3>
-                <p className="text-3xl font-light text-white mb-8">
-                  С 12:00 до 20:00<br />
+                <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-white lg:mb-6 sm:mb-8">
+                  С 12:00 до 20:00<br className="hidden sm:block" />
                   по МСК
                 </p>
               </div>
 
-              <div className="space-y-6">
-                <a href="#" className="block text-xl font-medium hover:text-blue-400 transition-colors">Главная</a>
-                <a href="#" className="block text-xl font-medium hover:text-blue-400 transition-colors">Кейсы</a>
-                <a href="#" className="block text-xl font-medium hover:text-blue-400 transition-colors">Услуги</a>
-                <a href="#" className="block text-xl font-medium hover:text-blue-400 transition-colors">Блог</a>
-                <a href="#" className="block text-xl font-medium hover:text-blue-400 transition-colors">Связаться</a>
+              <div className="col-span-4 lg:col-span-1 space-y-4 sm:space-y-6 text-center lg:text-left">
+                <a href="#" className="block text-base sm:text-lg md:text-xl font-medium hover:text-blue-400 transition-colors">Главная</a>
+                <a href="#" className="block text-base sm:text-lg md:text-xl font-medium hover:text-blue-400 transition-colors">Кейсы</a>
+                <a href="#" className="block text-base sm:text-lg md:text-xl font-medium hover:text-blue-400 transition-colors">Услуги</a>
+                <a href="#" className="block text-base sm:text-lg md:text-xl font-medium hover:text-blue-400 transition-colors">Блог</a>
+                <a href="#" className="block text-base sm:text-lg md:text-xl font-medium hover:text-blue-400 transition-colors">Связаться</a>
               </div>
 
-              <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="space-y-4 sm:space-y-6 col-span-4 lg:col-span-1 mt-10 lg:mt-0">
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
-                  <span className="text-xl font-medium">+998 00 000 00 00</span>
+                  <span className="text-base sm:text-lg md:text-xl font-medium">+998 00 000 00 00</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" className="ml-auto" viewBox="0 0 25 24" fill="none">
+                    <path d="M7.35654 7H17.3565M17.3565 7V17M17.3565 7L7.35654 17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
                 </div>
-                <div className="flex items-center gap-4">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  <span className="text-xl font-medium">mail@kodey.com</span>
+                  <span className="text-base sm:text-lg md:text-xl font-medium">mail@kodey.com</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" className="ml-auto" viewBox="0 0 25 24" fill="none">
+                    <path d="M7.35654 7H17.3565M17.3565 7V17M17.3565 7L7.35654 17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
                 </div>
-                <div className="flex items-center gap-4">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="flex items-center gap-3 sm:gap-4 border-b border-gray-200 pb-10">
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                   </svg>
-                  <span className="text-xl font-medium">@kodey.manager</span>
+                  <span className="text-base sm:text-lg md:text-xl font-medium">@kodey.manager</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" className="ml-auto" viewBox="0 0 25 24" fill="none">
+                    <path d="M7.35654 7H17.3565M17.3565 7V17M17.3565 7L7.35654 17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
                 </div>
-                <div className="pt-4">
-                  <p className="text-gray-400 text-base leading-relaxed">
+                <div className="pt-2 sm:pt-4">
+                  <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
                     140158, с. Узбекистан,<br />
                     г. Самарканд, ул. улица Авесто, д.78В
                   </p>
@@ -146,13 +156,13 @@ export default function RootLayout({
               </div>
             </div>
 
-            <div className="mt-19 flex justify-between items-center">
+            <div className="mt-12 sm:mt-16 md:mt-19 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0">
               <div>
-                <p className="text-gray-500 text-sm">OOO "CHAT-BOT-START"</p>
-                <p className="text-gray-500 text-sm">@2025</p>
+                <p className="text-gray-500 text-xs sm:text-sm">OOO "CHAT-BOT-START"</p>
+                <p className="text-gray-500 text-xs sm:text-sm">@2025</p>
               </div>
               <div>
-                <Link href="/privacy-policy" className="text-gray-500 text-sm">Политика конфиденциальности</Link>
+                <Link href="/privacy-policy" className="text-gray-500 text-xs sm:text-sm">Политика конфиденциальности</Link>
               </div>
             </div>
           </div>
