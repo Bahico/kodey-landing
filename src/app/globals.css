@@ -5,11 +5,17 @@
   --foreground: #171717;
 }
 
-@theme inline {
+@theme inline{
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -63,4 +69,10 @@ body {
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;  /* Chrome, Safari and Opera */
+}
+
+@media (max-width: 768px) {
+  .right-background::after {
+    display: none;
+  }
 }

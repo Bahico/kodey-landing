@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Contact() {
     return (
-        <section className="flex justify-center pt-40 mb-40">
+        <section id="contact" className="flex justify-center pt-40 mb-40">
             <div className="container relative">
                 <div className="mb-1 0">
                     <h2 className="text-6xl font-bold mb-4">

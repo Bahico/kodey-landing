@@ -34,7 +34,7 @@ export default function Internal() {
     ]
 
     return (
-        <section className="relative w-full bg-black py-20 rounded-b-[60px]">
+        <section id="internal" className="relative w-full bg-black py-20 rounded-b-[60px]">
             <div className="container mx-auto px-4">
                 {/* Header Section */}
                 <div className="mb-16">

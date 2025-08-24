@@ -25,7 +25,7 @@ export default function PostsList() {
     return (
         <div className="flex flex-wrap gap-[30px] w-full">
             {history.map((item, index) => (
-                <div key={index} className="w-[calc(50%-15px)]">
+                <div key={index} className="sm:w-[calc(50%-15px)] w-full">
                     <Link href={`/posts/${item.id}`}>
                         <img src={item.image} alt={item.title} className="w-full object-cover rounded-t-2xl" />
                     </Link>
