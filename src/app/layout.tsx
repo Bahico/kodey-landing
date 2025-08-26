@@ -5,6 +5,7 @@ import Image from "next/image";
 import "./globals.css";
 import Link from "next/link";
 import MobileNavbar from "./components/MobileNavbar";
+import { GlassElement } from "./components/GlassElement/GlassElement";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -52,41 +53,103 @@ export default function RootLayout({
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-5">
-              <Link href="/" className="navbar-item flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors">
-                <svg className="w-6 h-6" stroke="url(#primary-gradient)" fill="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} fill="none" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                </svg>
-                <span className="text-xl font-medium primary-gradient">Главная</span>
+              <Link href="/">
+                <GlassElement
+                  className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
+                  width={150}
+                  height={50}
+                  radius={10}
+                  depth={5}
+                  blur={1}
+                  chromaticAberration={1}
+                  debug={false}
+                >
+                  <svg className="w-6 h-6" stroke="url(#primary-gradient)" fill="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} fill="none" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  </svg>
+                  <span className="text-xl font-medium primary-gradient">Главная</span>
+                </GlassElement>
               </Link>
 
-              <Link href="/#product-list" className="navbar-item flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors">
-                <svg className="w-6 h-6" fill="currentColor" stroke="url(#primary-gradient)" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} fill="none" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-                <span className="text-xl font-medium primary-gradient">Кейсы</span>
+              <Link href="/#product-list">
+                <GlassElement
+                  className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
+                  width={150}
+                  height={50}
+                  radius={10}
+                  depth={5}
+                  blur={1}
+                  chromaticAberration={1}
+                  debug={false}
+                >
+                  <svg className="w-6 h-6" fill="currentColor" stroke="url(#primary-gradient)" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} fill="none" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  <span className="text-xl font-medium primary-gradient">Кейсы</span>
+                </GlassElement>
               </Link>
-              <Link href="/#services" className="navbar-item flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors">
-                <svg className="w-6 h-6" fill="currentColor" stroke="url(#primary-gradient)" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} fill="none" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                </svg>
-                <span className="text-xl font-medium primary-gradient">Услуги</span>
+              <Link href="/#services">
+                <GlassElement
+                  className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
+                  width={150}
+                  height={50}
+                  radius={10}
+                  depth={5}
+                  blur={1}
+                  chromaticAberration={1}
+                  debug={false}
+                >
+                  <svg className="w-6 h-6" fill="currentColor" stroke="url(#primary-gradient)" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} fill="none" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                  </svg>
+                  <span className="text-xl font-medium primary-gradient">Услуги</span>
+                </GlassElement>
               </Link>
-              <Link href="/#internal" className="navbar-item flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors">
-                <svg className="w-6 h-6" fill="currentColor" stroke="url(#primary-gradient)" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} fill="none" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                </svg>
-                <span className="text-xl font-medium primary-gradient">Блог</span>
+              <Link href="/#internal">
+                <GlassElement
+                  className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
+                  width={150}
+                  height={50}
+                  radius={10}
+                  depth={5}
+                  blur={1}
+                  chromaticAberration={1}
+                  debug={false}
+                >
+                  <svg className="w-6 h-6" fill="currentColor" stroke="url(#primary-gradient)" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} fill="none" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                  </svg>
+                  <span className="text-xl font-medium primary-gradient">Блог</span>
+                </GlassElement>
               </Link>
-              <Link href="/#contact" className="navbar-item flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors">
-                <svg className="w-6 h-6" fill="currentColor" stroke="url(#primary-gradient)" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} fill="none" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                </svg>
-                <span className="text-xl font-medium primary-gradient">Связаться</span>
+              <Link href="/#contact">
+                <GlassElement
+                  className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
+                  width={150}
+                  height={50}
+                  radius={10}
+                  depth={5}
+                  blur={1}
+                  chromaticAberration={1}
+                >
+                  <svg className="w-6 h-6" fill="currentColor" stroke="url(#primary-gradient)" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} fill="none" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                  </svg>
+                  <span className="text-xl font-medium primary-gradient">Связаться</span>
+                </GlassElement>
               </Link>
 
-              <div className="px-8 py-4 rounded-full shadow-md bg-gray-50">
+              <GlassElement
+                className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
+                width={90}
+                height={50}
+                radius={10}
+                depth={5}
+                blur={1}
+                chromaticAberration={1}
+              >
                 <span className="text-xl font-bold primary-gradient">RU</span>
-              </div>
+              </GlassElement>
             </nav>
 
             {/* Mobile Navigation */}
@@ -125,7 +188,7 @@ export default function RootLayout({
                   </svg>
                   <span className="text-base sm:text-lg md:text-xl font-medium">+998 00 000 00 00</span>
                   <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" className="ml-auto" viewBox="0 0 25 24" fill="none">
-                    <path d="M7.35654 7H17.3565M17.3565 7V17M17.3565 7L7.35654 17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M7.35654 7H17.3565M17.3565 7V17M17.3565 7L7.35654 17" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
 
@@ -135,7 +198,7 @@ export default function RootLayout({
                   </svg>
                   <span className="text-base sm:text-lg md:text-xl font-medium">mail@kodey.com</span>
                   <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" className="ml-auto" viewBox="0 0 25 24" fill="none">
-                    <path d="M7.35654 7H17.3565M17.3565 7V17M17.3565 7L7.35654 17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M7.35654 7H17.3565M17.3565 7V17M17.3565 7L7.35654 17" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
                 <div className="flex items-center gap-3 sm:gap-4 border-b border-gray-200 pb-10">
@@ -144,7 +207,7 @@ export default function RootLayout({
                   </svg>
                   <span className="text-base sm:text-lg md:text-xl font-medium">@kodey.manager</span>
                   <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" className="ml-auto" viewBox="0 0 25 24" fill="none">
-                    <path d="M7.35654 7H17.3565M17.3565 7V17M17.3565 7L7.35654 17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M7.35654 7H17.3565M17.3565 7V17M17.3565 7L7.35654 17" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
                 <div className="pt-2 sm:pt-4">

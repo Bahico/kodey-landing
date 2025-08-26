@@ -1,3 +1,5 @@
+import { GlassElement } from "../components/GlassElement/GlassElement";
+
 export default function Steps() {
 
     const steps = [
@@ -70,10 +72,18 @@ export default function Steps() {
 
                     {/* Interactive Carousel */}
                     <div className="flex relative">
-                        <div className="relative w-[280px] h-[290px] sm:w-[400px] sm:h-[415px] md:w-[500px] md:h-[520px] lg:w-[549px] lg:h-[568px] z-10 rounded-full overflow-hidden border border-gray-600 backdrop-blur-sm mx-auto lg:mx-0">
+                        <GlassElement
+                            className="relative w-[280px] h-[290px] sm:w-[400px] sm:h-[415px] md:w-[500px] md:h-[520px] lg:w-[549px] lg:h-[568px] z-10 rounded-full overflow-hidden border border-gray-600 backdrop-blur-sm mx-auto lg:mx-0"
+                            width={549}
+                            height={568}
+                            radius={300}
+                            depth={10}
+                            blur={0}
+                            chromaticAberration={0}
+                        >
                             <img src="images/home/5ef3e749c7570d2f0dbd733d4b1f59e6037e1402.png" alt="" className="absolute top-0 left-0 w-full h-[calc(100%+10px)]" />
-                        </div>
-                        <img src="images/background/background1.svg" alt="" className="absolute top-[-40%] left-[-10%] w-[4000px] h-[500px] sm:w-[6000px] sm:h-[750px] lg:w-[8000px] lg:h-[1000px] z-0" />
+                        </GlassElement>
+                        <img src="images/background/background1.svg" alt="" className="absolute flex top-[-700px] left-0 w-[8000px] h-[2000px] z-0" />
                     </div>
                 </div>
             </div>

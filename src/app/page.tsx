@@ -8,6 +8,7 @@ import Internal from "./home-components/internal";
 import Contact from "./home-components/contact";
 import Image from "next/image";
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
+import { GlassElement } from "./components/GlassElement/GlassElement";
 
 
 export default function Home() {
@@ -87,7 +88,15 @@ export default function Home() {
               <div className="rounded-2xl sm:rounded-3xl w-[280px] h-[373px] sm:w-[360px] sm:h-[480px] md:w-[420px] md:h-[560px] lg:w-[480px] lg:h-[640px] relative">
                 <img src="/images/home/f4bdbf1790d07ba513b62e141ee9ed8f8ff6e090.png" className="w-full object-cover h-full transform rotate-y-190 rounded-2xl sm:rounded-3xl lg:mr-[-40px] absolute top-0 left-0 grayscale hover:grayscale-0 transition-all duration-300" alt="" />
 
-                <div className="flex flex-col justify-center items-center border border-gray-200 bg-opacity-30 backdrop-blur-md rounded-xl sm:rounded-2xl h-[70px] sm:h-[80px] lg:h-[100px] w-[calc(100%-32px)] sm:w-[calc(100%-48px)] lg:w-[calc(100%-64px)] text-center absolute bottom-4 sm:bottom-6 lg:bottom-8 left-4 sm:left-6 lg:left-8">
+                <GlassElement
+                  className="flex flex-col justify-center items-center border border-gray-200 person bg-opacity-30 backdrop-blur-md rounded-xl sm:rounded-2xl h-[70px] sm:h-[80px] lg:h-[100px] w-[calc(100%-32px)] sm:w-[calc(100%-48px)] lg:w-[calc(100%-64px)] text-center absolute bottom-4 sm:bottom-6 lg:bottom-8 left-4 sm:left-6 lg:left-8"
+                  width={420}
+                  height={80}
+                  radius={10}
+                  depth={5}
+                  blur={1}
+                  chromaticAberration={1}
+                >
 
                   <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-white mb-1 sm:mb-2">Евгений</h3>
                   <div className="text-purple-200 flex gap-2 sm:gap-3 text-sm sm:text-base lg:text-lg">
@@ -95,31 +104,31 @@ export default function Home() {
                     <span className="text-[#00C8FF]">Back-end developer</span>
                     {'>'}
                   </div>
-                </div>
+                </GlassElement>
               </div>
             </div>
           </div>
         </div>
 
-      </section>
+      </section >
 
-      {/* Route to Production Section */}
-      <Steps />
+    {/* Route to Production Section */ }
+    < Steps />
 
-      {/* Services Section */}
-      <Services />
+    {/* Services Section */ }
+    < Services />
 
-      {/* History Section */}
-      <History />
+    {/* History Section */ }
+    < History />
 
-      {/* Location Section */}
-      <Location />
+    {/* Location Section */ }
+    < Location />
 
-      {/* Internal Section */}
-      <Internal />
+    {/* Internal Section */ }
+    < Internal />
 
-      {/* Contact Section */}
-      <Contact />
-    </div>
+    {/* Contact Section */ }
+    < Contact />
+    </div >
   );
 }

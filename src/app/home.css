@@ -2,3 +2,7 @@
     left: -380px;
     top: -480px;
 }
+.person {
+    background: linear-gradient(259deg, rgba(0, 0, 0, 0.50) 0%, rgba(4, 4, 4, 0.50) 100%) !important;
+    border: 1.029px solid #EAEAEA !important;
+}
