@@ -6,13 +6,110 @@ import History from "./home-components/history";
 import Location from "./home-components/location";
 import Internal from "./home-components/internal";
 import Contact from "./home-components/contact";
-import Image from "next/image";
-import { Player, Controls } from '@lottiefiles/react-lottie-player';
 import { GlassElement } from "./components/GlassElement/GlassElement";
+import { useState } from "react";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { TextPlugin } from 'gsap/TextPlugin';
+
+gsap.registerPlugin(TextPlugin);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
 
 
 export default function Home() {
+  const [activeEmployee, setActiveEmployee] = useState(0);
 
+  const employees = [
+    {
+      name: "Евгений",
+      position: "Back-end developer",
+      image: "/images/home/f4bdbf1790d07ba513b62e141ee9ed8f8ff6e090.png",
+    },
+    {
+      name: "Кристина",
+      position: "Project manager",
+      image: "/images/home/Rectangle 15.png",
+    },
+    {
+      name: "Лазиз",
+      position: "Project manager",
+      image: "/images/home/Rectangle 16.png",
+    },
+    {
+      name: "Александр",
+      position: "Full-stack developer",
+      image: "/images/home/Rectangle 17.png",
+    }
+  ];
+
+  const handleEmployeeChange = (index: number) => {
+    if (index < 0) {
+      setActiveEmployee(employees.length - 1);
+    } else if (index >= employees.length) {
+      setActiveEmployee(0);
+    } else {
+      setActiveEmployee(index);
+    }
+  };
+
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      repeat: 1,
+      yoyo: false,
+      onComplete: () => {
+        tl.restart();
+      }
+    });
+  
+  // First text animation
+  tl.to("#title-home", {
+    duration: 1,
+    text: "Разработка"
+  })
+  // Wait a bit
+  .to("#title-home", {
+    duration: 0.5,
+    delay: 0.5
+  })
+  // Remove the text
+  .to("#title-home", {
+    duration: 0.5,
+    text: ""
+  })
+  // Write the second text
+  .to("#title-home", {
+    duration: 1,
+    text: "Дизайн"
+  })
+  // Wait a bit
+  .to("#title-home", {
+    duration: 0.5,
+    delay: 0.5
+  })
+  // Remove the text
+  .to("#title-home", {
+    duration: 0.5,
+    text: ""
+  })
+  .to("#title-home", {
+    duration: 1,
+    text: "Поддержка"
+  })
+  // Wait a bit
+  .to("#title-home", {
+    duration: 0.5,
+    delay: 0.5
+  })
+  // Remove the text
+  .to("#title-home", {
+    duration: 0.5,
+    text: ""
+  })
+
+  });
 
   return (
     <div className="relative w-full">
@@ -28,7 +125,7 @@ export default function Home() {
 
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between w-full gap-8 lg:gap-0">
             <div className="flex flex-col gap-6 sm:gap-8 lg:gap-10 text-center lg:text-left">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl primary-gradient font-bold">Разработка</h1>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl primary-gradient font-bold" id="title-home"></h1>
 
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-gray-600 mb-4 sm:mb-6 lg:mb-8">
                 мобильных приложений<br />
@@ -86,7 +183,7 @@ export default function Home() {
 
             <div className="flex-1 flex justify-center lg:justify-end pr-0 lg:pr-20 lg:order-last">
               <div className="rounded-2xl sm:rounded-3xl w-[280px] h-[373px] sm:w-[360px] sm:h-[480px] md:w-[420px] md:h-[560px] lg:w-[480px] lg:h-[640px] relative">
-                <img src="/images/home/f4bdbf1790d07ba513b62e141ee9ed8f8ff6e090.png" className="w-full object-cover h-full transform rotate-y-190 rounded-2xl sm:rounded-3xl lg:mr-[-40px] absolute top-0 left-0 grayscale hover:grayscale-0 transition-all duration-300" alt="" />
+                <img src={employees[activeEmployee].image} className="w-full object-cover h-full transform rotate-y-190 rounded-2xl sm:rounded-3xl lg:mr-[-40px] absolute top-0 left-0 grayscale hover:grayscale-0 transition-all duration-300" alt="" />
 
                 <GlassElement
                   className="flex flex-col justify-center items-center border border-gray-200 person bg-opacity-30 backdrop-blur-md rounded-xl sm:rounded-2xl h-[70px] sm:h-[80px] lg:h-[100px] w-[calc(100%-32px)] sm:w-[calc(100%-48px)] lg:w-[calc(100%-64px)] text-center absolute bottom-4 sm:bottom-6 lg:bottom-8 left-4 sm:left-6 lg:left-8"
@@ -97,11 +194,24 @@ export default function Home() {
                   blur={1}
                   chromaticAberration={1}
                 >
+                  <div className="absolute top-0 left-0 h-full flex justify-center items-center cursor-pointer" onClick={() => handleEmployeeChange(activeEmployee - 1)}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                      <path d="M23.3333 11.6667L15 20" stroke="white" strokeWidth="3.33333" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M15 20L23.3333 28.3333" stroke="white" strokeWidth="3.33333" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+                  <div className="absolute top-0 right-0 h-full flex justify-center items-center cursor-pointer" onClick={() => handleEmployeeChange(activeEmployee + 1)}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                      <path d="M16.6667 28.3333L25 20" stroke="white" strokeWidth="3.33333" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M25 20L16.6667 11.6667" stroke="white" strokeWidth="3.33333" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
 
-                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-white mb-1 sm:mb-2">Евгений</h3>
+
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-white mb-1 sm:mb-2">{employees[activeEmployee].name}</h3>
                   <div className="text-purple-200 flex gap-2 sm:gap-3 text-sm sm:text-base lg:text-lg">
                     {'<'}
-                    <span className="text-[#00C8FF]">Back-end developer</span>
+                    <span className="text-[#00C8FF]">{employees[activeEmployee].position}</span>
                     {'>'}
                   </div>
                 </GlassElement>
@@ -112,23 +222,23 @@ export default function Home() {
 
       </section >
 
-    {/* Route to Production Section */ }
-    < Steps />
+      {/* Route to Production Section */}
+      < Steps />
 
-    {/* Services Section */ }
-    < Services />
+      {/* Services Section */}
+      < Services />
 
-    {/* History Section */ }
-    < History />
+      {/* History Section */}
+      < History />
 
-    {/* Location Section */ }
-    < Location />
+      {/* Location Section */}
+      < Location />
 
-    {/* Internal Section */ }
-    < Internal />
+      {/* Internal Section */}
+      < Internal />
 
-    {/* Contact Section */ }
-    < Contact />
+      {/* Contact Section */}
+      < Contact />
     </div >
   );
 }
