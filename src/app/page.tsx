@@ -7,7 +7,6 @@ import Location from "./home-components/location";
 import Internal from "./home-components/internal";
 import Contact from "./home-components/contact";
 import { GlassElement } from "./components/GlassElement/GlassElement";
-import AnimatedBackground from "./components/AnimatedBackground/AnimatedBackground";
 import { useState } from "react";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
@@ -15,6 +14,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { TextPlugin } from 'gsap/TextPlugin';
 import Link from "next/link";
+import {nowSize} from "@/app/functions/now-size";
 
 gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
@@ -23,6 +23,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 export default function Home() {
   const [activeEmployee, setActiveEmployee] = useState(0);
+  const {lg} = nowSize();
 
   const employees = [
     {
@@ -193,7 +194,7 @@ export default function Home() {
 
                 <GlassElement
                   className="flex flex-col justify-center items-center border border-gray-200 person bg-opacity-30 backdrop-blur-md rounded-xl sm:rounded-2xl h-[70px] sm:h-[80px] lg:h-[100px] w-[calc(100%-32px)] sm:w-[calc(100%-48px)] lg:w-[calc(100%-64px)] text-center absolute bottom-4 sm:bottom-6 lg:bottom-8 left-4 sm:left-6 lg:left-8"
-                  width={420}
+                  width={lg ? 420 : 240}
                   height={80}
                   radius={10}
                   depth={5}

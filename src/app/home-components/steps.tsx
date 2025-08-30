@@ -1,8 +1,9 @@
-import { useGSAP } from "@gsap/react";
-import { GlassElement } from "../components/GlassElement/GlassElement";
+import {useGSAP} from "@gsap/react";
+import {GlassElement} from "../components/GlassElement/GlassElement";
 import gsap from "gsap";
-import { useState } from "react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {useEffect, useState} from "react";
+import {ScrollTrigger} from "gsap/ScrollTrigger";
+import {nowSize} from "@/app/functions/now-size";
 
 export default function Steps() {
     const [activeStep, setActiveStep] = useState(0);
@@ -50,7 +51,7 @@ export default function Steps() {
             gsap.to(".scroller", {
                 scrollTrigger: {
                     trigger: `#step-${i}`,
-                    endTrigger: `#step-${i+1}`,
+                    endTrigger: `#step-${i + 1}`,
                     start: "center 300",
                     end: "center bottom",
                     scroller: "#trigger-1",
@@ -76,7 +77,6 @@ export default function Steps() {
 
         ScrollTrigger.addEventListener('scrollEnd', () => {
             const currentStep = document.querySelector('.scroller');
-            console.log(currentStep?.scrollTop / 473, currentStep?.scrollTop)
             setActiveStep(Math.floor(currentStep?.scrollTop / 474) || 0);
         });
     })
@@ -93,20 +93,25 @@ export default function Steps() {
                     </p>
                 </div>
 
-                <div className="flex w-full h-200 items-center relative">
+                <div className="flex flex-col gap-10 w-full lg:h-200 h-auto justify-center relative">
                     {/* Timeline Steps */}
-                    <div id="trigger-1" className="snap-mandatory snap-y h-60 sm:h-70 lg:h-100 flex flex-col items-center overflow-y-scroll scrollbar-hide w-full relative z-10">
+                    <div id="trigger-1"
+                         className="snap-mandatory snap-y h-60 sm:h-70 lg:h-100 flex flex-col items-center overflow-y-scroll scrollbar-hide w-full relative z-10">
                         <div className="snap-center relative w-full flex mb-24 sm:mb-28 lg:mb-36"></div>
                         {steps.map((step, index) => (
-                            <div key={index} id={`step-${index}`} className="snap-center relative w-[1400px] pr-[800px] mb-12 sm:mb-16 lg:mb-20">
-                                <div className={`text-xl sm:text-2xl md:text-3xl select-none lg:text-4xl font-semibold mb-2 sm:mb-3 lg:mb-4 ${activeStep === index ? 'text-blue-400' : 'text-gray-500'}`}>
+                            <div key={index} id={`step-${index}`}
+                                 className="snap-center relative w-3/4 lg:w-[1400px] lg:pr-[800px] mb-12 sm:mb-16 lg:mb-20">
+                                <div
+                                    className={`text-xl sm:text-2xl md:text-3xl select-none lg:text-4xl font-semibold mb-2 sm:mb-3 lg:mb-4 ${activeStep === index ? 'text-blue-400' : 'text-gray-500'}`}>
                                     {step.title}
                                 </div>
-                                <div className={`text-xs sm:text-sm select-none leading-relaxed ${activeStep === index ? 'text-white' : 'text-gray-400'}`}>
+                                <div
+                                    className={`text-xs sm:text-sm select-none leading-relaxed ${activeStep === index ? 'text-white' : 'text-gray-400'}`}>
                                     {step.description}
                                 </div>
                                 {index < 6 && (
-                                    <div className="absolute left-0 top-12 sm:top-14 lg:top-16 w-px h-8 sm:h-10 lg:h-12 bg-gradient-to-b from-gray-600 to-transparent"></div>
+                                    <div
+                                        className="absolute left-0 top-12 sm:top-14 lg:top-16 w-px h-8 sm:h-10 lg:h-12 bg-gradient-to-b from-gray-600 to-transparent"></div>
                                 )}
                             </div>
                         ))}
@@ -116,25 +121,57 @@ export default function Steps() {
                     </div>
 
                     {/* Interactive Carousel */}
-                    <div className="flex absolute right-1/5 top-0 bottom-0 items-center h-full z-0">
-                        <GlassElement
-                            className="relative scroller w-[280px] snap-mandatory snap-y h-[290px] sm:w-[400px] sm:h-[415px] md:w-[500px] md:h-[520px] lg:w-[549px] lg:h-[568px] z-10 rounded-full overflow-y-auto scrollbar-hide border border-gray-600 backdrop-blur-sm mx-auto lg:mx-0"
-                            width={549}
-                            height={568}
-                            radius={300}
-                            depth={10}
-                            blur={0}
-                            chromaticAberration={0}
-                        >
-                            {steps.map((step, index) => (
-                                <img key={index} src={step.image} id={`step-image-${index}`} alt="" className="w-full snap-start snap-always h-[568px]" />
-
-                            ))}
-                        </GlassElement>
-                        <img src="images/background/background1.svg" alt="" className="absolute flex top-[-700px] left-0 w-[8000px] h-[2000px] z-0" />
-                    </div>
+                    <StepImage steps={steps}/>
                 </div>
             </div>
         </section>
     );
+}
+
+function StepImage({steps}: { steps: { title: string, description: string, image: string }[] }) {
+    const {lg, md, sm} = nowSize();
+
+    if (lg)
+        return (
+            <div className="flex absolute right-1/5 top-0 bottom-0 items-center h-full z-0">
+                <GlassElement
+                    className="relative scroller w-[280px] snap-mandatory snap-y h-[290px] sm:w-[400px] sm:h-[415px] md:w-[500px] md:h-[520px] lg:w-[549px] lg:h-[568px] z-10 rounded-full overflow-y-auto scrollbar-hide border border-gray-600 backdrop-blur-sm mx-auto lg:mx-0"
+                    width={549}
+                    height={568}
+                    radius={300}
+                    depth={10}
+                    blur={0}
+                    chromaticAberration={0}
+                >
+                    {steps.map((step, index) => (
+                        <img key={index} src={step.image} id={`step-image-${index}`} alt=""
+                             className="w-full snap-start snap-always h-[568px]"/>
+
+                    ))}
+                </GlassElement>
+                <img src="images/background/background1.svg" alt=""
+                     className="absolute flex top-[-600px] left-0 w-[8000px] h-[2000px] z-0"/>
+            </div>
+        )
+    return (
+        <div className="flex items-center relative">
+            <GlassElement
+                className="relative scroller w-[280px] snap-mandatory snap-y h-[290px] sm:w-[400px] sm:h-[415px] md:w-[500px] md:h-[520px] lg:w-[549px] lg:h-[568px] z-10 rounded-full overflow-y-auto scrollbar-hide border border-gray-600 backdrop-blur-sm mx-auto lg:mx-0"
+                width={249}
+                height={268}
+                radius={300}
+                depth={10}
+                blur={0}
+                chromaticAberration={0}
+            >
+                {steps.map((step, index) => (
+                    <img key={index} src={step.image} id={`step-image-${index}`} alt=""
+                         className="w-full snap-start snap-always h-[268px]"/>
+
+                ))}
+            </GlassElement>
+            <img src="images/background/background1.svg" alt=""
+                 className="absolute flex top-0 left-0 w-[300px] h-[300px] z-0"/>
+        </div>
+    )
 }
