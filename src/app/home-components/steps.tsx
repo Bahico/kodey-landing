@@ -60,9 +60,25 @@ export default function Steps() {
                 scrollTo: `#step-image-${i}`,
                 ease: 'power2.out',
                 stagger: 0.3,
-                immediateRender: false
+                immediateRender: false,
+                // onToggle: (isActive) => {
+                //     // if (isActive) {
+                //         setActiveStep(i);
+                //     // }
+                // }
             })
         }
+
+        ScrollTrigger.addEventListener('scrollStart', () => {
+            const currentStep = document.querySelector('.scroller');
+            setActiveStep(Math.floor(currentStep?.scrollTop / 540) || 0);
+        });
+
+        ScrollTrigger.addEventListener('scrollEnd', () => {
+            const currentStep = document.querySelector('.scroller');
+            console.log(currentStep?.scrollTop / 473, currentStep?.scrollTop)
+            setActiveStep(Math.floor(currentStep?.scrollTop / 474) || 0);
+        });
     })
 
     return (
@@ -77,16 +93,16 @@ export default function Steps() {
                     </p>
                 </div>
 
-                <div className="flex w-full h-100 items-center relative">
+                <div className="flex w-full h-200 items-center relative">
                     {/* Timeline Steps */}
-                    <div id="trigger-1" className="snap-mandatory snap-y h-60 sm:h-70 lg:h-100 flex flex-col items-center overflow-y-auto scrollbar-hide w-full relative z-10">
-                        <div className="snap-center snap-always relative w-full flex snap-start mb-24 sm:mb-28 lg:mb-36"></div>
+                    <div id="trigger-1" className="snap-mandatory snap-y h-60 sm:h-70 lg:h-100 flex flex-col items-center overflow-y-scroll scrollbar-hide w-full relative z-10">
+                        <div className="snap-center relative w-full flex mb-24 sm:mb-28 lg:mb-36"></div>
                         {steps.map((step, index) => (
-                            <div key={index} id={`step-${index}`} className="snap-center snap-always relative w-[1400px] pr-[800px] snap-start mb-12 sm:mb-16 lg:mb-20">
-                                <div className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold mb-2 sm:mb-3 lg:mb-4 ${activeStep === index ? 'text-blue-400' : 'text-gray-500'}`}>
+                            <div key={index} id={`step-${index}`} className="snap-center relative w-[1400px] pr-[800px] mb-12 sm:mb-16 lg:mb-20">
+                                <div className={`text-xl sm:text-2xl md:text-3xl select-none lg:text-4xl font-semibold mb-2 sm:mb-3 lg:mb-4 ${activeStep === index ? 'text-blue-400' : 'text-gray-500'}`}>
                                     {step.title}
                                 </div>
-                                <div className={`text-xs sm:text-sm leading-relaxed ${activeStep === index ? 'text-white' : 'text-gray-400'}`}>
+                                <div className={`text-xs sm:text-sm select-none leading-relaxed ${activeStep === index ? 'text-white' : 'text-gray-400'}`}>
                                     {step.description}
                                 </div>
                                 {index < 6 && (
@@ -95,7 +111,7 @@ export default function Steps() {
                             </div>
                         ))}
 
-                        <div id="step-6" className="snap-center snap-always relative w-full flex snap-start mb-14 sm:mb-18 lg:mb-24"></div>
+                        <div id="step-6" className="snap-center relative w-full flex mb-16 sm:mb-22 lg:mb-32"></div>
                         {/* <div className="snap-center snap-always relative w-full flex snap-start mb-14 sm:mb-18 lg:mb-24"></div> */}
                     </div>
 

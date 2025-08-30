@@ -7,12 +7,14 @@ import Location from "./home-components/location";
 import Internal from "./home-components/internal";
 import Contact from "./home-components/contact";
 import { GlassElement } from "./components/GlassElement/GlassElement";
+import AnimatedBackground from "./components/AnimatedBackground/AnimatedBackground";
 import { useState } from "react";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { TextPlugin } from 'gsap/TextPlugin';
+import Link from "next/link";
 
 gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
@@ -121,6 +123,7 @@ export default function Home() {
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br ">
               <img src="images/background/background1.svg" className="w-3/4 absolute background-1" alt="" />
             </div>
+            <div className="absolute inset-0 animated-gradient-overlay background-glow"></div>
           </div>
 
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between w-full gap-8 lg:gap-0">
@@ -131,9 +134,11 @@ export default function Home() {
                 мобильных приложений<br />
                 и цифровых сервисов
               </h1>
-              <button className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-xl sm:rounded-2xl text-lg sm:text-xl lg:text-2xl font-semibold hover:shadow-lg transition-shadow w-full sm:w-auto">
-                Оставить заявку
-              </button>
+                <Link href="/#contact">
+                    <button className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-xl sm:rounded-2xl text-lg sm:text-xl lg:text-2xl font-semibold hover:shadow-lg transition-shadow w-full sm:w-auto">
+                        Оставить заявку
+                    </button>
+                </Link>
               <p className="text-base sm:text-lg lg:text-xl text-gray-500 mt-4 sm:mt-6">
                 Мы свяжемся с вами в течении 24 часов<br />
                 с момента оформления заявки.
@@ -149,6 +154,7 @@ export default function Home() {
       </section>
 
 
+      
 
       {/* Human Factor Section */}
       <section className="bg-black text-white w-full flex justify-center rounded-t-[30px] sm:rounded-t-[40px] md:rounded-t-[50px] lg:rounded-t-[60px] relative right-background">

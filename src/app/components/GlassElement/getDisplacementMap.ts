@@ -23,8 +23,8 @@ export const getDisplacementMap = ({
           x2="0" 
           y1="${Math.ceil((radius / height) * 15)}%" 
           y2="${Math.floor(100 - (radius / height) * 15)}%">
-            <stop offset="0%" stop-color="#0F0" />
-            <stop offset="100%" stop-color="#000" />
+            <stop offset="0%" stopColor="#0F0" />
+            <stop offset="100%" stopColor="#000" />
         </linearGradient>
         <linearGradient 
           id="X" 
@@ -32,8 +32,8 @@ export const getDisplacementMap = ({
           x2="${Math.floor(100 - (radius / width) * 15)}%"
           y1="0" 
           y2="0">
-            <stop offset="0%" stop-color="#F00" />
-            <stop offset="100%" stop-color="#000" />
+            <stop offset="0%" stopColor="#F00" />
+            <stop offset="100%" stopColor="#000" />
         </linearGradient>
     </defs>
 

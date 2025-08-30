@@ -143,8 +143,8 @@ export default function Contact() {
                                 <path d="M467 135.153H465V136.201L465.862 136.798L467 135.153ZM565 203V205H571.402L566.138 201.356L565 203ZM50 203V205V203ZM417 0.5V2.5C443.51 2.5 465 23.9903 465 50.5H467H469C469 21.7812 445.719 -1.5 417 -1.5V0.5ZM467 50.5H465V135.153H467H469V50.5H467ZM467 135.153L465.862 136.798L563.862 204.644L565 203L566.138 201.356L468.138 133.509L467 135.153ZM565 203V201H50V203V205H565V203ZM50 203V201C23.4903 201 2 179.51 2 153H0H-2C-2 181.719 21.2812 205 50 205V203ZM0 153H2V50.5H0H-2V153H0ZM0 50.5H2C2 23.9903 23.4903 2.5 50 2.5V0.5V-1.5C21.2812 -1.5 -2 21.7812 -2 50.5H0ZM50 0.5V2.5H417V0.5V-1.5H50V0.5Z" fill="url(#paint0_radial_2047_328)" mask="url(#path-1-inside-1_2047_328)"/>
                                 <defs>
                                     <radialGradient id="paint0_radial_2047_328" cx="0" cy="0" r="1" gradientTransform="matrix(1100.3 159.353 -528.722 309.605 -519.262 24.4062)" gradientUnits="userSpaceOnUse">
-                                        <stop offset="0.44" stop-color="#00C8FF"/>
-                                        <stop offset="1" stop-color="#004DFF"/>
+                                        <stop offset="0.44" stopColor="#00C8FF"/>
+                                        <stop offset="1" stopColor="#004DFF"/>
                                     </radialGradient>
                                 </defs>
                             </svg>
