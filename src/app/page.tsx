@@ -125,7 +125,7 @@ export default function Home() {
 
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between w-full gap-8 lg:gap-0">
             <div className="flex flex-col gap-6 sm:gap-8 lg:gap-10 text-center lg:text-left">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl primary-gradient font-bold" id="title-home"></h1>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl primary-gradient font-bold h-20" id="title-home"></h1>
 
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-gray-600 mb-4 sm:mb-6 lg:mb-8">
                 мобильных приложений<br />
