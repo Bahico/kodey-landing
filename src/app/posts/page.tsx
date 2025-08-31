@@ -8,8 +8,13 @@ export default function Posts() {
       <section className="relative flex justify-center w-full pb-16 z-0">
         <div className="container">
           <div className="flex justify-center items-center">
-            <Image src="/images/home/60b300101d6e7d385987432f11adc9d89f983db0.png" alt="background" className="rotate-y-190" width={400} height={400} />
-
+            <Image
+              src="/images/home/60b300101d6e7d385987432f11adc9d89f983db0.png"
+              alt="background"
+              className="rotate-y-190"
+              width={400}
+              height={400}
+            />
 
             <div className="flex flex-col mb-20">
               <h1 className="text-6xl text-black font-bold mb-6">
@@ -21,7 +26,6 @@ export default function Posts() {
               </p>
             </div>
           </div>
-
         </div>
       </section>
 

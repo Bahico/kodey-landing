@@ -1,44 +1,41 @@
 .unactive span {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .unactive p {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .unactive h3 {
-    font-size: 16px;
+  font-size: 16px;
 }
 
-
 .card-group:hover .card-shadow {
-    box-shadow: -10px -50px 5em #0083CF;
+  box-shadow: -10px -50px 5em #0083cf;
 }
 
 .services-container {
-    --container-width: 42rem;
-    padding-left: calc((100vw - var(--container-width)) / 2);
-    padding-right: calc((100vw - var(--container-width)) / 2);
+  --container-width: 42rem;
+  padding-left: calc((100vw - var(--container-width)) / 2);
+  padding-right: calc((100vw - var(--container-width)) / 2);
 
-    @media (width >= 40rem) {
-        --container-width: 40rem;
-    }
+  @media (width >= 40rem) {
+    --container-width: 40rem;
+  }
 
-    @media (width >= 48rem) {
-        --container-width: 48rem;
-    }
+  @media (width >= 48rem) {
+    --container-width: 48rem;
+  }
 
-    @media (width >= 64rem) {
-        --container-width: 64rem;
-    }
+  @media (width >= 64rem) {
+    --container-width: 64rem;
+  }
 
-    @media (width >= 80rem) {
-        --container-width: 80rem;
-    }
+  @media (width >= 80rem) {
+    --container-width: 80rem;
+  }
 
-    @media (width >= 96rem) {
-        --container-width: 96rem;
-    }
-
-
+  @media (width >= 96rem) {
+    --container-width: 96rem;
+  }
 }

@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+.message {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.message div {
+    @apply p-0;
+}
+
+.message span {
+    @apply text-sm;
+}
+
+.message-open {
+    @apply h-[192px] w-[333px] md:h-[203px] md:w-[565px];
+    opacity: 1;
+    transition: 1s all ease-in-out;
+    animation: message-in 1s ease-in-out forwards;
+}
+
+.message-open span {
+    @apply text-xl;
+}
+
+.message-open .text-div {
+    @apply p-10 pt-14;
+}
+
+@keyframes message-in {
+    0% {
+        width: 0 !important;
+        height: 0 !important;
+        opacity: 0;
+        transform: rotate(0deg);
+    }
+    50% {
+        width: 250px !important;
+        height: 100px !important;
+        opacity: 0.5;
+        transform: rotate(180deg);
+    }
+    100% {
+        width: 565px !important;
+        height: 203px !important;
+        opacity: 1;
+        transform: rotate(360deg);
+    }
+}
+
+.message-close {
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0;
+    transition: 1s all ease-in-out;
+    animation: message-out 1s ease-in-out forwards;
+}
+
+@keyframes message-out {
+    0% {
+        width: 565px !important;
+        height: 203px !important;
+        opacity: 1;
+        transform: rotate(360deg);
+    }
+    50% {
+        width: 250px !important;
+        height: 100px !important;
+    }
+    100% {
+        width: 0 !important;
+        height: 0 !important;
+        opacity: 0;
+        transform: rotate(0deg);
+    }
+}

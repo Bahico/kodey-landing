@@ -5,13 +5,32 @@
   --foreground: #171717;
 }
 
-@theme inline{
+@theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+}
 
-  
+@theme {
+    --animate-instagram: instagram 2s ease-in-out infinite;
+    @keyframes instagram {
+        0%,
+        100% {
+            filter: drop-shadow(0 0 15px #B00075);
+        }
+        50% {
+            filter: drop-shadow(0 0 0 rgba(176, 0, 117, 0.12));
+        }
+    }
+    --animate-telegram: telegram 2s ease-in-out infinite;
+    @keyframes telegram {
+        0%,
+        100% {
+            filter: drop-shadow(0 0 15px #0088cc);
+        }
+        50% {
+            filter: drop-shadow(0 0 0 rgba(0, 136, 204, 0.12));
+        }
+    }
 }
 
 html {
@@ -31,7 +50,7 @@ body {
 }
 
 .primary-gradient {
-  background: radial-gradient(50% 50% at 50% 50%, #00C8FF 0%, #004DFF 100%);
+  background: radial-gradient(50% 50% at 50% 50%, #00c8ff 0%, #004dff 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent !important;
@@ -43,8 +62,8 @@ body {
 
 /* Define the gradient for SVG use */
 .primary-gradient-def {
-  --gradient-start: #00C8FF;
-  --gradient-end: #004DFF;
+  --gradient-start: #00c8ff;
+  --gradient-end: #004dff;
 }
 
 .right-background::after {
@@ -55,7 +74,7 @@ body {
   transform: translate(50%, 0);
   width: 895px;
   height: 1035px;
-  background-image: url("../../public/images/background/background1.svg");
+  background-image: url("../../public/images/background/background.svg");
   background-size: cover;
   background-position: right center;
   background-repeat: no-repeat;
@@ -63,12 +82,12 @@ body {
 }
 
 .scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .scrollbar-hide::-webkit-scrollbar {
-  display: none;  /* Chrome, Safari and Opera */
+  display: none; /* Chrome, Safari and Opera */
 }
 
 @media (max-width: 768px) {

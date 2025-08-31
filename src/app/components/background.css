@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+.background-container {
+    @apply absolute w-full h-full justify-center items-center flex;
+}
+.background-container img {
+    @apply flex;
+}
+
+.background-container:nth-child(1) img {
+    @apply min-w-[1337px] min-h-[1483px];
+}
+
+.background-container:nth-child(2) img {
+    @apply min-w-[1228px] min-h-[1357px];
+}
+
+.background-container:nth-child(3) img {
+    @apply min-w-[1102px] min-h-[1211px];
+}
+
+.background-container:nth-child(4) img {
+    --background-start-size: 972px;
+    --background-finish-size: 1074px;
+    animation: change-width 10s ease-in-out infinite;
+    min-width: 972px;
+    max-height: 1074px;
+}
+
+.background-container:nth-child(5) img {
+    --background-start-size: 750px;
+    --background-finish-size: 900px;
+    animation: change-width 10s ease-in-out infinite;
+}
+
+.background-container:nth-child(6) img {
+    --background-start-size: 500px;
+    --background-finish-size: 700px;
+    animation: change-width 10s ease-in-out infinite;
+}
+
+.background-container:last-child img {
+    --background-start-size: 300px;
+    --background-finish-size: 500px;
+    animation: change-width 10s ease-in-out infinite;
+}
+
+@keyframes change-width {
+    0% {
+        width: var(--background-start-size);
+        height: var(--background-start-size);
+    }
+    50% {
+        width: var(--background-finish-size);
+        height: var(--background-finish-size);
+    }
+    100% {
+        width: var(--background-start-size);
+        height: var(--background-start-size);
+    }
+}

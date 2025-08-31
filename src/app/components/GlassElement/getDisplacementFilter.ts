@@ -27,13 +27,13 @@ export const getDisplacementFilter = ({
     <defs>
         <filter id="displace" color-interpolation-filters="sRGB">
             <feImage x="0" y="0" height="${height}" width="${width}" href="${getDisplacementMap(
-    {
-      height,
-      width,
-      radius,
-      depth,
-    }
-  )}" result="displacementMap" />
+              {
+                height,
+                width,
+                radius,
+                depth,
+              },
+            )}" result="displacementMap" />
             <feDisplacementMap
                 transform-origin="center"
                 in="SourceGraphic"

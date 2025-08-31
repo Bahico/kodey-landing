@@ -1,5 +1,4 @@
-
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 gsap.to(".my-headline span", {
   scrollTrigger: {
@@ -7,13 +6,13 @@ gsap.to(".my-headline span", {
     start: "top top",
     endTrigger: ".trigger-2",
     end: "top top",
-    scrub:3,
-    markers: true
+    scrub: 3,
+    markers: true,
   },
-  y:"0%",
-  ease: 'power2.out',
-  stagger: 0.3
-})
+  y: "0%",
+  ease: "power2.out",
+  stagger: 0.3,
+});
 
 gsap.to(".my-headline span", {
   scrollTrigger: {
@@ -21,11 +20,11 @@ gsap.to(".my-headline span", {
     start: "top top",
     endTrigger: ".trigger-3",
     end: "top top",
-    scrub:3,
-    markers: true
+    scrub: 3,
+    markers: true,
   },
-  y:"-100%",
-  ease: 'power2.out',
+  y: "-100%",
+  ease: "power2.out",
   stagger: 0.3,
-  immediateRender: false
-})
+  immediateRender: false,
+});
