@@ -16,6 +16,8 @@ import {TextPlugin} from "gsap/TextPlugin";
 import Link from "next/link";
 import {nowSize} from "@/app/functions/now-size";
 import BackgroundAnimation from "@/app/components/BackgroundAnimation";
+import {Player} from '@lottiefiles/react-lottie-player';
+
 
 gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
@@ -122,7 +124,8 @@ export default function Home() {
                 <div className="container px-4 sm:px-6 lg:px-8 relative">
                     {/*<div className="absolute inset-0 animated-gradient-overlay background-glow"></div>*/}
 
-                    <div className="z-10 flex flex-col lg:flex-row md:items-center justify-between w-full gap-8 lg:gap-0 mt-20 md:mt-0">
+                    <div
+                        className="z-10 flex flex-col lg:flex-row md:items-center justify-between w-full gap-8 lg:gap-0 mt-20 md:mt-0">
 
                         <div className="flex flex-col lg:gap-10 relative z-10">
                             <div className="absolute top-0 left-[-40%] w-full hidden md:block z-0">
@@ -150,11 +153,18 @@ export default function Home() {
                         </div>
 
                         <div className="relative">
-                            <img
-                                src="/images/home/7546c655c3c9169934869b5c59b6d45d1ec248d1.png"
-                                alt="Hero"
-                                className="w-[600px] h-[800px] md:w-[500px] md:h-[750px] lg:w-[583px] lg:h-[875px] transform rotate-y-190 lg:mr-[-40px]"
-                            />
+                            <video
+                                className="w-full h-[600px] md:w-[500px] md:h-[750px] lg:w-[583px] lg:h-[875px] lg:mr-[-40px]"
+                                autoPlay loop muted
+                            >
+                                <source src="images/background/af62712a280d485aa53e25537cd5d6d8.webm" type="video/webm"/>
+                            </video>
+                            {/*<video width="320" height="240" controls>*/}
+                            {/*    <source src="movie.mp4" type="video/mp4"/>*/}
+                            {/*    <source src="movie.ogg" type="video/ogg"/>*/}
+                            {/*    Your browser does not support the video tag.*/}
+                            {/*</video>*/}
+
                         </div>
                     </div>
                 </div>
