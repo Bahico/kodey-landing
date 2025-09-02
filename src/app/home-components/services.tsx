@@ -59,7 +59,7 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="overflow-visible services-container flex w-full overflow-x-auto pb-6 sm:pb-8 lg:pb-10 gap-4 sm:gap-6 md:gap-8 lg:gap-12 scrollbar-hide">
+        <div className="overflow-visible services-container flex overflow-x-auto pb-6 sm:pb-8 lg:pb-10 gap-4 sm:gap-6 md:gap-8 lg:gap-12 scrollbar-hide">
           {services.map((service, index) => (
             <div
               key={index}

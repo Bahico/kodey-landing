@@ -16,7 +16,6 @@ import {TextPlugin} from "gsap/TextPlugin";
 import Link from "next/link";
 import {nowSize} from "@/app/functions/now-size";
 import BackgroundAnimation from "@/app/components/BackgroundAnimation";
-import {Player} from '@lottiefiles/react-lottie-player';
 
 
 gsap.registerPlugin(TextPlugin);

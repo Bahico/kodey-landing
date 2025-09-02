@@ -22,7 +22,7 @@ export default function Contact() {
       id="contact"
       className="flex justify-center pt-20 sm:pt-32 md:pt-40 mb-20 sm:mb-32 md:mb-40 px-4 sm:px-6 lg:px-8"
     >
-      <div className="container relative w-full">
+      <div className="container relative">
         <div className="mb-10 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
             Отправить <span className="text-gray-400">сигнал</span>

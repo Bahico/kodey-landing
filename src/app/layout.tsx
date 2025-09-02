@@ -411,7 +411,7 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
                     <div className="col-span-4 lg:col-span-1 mt-10 lg:mt-0">
                         <div className="mb-[-30px] cursor-pointer relative">
                             <a href="https://www.instagram.com/kodeydev/" target="_blank">
-                                <img src="images/icons/instagram.svg" id="instagram"
+                                <img src="/images/icons/instagram.svg" id="instagram"
                                      className="drop-shadow-2xl animate-instagram"
                                      alt=""/>
                             </a>
@@ -429,7 +429,7 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
 
                         <div className="mt-[-30px] relative cursor-pointer">
                             <a href="https://t.me/kodeydev" target="_blank">
-                                <img src="images/icons/telegram.svg" id="telegram"
+                                <img src="/images/icons/telegram.svg" id="telegram"
                                      className="drop-shadow-2xl animate-telegram" style={{animationDelay: "1s"}} alt=""/>
                             </a>
                             <div className="absolute bottom-0 right-5 h-20 items-center flex gap-10">
