@@ -410,9 +410,11 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
 
                     <div className="col-span-4 lg:col-span-1 mt-10 lg:mt-0">
                         <div className="mb-[-30px] cursor-pointer relative">
-                            <img src="images/icons/instagram.svg" id="instagram"
-                                 className="drop-shadow-2xl animate-instagram"
-                                 alt=""/>
+                            <a href="https://www.instagram.com/kodeydev/" target="_blank">
+                                <img src="images/icons/instagram.svg" id="instagram"
+                                     className="drop-shadow-2xl animate-instagram"
+                                     alt=""/>
+                            </a>
                             <div className="absolute top-0 left-5 h-20 items-center flex gap-10">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50"
                                      fill="none">
@@ -424,9 +426,12 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
                                 <span className="font-bold font-xl">Instagram</span>
                             </div>
                         </div>
+
                         <div className="mt-[-30px] relative cursor-pointer">
-                            <img src="images/icons/telegram.svg" id="telegram"
-                                 className="drop-shadow-2xl animate-telegram" style={{animationDelay: "1s"}} alt=""/>
+                            <a href="https://t.me/kodeydev" target="_blank">
+                                <img src="images/icons/telegram.svg" id="telegram"
+                                     className="drop-shadow-2xl animate-telegram" style={{animationDelay: "1s"}} alt=""/>
+                            </a>
                             <div className="absolute bottom-0 right-5 h-20 items-center flex gap-10">
                                 <span className="font-bold font-xl">Telegram</span>
                                 <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
