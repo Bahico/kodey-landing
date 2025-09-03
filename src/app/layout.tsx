@@ -1,4 +1,4 @@
-import type {Metadata} from "next";
+'use client';
 import {Geist, Geist_Mono} from "next/font/google";
 import Image from "next/image";
 
@@ -6,6 +6,7 @@ import "./globals.css";
 import Link from "next/link";
 import MobileNavbar from "./components/MobileNavbar";
 import {GlassElement} from "./components/GlassElement/GlassElement";
+import {useState} from "react";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -23,7 +24,9 @@ const geistMono = Geist_Mono({
 // };
 
 export default function RootLayout({children}: Readonly<{ children: React.ReactNode }>) {
+    const [language, setLanguage] = useState("ru");
 
+    const changeLanguage = () => setLanguage(language === "ru" ? "en" : "ru");
 
     return (
         <html lang="en" data-theme="light">
@@ -204,8 +207,9 @@ export default function RootLayout({children}: Readonly<{ children: React.ReactN
                         depth={10}
                         blur={0}
                         chromaticAberration={0}
+                        onClick={() => changeLanguage()}
                     >
-                        <span className="text-xl font-bold primary-gradient">RU</span>
+                        <span className="text-xl font-bold primary-gradient uppercase">{language}</span>
                     </GlassElement>
                 </nav>
 

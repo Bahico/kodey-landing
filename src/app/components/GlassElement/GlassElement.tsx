@@ -13,6 +13,7 @@ type GlassElementProps = DisplacementOptions & {
   blur?: number;
   debug?: boolean;
   className?: string;
+  onClick?: () => void;
 };
 
 export const GlassElement = ({
@@ -26,6 +27,7 @@ export const GlassElement = ({
   blur = 2,
   debug = false,
   className,
+  onClick = () => {}
 }: GlassElementProps) => {
   /* Change element depth on click */
   const [clicked, setClicked] = useState(false);
@@ -62,6 +64,7 @@ export const GlassElement = ({
       style={style}
       onMouseDown={() => setClicked(true)}
       onMouseUp={() => setClicked(false)}
+      onClick={onClick}
     >
       {children}
     </div>
