@@ -6,7 +6,7 @@ export default function Services() {
                 "Автоматизируем ваши процессы с помощью кастомного Telegram-бота: от простых чат-ответов до интеграции с CRM и API.",
             price: "от XXX XXX сум",
             active: true,
-            image: '60b300101d6e7d385987432f11adc9d89f983db0.png'
+            image: 'bot1.png'
         },
         {
             title: "Landing Page",
@@ -14,7 +14,7 @@ export default function Services() {
                 "Создаём привлекательные лендинги, которые конвертируют посетителей в клиентов. Дизайн, адаптивная верстка, настройка аналитики.",
             price: "от XXX XXX сум",
             active: false,
-            image: 'ChatGPT Image 8 авг. 2025 г., 15_51_25 1.png'
+            image: 'bot3.png'
         },
         {
             title: "Web-сайт",
@@ -22,7 +22,7 @@ export default function Services() {
                 "Полноценные сайты для бизнеса, портфолио или интернет-магазинов. Под ключ, с современным дизайном и SEO-настройками.",
             price: "от XXX XXX сум",
             active: false,
-            image: 'ChatGPT Image 8 авг. 2025 г., 16_01_53 1.png'
+            image: 'bot4.png'
         },
         {
             title: "Мобильное приложение",
@@ -30,7 +30,7 @@ export default function Services() {
                 "Разрабатываем мобильные приложения для iOS и Android с нуля. UX/UI, программирование, тестирование и публикация в сторах.",
             price: "от XXX XXX сум",
             active: false,
-            image: 'ChatGPT Image 8 авг. 2025 г., 16_11_07 1.png'
+            image: 'bot5.png'
         },
         {
             title: "Деплой Telegram-бота",
@@ -38,7 +38,7 @@ export default function Services() {
                 "Развёртывание вашего Telegram-бота на сервере или облаке. Настройка, тестирование и запуск без сбоев.",
             price: "от XXX XXX сум",
             active: false,
-            image: 'ChatGPT Image 8 авг. 2025 г., 16_53_16 1.png'
+            image: 'bot6.png'
         },
         {
             title: "UI / UX Дизайн",
@@ -46,7 +46,7 @@ export default function Services() {
                 "Проектируем удобные и красивые интерфейсы для веба и мобильных приложений. Анализ, прототипирование и дизайн в Figma.",
             price: "от XXX XXX сум",
             active: false,
-            image: 'ChatGPT Image 8 авг. 2025 г., 16_53_40 1.png'
+            image: 'bot7.png'
         },
     ];
 
