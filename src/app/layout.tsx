@@ -22,7 +22,7 @@ const geistMono = Geist_Mono({
 //   description: "Kodey is a mobile app",
 // };
 
-export default function RootLayout({children}: Readonly<{children: React.ReactNode}>) {
+export default function RootLayout({children}: Readonly<{ children: React.ReactNode }>) {
 
 
     return (
@@ -56,10 +56,7 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
                         alt="Logo"
                         className="w-14 h-16 rotate-y-190"
                     />
-                    <span
-                        className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-                kodey
-              </span>
+                    <Image src="/images/logos/logo.svg" alt="logo" width={100} height={100}/>
                 </Link>
 
                 {/* Desktop Navigation */}
@@ -67,31 +64,27 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
                     <Link href="/">
                         <GlassElement
                             className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
-                            width={150}
+                            width={180}
                             height={50}
-                            radius={10}
-                            depth={5}
-                            blur={1}
-                            chromaticAberration={1}
+                            radius={43}
+                            depth={10}
+                            blur={0}
+                            chromaticAberration={0}
                             debug={false}
                         >
-                            <svg
-                                className="w-6 h-6"
-                                stroke="url(#primary-gradient)"
-                                fill="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    fill="none"
-                                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                                />
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M20 17.0002V11.4522C20 10.9179 19.9995 10.6506 19.9346 10.4019C19.877 10.1816 19.7825 9.97307 19.6546 9.78464C19.5102 9.57201 19.3096 9.39569 18.9074 9.04383L14.1074 4.84383C13.3608 4.19054 12.9875 3.86406 12.5674 3.73982C12.1972 3.63035 11.8026 3.63035 11.4324 3.73982C11.0126 3.86397 10.6398 4.19014 9.89436 4.84244L5.09277 9.04383C4.69064 9.39569 4.49004 9.57201 4.3457 9.78464C4.21779 9.97307 4.12255 10.1816 4.06497 10.4019C4 10.6506 4 10.9179 4 11.4522V17.0002C4 17.932 4 18.3978 4.15224 18.7654C4.35523 19.2554 4.74432 19.6452 5.23438 19.8482C5.60192 20.0005 6.06786 20.0005 6.99974 20.0005C7.93163 20.0005 8.39808 20.0005 8.76562 19.8482C9.25568 19.6452 9.64467 19.2555 9.84766 18.7654C9.9999 18.3979 10 17.932 10 17.0001V16.0001C10 14.8955 10.8954 14.0001 12 14.0001C13.1046 14.0001 14 14.8955 14 16.0001V17.0001C14 17.932 14 18.3979 14.1522 18.7654C14.3552 19.2555 14.7443 19.6452 15.2344 19.8482C15.6019 20.0005 16.0679 20.0005 16.9997 20.0005C17.9316 20.0005 18.3981 20.0005 18.7656 19.8482C19.2557 19.6452 19.6447 19.2554 19.8477 18.7654C19.9999 18.3978 20 17.932 20 17.0002Z" stroke="#090909" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                <path d="M20 17.0002V11.4522C20 10.9179 19.9995 10.6506 19.9346 10.4019C19.877 10.1816 19.7825 9.97307 19.6546 9.78464C19.5102 9.57201 19.3096 9.39569 18.9074 9.04383L14.1074 4.84383C13.3608 4.19054 12.9875 3.86406 12.5674 3.73982C12.1972 3.63035 11.8026 3.63035 11.4324 3.73982C11.0126 3.86397 10.6398 4.19014 9.89436 4.84244L5.09277 9.04383C4.69064 9.39569 4.49004 9.57201 4.3457 9.78464C4.21779 9.97307 4.12255 10.1816 4.06497 10.4019C4 10.6506 4 10.9179 4 11.4522V17.0002C4 17.932 4 18.3978 4.15224 18.7654C4.35523 19.2554 4.74432 19.6452 5.23438 19.8482C5.60192 20.0005 6.06786 20.0005 6.99974 20.0005C7.93163 20.0005 8.39808 20.0005 8.76562 19.8482C9.25568 19.6452 9.64467 19.2555 9.84766 18.7654C9.9999 18.3979 10 17.932 10 17.0001V16.0001C10 14.8955 10.8954 14.0001 12 14.0001C13.1046 14.0001 14 14.8955 14 16.0001V17.0001C14 17.932 14 18.3979 14.1522 18.7654C14.3552 19.2555 14.7443 19.6452 15.2344 19.8482C15.6019 20.0005 16.0679 20.0005 16.9997 20.0005C17.9316 20.0005 18.3981 20.0005 18.7656 19.8482C19.2557 19.6452 19.6447 19.2554 19.8477 18.7654C19.9999 18.3978 20 17.932 20 17.0002Z" stroke="url(#paint0_radial_72_87)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                <defs>
+                                    <radialGradient id="paint0_radial_72_87" cx="0" cy="0" r="1" gradientTransform="matrix(31.1591 12.8606 -14.9727 24.9867 -10.7048 5.58707)" gradientUnits="userSpaceOnUse">
+                                        <stop offset="0.44" stopColor="#00C8FF"/>
+                                        <stop offset="1" stopColor="#004DFF"/>
+                                    </radialGradient>
+                                </defs>
                             </svg>
                             <span className="text-xl font-medium primary-gradient">
-                    Главная
-                  </span>
+                                Главная
+                            </span>
                         </GlassElement>
                     </Link>
 
@@ -100,29 +93,25 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
                             className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
                             width={150}
                             height={50}
-                            radius={10}
-                            depth={5}
-                            blur={1}
-                            chromaticAberration={1}
+                            radius={43}
+                            depth={10}
+                            blur={0}
+                            chromaticAberration={0}
                             debug={false}
                         >
-                            <svg
-                                className="w-6 h-6"
-                                fill="currentColor"
-                                stroke="url(#primary-gradient)"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    fill="none"
-                                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                                />
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M9 15V18C9 19.6569 7.65685 21 6 21C4.34315 21 3 19.6569 3 18C3 16.3431 4.34315 15 6 15H9ZM9 15H15M9 15V9M15 15V18C15 19.6569 16.3431 21 18 21C19.6569 21 21 19.6569 21 18C21 16.3431 19.6569 15 18 15H15ZM15 15V9M15 9H9M15 9V6C15 4.34315 16.3431 3 18 3C19.6569 3 21 4.34315 21 6C21 7.65685 19.6569 9 18 9H15ZM9 9V6C9 4.34315 7.65685 3 6 3C4.34315 3 3 4.34315 3 6C3 7.65685 4.34315 9 6 9H9Z" stroke="#090909" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                <path d="M9 15V18C9 19.6569 7.65685 21 6 21C4.34315 21 3 19.6569 3 18C3 16.3431 4.34315 15 6 15H9ZM9 15H15M9 15V9M15 15V18C15 19.6569 16.3431 21 18 21C19.6569 21 21 19.6569 21 18C21 16.3431 19.6569 15 18 15H15ZM15 15V9M15 9H9M15 9V6C15 4.34315 16.3431 3 18 3C19.6569 3 21 4.34315 21 6C21 7.65685 19.6569 9 18 9H15ZM9 9V6C9 4.34315 7.65685 3 6 3C4.34315 3 3 4.34315 3 6C3 7.65685 4.34315 9 6 9H9Z" stroke="url(#paint0_radial_72_90)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                <defs>
+                                    <radialGradient id="paint0_radial_72_90" cx="0" cy="0" r="1" gradientTransform="matrix(35.0539 14.1648 -16.8442 27.5204 -13.5429 5.125)" gradientUnits="userSpaceOnUse">
+                                        <stop offset="0.44" stopColor="#00C8FF"/>
+                                        <stop offset="1" stopColor="#004DFF"/>
+                                    </radialGradient>
+                                </defs>
                             </svg>
                             <span className="text-xl font-medium primary-gradient">
-                    Кейсы
-                  </span>
+                                Кейсы
+                              </span>
                         </GlassElement>
                     </Link>
                     <Link href="/#services">
@@ -130,29 +119,26 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
                             className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
                             width={150}
                             height={50}
-                            radius={10}
-                            depth={5}
-                            blur={1}
-                            chromaticAberration={1}
+                            radius={43}
+                            depth={10}
+                            blur={0}
+                            chromaticAberration={0}
                             debug={false}
                         >
-                            <svg
-                                className="w-6 h-6"
-                                fill="currentColor"
-                                stroke="url(#primary-gradient)"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    fill="none"
-                                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                                />
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M13 3.00087C12.9045 3 12.7973 3 12.6747 3H8.2002C7.08009 3 6.51962 3 6.0918 3.21799C5.71547 3.40973 5.40973 3.71547 5.21799 4.0918C5 4.51962 5 5.08009 5 6.2002V17.8002C5 18.9203 5 19.4801 5.21799 19.9079C5.40973 20.2842 5.71547 20.5905 6.0918 20.7822C6.51921 21 7.079 21 8.19694 21L15.8031 21C16.921 21 17.48 21 17.9074 20.7822C18.2837 20.5905 18.5905 20.2842 18.7822 19.9079C19 19.4805 19 18.9215 19 17.8036V9.32568C19 9.20296 19 9.09561 18.9991 9M13 3.00087C13.2856 3.00347 13.4663 3.01385 13.6388 3.05526C13.8429 3.10425 14.0379 3.18526 14.2168 3.29492C14.4186 3.41857 14.5918 3.59182 14.9375 3.9375L18.063 7.06298C18.4089 7.40889 18.5809 7.58136 18.7046 7.78319C18.8142 7.96214 18.8953 8.15726 18.9443 8.36133C18.9857 8.53376 18.9963 8.71451 18.9991 9M13 3.00087V5.8C13 6.9201 13 7.47977 13.218 7.90759C13.4097 8.28392 13.7155 8.59048 14.0918 8.78223C14.5192 9 15.079 9 16.1969 9H18.9991M18.9991 9H19.0002M14 13L16 15L14 17M10 17L8 15L10 13" stroke="#090909" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                <path d="M13 3.00087C12.9045 3 12.7973 3 12.6747 3H8.2002C7.08009 3 6.51962 3 6.0918 3.21799C5.71547 3.40973 5.40973 3.71547 5.21799 4.0918C5 4.51962 5 5.08009 5 6.2002V17.8002C5 18.9203 5 19.4801 5.21799 19.9079C5.40973 20.2842 5.71547 20.5905 6.0918 20.7822C6.51921 21 7.079 21 8.19694 21L15.8031 21C16.921 21 17.48 21 17.9074 20.7822C18.2837 20.5905 18.5905 20.2842 18.7822 19.9079C19 19.4805 19 18.9215 19 17.8036V9.32568C19 9.20296 19 9.09561 18.9991 9M13 3.00087C13.2856 3.00347 13.4663 3.01385 13.6388 3.05526C13.8429 3.10425 14.0379 3.18526 14.2168 3.29492C14.4186 3.41857 14.5918 3.59182 14.9375 3.9375L18.063 7.06298C18.4089 7.40889 18.5809 7.58136 18.7046 7.78319C18.8142 7.96214 18.8953 8.15726 18.9443 8.36133C18.9857 8.53376 18.9963 8.71451 18.9991 9M13 3.00087V5.8C13 6.9201 13 7.47977 13.218 7.90759C13.4097 8.28392 13.7155 8.59048 14.0918 8.78223C14.5192 9 15.079 9 16.1969 9H18.9991M18.9991 9H19.0002M14 13L16 15L14 17M10 17L8 15L10 13" stroke="url(#paint0_radial_72_94)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                <defs>
+                                    <radialGradient id="paint0_radial_72_94" cx="0" cy="0" r="1" gradientTransform="matrix(27.2646 14.1648 -13.1013 27.5205 -7.86685 5.125)" gradientUnits="userSpaceOnUse">
+                                        <stop offset="0.44" stopColor="#00C8FF"/>
+                                        <stop offset="1" stopColor="#004DFF"/>
+                                    </radialGradient>
+                                </defs>
                             </svg>
+
                             <span className="text-xl font-medium primary-gradient">
-                    Услуги
-                  </span>
+                                Услуги
+                              </span>
                         </GlassElement>
                     </Link>
                     <Link href="/#internal">
@@ -160,40 +146,35 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
                             className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
                             width={150}
                             height={50}
-                            radius={10}
-                            depth={5}
-                            blur={1}
-                            chromaticAberration={1}
+                            radius={43}
+                            depth={10}
+                            blur={0}
+                            chromaticAberration={0}
                             debug={false}
                         >
                             <svg
-                                className="w-6 h-6"
+                                className="w-[24px] mt-2 h-[24px]"
                                 fill="currentColor"
                                 stroke="url(#primary-gradient)"
                                 viewBox="0 0 24 24"
                             >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    fill="none"
-                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-                                />
+                                <path d="M11 13L6 1L1 13M9 9H3M19 13V10M19 10V7M19 10C19 11.6569 17.6569 13 16 13C14.3431 13 13 11.6569 13 10C13 8.34315 14.3431 7 16 7C17.6569 7 19 8.34315 19 10Z" stroke="white" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                <path d="M11 13L6 1L1 13M9 9H3M19 13V10M19 10V7M19 10C19 11.6569 17.6569 13 16 13C14.3431 13 13 11.6569 13 10C13 8.34315 14.3431 7 16 7C17.6569 7 19 8.34315 19 10Z" stroke="url(#primary-gradient)" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
                             <span className="text-xl font-medium primary-gradient">
-                    Блог
-                  </span>
+                                Блог
+                              </span>
                         </GlassElement>
                     </Link>
                     <Link href="/#contact">
                         <GlassElement
                             className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
-                            width={150}
+                            width={200}
                             height={50}
-                            radius={10}
-                            depth={5}
-                            blur={1}
-                            chromaticAberration={1}
+                            radius={43}
+                            depth={10}
+                            blur={0}
+                            chromaticAberration={0}
                         >
                             <svg
                                 className="w-6 h-6"
@@ -210,8 +191,8 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
                                 />
                             </svg>
                             <span className="text-xl font-medium primary-gradient">
-                    Связаться
-                  </span>
+                                Связаться
+                              </span>
                         </GlassElement>
                     </Link>
 
@@ -219,10 +200,10 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
                         className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
                         width={90}
                         height={50}
-                        radius={10}
-                        depth={5}
-                        blur={1}
-                        chromaticAberration={1}
+                        radius={43}
+                        depth={10}
+                        blur={0}
+                        chromaticAberration={0}
                     >
                         <span className="text-xl font-bold primary-gradient">RU</span>
                     </GlassElement>
@@ -430,7 +411,8 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
                         <div className="mt-[-30px] relative cursor-pointer">
                             <a href="https://t.me/kodeydev" target="_blank">
                                 <img src="/images/icons/telegram.svg" id="telegram"
-                                     className="drop-shadow-2xl animate-telegram" style={{animationDelay: "1s"}} alt=""/>
+                                     className="drop-shadow-2xl animate-telegram" style={{animationDelay: "1s"}}
+                                     alt=""/>
                             </a>
                             <div className="absolute bottom-0 right-5 h-20 items-center flex gap-10">
                                 <span className="font-bold font-xl">Telegram</span>

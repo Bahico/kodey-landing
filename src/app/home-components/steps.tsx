@@ -165,9 +165,9 @@ function StepImage({
             width={549}
             height={568}
             radius={300}
-            depth={10}
+            depth={15}
             blur={0}
-            chromaticAberration={0}
+            chromaticAberration={1}
           >
             {steps.map((step, index) => (
               <img
