@@ -1,6 +1,6 @@
 'use client';
 import Image from "next/image";
-import PostsList from "../components/postsList";
+import PostsList from "../../components/postsList";
 import BackgroundAnimation from "@/app/components/BackgroundAnimation";
 import {nowSize} from "@/app/functions/now-size";
 
