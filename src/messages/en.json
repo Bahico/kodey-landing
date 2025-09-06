@@ -1,0 +1,47 @@
+{
+  "navigation": {
+    "home": "Home",
+    "cases": "Cases",
+    "services": "Services", 
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "steps": {
+    "title": "Route",
+    "subtitle": "to production",
+    "description": "Clear system where every step moves towards results",
+    "step1": {
+      "title": "Request acceptance",
+      "description": "We carefully study your request to understand the project goal, your expectations and task specifics. This is the starting point for quality work."
+    },
+    "step2": {
+      "title": "Requirements gathering",
+      "description": "We conduct clarifying questions, interviews or briefings to record all wishes, limitations and specifics of the future product."
+    },
+    "step3": {
+      "title": "Technical specification approval",
+      "description": "We form a technical specification that clearly describes stages, functions and results. We agree on it with you before starting the project."
+    },
+    "step4": {
+      "title": "Interface design",
+      "description": "We develop UX/UI design that will be convenient, intuitive and visually appealing. We create prototypes and visual solutions."
+    },
+    "step5": {
+      "title": "Development",
+      "description": "At this stage the project comes to life — programmers implement all functionality according to specifications and design layouts."
+    },
+    "step6": {
+      "title": "Testing",
+      "description": "We check the system for bugs, errors and flaws. We make sure everything works stably on different devices and browsers."
+    },
+    "step7": {
+      "title": "Launch and support",
+      "description": "We publish the project and monitor its correct operation. We provide technical support, updates and improvements as needed."
+    }
+  },
+  "footer": {
+    "alwaysInTouch": "Always in touch",
+    "workingHours": "From 12:00 to 20:00 MSK",
+    "privacyPolicy": "Privacy Policy"
+  }
+}

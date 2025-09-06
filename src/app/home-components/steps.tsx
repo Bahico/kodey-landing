@@ -4,51 +4,46 @@ import gsap from "gsap";
 import { useEffect, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { nowSize } from "@/app/functions/now-size";
+import { useTranslations } from 'next-intl';
 
 export default function Steps() {
   const [activeStep, setActiveStep] = useState(0);
+  const t = useTranslations('steps');
 
   const steps = [
     {
-      title: "Принятие запроса",
-      description:
-        "Мы внимательно изучаем ваш запрос, чтобы понять цель проекта, ваши ожидания и особенности задачи. Это отправная точка для качественной работы.",
+      title: t('step1.title'),
+      description: t('step1.description'),
       image: "images/home/5ef3e749c7570d2f0dbd733d4b1f59e6037e1402.png",
     },
     {
-      title: "Сбор требований",
-      description:
-        "Проводим уточняющие вопросы, интервью или брифинг, чтобы зафиксировать все пожелания, ограничения и специфику будущего продукта.",
+      title: t('step2.title'),
+      description: t('step2.description'),
       image: "images/home/Frame 1337.png",
     },
     {
-      title: "Согласование ТЗ",
-      description:
-        "Формируем техническое задание, в котором чётко прописаны этапы, функции и результаты. Согласовываем его с вами перед стартом проекта.",
+      title: t('step3.title'),
+      description: t('step3.description'),
       image: "images/home/Frame 1345.png",
     },
     {
-      title: "Дизайн интерфейса",
-      description:
-        "Разрабатываем UX/UI-дизайн, который будет удобен, интуитивен и визуально привлекателен. Создаём прототипы и визуальные решения.",
+      title: t('step4.title'),
+      description: t('step4.description'),
       image: "images/home/Frame 1314.png",
     },
     {
-      title: "Разработка",
-      description:
-        "На этом этапе проект оживает — программисты реализуют весь функционал согласно ТЗ и дизайн-макетам.",
+      title: t('step5.title'),
+      description: t('step5.description'),
       image: "images/home/Frame 1346.png",
     },
     {
-      title: "Тестирование",
-      description:
-        "Проверяем работу системы на наличие багов, ошибок и недочётов. Убедимся, что всё работает стабильно на разных устройствах и браузерах.",
+      title: t('step6.title'),
+      description: t('step6.description'),
       image: "images/home/Frame 1347.png",
     },
     {
-      title: "Запуск и поддержка",
-      description:
-        "Публикуем проект и следим за его корректной работой. Оказываем техническую поддержку, обновления и вносим улучшения по мере необходимости.",
+      title: t('step7.title'),
+      description: t('step7.description'),
       image: "images/home/Frame 1348.png",
     },
   ];
@@ -98,10 +93,10 @@ export default function Steps() {
       <div className="flex w-full items-center flex-col px-4 sm:px-6 lg:px-8">
         <div className="container mb-12 sm:mb-16 lg:mb-20">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 lg:mb-8">
-            Маршрут <span className="text-gray-400">в продакшн</span>
+            {t('title')} <span className="text-gray-400">{t('subtitle')}</span>
           </h2>
           <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-gray-400">
-            Чёткая система, где каждый шаг двигает к результату
+            {t('description')}
           </p>
         </div>
 
