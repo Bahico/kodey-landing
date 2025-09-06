@@ -55,7 +55,7 @@ export default async function LocaleLayout({
   }
 
     return (
-        <html lang={locale} data-theme="light">
+        <html lang={locale} data-theme="light" data-scroll-behavior="smooth">
         <link rel="icon" href="/images/logos/favicon.svg"/>
 
         <body

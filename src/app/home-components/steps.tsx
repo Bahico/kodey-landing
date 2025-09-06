@@ -119,7 +119,7 @@ export default function Steps() {
                   {step.title}
                 </div>
                 <div
-                  className={`text-xs sm:text-sm select-none leading-relaxed ${activeStep === index ? "text-white" : "text-gray-400"}`}
+                  className={`text-xs sm:text-sm select-none leading-relaxed w-[300px] md:w-[550px] ${activeStep === index ? "text-white" : "text-gray-400"}`}
                 >
                   {step.description}
                 </div>
