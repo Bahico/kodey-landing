@@ -19,7 +19,7 @@ export default function History() {
           </div>
 
           <Link
-            href="/posts"
+            href="/ru/posts"
             className="flex items-center gap-2 text-gray-400 cursor-pointer self-center sm:self-end"
           >
             <span className="text-lg sm:text-xl lg:text-2xl font-light">

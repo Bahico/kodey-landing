@@ -8,6 +8,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --gray-400: rgba(146, 146, 146, 1);
 }
 
 @theme {
@@ -54,6 +55,10 @@ body {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent !important;
+}
+
+.btn-gradient {
+  background: radial-gradient(179.26% 210.04% at -91.9% 11.81%, #00C8FF 44%, #004DFF 100%), linear-gradient(0deg, #004DFF 0%, #004DFF 100%), radial-gradient(50% 50% at 50% 50%, #00C8FF 0%, #004DFF 100%);
 }
 
 .primary-gradient-svg {
