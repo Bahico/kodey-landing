@@ -60,6 +60,10 @@ export default function SimpleHome() {
         }
     };
 
+    useEffect(() => {
+        gsap.fromTo("#employee-image-" + activeEmployee, { autoAlpha: 0 }, { duration: 1, autoAlpha: 1, zIndex: 1 });
+    });
+
     useGSAP(() => {
         const tl = gsap.timeline({
             repeat: 1,
