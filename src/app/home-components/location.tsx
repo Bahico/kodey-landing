@@ -13,7 +13,7 @@ export default function Location() {
       </div>
 
       <div className="flex flex-col items-center w-full">
-        <div className="lg:w-[728px] flex justify-center items-center mb-4 border-b-2 border-[#004DFF]">
+        <div className="lg:w-[728px] flex justify-center items-center mb-4 border-b-[6px] border-[#004DFF]">
           <h3 className="text-2xl font-bold mb-4 text-white">
             Узбекистан - Самарканд
           </h3>

@@ -74,7 +74,7 @@ export default function Internal() {
                 </div>
                 <div className="flex flex-col gap-3">
                   <div className="flex items-center justify-between text-sm md:text-base">
-                    <span className="text-cyan-400">#разработка #дизайн</span>
+                    <span className="text-cyan-400 text-xl">#разработка #дизайн</span>
                     <span className="text-gray-500">23 июля 2025</span>
                   </div>
                   <div className="flex flex-col gap-6">

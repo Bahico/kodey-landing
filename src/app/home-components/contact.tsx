@@ -114,13 +114,9 @@ export default function Contact() {
             </div>
 
             <button
-              className="text-white rounded-2xl text-lg sm:text-xl md:text-2xl font-semibold hover:shadow-lg transition-shadow w-full sm:w-[280px] md:w-[320px] h-[60px] sm:h-[70px] md:h-[80px]"
+              className="text-white btn-gradient rounded-2xl text-lg sm:text-xl md:text-2xl font-semibold hover:shadow-lg transition-shadow w-full sm:w-[280px] md:w-[320px] h-[60px] sm:h-[70px] md:h-[80px]"
               onClick={() => handleOpen()}
               type="button"
-              style={{
-                background:
-                  "radial-gradient(179.26% 210.04% at -91.9% 11.81%, #00C8FF 44%, #004DFF 100%), linear-gradient(0deg, #004DFF 0%, #004DFF 100%), radial-gradient(50% 50% at 50% 50%, #00C8FF 0%, #004DFF 100%);",
-              }}
             >
               Оставить заявку
             </button>
