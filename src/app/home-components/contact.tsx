@@ -13,15 +13,23 @@ export default function Contact() {
   const handleOpen = () => {
     setSuccess(true);
     setTimeout(() => {
-        setSuccess(false);
+      setSuccess(false);
     }, 2000)
   };
 
   return (
     <section
       id="contact"
-      className="flex justify-center pt-20 sm:pt-32 md:pt-40 mb-20 sm:mb-32 md:mb-40 px-4 sm:px-6 lg:px-8"
+      className="flex justify-center pt-20 sm:pt-32 md:pt-40 mb-20 sm:mb-32 md:mb-40 px-4 sm:px-6 lg:px-8 relative"
     >
+      <div
+        className="absolute top-20 sm:top-40 md:top-120 left-4 sm:left-6 md:left-10 w-[300px] h-[400px] sm:w-[500px] sm:h-[600px] md:w-[700px] md:h-[800px] lg:w-[900px] lg:h-[1000px] z-0">
+        <img
+          src="images/background/background.svg"
+          className="w-full absolute background-contact"
+          alt=""
+        />
+      </div>
       <div className="container relative">
         <div className="mb-10 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
@@ -32,7 +40,7 @@ export default function Contact() {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="flex flex-col w-full lg:w-2/3">
+        <form onSubmit={handleSubmit} className="flex flex-col w-full lg:w-2/3 relative z-2">
           <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-800 mb-6 sm:mb-8">
             Какая задача нас ждет ?
           </h3>
@@ -215,13 +223,20 @@ export default function Contact() {
             </div>
           </div>
 
-          <Image
-            src="/images/home/48c20b59329df46824f434a9a8326311165d3bc6.png"
-            alt="contact"
-            width={1000}
-            height={1000}
-            className="object-contain"
-          />
+          <div className="relative">
+            <img
+              src="images/background/background.svg"
+              className="w-full absolute left-0 top-0 z-0"
+              alt=""
+            />
+            <Image
+              src="/images/home/48c20b59329df46824f434a9a8326311165d3bc6.png"
+              alt="contact"
+              width={1000}
+              height={1000}
+              className="object-contain z-10 relative"
+            />
+          </div>
         </div>
       </div>
     </section>

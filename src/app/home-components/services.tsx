@@ -1,4 +1,4 @@
-import {useGSAP} from "@gsap/react";
+import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
 export default function Services() {
@@ -65,7 +65,7 @@ export default function Services() {
                 pin: true,
                 start: "top top",
                 scrub: 1,
-                end: () =>  "+=" + (panelsContainer.scrollWidth - innerWidth)
+                end: () => "+=" + (panelsContainer.scrollWidth - innerWidth)
             }
         });
 
@@ -74,8 +74,17 @@ export default function Services() {
     return (
         <section
             id="services"
-            className="bg-black flex justify-center w-full pt-20 sm:pt-30 md:pt-40 h-[2600px]"
+            className="bg-black flex justify-center w-full pt-20 sm:pt-30 md:pt-40 h-[2000px] md:h-[2800px] relative"
         >
+            <div
+                className="absolute top-20 sm:top-40 md:top-120 left-4 sm:left-6 md:left-10 w-[300px] h-[400px] sm:w-[500px] sm:h-[600px] md:w-[700px] md:h-[800px] lg:w-[900px] lg:h-[1000px] z-0">
+                <img
+                    src="images/background/background.svg"
+                    className="w-3/4 absolute background-1"
+                    alt=""
+                />
+            </div>
+
             <div className="w-full flex flex-col items-center px-6 lg:px-8 relative">
                 <div className="sticky top-5 left-10 container mb-12 sm:mb-16 lg:mb-20">
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 lg:mb-8 text-white">
@@ -93,7 +102,7 @@ export default function Services() {
                     {services.map((service, index) => (
                         <div
                             key={index}
-                            className={`group service card-group relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[730px] flex items-end w-[280px] sm:w-[320px] md:w-[380px] lg:w-[465px] min-w-[280px] sm:min-w-[320px] md:min-w-[380px] lg:min-w-[465px] rounded-xl sm:rounded-2xl bg-black hover:bg-opacity-90 bg-opacity-60`}
+                            className={`group service card-group relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[730px] flex items-end w-[280px] sm:w-[320px] md:w-[380px] lg:w-[465px] min-w-[280px] sm:min-w-[320px] md:min-w-[380px] lg:min-w-[465px] rounded-xl sm:rounded-2xl hover:bg-opacity-90 bg-opacity-60`}
                         >
                             <div
                                 className="absolute top-0 w-full h-[320px] sm:h-[400px] md:h-[480px] lg:h-[600px] flex justify-center items-center z-10">

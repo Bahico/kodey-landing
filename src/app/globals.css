@@ -72,13 +72,12 @@ body {
 }
 
 .right-background::after {
+  @apply md:w-[895px] md:h-[1035px] w-[350px] h-[400px];
   content: "";
   position: absolute;
   top: 0;
   right: 0;
   transform: translate(50%, 0);
-  width: 895px;
-  height: 1035px;
   background-image: url("../../public/images/background/background.svg");
   background-size: cover;
   background-position: right center;
@@ -93,10 +92,4 @@ body {
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none; /* Chrome, Safari and Opera */
-}
-
-@media (max-width: 768px) {
-  .right-background::after {
-    display: none;
-  }
 }

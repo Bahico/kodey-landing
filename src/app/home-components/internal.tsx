@@ -15,7 +15,7 @@ export default function Internal() {
 
   useEffect(() => {
     setIntervalId(setInterval(() => {
-      setActiveIndex(activeIndex + 1 <= posts.length-1 ? activeIndex + 1 : 0);
+      setActiveIndex(activeIndex + 1 <= posts.length - 1 ? activeIndex + 1 : 0);
     }, 10000));
     return () => {
       if (intervalId) {
@@ -51,6 +51,24 @@ export default function Internal() {
       id="internal"
       className="relative w-full bg-black py-20 rounded-b-[60px]"
     >
+      <div
+        className="absolute top-20 sm:top-40 md:top-120 left-4 sm:left-6 md:left-10 w-[300px] h-[400px] sm:w-[500px] sm:h-[600px] md:w-[700px] md:h-[800px] lg:w-[900px] lg:h-[1000px] z-0">
+        <img
+          src="images/background/background.svg"
+          className="w-3/4 absolute background-1"
+          alt=""
+        />
+      </div>
+
+      <div
+        className="absolute top-0 md:top-40 right-4 sm:right-6 md:right-10 w-[300px] h-[400px] sm:w-[500px] sm:h-[600px] md:w-[700px] md:h-[800px] lg:w-[900px] lg:h-[1000px] z-0">
+        <img
+          src="images/background/background.svg"
+          className="w-3/4 absolute background-2"
+          alt=""
+        />
+      </div>
+
       <div className="container mx-auto px-4">
         {/* Header Section */}
         <div className="mb-16">

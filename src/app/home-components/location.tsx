@@ -1,6 +1,15 @@
 export default function Location() {
   return (
-    <section className="bg-black flex flex-col items-center w-full pt-20 sm:pt-30 md:pt-40">
+    <section className="bg-black flex flex-col items-center w-full pt-20 sm:pt-30 md:pt-40 relative z-10">
+      <div
+        className="absolute top-0 left-4 sm:left-6 md:left-10 w-[300px] h-[400px] sm:w-[500px] sm:h-[600px] md:w-[700px] md:h-[800px] lg:w-[900px] lg:h-[1000px] z-0">
+        <img
+          src="images/background/background.svg"
+          className="w-3/4 absolute background-1"
+          alt=""
+        />
+      </div>
+
       <div className="container px-4 sm:px-6 lg:px-8">
         <div className="mb-12 sm:mb-16 lg:mb-20">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold sm:mb-8 text-white">

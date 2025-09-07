@@ -5,12 +5,20 @@ export default function History() {
   return (
     <section
       id="product-list"
-      className="bg-black flex justify-center w-full pt-20 sm:pt-30 md:pt-40"
+      className="bg-black flex justify-center w-full pt-20 sm:pt-30 md:pt-40 relative"
     >
-      <div className="container px-4 sm:px-6 lg:px-8">
+      <div
+        className="absolute top-0 md:top-40 right-4 sm:right-6 md:right-10 w-[300px] h-[400px] sm:w-[500px] sm:h-[600px] md:w-[700px] md:h-[800px] lg:w-[900px] lg:h-[1000px] z-0">
+        <img
+          src="images/background/background.svg"
+          className="w-3/4 absolute background-2"
+          alt=""
+        />
+      </div>
+      <div className="container px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="mb-12 sm:mb-16 lg:mb-20 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 sm:gap-0">
           <div className="">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 lg:mb-8 text-white">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 sm:mb-2 lg:mb-4 text-white">
               Архив <span className="text-gray-400">Воплощений</span>
             </h2>
             <p className="text-lg sm:text-xl lg:text-2xl font-light text-gray-400">

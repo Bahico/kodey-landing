@@ -93,10 +93,10 @@ export default function Steps() {
     >
       <div className="flex w-full items-center flex-col px-4 sm:px-6 lg:px-8">
         <div className="container mb-12 sm:mb-16 lg:mb-20">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 lg:mb-8">
-            {t('title')} <span className="text-gray-400">{t('subtitle')}</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2">
+            {t('title')} <span className="text-[#929292]">{t('subtitle')}</span>
           </h2>
-          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-gray-400">
+          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-[#929292]">
             {t('description')}
           </p>
         </div>

@@ -29,6 +29,11 @@
     @apply p-10 pt-14;
 }
 
+.background-contact {
+    left: -480px;
+    top: -480px;
+}
+
 @keyframes message-in {
     0% {
         width: 0 !important;
@@ -36,12 +41,14 @@
         opacity: 0;
         transform: rotate(0deg);
     }
+
     50% {
         width: 250px !important;
         height: 100px !important;
         opacity: 0.5;
         transform: rotate(180deg);
     }
+
     100% {
         width: 565px !important;
         height: 203px !important;
@@ -65,10 +72,12 @@
         opacity: 1;
         transform: rotate(360deg);
     }
+
     50% {
         width: 250px !important;
         height: 100px !important;
     }
+
     100% {
         width: 0 !important;
         height: 0 !important;
