@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./internal.css";
 
 const imgRectangle46 =
@@ -10,7 +10,19 @@ const imgRectangle48 =
   "/images/home/ab4d16e4f5151d14b33d79beaa53b383da84d72c.png";
 
 export default function Internal() {
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    setIntervalId(setInterval(() => {
+      setActiveIndex(activeIndex + 1 <= posts.length-1 ? activeIndex + 1 : 0);
+    }, 10000));
+    return () => {
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+    };
+  }, [activeIndex]);
 
   const handleClick = (index: number) => {
     setActiveIndex(index);
@@ -53,17 +65,17 @@ export default function Internal() {
 
         {/* Blog Posts Grid */}
         <div className="flex items-center gap-10 overflow-x-auto">
-          {posts.map((post) => (
+          {posts.map((post, index) => (
             <div
               key={post.id}
               className="min-w-[274px] lg:min-w-[300px]"
-              onClick={() => handleClick(post.id)}
+              onClick={() => handleClick(index)}
             >
               <div
-                className={`flex flex-col gap-6 ${activeIndex === post.id ? "" : "pt-10 pb-20 unactive"}`}
+                className={`flex flex-col gap-6 transition-all duration-300 ${activeIndex === index ? "" : "pt-10 pb-20 unactive"}`}
               >
                 <div
-                  className={`relative w-full overflow-hidden rounded-lg ${activeIndex === post.id ? "h-[180px] lg:h-[444px]" : "h-[120px] lg:h-[296px]"}`}
+                  className={`relative w-full overflow-hidden rounded-lg transition-all duration-300 ${activeIndex === index ? "h-[180px] lg:h-[444px]" : "h-[120px] lg:h-[296px]"}`}
                 >
                   <Image
                     src={post.img}

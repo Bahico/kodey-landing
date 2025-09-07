@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { nowSize } from "@/app/functions/now-size";
 import { useTranslations } from 'next-intl';
+import "./steps.css";
 
 export default function Steps() {
   const [activeStep, setActiveStep] = useState(0);
@@ -149,35 +150,40 @@ function StepImage({
 }: {
   steps: { title: string; description: string; image: string }[];
 }) {
-  const { lg, md, sm } = nowSize();
+  const { lg } = nowSize();
 
   if (lg)
     return (
       <div className="flex absolute top-0 bottom-0 justify-center items-center h-full z-0 w-full">
-        <div className="container flex justify-end relative">
+        <div className="container flex justify-end relative mr-20">
           <GlassElement
-            className="relative scroller w-[280px] snap-mandatory snap-y h-[290px] sm:w-[400px] sm:h-[415px] md:w-[500px] md:h-[520px] lg:w-[549px] lg:h-[568px] z-10 rounded-full overflow-y-auto scrollbar-hide border border-gray-600 backdrop-blur-sm mx-auto lg:mx-0"
+            className="relative flex-col steps-icons scroller w-[280px] snap-mandatory snap-y h-[290px] sm:w-[400px] sm:h-[415px] md:w-[500px] md:h-[520px] lg:w-[549px] lg:h-[568px] z-10 rounded-full overflow-y-auto scrollbar-hide border border-gray-600 backdrop-blur-sm mx-auto lg:mx-0"
             width={549}
             height={568}
             radius={300}
-            depth={15}
-            blur={0}
-            chromaticAberration={1}
+            depth={20}
+            blur={1}
+            chromaticAberration={0}
           >
             {steps.map((step, index) => (
-              <img
+              <div
                 key={index}
-                src={step.image}
+                className="w-full snap-start snap-always h-[568px] flex justify-center items-center"
                 id={`step-image-${index}`}
-                alt=""
-                className="w-full snap-start snap-always h-[568px]"
-              />
+              >
+                <img
+                  src={step.image}
+                  alt=""
+                  className="w-[85%]"
+                />
+              </div>
+
             ))}
           </GlassElement>
           <img
             src="images/background/background.svg"
             alt=""
-            className="absolute flex top-0 right-0 w-[600px] h-[600px] z-0"
+            className="absolute flex top-[-275px] right-[-275px] w-[1100px] h-[1100px] z-0"
           />
         </div>
       </div>
@@ -185,7 +191,7 @@ function StepImage({
   return (
     <div className="flex items-center relative">
       <GlassElement
-        className="relative scroller w-[280px] snap-mandatory snap-y h-[290px] sm:w-[400px] sm:h-[415px] md:w-[500px] md:h-[520px] lg:w-[549px] lg:h-[568px] z-10 rounded-full overflow-y-auto scrollbar-hide border border-gray-600 backdrop-blur-sm mx-auto lg:mx-0"
+        className="relative steps-icons scroller w-[280px] snap-mandatory snap-y h-[290px] sm:w-[400px] sm:h-[415px] md:w-[500px] md:h-[520px] lg:w-[549px] lg:h-[568px] z-10 rounded-full overflow-y-auto scrollbar-hide border border-gray-600 backdrop-blur-sm mx-auto lg:mx-0"
         width={249}
         height={268}
         radius={300}
