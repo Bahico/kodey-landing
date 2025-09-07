@@ -23,14 +23,14 @@ export default function Contact() {
       className="flex justify-center pt-20 sm:pt-32 md:pt-40 mb-20 sm:mb-32 md:mb-40 px-4 sm:px-6 lg:px-8 relative"
     >
       <div
-        className="absolute top-20 sm:top-40 md:top-120 left-4 sm:left-6 md:left-10 w-[300px] h-[400px] sm:w-[500px] sm:h-[600px] md:w-[700px] md:h-[800px] lg:w-[900px] lg:h-[1000px] z-0">
+        className="absolute top-20 sm:top-40 md:top-120 left-4 sm:left-6 md:left-10 w-[400px] h-[400px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[700px] z-0">
         <img
           src="images/background/background.svg"
           className="w-full absolute background-contact"
           alt=""
         />
       </div>
-      <div className="container relative">
+      <div className="container relative z-10">
         <div className="mb-10 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
             Отправить <span className="text-gray-400">сигнал</span>

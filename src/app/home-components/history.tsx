@@ -5,7 +5,7 @@ export default function History() {
   return (
     <section
       id="product-list"
-      className="bg-black flex justify-center w-full pt-20 sm:pt-30 md:pt-40 relative"
+      className="bg-black flex justify-center w-full pt-20 sm:pt-30 md:pt-40 relative z-20"
     >
       <div
         className="absolute top-0 md:top-40 right-4 sm:right-6 md:right-10 w-[300px] h-[400px] sm:w-[500px] sm:h-[600px] md:w-[700px] md:h-[800px] lg:w-[900px] lg:h-[1000px] z-0">
@@ -15,6 +15,16 @@ export default function History() {
           alt=""
         />
       </div>
+
+      <div
+        className="absolute bottom-0 left-4 sm:left-6 md:left-10 w-[300px] h-[400px] sm:w-[500px] sm:h-[600px] md:w-[700px] md:h-[800px] lg:w-[900px] lg:h-[1000px] z-0">
+        <img
+          src="images/background/background.svg"
+          className="w-3/4 absolute -left-100 -bottom-80"
+          alt=""
+        />
+      </div>
+
       <div className="container px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="mb-12 sm:mb-16 lg:mb-20 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 sm:gap-0">
           <div className="">

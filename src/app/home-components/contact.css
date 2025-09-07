@@ -30,8 +30,7 @@
 }
 
 .background-contact {
-    left: -480px;
-    top: -480px;
+    transform: translate(-70%, -50%);
 }
 
 @keyframes message-in {
