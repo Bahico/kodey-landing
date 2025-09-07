@@ -103,9 +103,10 @@ export default function Steps() {
 
         <div className="flex flex-col gap-10 w-full lg:h-150 h-auto justify-center relative">
           {/* Timeline Steps */}
+          <div className="absolute top-10 z-11 pointer-events-none left-0 w-2/4 h-1/2 scroll-smoothly rotate-180"></div>
           <div
             id="trigger-1"
-            className="snap-mandatory snap-y h-60 sm:h-70 lg:h-100 flex flex-col items-center overflow-y-scroll scrollbar-hide w-full relative z-10"
+            className="snap-mandatory snap-y h-60 sm:h-70 lg:h-[450px] flex flex-col items-center overflow-y-scroll scrollbar-hide w-full relative z-10"
           >
             <div className="snap-center relative w-full flex mb-24 sm:mb-28 lg:mb-36"></div>
             {steps.map((step, index) => (
@@ -115,8 +116,24 @@ export default function Steps() {
                 className="snap-center relative w-3/4 container lg:pr-[30%] mb-12 sm:mb-16 lg:mb-20"
               >
                 <div
-                  className={`text-xl sm:text-2xl md:text-3xl select-none lg:text-4xl font-semibold mb-2 sm:mb-3 lg:mb-4 ${activeStep === index ? "text-blue-400" : "text-gray-500"}`}
+                  className={`text-xl flex items-center gap-2 sm:text-2xl md:text-3xl select-none lg:text-4xl font-semibold mb-2 sm:mb-3 lg:mb-4 ${activeStep === index ? "primary-gradient lg:text-5xl" : "text-gray-500"}`}
                 >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none" className={`max-w-0 overflow-hidden transition-all duration-700 ${activeStep === index ? "max-w-full" : ""}`}>
+                    <path d="M33.3333 56.6667L50 40.0001" stroke="white" stroke-width="6.66667" stroke-linecap="round" stroke-linejoin="round" className="transition-all duration-700" />
+                    <path d="M33.3333 56.6667L50 40.0001" stroke="url(#paint0_radial_2226_743)" stroke-width="6.66667" stroke-linecap="round" stroke-linejoin="round" className="transition-all duration-700" />
+                    <path d="M50 40L33.3333 23.3333" stroke="white" stroke-width="6.66667" stroke-linecap="round" stroke-linejoin="round" className="transition-all duration-700" />
+                    <path d="M50 40L33.3333 23.3333" stroke="url(#paint1_radial_2226_743)" stroke-width="6.66667" stroke-linecap="round" stroke-linejoin="round" className="transition-all duration-700" />
+                    <defs>
+                      <radialGradient id="paint0_radial_2226_743" cx="0" cy="0" r="1" gradientTransform="matrix(-32.4573 -13.1155 15.5965 -25.4819 65.3175 54.6992)" gradientUnits="userSpaceOnUse">
+                        <stop offset="0.44" stop-color="#00C8FF" />
+                        <stop offset="1" stop-color="#004DFF" />
+                      </radialGradient>
+                      <radialGradient id="paint1_radial_2226_743" cx="0" cy="0" r="1" gradientTransform="matrix(-32.4573 -13.1155 15.5965 -25.4819 65.3175 38.0324)" gradientUnits="userSpaceOnUse">
+                        <stop offset="0.44" stop-color="#00C8FF" />
+                        <stop offset="1" stop-color="#004DFF" />
+                      </radialGradient>
+                    </defs>
+                  </svg>
                   {step.title}
                 </div>
                 <div
@@ -124,9 +141,6 @@ export default function Steps() {
                 >
                   {step.description}
                 </div>
-                {index < 6 && (
-                  <div className="absolute left-0 top-12 sm:top-14 lg:top-16 w-px h-8 sm:h-10 lg:h-12 bg-gradient-to-b from-gray-600 to-transparent"></div>
-                )}
               </div>
             ))}
 
@@ -136,6 +150,8 @@ export default function Steps() {
             ></div>
             {/* <div className="snap-center snap-always relative w-full flex snap-start mb-14 sm:mb-18 lg:mb-24"></div> */}
           </div>
+          <div className="absolute bottom-14 z-10 pointer-events-none left-0 w-2/4 h-1/2 scroll-smoothly"></div>
+
 
           {/* Interactive Carousel */}
           <StepImage steps={steps} />

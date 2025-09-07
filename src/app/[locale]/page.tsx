@@ -235,7 +235,7 @@ export default function SimpleHome() {
 
                         <div className="flex-1 flex justify-center lg:justify-end pr-0 lg:pr-20 lg:order-last">
                             <div
-                                className="rounded-2xl sm:rounded-3xl w-[360px] h-[480px] md:w-[420px] md:h-[560px] lg:w-[480px] lg:h-[640px] relative">
+                                className="rounded-2xl sm:rounded-3xl w-[360px] h-[480px] md:w-[420px] md:h-[560px] lg:w-[480px] lg:h-[640px] relative overflow-hidden scroll-smooth">
                                 {employees.map((employee, index) => (
                                     <img
                                         src={employee.image}
