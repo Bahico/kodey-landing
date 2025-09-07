@@ -119,18 +119,18 @@ export default function Steps() {
                   className={`text-xl flex items-center gap-2 sm:text-2xl md:text-3xl select-none lg:text-4xl font-semibold mb-2 sm:mb-3 lg:mb-4 ${activeStep === index ? "primary-gradient lg:text-5xl" : "text-gray-500"}`}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none" className={`max-w-0 overflow-hidden transition-all duration-700 ${activeStep === index ? "max-w-full" : ""}`}>
-                    <path d="M33.3333 56.6667L50 40.0001" stroke="white" stroke-width="6.66667" stroke-linecap="round" stroke-linejoin="round" className="transition-all duration-700" />
-                    <path d="M33.3333 56.6667L50 40.0001" stroke="url(#paint0_radial_2226_743)" stroke-width="6.66667" stroke-linecap="round" stroke-linejoin="round" className="transition-all duration-700" />
-                    <path d="M50 40L33.3333 23.3333" stroke="white" stroke-width="6.66667" stroke-linecap="round" stroke-linejoin="round" className="transition-all duration-700" />
-                    <path d="M50 40L33.3333 23.3333" stroke="url(#paint1_radial_2226_743)" stroke-width="6.66667" stroke-linecap="round" stroke-linejoin="round" className="transition-all duration-700" />
+                    <path d="M33.3333 56.6667L50 40.0001" stroke="white" strokeWidth="6.66667" strokeLinecap="round" strokeLinejoin="round" className="transition-all duration-700" />
+                    <path d="M33.3333 56.6667L50 40.0001" stroke="url(#paint0_radial_2226_743)" strokeWidth="6.66667" strokeLinecap="round" strokeLinejoin="round" className="transition-all duration-700" />
+                    <path d="M50 40L33.3333 23.3333" stroke="white" strokeWidth="6.66667" strokeLinecap="round" strokeLinejoin="round" className="transition-all duration-700" />
+                    <path d="M50 40L33.3333 23.3333" stroke="url(#paint1_radial_2226_743)" strokeWidth="6.66667" strokeLinecap="round" strokeLinejoin="round" className="transition-all duration-700" />
                     <defs>
                       <radialGradient id="paint0_radial_2226_743" cx="0" cy="0" r="1" gradientTransform="matrix(-32.4573 -13.1155 15.5965 -25.4819 65.3175 54.6992)" gradientUnits="userSpaceOnUse">
-                        <stop offset="0.44" stop-color="#00C8FF" />
-                        <stop offset="1" stop-color="#004DFF" />
+                        <stop offset="0.44" stopColor="#00C8FF" />
+                        <stop offset="1" stopColor="#004DFF" />
                       </radialGradient>
                       <radialGradient id="paint1_radial_2226_743" cx="0" cy="0" r="1" gradientTransform="matrix(-32.4573 -13.1155 15.5965 -25.4819 65.3175 38.0324)" gradientUnits="userSpaceOnUse">
-                        <stop offset="0.44" stop-color="#00C8FF" />
-                        <stop offset="1" stop-color="#004DFF" />
+                        <stop offset="0.44" stopColor="#00C8FF" />
+                        <stop offset="1" stopColor="#004DFF" />
                       </radialGradient>
                     </defs>
                   </svg>

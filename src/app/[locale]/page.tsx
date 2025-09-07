@@ -16,6 +16,7 @@ import { TextPlugin } from "gsap/TextPlugin";
 import Link from "next/link";
 import { nowSize } from "@/app/functions/now-size";
 import BackgroundAnimation from "@/app/components/BackgroundAnimation";
+import { usePathname } from "next/navigation";
 
 
 gsap.registerPlugin(TextPlugin);
@@ -25,6 +26,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 export default function SimpleHome() {
     const [activeEmployee, setActiveEmployee] = useState(0);
     const { lg } = nowSize();
+    const pathname = usePathname();
 
     const employees = [
         {
@@ -58,6 +60,23 @@ export default function SimpleHome() {
             setActiveEmployee(index);
         }
     };
+
+
+
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const hash = window.location.hash;
+            console.log(hash);
+            if (hash) {
+                const el = document.querySelector(hash);
+                console.log(el);
+                if (el) {
+                    el.scrollIntoView({ behavior: "smooth" });
+                }
+            }
+        }
+    }, [pathname]);
 
     useGSAP(() => {
         const tl = gsap.timeline({

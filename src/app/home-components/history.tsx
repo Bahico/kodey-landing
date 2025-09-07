@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import PostsList from "../components/postsList";
 
 export default function History() {
@@ -27,7 +27,7 @@ export default function History() {
           </div>
 
           <Link
-            href="/ru/posts"
+            href="/posts"
             className="flex items-center gap-2 text-gray-400 cursor-pointer self-center sm:self-end"
           >
             <span className="text-lg sm:text-xl lg:text-2xl font-light">

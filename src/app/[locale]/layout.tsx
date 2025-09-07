@@ -5,10 +5,10 @@ import { notFound } from 'next/navigation';
 import { locales } from '@/i18n/routing';
 
 import "../globals.css";
-import Link from "next/link";
 import MobileNavbar from "../components/MobileNavbar";
 import { GlassElement } from "../components/GlassElement/GlassElement";
 import LanguageSwitcher from "../components/LanguageSwitcher";
+import Link from "next/link";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -53,6 +53,7 @@ export default async function LocaleLayout({
         console.error('Error loading messages:', error);
         notFound();
     }
+    
 
     return (
         <html lang={locale} data-theme="light" data-scroll-behavior="smooth">
@@ -94,7 +95,7 @@ export default async function LocaleLayout({
                                 <Link href="/">
                                     <GlassElement
                                         className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
-                                        width={180}
+                                        width={150}
                                         height={50}
                                         radius={43}
                                         depth={10}
@@ -118,7 +119,7 @@ export default async function LocaleLayout({
                                     </GlassElement>
                                 </Link>
 
-                                <Link href="/#product-list">
+                                <a href="/#product-list">
                                     <GlassElement
                                         className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
                                         width={150}
@@ -143,11 +144,11 @@ export default async function LocaleLayout({
                                             {(messages.navigation as any)?.cases || 'Кейсы'}
                                         </span>
                                     </GlassElement>
-                                </Link>
-                                <Link href="/#services">
+                                </a>
+                                <a href="/#services">
                                     <GlassElement
                                         className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
-                                        width={150}
+                                        width={180}
                                         height={50}
                                         radius={43}
                                         depth={10}
@@ -170,8 +171,8 @@ export default async function LocaleLayout({
                                             {(messages.navigation as any)?.services || 'Услуги'}
                                         </span>
                                     </GlassElement>
-                                </Link>
-                                <Link href="/#internal">
+                                </a>
+                                <a href="/#internal">
                                     <GlassElement
                                         className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
                                         width={150}
@@ -195,11 +196,11 @@ export default async function LocaleLayout({
                                             {(messages.navigation as any)?.blog || 'Блог'}
                                         </span>
                                     </GlassElement>
-                                </Link>
-                                <Link href="/#contact">
+                                </a>
+                                <a href="/#contact">
                                     <GlassElement
                                         className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
-                                        width={200}
+                                        width={170}
                                         height={50}
                                         radius={43}
                                         depth={10}
@@ -224,7 +225,7 @@ export default async function LocaleLayout({
                                             {(messages.navigation as any)?.contact || 'Связаться'}
                                         </span>
                                     </GlassElement>
-                                </Link>
+                                </a>
 
                                 <LanguageSwitcher currentLocale={locale} />
                             </nav>

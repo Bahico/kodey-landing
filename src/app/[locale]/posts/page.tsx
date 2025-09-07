@@ -21,7 +21,7 @@ export default function Posts() {
                             <BackgroundAnimation/>
                         </div>
                         <Image
-                            src="/images/home/60b300101d6e7d385987432f11adc9d89f983db0.png"
+                            src="/images/bot/bot1.png"
                             alt="background"
                             className="md:rotate-y-190 order-2 md:order-none"
                             width={lg ? 400 : 200}
