@@ -57,33 +57,37 @@ export default function Steps() {
                     scrollTrigger: {
                         trigger: `#step-${i}`,
                         endTrigger: `#step-${i + 1}`,
-                        start: "center center",
+                        start: "center 180",
                         end: "center center",
                         scroller: "#trigger-1",
                         toggleActions: "play reverse play reverse",
+                        markers: false,
                         onToggle: (self) => {
-                            if (self.isActive) setActiveStep(i);
+                            if (self.isActive) {
+                                setActiveStep(i);
+                                scrollTo(i);
+                            }
                         }
                     },
                     duration: 0.5,
-                    scrollTo: `#step-image-${i}`,
+                    // scrollTo: `#step-image-${i}`,
                     ease: "power2.out",
                     stagger: 0.3,
-                    immediateRender: false
+                    immediateRender: false,
                 });
             }
-
-            // ScrollTrigger.addEventListener("scrollStart", () => {
-            //   const currentStep = document.querySelector(".scroller");
-            //   setActiveStep(Math.floor(currentStep?.scrollTop / 540) || 0);
-            // });
-            //
-            // ScrollTrigger.addEventListener("scrollEnd", () => {
-            //   const currentStep = document.querySelector(".scroller");
-            //   setActiveStep(Math.floor(currentStep?.scrollTop / 474) || 0);
-            // });
         }, 100);
     });
+
+    const scrollTo = (step: number) => {
+        const stepElement = document.getElementById(`step-image-${step}`);
+        if (stepElement) {
+            stepElement.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+            });
+        }
+    }
 
     return (
         <section
@@ -160,13 +164,12 @@ export default function Steps() {
                         ))}
 
                         <div
-                            id="step-6"
-                            className="snap-center relative w-full flex mb-16 sm:mb-22 lg:mb-32"
+                            id="step-7"
+                            className="snap-center relative w-full flex mb-16 sm:mb-22 lg:mb-22 scroll-item container lg:pr-[30%]"
                         ></div>
                         {/* <div className="snap-center snap-always relative w-full flex snap-start mb-14 sm:mb-18 lg:mb-24"></div> */}
                     </div>
-                    <div
-                        className="absolute bottom-0 md:bottom-14 z-10 pointer-events-none left-0 w-full md:w-2/4 h-1/2 scroll-smoothly"></div>
+                    <div className="absolute top-[250px] md:bottom-14 z-10 pointer-events-none left-0 w-full md:w-2/4 h-[50px] md:h-1/2 scroll-smoothly"></div>
 
 
                     {/* Interactive Carousel */}
@@ -177,9 +180,7 @@ export default function Steps() {
     );
 }
 
-function StepImage({
-                       steps,
-                   }: {
+function StepImage({steps}: {
     steps: { title: string; description: string; image: string }[];
 }) {
     const {lg} = nowSize();
