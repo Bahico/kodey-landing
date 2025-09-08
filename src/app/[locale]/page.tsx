@@ -209,8 +209,7 @@ export default function SimpleHome() {
             </section>
 
             {/* Human Factor Section */}
-            <section
-                className="bg-black text-white w-full flex justify-center rounded-t-[30px] sm:rounded-t-[40px] md:rounded-t-[50px] lg:rounded-t-[60px] relative right-background">
+            <section id="dark-section" className="bg-black text-white w-full flex justify-center rounded-t-[30px] sm:rounded-t-[40px] md:rounded-t-[50px] lg:rounded-t-[60px] relative right-background">
                 <div
                     className="absolute top-20 sm:top-40 md:top-60 left-4 sm:left-6 md:left-10 w-[300px] h-[400px] sm:w-[500px] sm:h-[600px] md:w-[700px] md:h-[800px] lg:w-[900px] lg:h-[1000px] z-0">
                     <img

@@ -4,6 +4,7 @@ import "./contact.css";
 
 export default function Contact() {
   const [success, setSuccess] = useState(false);
+  const [services, setServices] = useState([])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -16,6 +17,14 @@ export default function Contact() {
       setSuccess(false);
     }, 2000)
   };
+
+  const addOrRemoveService = (service: string) => {
+    if (services.includes(service)) {
+      setServices(services.filter(item => item !== service))
+    } else {
+      setServices([...services, service])
+    }
+  }
 
   return (
     <section
@@ -59,7 +68,8 @@ export default function Contact() {
               <button
                 key={index}
                 type="button"
-                className="px-3 py-1 sm:px-4 sm:py-2 rounded-full shadow-sm shadow-gray-200 transition-colors text-gray-800 font-medium text-sm sm:text-base"
+                onClick={() => addOrRemoveService(service)}
+                className={`px-3 py-1 sm:px-4 sm:py-2 rounded-full shadow-sm shadow-gray-200 select-none cursor-pointer text-gray-800 font-medium text-sm sm:text-base transition-colors duration-700 ${services.includes(service) ? 'bg-[#00C8FF4D]' : ''}`}
               >
                 {service}
               </button>
