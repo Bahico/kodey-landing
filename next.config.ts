@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
     experimental: {
         optimizeRouterScrolling: true,
     },
+    domains: ["https://api.kodey.ru"]
 };
 
 const withNextIntl = createNextIntlPlugin();

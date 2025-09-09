@@ -1,37 +1,25 @@
 import {Link} from "@/i18n/navigation";
+import {useEffect, useState} from "react";
+import {getAxios, photoUrl} from "@/api/api.functions";
+import { CaseModel } from "@/models/case.model";
 
 export default function PostsList() {
-  const history = [
-    {
-      id: 1,
-      title: "ДримтиМ",
-      description:
-        "Выполняй задания, копи баллы и получай подарки! \nЗарабатывай монеты за простые квесты, подписки и активности 📲💰.\nОбменивай накопленные баллы на реальные призы, бонусы и товары 🎁🛍.\nВесело, просто и с пользой — твой путь к мечтам начинается здесь! 🌟🚀",
-      image: "/images/home/Frame 1386.png",
-    },
-    {
-      id: 2,
-      title: "ДримтиМ",
-      description:
-        "Выполняй задания, копи баллы и получай подарки! \nЗарабатывай монеты за простые квесты, подписки и активности 📲💰.\nОбменивай накопленные баллы на реальные призы, бонусы и товары 🎁🛍.\nВесело, просто и с пользой — твой путь к мечтам начинается здесь! 🌟🚀",
-      image: "/images/home/Frame 1389.png",
-    },
-    {
-      id: 3,
-      title: "ДримтиМ",
-      description:
-        "Выполняй задания, копи баллы и получай подарки! \nЗарабатывай монеты за простые квесты, подписки и активности 📲💰.\nОбменивай накопленные баллы на реальные призы, бонусы и товары 🎁🛍.\nВесело, просто и с пользой — твой путь к мечтам начинается здесь! 🌟🚀",
-      image: "/images/home/Frame 1389.png",
-    },
-  ];
+  const [history, setHistory] = useState<CaseModel[]>([]);
+
+  useEffect(() => {
+    getAxios('cases').then(res => {
+      setHistory(res.data);
+      console.log(res)
+    })
+  }, [])
 
   return (
     <div className="flex flex-wrap gap-[30px] w-full">
       {history.map((item, index) => (
         <div key={index} className="sm:w-[calc(50%-15px)] w-full">
-          <Link href={`/posts/${item.id}`}>
+          <Link href={`/posts/${item._id}`}>
             <img
-              src={item.image}
+              src={photoUrl(item.photo)}
               alt={item.title}
               className="w-full object-cover rounded-t-2xl"
             />
@@ -39,8 +27,8 @@ export default function PostsList() {
 
           <div className="flex flex-col p-8 gap-4 rounded-b-2xl justify-between bg-[#0C0C0C99] group-hover:bg-[#0C0C0CE5] transition-all duration-300">
             <h3 className="text-2xl font-bold mb-4 text-white">{item.title}</h3>
-            <p className="text-gray-400">{item.description}</p>
-            <span className="text-blue-500">#webapp</span>
+            <p className="text-gray-400">{item.excerpt}</p>
+            <span className="text-blue-500">{item.tags.join(', ')}</span>
           </div>
         </div>
       ))}

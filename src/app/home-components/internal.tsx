@@ -1,17 +1,13 @@
-import Image from "next/image";
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import "./internal.css";
+import {ArticleModel} from "@/models/article.model";
+import {getAxios, photoUrl} from "@/api/api.functions";
 
-const imgRectangle46 =
-  "/images/home/680e6e9976e784fe0730f01b0d9538e74cb29c50.png";
-const imgRectangle47 =
-  "/images/home/d84e617365ad68aea1ff6c9052c8f51ea1ab23ba.png";
-const imgRectangle48 =
-  "/images/home/ab4d16e4f5151d14b33d79beaa53b383da84d72c.png";
 
 export default function Internal() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
+  const [posts, setPosts] = useState<ArticleModel[]>([]);
 
   useEffect(() => {
     setIntervalId(setInterval(() => {
@@ -24,27 +20,17 @@ export default function Internal() {
     };
   }, [activeIndex]);
 
+  useEffect(() => {
+    getAxios('articles').then(res => {
+      setPosts(res.data);
+      console.log(res.data);
+    });
+  }, []);
+
   const handleClick = (index: number) => {
     setActiveIndex(index);
   };
 
-  const posts = [
-    {
-      id: 1,
-      img: imgRectangle46,
-      title: "Backend - разработка",
-    },
-    {
-      id: 2,
-      img: imgRectangle47,
-      title: "Backend - разработка",
-    },
-    {
-      id: 3,
-      img: imgRectangle48,
-      title: "Backend - разработка",
-    },
-  ];
 
   return (
     <section
@@ -85,8 +71,8 @@ export default function Internal() {
         <div className="flex items-center gap-10 overflow-x-auto">
           {posts.map((post, index) => (
             <div
-              key={post.id}
-              className="min-w-[274px] lg:min-w-[300px]"
+              key={post._id}
+              className="min-w-1/3 w-1/3 lg:min-w-[300px]"
               onClick={() => handleClick(index)}
             >
               <div
@@ -95,26 +81,23 @@ export default function Internal() {
                 <div
                   className={`relative w-full overflow-hidden rounded-lg transition-all duration-300 ${activeIndex === index ? "h-[180px] lg:h-[444px]" : "h-[120px] lg:h-[296px]"}`}
                 >
-                  <Image
-                    src={post.img}
+                  <img
+                    src={photoUrl(post.photo)}
                     alt={post.title}
-                    fill
-                    className="object-cover"
+                    className="object-cover w-full h-full"
                   />
                 </div>
                 <div className="flex flex-col gap-3">
                   <div className="flex items-center justify-between text-sm md:text-base">
-                    <span className="text-cyan-400 text-xl">#разработка #дизайн</span>
-                    <span className="text-gray-500">23 июля 2025</span>
+                    <span className="text-cyan-400 text-xl">#{post.tags.join(', #')}</span>
+                    <span className="text-gray-500">{post.publishedAt}</span>
                   </div>
                   <div className="flex flex-col gap-6">
                     <h3 className="text-2xl md:text-3xl font-medium text-gray-300 leading-tight">
                       {post.title}
                     </h3>
                     <p className="text-gray-500 text-sm md:text-base leading-relaxed">
-                      Личные кабинеты, магазины, удаленные рабочие места,
-                      приложения для управления умными устройствами и другие
-                      мобильные сервисы любой сложности ...
+                      {post.excerpt}
                     </p>
                   </div>
                 </div>
