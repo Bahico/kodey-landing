@@ -17,6 +17,7 @@ import Link from "next/link";
 import { nowSize } from "@/app/functions/now-size";
 import BackgroundAnimation from "@/app/components/BackgroundAnimation";
 import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 
 gsap.registerPlugin(TextPlugin);
@@ -27,6 +28,8 @@ export default function SimpleHome() {
     const [activeEmployee, setActiveEmployee] = useState(0);
     const { lg } = nowSize();
     const pathname = usePathname();
+    const t = useTranslations('home');
+    const tHumanFactor = useTranslations('human-factor');
 
     const employees = [
         {
@@ -175,18 +178,16 @@ export default function SimpleHome() {
                             </h1>
 
                             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-gray-400 mb-4 sm:mb-10 lg:mb-30 z-10">
-                                мобильных приложений
-                                <br />и цифровых сервисов
+                                {t('title')}
                             </h1>
                             <Link href="/#contact">
                                 <button
                                     className="z-10 relative btn-gradient text-white px-6 mb-4 sm:px-8 lg:px-30 py-3 sm:py-4 lg:py-5 rounded-xl sm:rounded-2xl text-lg sm:text-xl lg:text-2xl font-semibold hover:shadow-lg transition-shadow w-full sm:w-auto">
-                                    Оставить заявку
+                                    {t('button')}
                                 </button>
                             </Link>
                             <p className="text-base sm:text-lg lg:text-xl text-gray-400">
-                                Мы свяжемся с вами в течении 24 часов
-                                <br />с момента оформления заявки.
+                                {t('description')}
                             </p>
                         </div>
 
@@ -224,30 +225,26 @@ export default function SimpleHome() {
                         className="w-full flex flex-col lg:flex-row justify-center gap-8 sm:gap-12 md:gap-16 lg:gap-20">
                         <div className="flex-1">
                             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 lg:mb-8 flex">
-                                Человеческий <span className="text-gray-400 ml-2">фактор</span>
+                                {tHumanFactor('title1')} <span className="text-gray-400 ml-2">{tHumanFactor('title2')}</span>
                             </h2>
                             <p className="text-lg sm:text-xl md:text-2xl text-[#929292] mb-6 sm:mb-8 lg:mb-12">
-                                Мы не роботы. Хотя любим автоматизацию
+                                {tHumanFactor('description')}
                             </p>
                             <p className="text-base sm:text-lg md:text-xl leading-relaxed text-white mb-8 sm:mb-12 lg:mb-16 pl-0 sm:pl-8 lg:pl-16">
-                                Мы — небольшая, но сплочённая IT-команда, объединяющая
-                                разработчиков с разным опытом и специализациями. Создаём сайты,
-                                мобильные приложения, Telegram-ботов и внутренние сервисы.
+                                {tHumanFactor('description1')}
                                 <br />
                                 <br />
-                                Нам важна простота в коммуникации, прозрачность в работе и
-                                результат, за который не стыдно.
+                                {tHumanFactor('description2')}
                                 <br />
                                 <br />
-                                Работаем как единый механизм: каждый знает своё дело и усиливает
-                                команду.
+                                {tHumanFactor('description3')}
                             </p>
                             <button
                                 className="btn-gradient sm:ml-8 lg:ml-16 text-white px-6 sm:px-8 lg:px-20 py-3 sm:py-4 lg:py-5 rounded-xl sm:rounded-2xl text-base sm:text-lg lg:text-xl font-medium flex items-center gap-2 sm:gap-4 hover:shadow-lg transition-shadow w-full sm:w-auto justify-center lg:justify-start">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="23" viewBox="0 0 28 23" fill="none">
                                     <path d="M0.438252 10.674C3.24385 9.1286 6.37565 7.83876 9.30185 6.54236C14.3361 4.41896 19.3903 2.33236 24.4955 0.389758C25.4887 0.0587785 27.2735 -0.264861 27.4485 1.20708C27.3526 3.29068 26.9584 5.36208 26.688 7.43348C26.0018 11.9887 25.2085 16.5283 24.435 21.0685C24.1685 22.5808 22.274 23.3637 21.0618 22.3959C18.1486 20.4281 15.213 18.4795 12.337 16.4661C11.3949 15.5088 12.2686 14.1341 13.1099 13.4505C15.5093 11.0859 18.0539 9.07686 20.3279 6.59006C20.9413 5.10884 19.1289 6.35716 18.5311 6.73969C15.2463 9.00329 12.0419 11.4051 8.57869 13.3945C6.80969 14.3683 4.74789 13.5361 2.97969 12.9927C1.39431 12.3363 -0.928908 11.675 0.438092 10.6741L0.438252 10.674Z" fill="white" />
                                 </svg>
-                                Подсмотреть за нами
+                                {tHumanFactor('btn')}
                             </button>
                         </div>
 

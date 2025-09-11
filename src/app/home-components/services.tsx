@@ -1,7 +1,9 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { useTranslations } from "next-intl";
 
 export default function Services() {
+    const t = useTranslations('services');
     const services = [
         {
             title: "Telegram-бот",
@@ -88,10 +90,10 @@ export default function Services() {
             <div className="w-full flex flex-col items-center px-6 lg:px-8 relative">
                 <div className="sticky top-5 left-10 container mb-12 sm:mb-16 lg:mb-20">
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 lg:mb-8 text-white">
-                        Digital <span className="text-gray-400">— инструментарий</span>
+                        {t('title')} <span className="text-gray-400">— {t('subtitle')}</span>
                     </h2>
                     <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-gray-400">
-                        Всё, что мы умеем — и умеем хорошо
+                        {t('description')}
                     </p>
                 </div>
 

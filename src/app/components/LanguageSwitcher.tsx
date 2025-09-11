@@ -12,9 +12,8 @@ export default function LanguageSwitcher({currentLocale}: Props) {
   const pathname = usePathname();
 
   const switchLanguage = () => {
-    const newLocale = currentLocale === 'ru' ? 'en' : 'ru';
+    const newLocale = currentLocale === 'ru' ? 'en' : currentLocale === 'en' ? 'uz' : 'ru';
     
-    // Replace the current locale in the pathname with the new locale
     const newPathname = pathname.replace(`/${currentLocale}`, `/${newLocale}`);
     
     router.push(newPathname);

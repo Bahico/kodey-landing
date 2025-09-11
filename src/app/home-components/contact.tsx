@@ -1,8 +1,10 @@
 import Image from "next/image";
 import { useState } from "react";
 import "./contact.css";
+import { useTranslations } from "next-intl";
 
 export default function Contact() {
+  const t = useTranslations('contact');
   const [success, setSuccess] = useState(false);
   const [services, setServices] = useState([])
 
@@ -42,16 +44,16 @@ export default function Contact() {
       <div className="container relative z-10">
         <div className="mb-10 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            Отправить <span className="text-gray-400">сигнал</span>
+            {t('title')} <span className="text-gray-400">{t('subtitle')}</span>
           </h2>
           <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-gray-400">
-            Опишите задачу — мы на связи и готовы принимать данные
+            {t('description')}
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="flex flex-col w-full lg:w-2/3 relative z-2">
           <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-800 mb-6 sm:mb-8">
-            Какая задача нас ждет ?
+            {t('question')}
           </h3>
 
           <div className="flex flex-wrap gap-2 sm:gap-4 mb-8 sm:mb-12 w-full lg:w-2/3">

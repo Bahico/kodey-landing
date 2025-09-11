@@ -1,7 +1,10 @@
 import { Link } from "@/i18n/navigation";
 import PostsList from "../components/postsList";
+import { useTranslations } from "next-intl";
 
 export default function History() {
+  const t = useTranslations('history');
+
   return (
     <section
       id="product-list"
@@ -29,10 +32,10 @@ export default function History() {
         <div className="mb-12 sm:mb-16 lg:mb-20 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 sm:gap-0">
           <div className="">
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 sm:mb-2 lg:mb-4 text-white">
-              Архив <span className="text-gray-400">Воплощений</span>
+              {t('title')} <span className="text-gray-400">{t('subtitle')}</span>
             </h2>
             <p className="text-lg sm:text-xl lg:text-2xl font-light text-gray-400">
-              От идеи до продакшна — всё, что мы запустили в реальность
+              {t('description')}
             </p>
           </div>
 
@@ -41,7 +44,7 @@ export default function History() {
             className="flex items-center gap-2 text-gray-400 cursor-pointer self-center sm:self-end"
           >
             <span className="text-lg sm:text-xl lg:text-2xl font-light">
-              Все блоги
+              {t('button')}
             </span>
             <svg
               xmlns="http://www.w3.org/2000/svg"

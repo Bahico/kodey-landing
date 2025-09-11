@@ -3,10 +3,11 @@ import Image from "next/image";
 import PostsList from "../../components/postsList";
 import BackgroundAnimation from "@/app/components/BackgroundAnimation";
 import {nowSize} from "@/app/functions/now-size";
+import { useTranslations } from "next-intl";
 
 export default function Posts() {
     const {lg} = nowSize();
-
+    const t = useTranslations('posts');
 
     return (
         <div className="relative w-full pt-[87px] overflow-hidden -mb-40">
@@ -30,12 +31,12 @@ export default function Posts() {
 
                         <div className="flex flex-col mb-20 order-first md:order-none">
                             <h1 className="md:text-6xl text-2xl text-black font-bold md:mb-6">
-                                Внутренний
+                                {t('title')}
                                 <br className="flex md:hidden"/>
-                                <span className="text-gray-400 md:ml-4">эфир</span>
+                                <span className="text-gray-400 md:ml-4">{t('subtitle')}</span>
                             </h1>
                             <p className="text-sm md:text-2xl text-gray-600 max-w-3xl leading-relaxed">
-                                Полезные статьи, кейсы и новости из мира мобильной разработки
+                                {t('description')}
                             </p>
                         </div>
                     </div>

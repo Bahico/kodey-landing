@@ -39,8 +39,6 @@ export default async function LocaleLayout({
         notFound();
     }
 
-    // Providing all messages to the client
-    // side is the easiest way to get started
     console.log('Attempting to load messages for locale:', locale);
     let messages;
     try {
@@ -84,14 +82,14 @@ export default async function LocaleLayout({
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-12 md:gap-16">
                                 <div className="col-span-4 lg:col-span-1 text-center lg:text-left">
                                     <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 md:mb-8">
-                                        Всегда
+                                        {(messages.footer as any)?.title || 'Всегда'}
                                         <br className="hidden sm:block" />
-                                        <span className="text-[#595959]">на связи</span>
+                                        <span className="text-[#595959]">{(messages.footer as any)?.subtitle || 'на связи'}</span>
                                     </h3>
                                     <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-white lg:mb-6 sm:mb-8">
-                                        С 12:00 до 20:00
+                                        {(messages.footer as any)?.description || 'С 12:00 до 20:00'}
                                         <br className="hidden sm:block" />
-                                        по МСК
+                                        {(messages.footer as any)?.description2 || 'по МСК'}
                                     </p>
                                 </div>
 
@@ -244,9 +242,7 @@ export default async function LocaleLayout({
                                     </div>
                                     <div className="pt-2 sm:pt-4">
                                         <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
-                                            140158, с. Узбекистан,
-                                            <br />
-                                            г. Самарканд, ул. улица Авесто, д.78В
+                                            {(messages.footer as any)?.place || '140158, с. Узбекистан,'}
                                         </p>
                                     </div>
                                 </div>
@@ -303,7 +299,7 @@ export default async function LocaleLayout({
                                         href="/privacy-policy"
                                         className="text-gray-500 text-xs sm:text-sm"
                                     >
-                                        {(messages.footer as any)?.privacyPolicy || 'Политика конфиденциальности'}
+                                        {(messages.footer as any)?.privacy || 'Политика конфиденциальности'}
                                     </Link>
                                 </div>
                             </div>

@@ -46,6 +46,20 @@ body {
   overflow-x: hidden;
 }
 
+/* Safari SVG compatibility fixes */
+img[src$=".svg"] {
+  -webkit-transform: translateZ(0); /* Force hardware acceleration */
+  transform: translateZ(0);
+}
+
+/* Safari-specific SVG background fixes */
+@supports (-webkit-appearance: none) {
+  .background-svg {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 .rotate-y-190 {
   transform: rotateY(190deg);
 }
@@ -79,9 +93,12 @@ body {
   right: 0;
   transform: translate(50%, 0);
   background-image: url("../../public/images/background/background.svg");
-  background-size: cover;
+  background-size: 101% 101%; /* Safari fix for SVG background gaps */
   background-position: right center;
   background-repeat: no-repeat;
+  -webkit-background-size: 101% 101%; /* Safari-specific */
+  -webkit-transform: translate3d(50%, 0, 0); /* Hardware acceleration for Safari */
+  transform: translate3d(50%, 0, 0); /* Hardware acceleration */
   z-index: 0;
 }
 

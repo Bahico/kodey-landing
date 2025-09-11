@@ -2,9 +2,11 @@ import {useEffect, useState} from "react";
 import "./internal.css";
 import {ArticleModel} from "@/models/article.model";
 import {getAxios, photoUrl} from "@/api/api.functions";
+import { useTranslations } from "next-intl";
 
 
 export default function Internal() {
+  const t = useTranslations('internal');
   const [activeIndex, setActiveIndex] = useState(0);
   const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
   const [posts, setPosts] = useState<ArticleModel[]>([]);
@@ -59,11 +61,11 @@ export default function Internal() {
         {/* Header Section */}
         <div className="mb-16">
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-4">
-            <span>Внутренний </span>
-            <span className="text-gray-400">эфир</span>
+            <span>{t('title')}</span>
+            <span className="text-gray-400">{t('subtitle')}</span>
           </h2>
           <p className="text-xl md:text-2xl text-gray-400 font-light">
-            Контент из-за кулис нашего процесса — не для галочки
+            {t('description')}
           </p>
         </div>
 

@@ -6,6 +6,68 @@
     "blog": "Blog",
     "contact": "Contact"
   },
+  "home": {
+    "title": "of mobile applications and digital services",
+    "button": "Submit a request",
+    "description": "We will contact you within 24 hours after submitting your request."
+  },
+  "human-factor": {
+    "title1": "Human",
+    "title2": "factor",
+    "description": "We are not robots. Although we love automation",
+    "description1": "We are a small but close-knit IT team that brings together developers with different experiences and specializations. We create websites, mobile applications, Telegram bots, and internal services.",
+    "description2": "We value simplicity in communication, transparency in work, and results that we are not ashamed of.",
+    "description3": "We work as a single mechanism: each knows its job and strengthens the team.",
+    "btn": "Follow us"
+  },
+  "services": {
+    "title": "Digital",
+    "subtitle": "toolkit",
+    "description": "Everything we can do — and do well"
+  },
+  "history": {
+    "title": "Archive",
+    "subtitle": "of implementations",
+    "description": "From idea to production — everything we've implemented in reality",
+    "button": "All blogs"
+  },
+  "location": {
+    "title": "Operations",
+    "subtitle": "base",
+    "description": "Our coordinates in the real world",
+    "place": "Uzbekistan – Samarkand"
+  },
+  "internal": {
+    "title": "Internal",
+    "subtitle": "broadcast",
+    "description": "Behind-the-scenes content of our process — not just for show"
+  },
+  "contact": {
+    "title": "Send",
+    "subtitle": "a signal",
+    "description": "Describe the task — we are in touch and ready to receive data",
+    "question": "What task is waiting for us?",
+    "telegram": "Telegram - bot",
+    "telegram-app": "Telegram - app",
+    "website": "Website (landing page)",
+    "website-multi": "Website (multi-page)",
+    "mobile-app": "Mobile app",
+    "crm": "CRM",
+    "outsourcing": "Outstaff",
+    "other": "Other",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Brief technical specification",
+    "send": "Submit a request",
+    "agreement": "I agree to the processing of personal data"
+  },
+  "posts": {
+    "title": "Internal",
+    "subtitle": "broadcast",
+    "description": "Useful articles, case studies, and news from the world of mobile development",
+    "button": "All posts"
+  },
   "steps": {
     "title": "Route",
     "subtitle": "to production",
@@ -40,8 +102,11 @@
     }
   },
   "footer": {
-    "alwaysInTouch": "Always in touch",
-    "workingHours": "From 12:00 to 20:00 MSK",
-    "privacyPolicy": "Privacy Policy"
+    "title": "Always",
+    "subtitle": "in touch",
+    "description": "From 12:00 to 20:00",
+    "description2": "MSK time",
+    "place": "140158, Uzbekistan, Samarkand, Avesto street, 78B",
+    "privacy": "Privacy Policy"
   }
 }
