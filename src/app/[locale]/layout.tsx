@@ -1,11 +1,12 @@
-import {Geist, Geist_Mono} from "next/font/google";
-import {NextIntlClientProvider} from 'next-intl';
-import {notFound} from 'next/navigation';
-import {locales} from '@/i18n/routing';
+import { Geist, Geist_Mono } from "next/font/google";
+import { NextIntlClientProvider } from 'next-intl';
+import { notFound } from 'next/navigation';
+import { locales } from '@/i18n/routing';
 
 import "../globals.css";
 import Navbar from "@/app/home-components/navbar";
 import { Link } from "@/i18n/navigation";
+import { Metadata } from "next";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -17,10 +18,10 @@ const geistMono = Geist_Mono({
     subsets: ["latin"],
 });
 
-// export const metaData: Metadata = {
-//   title: "Kodey",
-//   description: "Kodey is a mobile app",
-// };
+export const metaData: Metadata = {
+  title: "Kodey",
+  description: "Kodey is a development company",
+};
 
 type Props = {
     children: React.ReactNode;
@@ -31,21 +32,16 @@ export default async function LocaleLayout({
     children,
     params
 }: Props) {
+
     const { locale } = await params;
-    console.log('LocaleLayout - received locale:', locale, 'valid locales:', locales);
-    // Ensure that the incoming `locale` is valid
     if (!locales.includes(locale as any)) {
-        console.log('Locale not found in valid locales, calling notFound()');
         notFound();
     }
 
-    console.log('Attempting to load messages for locale:', locale);
     let messages;
     try {
         messages = (await import(`@/messages/${locale}.json`)).default;
-        console.log('Messages loaded successfully:', Object.keys(messages || {}));
     } catch (error) {
-        console.error('Error loading messages:', error);
         notFound();
     }
 
@@ -249,39 +245,39 @@ export default async function LocaleLayout({
 
                                 <div className="col-span-4 lg:col-span-1 mt-10 lg:mt-0">
                                     <div className="mb-[-30px] cursor-pointer relative">
-                                        <img src="/images/icons/instagram.svg" id="instagram"
-                                             className="drop-shadow-2xl animate-instagram"
-                                             alt="" />
-                                        <div className="absolute top-0 left-5 h-20 items-center flex gap-10">
-                                            <a href="https://www.instagram.com/kodeydev/" target="_blank">
+                                        <a href="https://www.instagram.com/kodeydev/" target="_blank">
+                                            <img src="/images/icons/instagram.svg" id="instagram"
+                                                className="drop-shadow-2xl animate-instagram"
+                                                alt="" />
+                                            <div className="absolute top-0 left-5 h-20 items-center flex gap-10">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50"
-                                                     fill="none">
+                                                    fill="none">
                                                     <path
                                                         d="M35.4167 14.5835H14.5834M14.5834 14.5835V35.4168M14.5834 14.5835L35.4167 35.4168"
                                                         stroke="white" strokeWidth="4.16667" strokeLinecap="round"
                                                         strokeLinejoin="round" />
                                                 </svg>
-                                            </a>
-                                            <span className="font-bold font-xl">Instagram</span>
-                                        </div>
+                                                <span className="font-bold font-xl">Instagram</span>
+                                            </div>
+                                        </a>
                                     </div>
 
                                     <div className="mt-[-30px] relative cursor-pointer">
-                                        <img src="/images/icons/telegram.svg" id="telegram"
-                                             className="drop-shadow-2xl animate-telegram" style={{ animationDelay: "1s" }}
-                                             alt="" />
-                                        <div className="absolute bottom-0 right-5 h-20 items-center flex gap-10">
-                                            <span className="font-bold font-xl">Telegram</span>
-                                            <a href="https://t.me/kodeydev" target="_blank">
+                                        <a href="https://t.me/kodeydev" target="_blank">
+                                            <img src="/images/icons/telegram.svg" id="telegram"
+                                                className="drop-shadow-2xl animate-telegram" style={{ animationDelay: "1s" }}
+                                                alt="" />
+                                            <div className="absolute bottom-0 right-5 h-20 items-center flex gap-10">
+                                                <span className="font-bold font-xl">Telegram</span>
                                                 <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M14.5834 14.5835H35.4167M35.4167 14.5835V35.4168M35.4167 14.5835L14.5834 35.4168"
                                                         stroke="white" strokeWidth="4.16667" strokeLinecap="round"
                                                         strokeLinejoin="round" />
                                                 </svg>
-                                            </a>
-                                        </div>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>

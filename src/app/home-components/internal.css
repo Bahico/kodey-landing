@@ -11,7 +11,10 @@
 }
 
 .card-group:hover .card-shadow {
-  box-shadow: -10px -50px 5em #0083cf;
+  box-shadow:
+    0 -100px 180px 0px #0083cf,
+    0 -20px 80px -50px #0083cf,
+    0px 0px 60px -20px #0083cf;
 }
 
 .services-container {
@@ -19,23 +22,23 @@
   padding-left: calc((100vw - var(--container-width)) / 2);
   padding-right: calc((100vw - var(--container-width)) / 2);
 
-  @media (width >= 40rem) {
+  @media (width >=40rem) {
     --container-width: 40rem;
   }
 
-  @media (width >= 48rem) {
+  @media (width >=48rem) {
     --container-width: 48rem;
   }
 
-  @media (width >= 64rem) {
+  @media (width >=64rem) {
     --container-width: 64rem;
   }
 
-  @media (width >= 80rem) {
+  @media (width >=80rem) {
     --container-width: 80rem;
   }
 
-  @media (width >= 96rem) {
+  @media (width >=96rem) {
     --container-width: 96rem;
   }
 }

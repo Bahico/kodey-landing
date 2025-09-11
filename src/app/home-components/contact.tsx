@@ -80,14 +80,13 @@ export default function Contact() {
 
           <div className="space-y-6 sm:space-y-8">
             <div>
-              <label className="block text-gray-600 text-sm sm:text-base mb-2">
+              <label className="block text-gray-800 text-lg sm:text-xl md:text-2xl mb-2">
                 Имя*
               </label>
               <input
                 type="text"
                 required
                 className="w-full bg-transparent border-b-2 border-gray-300 text-lg sm:text-xl md:text-2xl text-gray-800 py-2 focus:border-blue-500 outline-none"
-                placeholder="Виктор |"
               />
             </div>
             <div>
@@ -144,7 +143,7 @@ export default function Contact() {
         </form>
 
         <div className="lg:absolute relative top-0 right-0 w-full lg:w-[50%] lg:h-full bg-gradient-to-br rounded-3xl">
-          <div className={`flex absolute top-1/2 md:bottom-3/4 md:right-[80%] z-10 message ${success ? "message-open" : "message-close"}`}>
+          <div className={`flex absolute top-60 md:top-1/4 md:right-[65%] z-20 h-[192px] w-[333px] md:h-[203px] md:w-[565px] message ${success ? "message-open" : "message-close"}`}>
             <div className="absolute w-full h-full left-0 top-0 z-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -212,7 +211,7 @@ export default function Contact() {
               </svg>
             </div>
 
-            <div className="relative z-10 flex flex-col pt-16 md:pt-10 p-10 gap-2 md:gap-5 text-div w-full">
+            <div className="relative z-10 flex flex-col pt-16 md:pt-10 p-10 gap-2 md:gap-5 p-10 pt-14 w-full">
               <span className="text-xl md:text-2xl font-semibold flex gap-2 w-full">
                 Заявка принята !{" "}
                 <Image
@@ -235,18 +234,18 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="relative">
+          <div className="relative -mr-10 md:mr-0">
             <img
               src="images/background/background.svg"
-              className="w-full absolute left-0 top-0 z-0"
+              className="w-full absolute left-0 -top-30 z-0 hidden md:block"
               alt=""
             />
             <Image
               src="/images/home/48c20b59329df46824f434a9a8326311165d3bc6.png"
               alt="contact"
-              width={1000}
-              height={1000}
-              className="object-contain z-10 relative"
+              width={900}
+              height={900}
+              className="object-contain z-10 relative flex"
             />
           </div>
         </div>

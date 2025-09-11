@@ -90,9 +90,9 @@ export default function Services() {
             <div className="w-full flex flex-col items-center px-6 lg:px-8 relative">
                 <div className="sticky top-5 left-10 container mb-12 sm:mb-16 lg:mb-20">
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 lg:mb-8 text-white">
-                        {t('title')} <span className="text-gray-400">— {t('subtitle')}</span>
+                        {t('title')} <span className="text-[#929292]">— {t('subtitle')}</span>
                     </h2>
-                    <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-gray-400">
+                    <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-[#929292]">
                         {t('description')}
                     </p>
                 </div>
@@ -116,20 +116,20 @@ export default function Services() {
                             </div>
 
                             <div
-                                className="card-shadow p-4 sm:p-6 lg:p-8 h-[280px] sm:h-[320px] md:h-[380px] lg:h-[465px] rounded-xl sm:rounded-2xl flex flex-col justify-end bg-[#0C0C0C99] group-hover:bg-[#0C0C0CE5] transition-all duration-300 card-body">
+                                className="card-shadow p-4 sm:p-6 lg:p-8 h-[280px] sm:h-[320px] md:h-[380px] lg:h-[465px] rounded-xl sm:rounded-2xl flex flex-col justify-end bg-[#0C0C0C99] group-hover:bg-[#0C0C0CE5] transition-all duration-300">
                                 <div>
                                     <h3
-                                        className={`text-lg sm:text-xl lg:text-2xl font-semibold mb-2 sm:mb-3 lg:mb-4 text-gray-500 group-hover:text-gray-200 transition-all duration-300`}
+                                        className={`text-lg sm:text-xl lg:text-2xl font-semibold mb-2 sm:mb-3 lg:mb-4 text-[#929292] group-hover:text-gray-200 transition-all duration-300`}
                                     >
                                         {service.title}
                                     </h3>
                                     <p
-                                        className={`text-xs sm:text-sm mb-2 sm:mb-3 lg:mb-4 text-gray-400 group-hover:text-gray-200 transition-all duration-300`}
+                                        className={`text-xs sm:text-sm mb-2 sm:mb-3 lg:mb-4 text-[#929292] group-hover:text-gray-200 transition-all duration-300`}
                                     >
                                         {service.description}
                                     </p>
                                     <p
-                                        className={`text-right text-xs sm:text-sm text-gray-400 group-hover:text-gray-200 transition-all duration-300`}
+                                        className={`text-right text-xs sm:text-sm text-[#929292] group-hover:text-gray-200 transition-all duration-300`}
                                     >
                                         {service.price}
                                     </p>

@@ -25,7 +25,6 @@ export default function Internal() {
   useEffect(() => {
     getAxios('articles').then(res => {
       setPosts(res.data);
-      console.log(res.data);
     });
   }, []);
 
@@ -62,9 +61,9 @@ export default function Internal() {
         <div className="mb-16">
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-4">
             <span>{t('title')}</span>
-            <span className="text-gray-400">{t('subtitle')}</span>
+            <span className="text-[#929292] ml-2">{t('subtitle')}</span>
           </h2>
-          <p className="text-xl md:text-2xl text-gray-400 font-light">
+          <p className="text-xl md:text-2xl text-[#929292] font-light">
             {t('description')}
           </p>
         </div>

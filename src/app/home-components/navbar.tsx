@@ -6,7 +6,7 @@ import {GlassElement} from "@/app/components/GlassElement/GlassElement";
 import LanguageSwitcher from "@/app/components/LanguageSwitcher";
 import MobileNavbar from "@/app/components/MobileNavbar";
 import {useTranslations} from "next-intl";
-import { usePathname } from 'next/navigation';
+import { useParams, usePathname } from 'next/navigation';
 import "./navbar.css";
 
 export default function Navbar({locale}: { locale: string}) {
@@ -78,7 +78,7 @@ export default function Navbar({locale}: { locale: string}) {
                     <Link href="/">
                         <GlassElement
                             className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
-                            width={210}
+                            width={locale === 'uz' ? 210 : 150}
                             height={50}
                             radius={43}
                             depth={10}

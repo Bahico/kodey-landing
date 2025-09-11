@@ -64,16 +64,11 @@ export default function SimpleHome() {
         }
     };
 
-
-
-
     useEffect(() => {
         if (typeof window !== "undefined") {
             const hash = window.location.hash;
-            console.log(hash);
             if (hash) {
                 const el = document.querySelector(hash);
-                console.log(el);
                 if (el) {
                     el.scrollIntoView({ behavior: "smooth" });
                 }
@@ -177,7 +172,7 @@ export default function SimpleHome() {
                                 <span className="text-[#242424] ml-2 overflow-hidden flex" id="title-home-separator">|</span>
                             </h1>
 
-                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-gray-400 mb-4 sm:mb-10 lg:mb-30 z-10">
+                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-[#929292] mb-4 sm:mb-10 lg:mb-30 z-10 w-[471px] md:w-[850px]">
                                 {t('title')}
                             </h1>
                             <Link href="/#contact">
@@ -186,7 +181,7 @@ export default function SimpleHome() {
                                     {t('button')}
                                 </button>
                             </Link>
-                            <p className="text-base sm:text-lg lg:text-xl text-gray-400">
+                            <p className="text-base sm:text-lg lg:text-xl text-[#929292] md:w-[400px]">
                                 {t('description')}
                             </p>
                         </div>
@@ -225,7 +220,7 @@ export default function SimpleHome() {
                         className="w-full flex flex-col lg:flex-row justify-center gap-8 sm:gap-12 md:gap-16 lg:gap-20">
                         <div className="flex-1">
                             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 lg:mb-8 flex">
-                                {tHumanFactor('title1')} <span className="text-gray-400 ml-2">{tHumanFactor('title2')}</span>
+                                {tHumanFactor('title1')} <span className="text-[#929292] ml-2">{tHumanFactor('title2')}</span>
                             </h2>
                             <p className="text-lg sm:text-xl md:text-2xl text-[#929292] mb-6 sm:mb-8 lg:mb-12">
                                 {tHumanFactor('description')}
