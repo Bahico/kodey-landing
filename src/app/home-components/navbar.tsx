@@ -8,6 +8,7 @@ import MobileNavbar from "@/app/components/MobileNavbar";
 import {useTranslations} from "next-intl";
 import { useParams, usePathname } from 'next/navigation';
 import "./navbar.css";
+import { setLocale } from "@/api/api.constans";
 
 export default function Navbar({locale}: { locale: string}) {
     const [blur, setBlur] = useState(false);
@@ -21,6 +22,10 @@ export default function Navbar({locale}: { locale: string}) {
         'privacy-policy': 0,
         'posts': 400
     }
+
+    useEffect(() => {
+        setLocale(locale as 'ru' | 'uz' | 'en');
+    }, [locale]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -78,7 +83,7 @@ export default function Navbar({locale}: { locale: string}) {
                     <Link href="/">
                         <GlassElement
                             className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
-                            width={locale === 'uz' ? 210 : 150}
+                            width={locale === 'uz' ? 210 : 180}
                             height={50}
                             radius={43}
                             depth={10}
@@ -213,7 +218,7 @@ export default function Navbar({locale}: { locale: string}) {
                     <a href="/#contact">
                         <GlassElement
                             className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
-                            width={170}
+                            width={190}
                             height={50}
                             radius={43}
                             depth={10}

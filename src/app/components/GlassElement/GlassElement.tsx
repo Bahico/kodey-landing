@@ -14,6 +14,7 @@ type GlassElementProps = DisplacementOptions & {
   debug?: boolean;
   className?: string;
   onClick?: () => void;
+  style?: CSSProperties;
 };
 
 export const GlassElement = ({
@@ -27,6 +28,7 @@ export const GlassElement = ({
   blur = 2,
   debug = false,
   className,
+  style,
   onClick = () => {}
 }: GlassElementProps) => {
   /* Change element depth on click */
@@ -34,7 +36,8 @@ export const GlassElement = ({
   let depth = baseDepth / (clicked ? 0.7 : 1);
 
   /* Dynamic CSS properties */
-  const style: CSSProperties = {
+  const style1: CSSProperties = {
+    ...style,
     height: `${height}px`,
     width: `${width}px`,
     borderRadius: `${radius}px`,
@@ -50,18 +53,18 @@ export const GlassElement = ({
 
   /* Debug mode: display the displacement map instead of actual effect */
   if (debug === true) {
-    style.background = `url("${getDisplacementMap({
+    style1.background = `url("${getDisplacementMap({
       height,
       width,
       radius,
       depth,
     })}")`;
-    style.boxShadow = "none";
+    style1.boxShadow = "none";
   }
   return (
     <div
       className={`${styles.box} ${className}`}
-      style={style}
+      style={style1}
       onMouseDown={() => setClicked(true)}
       onMouseUp={() => setClicked(false)}
       onClick={onClick}

@@ -8,7 +8,7 @@ export default function History() {
   return (
     <section
       id="product-list"
-      className="bg-black flex justify-center w-full pt-20 sm:pt-30 md:pt-40 relative z-20"
+      className="bg-black flex justify-center w-full pt-10 sm:pt-10 md:pt-20 relative z-20"
     >
       <div
         className="absolute top-0 md:top-40 right-4 sm:right-6 md:right-10 w-[300px] h-[400px] sm:w-[500px] sm:h-[600px] md:w-[700px] md:h-[800px] lg:w-[900px] lg:h-[1000px] z-0">

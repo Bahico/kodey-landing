@@ -12,9 +12,9 @@
 
 .card-group:hover .card-shadow {
   box-shadow:
-    0 -100px 180px 0px #0083cf,
-    0 -20px 80px -50px #0083cf,
-    0px 0px 60px -20px #0083cf;
+    0 -100px 80px -20px #0083cf,
+    0 -20px 40px -20px #0083cf,
+    0px 0px 20px 0px #0083cf;
 }
 
 .services-container {

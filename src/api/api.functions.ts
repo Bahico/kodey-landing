@@ -1,12 +1,12 @@
 import axios from "axios";
-import {API_URL} from "@/api/api.constans";
+import {API_URL, LOCALE} from "@/api/api.constans";
 
 export function getApi(url: string) {
     return `${API_URL}${url}`;
 }
 
-export function getAxios(url: string, params?: any) {
-    return axios.get(getApi(url), {params: params});
+export function getAxios(url: string, params: any = {}) {
+    return axios.get(getApi(url), {params: {...params, language: LOCALE}});
 }
 
 export function photoUrl(url: string) {

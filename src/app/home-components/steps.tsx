@@ -1,16 +1,16 @@
-import {useGSAP} from "@gsap/react";
-import {GlassElement} from "../components/GlassElement/GlassElement";
+import { useGSAP } from "@gsap/react";
+import { GlassElement } from "../components/GlassElement/GlassElement";
 import gsap from "gsap";
-import {useEffect, useState} from "react";
-import {ScrollTrigger} from "gsap/ScrollTrigger";
-import {nowSize} from "@/app/functions/now-size";
-import {useTranslations} from 'next-intl';
+import { useEffect, useState } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { nowSize } from "@/app/functions/now-size";
+import { useTranslations } from 'next-intl';
 import "./steps.css";
 
 export default function Steps() {
     const [activeStep, setActiveStep] = useState(0);
     const t = useTranslations('steps');
-    const {md} = nowSize();
+    const { md } = nowSize();
 
     const steps = [
         {
@@ -113,7 +113,7 @@ export default function Steps() {
                         className="snap-mandatory snap-y h-[290px] lg:h-[450px] flex flex-col items-center overflow-y-scroll scrollbar-hide w-full relative z-10"
                     >
                         <div className="snap-center relative w-full flex mb-24 sm:mb-28 lg:mb-36"
-                             id="trigger-padding"></div>
+                            id="trigger-padding"></div>
                         {steps.map((step, index) => (
                             <div
                                 key={index}
@@ -124,32 +124,32 @@ export default function Steps() {
                                     className={`text-xl flex items-center gap-2 sm:text-2xl md:text-3xl select-none lg:text-4xl font-semibold mb-2 sm:mb-3 lg:mb-4 ${activeStep === index ? "primary-gradient lg:text-5xl" : "text-gray-500"}`}
                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" width={md ? "80" : "40"}
-                                         height={md ? "80" : "40"} viewBox="0 0 80 80" fill="none"
-                                         className={`max-w-0 overflow-hidden transition-all duration-700 ${activeStep === index ? "max-w-full" : ""}`}>
+                                        height={md ? "80" : "40"} viewBox="0 0 80 80" fill="none"
+                                        className={`max-w-0 overflow-hidden transition-all duration-700 ${activeStep === index ? "max-w-full" : ""}`}>
                                         <path d="M33.3333 56.6667L50 40.0001" stroke="white" strokeWidth="6.66667"
-                                              strokeLinecap="round" strokeLinejoin="round"
-                                              className="transition-all duration-700"/>
+                                            strokeLinecap="round" strokeLinejoin="round"
+                                            className="transition-all duration-700" />
                                         <path d="M33.3333 56.6667L50 40.0001" stroke="url(#paint0_radial_2226_743)"
-                                              strokeWidth="6.66667" strokeLinecap="round" strokeLinejoin="round"
-                                              className="transition-all duration-700"/>
+                                            strokeWidth="6.66667" strokeLinecap="round" strokeLinejoin="round"
+                                            className="transition-all duration-700" />
                                         <path d="M50 40L33.3333 23.3333" stroke="white" strokeWidth="6.66667"
-                                              strokeLinecap="round" strokeLinejoin="round"
-                                              className="transition-all duration-700"/>
+                                            strokeLinecap="round" strokeLinejoin="round"
+                                            className="transition-all duration-700" />
                                         <path d="M50 40L33.3333 23.3333" stroke="url(#paint1_radial_2226_743)"
-                                              strokeWidth="6.66667" strokeLinecap="round" strokeLinejoin="round"
-                                              className="transition-all duration-700"/>
+                                            strokeWidth="6.66667" strokeLinecap="round" strokeLinejoin="round"
+                                            className="transition-all duration-700" />
                                         <defs>
                                             <radialGradient id="paint0_radial_2226_743" cx="0" cy="0" r="1"
-                                                            gradientTransform="matrix(-32.4573 -13.1155 15.5965 -25.4819 65.3175 54.6992)"
-                                                            gradientUnits="userSpaceOnUse">
-                                                <stop offset="0.44" stopColor="#00C8FF"/>
-                                                <stop offset="1" stopColor="#004DFF"/>
+                                                gradientTransform="matrix(-32.4573 -13.1155 15.5965 -25.4819 65.3175 54.6992)"
+                                                gradientUnits="userSpaceOnUse">
+                                                <stop offset="0.44" stopColor="#00C8FF" />
+                                                <stop offset="1" stopColor="#004DFF" />
                                             </radialGradient>
                                             <radialGradient id="paint1_radial_2226_743" cx="0" cy="0" r="1"
-                                                            gradientTransform="matrix(-32.4573 -13.1155 15.5965 -25.4819 65.3175 38.0324)"
-                                                            gradientUnits="userSpaceOnUse">
-                                                <stop offset="0.44" stopColor="#00C8FF"/>
-                                                <stop offset="1" stopColor="#004DFF"/>
+                                                gradientTransform="matrix(-32.4573 -13.1155 15.5965 -25.4819 65.3175 38.0324)"
+                                                gradientUnits="userSpaceOnUse">
+                                                <stop offset="0.44" stopColor="#00C8FF" />
+                                                <stop offset="1" stopColor="#004DFF" />
                                             </radialGradient>
                                         </defs>
                                     </svg>
@@ -173,17 +173,17 @@ export default function Steps() {
 
 
                     {/* Interactive Carousel */}
-                    <StepImage steps={steps}/>
+                    <StepImage steps={steps} />
                 </div>
             </div>
         </section>
     );
 }
 
-function StepImage({steps}: {
+function StepImage({ steps }: {
     steps: { title: string; description: string; image: string }[];
 }) {
-    const {lg} = nowSize();
+    const { lg } = nowSize();
 
     if (lg)
         return (
@@ -207,7 +207,7 @@ function StepImage({steps}: {
                                 <img
                                     src={step.image}
                                     alt=""
-                                    className="w-[85%]"
+                                    className="w-[90%] object-cover"
                                 />
                             </div>
 

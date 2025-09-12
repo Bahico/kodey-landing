@@ -1,82 +1,40 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
+import { getAxios } from "@/api/api.functions";
 
 export default function Services() {
     const t = useTranslations('services');
-    const services = [
-        {
-            title: "Telegram-бот",
-            description:
-                "Автоматизируем ваши процессы с помощью кастомного Telegram-бота: от простых чат-ответов до интеграции с CRM и API.",
-            price: "от XXX XXX сум",
-            active: true,
-            image: 'bot1.png'
-        },
-        {
-            title: "Landing Page",
-            description:
-                "Создаём привлекательные лендинги, которые конвертируют посетителей в клиентов. Дизайн, адаптивная верстка, настройка аналитики.",
-            price: "от XXX XXX сум",
-            active: false,
-            image: 'bot3.png'
-        },
-        {
-            title: "Web-сайт",
-            description:
-                "Полноценные сайты для бизнеса, портфолио или интернет-магазинов. Под ключ, с современным дизайном и SEO-настройками.",
-            price: "от XXX XXX сум",
-            active: false,
-            image: 'bot4.png'
-        },
-        {
-            title: "Мобильное приложение",
-            description:
-                "Разрабатываем мобильные приложения для iOS и Android с нуля. UX/UI, программирование, тестирование и публикация в сторах.",
-            price: "от XXX XXX сум",
-            active: false,
-            image: 'bot5.png'
-        },
-        {
-            title: "Деплой Telegram-бота",
-            description:
-                "Развёртывание вашего Telegram-бота на сервере или облаке. Настройка, тестирование и запуск без сбоев.",
-            price: "от XXX XXX сум",
-            active: false,
-            image: 'bot6.png'
-        },
-        {
-            title: "UI / UX Дизайн",
-            description:
-                "Проектируем удобные и красивые интерфейсы для веба и мобильных приложений. Анализ, прототипирование и дизайн в Figma.",
-            price: "от XXX XXX сум",
-            active: false,
-            image: 'bot7.png'
-        },
-    ];
+    const [height, setHeight] = useState(0);
+    const [services, setServices] = useState([]);
+
+    useEffect(() => {
+        const panelsContainer = document.querySelector("#services-container");
+        setHeight(panelsContainer.scrollWidth - window.innerWidth + panelsContainer.scrollHeight + 400);
+
+        getAxios('services').then((res: any) => {
+            setServices(res.data);
+        });
+    }, []);
 
     useGSAP(() => {
-        const panels = gsap.utils.toArray("#services-container .service");
-        const panelsContainer = document.querySelector("#services-container");
+        setTimeout(() => {
+            const panels = gsap.utils.toArray("#services-container .service");
+            const panelsContainer = document.querySelector("#services-container");
+            gsap.to(panels, {
+                x: () => -1 * (panelsContainer.scrollWidth - innerWidth),
+                ease: "none",
+            });
+        }, 100);
 
-        gsap.to(panels, {
-            x: () => -1 * (panelsContainer.scrollWidth - innerWidth),
-            ease: "none",
-            scrollTrigger: {
-                trigger: "#services-container",
-                pin: true,
-                start: "top top",
-                scrub: 1,
-                end: () => "+=" + (panelsContainer.scrollWidth - innerWidth)
-            }
-        });
-
-    })
+    }, [services]);
 
     return (
         <section
             id="services"
-            className="bg-black flex justify-center w-full pt-20 sm:pt-30 md:pt-40 h-[2000px] md:h-[2800px] relative"
+            className={`bg-black flex justify-center w-full pt-20 sm:pt-30 md:pt-40 relative`}
+            style={{ height: `${height}px` }}
         >
             <div
                 className="absolute top-20 sm:top-40 md:top-120 left-4 sm:left-6 md:left-10 w-[300px] h-[400px] sm:w-[500px] sm:h-[600px] md:w-[700px] md:h-[800px] lg:w-[900px] lg:h-[1000px] z-0">
