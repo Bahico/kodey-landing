@@ -1,0 +1,7 @@
+.mobile-navbar-open {
+    transform: translateX(-5%);
+}
+
+.mobile-navbar-close {
+    transform: translateX(120%);
+}

@@ -68,7 +68,7 @@ export default function Navbar({locale}: { locale: string}) {
     return (
         <header className={`fixed top-2 md:top-6 left-0 w-full px-2 md:px-0 h-[87px] z-50 flex items-center justify-center transition-transform duration-700 ${showNavbar ? "open-navbar" : "close-navbar"}`}>
             <div
-                className={`flex items-center justify-between container py-2 px-1 md:px-4 rounded-[80px] transition-colors duration-500 ${blur ? "backdrop-blur-sm bg-[#151515A6]" : ""}`}>
+                className={`flex items-center justify-between container py-2 px-1 md:px-4 rounded-[80px] transition-colors duration-500 ${blur ? "text-white bg-[#151515A6]" : ""}`}>
                 <Link href="/" className="flex items-center gap-4 ml-2 sm:ml-0">
                     <img
                         src="/images/logos/favicon.svg"
@@ -82,7 +82,7 @@ export default function Navbar({locale}: { locale: string}) {
                 <nav className="hidden md:flex items-center gap-5">
                     <Link href="/">
                         <GlassElement
-                            className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
+                            className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md text-white hover:bg-gray-50 transition-colors"
                             width={locale === 'uz' ? 210 : 180}
                             height={50}
                             radius={43}

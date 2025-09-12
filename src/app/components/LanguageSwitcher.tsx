@@ -48,7 +48,7 @@ export default function LanguageSwitcher({ currentLocale }: Props) {
         <div className="flex flex-col gap-2">
 
           <GlassElement
-            className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors cursor-pointer"
+            className="items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors cursor-pointer"
             style={{display: currentLocale !== 'ru' ? 'flex' : 'none'}}
             width={90}
             height={50}
@@ -59,7 +59,7 @@ export default function LanguageSwitcher({ currentLocale }: Props) {
             onClick={() => switchLanguage('ru')}
           >
             <span className="text-xl font-bold primary-gradient uppercase">
-              {currentLocale}
+              Ru
             </span>
           </GlassElement>
           <GlassElement

@@ -2,6 +2,7 @@
 import {useState} from "react";
 import Link from "next/link";
 import {GlassElement} from "@/app/components/GlassElement/GlassElement";
+import './mobile-navbar.css';
 
 export default function MobileNavbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -38,17 +39,24 @@ export default function MobileNavbar() {
             </GlassElement>
 
             <div
-                className={`fixed w-full inset-0 z-50 md:hidden ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"} transition-transform duration-300 ease-in-out`}
+                className={`fixed w-[250px] right-0 top-5 z-50 md:hidden ${isMobileMenuOpen ? "mobile-navbar-open" : "mobile-navbar-close"} transition-transform duration-300 ease-in-out`}
             >
                 {/* Modal Content */}
-                <div
-                    className="absolute top-0 right-0 w-full h-full bg-white/30 backdrop-blur-sm shadow-2xl transform transition-transform duration-300 ease-in-out">
-                    <div className="flex flex-col h-full w-full">
+                <GlassElement
+                    width={250}
+                    height={430}
+                    radius={43}
+                    depth={10}
+                    blur={6}
+                    chromaticAberration={1}
+                    className="w-full"
+                >
+                    <div className="flex flex-col h-full w-full items-center">
                         {/* Header */}
-                        <div className="flex items-center justify-end p-6">
+                        <div className="flex items-center justify-end p-6 w-full">
                             <button
                                 onClick={() => setIsMobileMenuOpen(false)}
-                                className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+                                className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100/20 hover:bg-gray-200 transition-colors"
                             >
                                 <svg
                                     className="w-5 h-5"
@@ -67,129 +75,174 @@ export default function MobileNavbar() {
                         </div>
 
                         {/* Navigation Items */}
-                        <nav className="flex flex-col p-6 space-y-4 w-full justify-center items-center">
+                        <nav className="flex flex-col space-y-4 w-[230px]">
                             <Link
                                 href="/"
-                                className="flex items-center gap-3 px-12 py-3 rounded-3xl hover:bg-gray-50 transition-colors w-60 bg-white/30 shadow-md"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
-                                <svg
-                                    className="w-5 h-5"
-                                    stroke="url(#primary-gradient)"
-                                    fill="currentColor"
-                                    viewBox="0 0 24 24"
+                                <GlassElement
+                                    className="flex items-center gap-3 px-12 py-3 rounded-3xl shadow-md"
+                                    width={230}
+                                    height={45}
+                                    radius={43}
+                                    depth={10}
+                                    blur={6}
+                                    chromaticAberration={1}
                                 >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        fill="none"
-                                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                                    />
-                                </svg>
-                                <span className="text-lg font-medium primary-gradient">
-                  Главная
-                </span>
+                                    <svg
+                                        className="w-5 h-5"
+                                        stroke="url(#primary-gradient)"
+                                        fill="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            fill="none"
+                                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                                        />
+                                    </svg>
+                                    <span className="text-lg font-medium primary-gradient">
+                                      Главная
+                                    </span>
+                                </GlassElement>
                             </Link>
 
                             <Link
                                 href="/#product-list"
-                                className="flex items-center gap-3 px-12 py-3 rounded-3xl hover:bg-gray-50 transition-colors w-60 bg-white/30 shadow-md"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
-                                <svg
-                                    className="w-5 h-5"
-                                    fill="currentColor"
-                                    stroke="url(#primary-gradient)"
-                                    viewBox="0 0 24 24"
+                                <GlassElement
+                                    className="flex items-center gap-3 px-12 py-3 rounded-3xl shadow-md"
+                                    width={230}
+                                    height={45}
+                                    radius={43}
+                                    depth={10}
+                                    blur={6}
+                                    chromaticAberration={1}
                                 >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        fill="none"
-                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                                    />
-                                </svg>
-                                <span className="text-lg font-medium primary-gradient">
-                  Кейсы
-                </span>
+                                    <svg
+                                        className="w-5 h-5"
+                                        fill="currentColor"
+                                        stroke="url(#primary-gradient)"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            fill="none"
+                                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                                        />
+                                    </svg>
+                                    <span className="text-lg font-medium primary-gradient">
+                                      Кейсы
+                                    </span>
+                                </GlassElement>
                             </Link>
 
                             <Link
                                 href="/#services"
-                                className="flex items-center gap-3 px-12 py-3 rounded-3xl hover:bg-gray-50 transition-colors w-60 bg-white/30 shadow-md"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
-                                <svg
-                                    className="w-5 h-5"
-                                    fill="currentColor"
-                                    stroke="url(#primary-gradient)"
-                                    viewBox="0 0 24 24"
+                                <GlassElement
+                                    className="flex items-center gap-3 px-12 py-3 rounded-3xl shadow-md"
+                                    width={230}
+                                    height={45}
+                                    radius={43}
+                                    depth={10}
+                                    blur={6}
+                                    chromaticAberration={1}
                                 >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        fill="none"
-                                        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                                    />
-                                </svg>
-                                <span className="text-lg font-medium primary-gradient">
-                  Услуги
-                </span>
+                                    <svg
+                                        className="w-5 h-5"
+                                        fill="currentColor"
+                                        stroke="url(#primary-gradient)"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            fill="none"
+                                            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                                        />
+                                    </svg>
+                                    <span className="text-lg font-medium primary-gradient">
+                                      Услуги
+                                    </span>
+                                </GlassElement>
                             </Link>
 
                             <Link
                                 href="/#internal"
-                                className="flex items-center gap-3 px-12 py-3 rounded-3xl hover:bg-gray-50 transition-colors w-60 bg-white/30 shadow-md"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
-                                <svg
-                                    className="w-5 h-5"
-                                    fill="currentColor"
-                                    stroke="url(#primary-gradient)"
-                                    viewBox="0 0 24 24"
+                                <GlassElement
+                                    className="flex items-center gap-3 px-12 py-3 rounded-3xl shadow-md"
+                                    width={230}
+                                    height={45}
+                                    radius={43}
+                                    depth={10}
+                                    blur={6}
+                                    chromaticAberration={1}
                                 >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        fill="none"
-                                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-                                    />
-                                </svg>
-                                <span className="text-lg font-medium primary-gradient">
-                  Блог
-                </span>
+                                    <svg
+                                        className="w-5 h-5"
+                                        fill="currentColor"
+                                        stroke="url(#primary-gradient)"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            fill="none"
+                                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                                        />
+                                    </svg>
+                                    <span className="text-lg font-medium primary-gradient">
+                                      Блог
+                                    </span>
+                                </GlassElement>
                             </Link>
 
                             <Link
                                 href="/#contact"
-                                className="flex items-center gap-3 px-12 py-3 rounded-3xl hover:bg-gray-50 transition-colors w-60 bg-white/30 shadow-md"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
-                                <svg
-                                    className="w-5 h-5"
-                                    fill="currentColor"
-                                    stroke="url(#primary-gradient)"
-                                    viewBox="0 0 24 24"
+                                <GlassElement
+                                    className="flex items-center gap-3 px-12 py-3 rounded-3xl shadow-md"
+                                    width={230}
+                                    height={45}
+                                    radius={43}
+                                    depth={10}
+                                    blur={6}
+                                    chromaticAberration={1}
                                 >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        fill="none"
-                                        d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                                    />
-                                </svg>
-                                <span className="text-lg font-medium primary-gradient">
-                  Связаться
-                </span>
+                                    <svg
+                                        className="w-5 h-5"
+                                        fill="currentColor"
+                                        stroke="url(#primary-gradient)"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            fill="none"
+                                            d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                                        />
+                                    </svg>
+                                    <span className="text-lg font-medium primary-gradient">
+                                      Связаться
+                                    </span>
+                                </GlassElement>
                             </Link>
                         </nav>
                     </div>
-                </div>
+                </GlassElement>
             </div>
         </>
     )
