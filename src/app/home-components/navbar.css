@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
 .close-navbar {
-    @apply md:translate-y-[-150%] text-white;
+    @apply translate-y-[-150%] text-white;
     /*transform: translateY(-150%);*/
 }

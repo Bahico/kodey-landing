@@ -4,9 +4,6 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const nextConfig: NextConfig = {
     experimental: {
         optimizeRouterScrolling: true,
-    },
-    images: {
-        domains: ['api.kodey.ru']
     }
 };
 

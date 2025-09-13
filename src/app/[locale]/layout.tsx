@@ -18,27 +18,24 @@ const geistMono = Geist_Mono({
     subsets: ["latin"],
 });
 
-export const metaData: Metadata = {
-  title: "Kodey",
-  description: "Kodey is a development company",
-};
+// export const metaData: Metadata = {
+//     title: "Kodey",
+//     description: "Kodey is a development company",
+// };
 
 type Props = {
     children: React.ReactNode;
     params: { locale: string };
 };
 
-export default async function LocaleLayout({
-    children,
-    params
-}: Props) {
+export default async function LocaleLayout({ children, params }: Props) {
 
     const { locale } = await params;
     if (!locales.includes(locale as any)) {
         notFound();
     }
 
-    let messages;
+    let messages: any;
     try {
         messages = (await import(`@/messages/${locale}.json`)).default;
     } catch (error) {
@@ -73,14 +70,16 @@ export default async function LocaleLayout({
 
                     {children}
 
-                    <footer className="bg-[#0D0D0D] text-white flex justify-center py-8 sm:py-12 md:py-16 w-full rounded-t-[50px] sm:rounded-t-[75px] md:rounded-t-[100px] relative z-10 px-4 sm:px-6 lg:px-8">
+                    <footer
+                        className="bg-[#0D0D0D] text-white flex justify-center py-8 sm:py-12 md:py-16 w-full rounded-t-[50px] sm:rounded-t-[75px] md:rounded-t-[100px] relative z-10 px-4 sm:px-6 lg:px-8">
                         <div className="container">
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-12 md:gap-16">
                                 <div className="col-span-4 lg:col-span-1 text-center lg:text-left">
                                     <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 md:mb-8">
                                         {(messages.footer as any)?.title || 'Всегда'}
                                         <br className="hidden sm:block" />
-                                        <span className="text-[#595959]">{(messages.footer as any)?.subtitle || 'на связи'}</span>
+                                        <span
+                                            className="text-[#595959]">{(messages.footer as any)?.subtitle || 'на связи'}</span>
                                     </h3>
                                     <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-white lg:mb-6 sm:mb-8">
                                         {(messages.footer as any)?.description || 'С 12:00 до 20:00'}
@@ -250,7 +249,8 @@ export default async function LocaleLayout({
                                                 className="drop-shadow-2xl animate-instagram"
                                                 alt="" />
                                             <div className="absolute top-0 left-5 h-20 items-center flex gap-10">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50"
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+                                                    viewBox="0 0 50 50"
                                                     fill="none">
                                                     <path
                                                         d="M35.4167 14.5835H14.5834M14.5834 14.5835V35.4168M14.5834 14.5835L35.4167 35.4168"

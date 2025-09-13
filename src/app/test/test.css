@@ -1,0 +1,17 @@
+@import "tailwindcss";
+.scrolling-container {
+    height: 100vh; /* Make it scrollable */
+    overflow-y: scroll;
+    position: relative;
+}
+.content-inside-scroller {
+    height: 200vh; /* Make content taller than container to enable scroll */
+}
+.animated-div {
+    position: fixed; /* Or absolute, depending on desired layout */
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+}

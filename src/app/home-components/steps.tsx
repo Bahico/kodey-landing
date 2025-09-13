@@ -70,7 +70,6 @@ export default function Steps() {
                         }
                     },
                     duration: 0.5,
-                    // scrollTo: `#step-image-${i}`,
                     ease: "power2.out",
                     stagger: 0.3,
                     immediateRender: false,
@@ -110,7 +109,7 @@ export default function Steps() {
                         className="absolute top-0 md:top-10 z-11 pointer-events-none left-0 w-full md:w-2/4 h-[50px] md:h-1/2 scroll-smoothly rotate-180"></div>
                     <div
                         id="trigger-1"
-                        className="snap-mandatory snap-y h-[290px] lg:h-[450px] flex flex-col items-center overflow-y-scroll scrollbar-hide w-full relative z-10"
+                        className="snap-mandatory snap-y h-[290px] lg:h-[450px] flex flex-col items-center overflow-y-scroll scrollbar-hide w-full relative z-20"
                     >
                         <div className="snap-center relative w-full flex mb-24 sm:mb-28 lg:mb-36"
                             id="trigger-padding"></div>
@@ -187,7 +186,7 @@ function StepImage({ steps }: {
 
     if (lg)
         return (
-            <div className="flex absolute top-0 bottom-0 justify-center items-center h-full z-0 w-full">
+            <div className="flex absolute top-0 bottom-0 justify-center items-center h-full z-10 w-full">
                 <div className="container flex justify-end relative mr-20">
                     <GlassElement
                         className="relative flex-col steps-icons scroller w-[280px] snap-mandatory snap-y h-[290px] sm:w-[400px] sm:h-[415px] md:w-[500px] md:h-[520px] lg:w-[549px] lg:h-[568px] z-10 rounded-full overflow-y-auto scrollbar-hide border border-gray-600 backdrop-blur-sm mx-auto lg:mx-0"
@@ -222,15 +221,15 @@ function StepImage({ steps }: {
             </div>
         );
     return (
-        <div className="flex items-center relative">
-            <GlassElement
-                className="relative steps-icons scroller w-[280px] snap-mandatory snap-y h-[290px] sm:w-[400px] sm:h-[415px] md:w-[500px] md:h-[520px] lg:w-[549px] lg:h-[568px] z-10 rounded-full overflow-y-auto scrollbar-hide border border-gray-600 backdrop-blur-sm mx-auto lg:mx-0"
-                width={249}
-                height={268}
-                radius={300}
-                depth={10}
-                blur={0}
-                chromaticAberration={0}
+        <div className="flex justify-center items-center relative mb-20 mt-10">
+            <div
+                className="relative steps-icons scroller w-[249px] snap-mandatory snap-y h-[268px] z-10 rounded-full overflow-y-auto scrollbar-hide border border-gray-500"
+                // width={249}
+                // height={268}
+                // radius={300}
+                // depth={10}
+                // blur={0}
+                // chromaticAberration={0}
             >
                 {steps.map((step, index) => (
                     <img
@@ -238,14 +237,14 @@ function StepImage({ steps }: {
                         src={step.image}
                         id={`step-image-${index}`}
                         alt=""
-                        className="w-full snap-start snap-always h-[268px]"
+                        className="w-full snap-start snap-always object-contain h-[268px]"
                     />
                 ))}
-            </GlassElement>
+            </div>
             <img
                 src="images/background/background.svg"
                 alt=""
-                className="absolute flex top-0 left-0 w-[300px] h-[300px] z-0"
+                className="absolute flex top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] z-0"
             />
         </div>
     );
