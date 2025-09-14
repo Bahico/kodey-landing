@@ -10,7 +10,7 @@ export default function Location() {
 
 
     return (
-        <section className="bg-black flex flex-col items-center w-full pt-20 sm:pt-30 md:pt-40 relative z-10">
+        <section className="bg-black flex flex-col items-center w-full pt-20 sm:pt-30 md:pt-40 relative z-20">
             <Script src="https://api-maps.yandex.ru/v3?apikey=003258f7-2b47-4ebe-927b-04a900a881fb&lang=en_US"/>
             <div className="container px-4 sm:px-6 lg:px-8">
                 <div className="mb-12 sm:mb-16 lg:mb-20">
@@ -32,7 +32,7 @@ export default function Location() {
 
                 <div className="w-full h-[500px] relative">
                     <span
-                        className="absolute top-0 left-0 w-full h-30 bg-opacity-50 z-10 location-background"
+                        className="absolute pointer-events-none top-0 left-0 w-full h-30 bg-opacity-50 z-10 location-background"
                     ></span>
 
 
@@ -59,7 +59,7 @@ export default function Location() {
                     </YMaps>
 
                     <span
-                        className="absolute bottom-0 left-0 w-full h-30 bg-opacity-50 z-10 rotate-180 location-background"
+                        className="absolute pointer-events-none bottom-0 left-0 w-full h-30 bg-opacity-50 z-10 rotate-180 location-background"
                     ></span>
                 </div>
             </div>

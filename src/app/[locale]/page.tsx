@@ -7,7 +7,7 @@ import Location from "../home-components/location";
 import Internal from "../home-components/internal";
 import Contact from "../home-components/contact";
 import { GlassElement } from "../components/GlassElement/GlassElement";
-import { useEffect, useState } from "react";
+import {useEffect, useRef, useState} from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import gsap from "gsap";
@@ -18,6 +18,7 @@ import { nowSize } from "@/app/functions/now-size";
 import BackgroundAnimation from "@/app/components/BackgroundAnimation";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
+import {textAnimation, textAnimationTl} from "@/app/functions/text.animation";
 
 
 gsap.registerPlugin(TextPlugin);
@@ -30,6 +31,11 @@ export default function SimpleHome() {
     const pathname = usePathname();
     const t = useTranslations('home');
     const tHumanFactor = useTranslations('human-factor');
+    const titleRef = useRef<HTMLHeadingElement>(null);
+    const descriptionRef = useRef<HTMLParagraphElement>(null);
+    const buttonRef = useRef<HTMLButtonElement>(null);
+    const buttonDescriptionRef = useRef<HTMLButtonElement>(null);
+    const elementRef = useRef<HTMLDivElement>(null);
 
     const employees = [
         {
@@ -84,6 +90,12 @@ export default function SimpleHome() {
                 tl.restart();
             },
         });
+
+        const tl1 = textAnimation(titleRef.current, elementRef.current);
+
+        textAnimationTl(descriptionRef.current, elementRef.current, tl1);
+        textAnimationTl(buttonRef.current, elementRef.current, tl1);
+        textAnimationTl(buttonDescriptionRef.current, elementRef.current, tl1);
 
         // First text animation
         tl.to("#title-home", {
@@ -154,7 +166,7 @@ export default function SimpleHome() {
                 <BackgroundAnimation />
             </div>
             {/* Hero Section */}
-            <section className="relative flex justify-center w-full pt-6 sm:pt-8 md:pt-10">
+            <section className="relative flex justify-center w-full pt-6 sm:pt-8 md:pt-10" ref={elementRef}>
                 <div className="container px-4 sm:px-6 lg:px-8 relative">
                     {/*<div className="absolute inset-0 animated-gradient-overlay background-glow"></div>*/}
 
@@ -166,22 +178,24 @@ export default function SimpleHome() {
                                 <BackgroundAnimation />
                             </div>
                             <h1
+                                ref={titleRef}
                                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl h-12 md:h-20 z-10 flex mb-4 sm:mb-6 lg:mb-8"
                             >
                                 <span id="title-home" className="primary-gradient font-bold"></span>
                                 <span className="text-[#242424] ml-2 overflow-hidden flex" id="title-home-separator">|</span>
                             </h1>
 
-                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-[#929292] mb-4 sm:mb-10 lg:mb-30 z-10 w-[471px] md:w-[850px]">
+                            <h1 ref={descriptionRef} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-[#929292] mb-4 sm:mb-10 lg:mb-30 z-10 w-[471px] md:w-[850px]">
                                 {t('title')}
                             </h1>
                             <Link href="/#contact">
                                 <button
+                                    ref={buttonRef}
                                     className="z-10 relative btn-gradient text-white px-6 mb-4 sm:px-8 lg:px-30 py-3 sm:py-4 lg:py-5 rounded-xl sm:rounded-2xl text-lg sm:text-xl lg:text-2xl font-semibold hover:shadow-lg transition-shadow w-full sm:w-auto">
                                     {t('button')}
                                 </button>
                             </Link>
-                            <p className="text-base sm:text-lg lg:text-xl text-[#929292] md:w-[400px]">
+                            <p ref={buttonDescriptionRef} className="text-base sm:text-lg lg:text-xl text-[#929292] md:w-[400px]">
                                 {t('description')}
                             </p>
                         </div>
