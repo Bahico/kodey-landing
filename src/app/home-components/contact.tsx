@@ -296,7 +296,7 @@ export default function Contact() {
                         </div>
                     </div>
 
-                    <div className="relative -mr-10 md:-mr-0">
+                    <div className="relative mr-0 md:-mr-0">
                         <img
                             src="images/background/background.svg"
                             className="w-full absolute left-0 -top-30 z-0 hidden md:block"
