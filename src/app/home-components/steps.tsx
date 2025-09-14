@@ -1,17 +1,17 @@
-import { useGSAP } from "@gsap/react";
-import { GlassElement } from "../components/GlassElement/GlassElement";
+'use client';
+import {useGSAP} from "@gsap/react";
+import {GlassElement} from "../components/GlassElement/GlassElement";
 import gsap from "gsap";
-import {useEffect, useRef, useState} from "react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { nowSize } from "@/app/functions/now-size";
-import { useTranslations } from 'next-intl';
+import {useRef, useState} from "react";
+import {nowSize} from "@/app/functions/now-size";
+import {useTranslations} from 'next-intl';
 import "./steps.css";
 import {textAnimation, textAnimationTl} from "@/app/functions/text.animation";
 
 export default function Steps() {
     const [activeStep, setActiveStep] = useState(0);
     const t = useTranslations('steps');
-    const { md } = nowSize();
+    const {md } = nowSize();
 
     // refs
     const titleRef = useRef<HTMLDivElement>(null);
@@ -56,7 +56,10 @@ export default function Steps() {
         },
     ];
 
+
     useGSAP(() => {
+        let loaded = false;
+
         setTimeout(() => {
             for (let i = 0; i < steps.length; i++) {
                 gsap.to(".scroller", {
@@ -69,7 +72,7 @@ export default function Steps() {
                         toggleActions: "play reverse play reverse",
                         markers: false,
                         onToggle: (self) => {
-                            if (self.isActive) {
+                            if (self.isActive && loaded) {
                                 setActiveStep(i);
                                 scrollTo(i);
                             }
@@ -83,9 +86,13 @@ export default function Steps() {
             }
         }, 100);
 
+        setTimeout(() => {
+            loaded = true;
+        }, 110)
+
         const tl = textAnimation(titleRef.current, elementRef.current);
         textAnimationTl(descriptionRef.current, elementRef.current, tl);
-    });
+    }, []);
 
     const scrollTo = (step: number) => {
         const stepElement = document.getElementById(`step-image-${step}`);
@@ -94,6 +101,9 @@ export default function Steps() {
                 behavior: "smooth",
                 block: "center",
             });
+            if (window.innerWidth < 640) {
+                console.log(true)
+            }
         }
     }
 

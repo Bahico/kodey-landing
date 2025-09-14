@@ -5,9 +5,9 @@ export function nowSize() {
 
   const lg = width > 1024;
   const md = width > 768;
-  const sm = width > 640;
+  const sm = width < 640;
 
-  return { lg, md, sm };
+  return { lg, md, sm, width };
 }
 
 export function useWindowSize() {

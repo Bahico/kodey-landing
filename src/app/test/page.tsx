@@ -14,7 +14,7 @@ export default function () {
         const divTwo = document.querySelector(".div-two") as HTMLElement;
 
         if (!divOne || !divTwo) return;
-
+        
         // Method 1: Synchronize scroll positions
         let isScrolling = false;
 

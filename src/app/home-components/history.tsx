@@ -25,7 +25,7 @@ export default function History() {
       className="bg-black flex justify-center w-full pt-10 sm:pt-10 md:pt-20 relative z-20"
     >
       <div
-        className="absolute top-0 md:top-40 right-4 sm:right-6 md:right-10 w-[300px] h-[400px] sm:w-[500px] sm:h-[600px] md:w-[700px] md:h-[800px] lg:w-[900px] lg:h-[1000px] z-0">
+        className="absolute pointer-events-none top-0 md:top-40 right-4 sm:right-6 md:right-10 w-[300px] h-[400px] sm:w-[500px] sm:h-[600px] md:w-[700px] md:h-[800px] lg:w-[900px] lg:h-[1000px] z-0">
         <img
           src="images/background/background.svg"
           className="w-3/4 absolute background-2"
@@ -34,7 +34,7 @@ export default function History() {
       </div>
 
       <div
-        className="absolute bottom-0 left-4 sm:left-6 md:left-10 w-[300px] h-[400px] sm:w-[500px] sm:h-[600px] md:w-[700px] md:h-[800px] lg:w-[900px] lg:h-[1000px] z-0">
+        className="absolute pointer-events-none bottom-0 left-4 sm:left-6 md:left-10 w-[300px] h-[400px] sm:w-[500px] sm:h-[600px] md:w-[700px] md:h-[800px] lg:w-[900px] lg:h-[1000px] z-0">
         <img
           src="images/background/background.svg"
           className="w-3/4 absolute -left-100 -bottom-80"
