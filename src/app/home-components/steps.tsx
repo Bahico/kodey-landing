@@ -2,7 +2,7 @@
 import {useGSAP} from "@gsap/react";
 import {GlassElement} from "../components/GlassElement/GlassElement";
 import gsap from "gsap";
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {nowSize} from "@/app/functions/now-size";
 import {useTranslations} from 'next-intl';
 import "./steps.css";
@@ -58,6 +58,9 @@ export default function Steps() {
 
 
     useGSAP(() => {
+        const tl = textAnimation(titleRef.current, elementRef.current);
+        textAnimationTl(descriptionRef.current, elementRef.current, tl);
+
         let loaded = false;
 
         setTimeout(() => {
@@ -88,22 +91,79 @@ export default function Steps() {
 
         setTimeout(() => {
             loaded = true;
-        }, 110)
+        }, 110);
 
-        const tl = textAnimation(titleRef.current, elementRef.current);
-        textAnimationTl(descriptionRef.current, elementRef.current, tl);
-    }, []);
+        // Mobile scroll synchronization
+        const setupMobileScrollSync = () => {
+            if (md) return; // Only run on mobile
+            
+            const stepsIcons = document.querySelector('.steps-icons') as HTMLElement;
+            const trigger1 = document.getElementById('trigger-1');
+            
+            if (stepsIcons && trigger1) {
+                let isScrollingSyncFromIcons = false;
+                let isScrollingSyncFromTrigger = false;
+                
+                const handleStepsIconsScroll = () => {
+                    if (isScrollingSyncFromTrigger) return;
+                    isScrollingSyncFromIcons = true;
+                    
+                    const scrollPercentage = stepsIcons.scrollTop / (stepsIcons.scrollHeight - stepsIcons.clientHeight);
+                    const trigger1ScrollTop = scrollPercentage * (trigger1.scrollHeight - trigger1.clientHeight);
+                    
+                    trigger1.scrollTo({
+                        top: trigger1ScrollTop,
+                        behavior: 'auto'
+                    });
+                    
+                    setTimeout(() => {
+                        isScrollingSyncFromIcons = false;
+                    }, 50);
+                };
+                
+                const handleTrigger1Scroll = () => {
+                    if (isScrollingSyncFromIcons) return;
+                    isScrollingSyncFromTrigger = true;
+                    
+                    const scrollPercentage = trigger1.scrollTop / (trigger1.scrollHeight - trigger1.clientHeight);
+                    const stepsIconsScrollTop = scrollPercentage * (stepsIcons.scrollHeight - stepsIcons.clientHeight);
+                    
+                    stepsIcons.scrollTo({
+                        top: stepsIconsScrollTop,
+                        behavior: 'auto'
+                    });
+                    
+                    setTimeout(() => {
+                        isScrollingSyncFromTrigger = false;
+                    }, 50);
+                };
+                
+                stepsIcons.addEventListener('scroll', handleStepsIconsScroll);
+                trigger1.addEventListener('scroll', handleTrigger1Scroll);
+                
+                return () => {
+                    stepsIcons.removeEventListener('scroll', handleStepsIconsScroll);
+                    trigger1.removeEventListener('scroll', handleTrigger1Scroll);
+                };
+            }
+        };
+        
+        const timeoutId = setTimeout(() => {
+            setupMobileScrollSync();
+        }, 300);
+        
+        return () => {
+            clearTimeout(timeoutId);
+        };
+    }, [md]);
 
     const scrollTo = (step: number) => {
         const stepElement = document.getElementById(`step-image-${step}`);
         if (stepElement) {
             stepElement.scrollIntoView({
                 behavior: "smooth",
-                block: "center",
+                block: "nearest"
             });
-            if (window.innerWidth < 640) {
-                console.log(true)
-            }
         }
     }
 
@@ -201,6 +261,7 @@ export default function Steps() {
 
 function StepImage({ steps }: {
     steps: { title: string; description: string; image: string }[];
+    isScrolling?: boolean;
 }) {
     const { lg } = nowSize();
 
