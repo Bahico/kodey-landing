@@ -1,13 +1,19 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
+import {useEffect, useRef, useState} from "react";
 import { getAxios } from "@/api/api.functions";
+import {textAnimation, textAnimationTl} from "@/app/functions/text.animation";
 
 export default function Services() {
     const t = useTranslations('services');
     const [height, setHeight] = useState(0);
     const [services, setServices] = useState([]);
+
+    // refs
+    const titleRef = useRef<HTMLHeadingElement>(null);
+    const descriptionRef = useRef<HTMLParagraphElement>(null);
+    const elementRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const panelsContainer = document.querySelector("#services-container");
@@ -30,9 +36,15 @@ export default function Services() {
 
     }, [services]);
 
+    useGSAP(() => {
+        const tl = textAnimation(titleRef.current, elementRef.current);
+        textAnimationTl(descriptionRef.current, elementRef.current, tl);
+    });
+
     return (
         <section
             id="services"
+            ref={elementRef}
             className={`bg-black flex justify-center w-full pt-20 sm:pt-30 md:pt-40 relative`}
             style={{ height: `${height}px` }}
         >
@@ -47,12 +59,12 @@ export default function Services() {
 
             <div className="w-full flex flex-col items-center px-6 lg:px-8 relative">
                 <div className="sticky top-5 left-10 container mb-12 sm:mb-16 lg:mb-20">
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 lg:mb-8 text-white">
+                    <h2 ref={titleRef} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 lg:mb-8 text-white">
                         {t('title')} <span className="text-[#929292]">— {t('subtitle')}</span>
                     </h2>
-                    <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-[#929292]">
+                    <span ref={descriptionRef} className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-[#929292]">
                         {t('description')}
-                    </p>
+                    </span>
                 </div>
 
                 <div

@@ -3,6 +3,9 @@ import {useRef, useState} from "react";
 import "./contact.css";
 import {useTranslations} from "next-intl";
 import {getAxios, postAxios} from "@/api/api.functions";
+import {useGSAP} from "@gsap/react";
+import gsap from "gsap";
+import {textAnimation, textAnimationTl} from "@/app/functions/text.animation";
 
 export default function Contact() {
     const t = useTranslations('contact');
@@ -10,6 +13,12 @@ export default function Contact() {
     const [success, setSuccess] = useState(false);
     const [service, setService] = useState("Telegram - bot");
     const [agreed, setAgreed] = useState(false);
+
+    // refs
+    const elementRef = useRef<HTMLDivElement>(null);
+    const titleRef = useRef<HTMLHeadingElement>(null);
+    const descriptionRef = useRef<HTMLParagraphElement>(null);
+    const formTitleRef = useRef<HTMLParagraphElement>(null);
 
     const handleSubmit = () => {
         setSuccess(true);
@@ -43,8 +52,32 @@ export default function Contact() {
             })
     }
 
+    useGSAP(() => {
+        const tl = textAnimation(titleRef.current, elementRef.current);
+        textAnimationTl(descriptionRef.current, elementRef.current, tl);
+        textAnimationTl(formTitleRef.current, elementRef.current, tl);
+
+        gsap.fromTo(
+            '.type',
+            {opacity: 0, scale: 0.8},
+            {
+                opacity: 1,
+                scale: 1,
+                delay: 1.2,
+                duration: 0.6,
+                stagger: 0.2,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: elementRef.current,
+                    start: 'top 80%',
+                },
+            }
+        )
+    })
+
     return (
         <section
+            ref={elementRef}
             id="contact"
             className="flex justify-center pt-20 sm:pt-32 md:pt-40 mb-20 sm:mb-32 md:mb-40 px-4 sm:px-6 lg:px-8 relative"
         >
@@ -58,16 +91,18 @@ export default function Contact() {
             </div>
             <div className="container relative z-10">
                 <div className="mb-10 sm:mb-16">
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+                    <h2 ref={titleRef} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
                         {t('title')} <span className="text-gray-400">{t('subtitle')}</span>
                     </h2>
-                    <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-gray-400">
+                    <span ref={descriptionRef}
+                          className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-gray-400">
                         {t('description')}
-                    </p>
+                    </span>
                 </div>
 
                 <form action={sendContact} ref={formRef} className="flex flex-col w-full lg:w-2/3 relative z-2">
-                    <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-800 mb-6 sm:mb-8">
+                    <h3 ref={formTitleRef}
+                        className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-800 mb-6 sm:mb-8">
                         {t('question')}
                     </h3>
 
@@ -86,7 +121,7 @@ export default function Contact() {
                                 key={index}
                                 type="button"
                                 onClick={() => addOrRemoveService(item)}
-                                className={`px-3 py-1 sm:px-4 sm:py-2 rounded-full shadow-sm shadow-gray-200 select-none cursor-pointer text-gray-800 font-medium text-sm sm:text-base transition-colors duration-700 ${service === item ? 'bg-[#00C8FF4D]' : ''}`}
+                                className={`type px-3 py-1 sm:px-4 sm:py-2 rounded-full shadow-sm shadow-gray-200 select-none cursor-pointer text-gray-800 font-medium text-sm sm:text-base transition-colors duration-700 ${service === item ? 'bg-[#00C8FF4D]' : ''}`}
                             >
                                 {item}
                             </button>
@@ -167,7 +202,7 @@ export default function Contact() {
                 <div
                     className="relative lg:absolute top-0 -right-10 w-full lg:w-[50%] lg:h-full bg-gradient-to-br rounded-3xl">
                     <div
-                        className={`flex absolute top-60 md:top-1/4 md:right-[65%] z-20 h-[192px] w-[333px] md:h-[203px] md:w-[565px] message ${success ? "message-open" : "message-close"}`}>
+                        className={`flex absolute top-60 md:top-1/4 md:right-[65%] z-20 h-[192px] w-[333px] md:h-[203px] md:w-[565px] ${success ? "message-open" : "message-close"}`}>
                         <div className="absolute w-full h-full left-0 top-0 z-0">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -238,18 +273,18 @@ export default function Contact() {
                         </div>
 
                         <div
-                            className="relative z-10 flex flex-col pt-16 md:pt-10 p-10 gap-2 md:gap-5 p-10 pt-14 w-full">
-              <span className="text-xl md:text-2xl font-semibold flex gap-2 w-full">
-                Заявка принята !{" "}
-                  <Image
-                      src="/images/icons/congrats.png"
-                      width="30"
-                      height="24"
-                      alt=""
-                  />{" "}
-              </span>
+                            className="relative z-10 flex flex-col md:pt-10 gap-2 md:gap-5 p-10 pt-14 w-full">
+                            <span className="text-xl md:text-2xl font-semibold flex gap-2 w-full">
+                                Заявка принята !{" "}
+                                  <Image
+                                      src="/images/icons/congrats.png"
+                                      width="30"
+                                      height="24"
+                                      alt=""
+                                  />{" "}
+                            </span>
                             <span className="md:text-xl flex gap-2 relative">
-                Скоро с вами свяжется специалист и проконсультирует вас !{" "}
+                                Скоро с вами свяжется специалист и проконсультирует вас !{" "}
                                 <Image
                                     className="absolute bottom-0 right-0 md:right-[48%]"
                                     src="/images/icons/smile.png"
@@ -257,7 +292,7 @@ export default function Contact() {
                                     height="24"
                                     alt=""
                                 />
-              </span>
+                            </span>
                         </div>
                     </div>
 

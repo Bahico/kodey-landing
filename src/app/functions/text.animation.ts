@@ -3,16 +3,19 @@ import gsap from 'gsap';
 export function textAnimation(name: gsap.DOMTarget, trigger: gsap.DOMTarget) {
     gsap.set(name, {opacity: 0, y: 30});
 
-    const tl = gsap.timeline();
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: trigger,
+            start: 'top 60%',
+            toggleActions: "play none none reverse",
+        }
+    });
+    
     tl.to(name, {
         opacity: 1,
         y: 0,
-        duration: 1,
+        duration: 0.5,
         ease: 'power3.out',
-        scrollTrigger: {
-            trigger: trigger,
-            start: 'top 80%',
-        },
     });
 
     return tl;
@@ -21,15 +24,11 @@ export function textAnimation(name: gsap.DOMTarget, trigger: gsap.DOMTarget) {
 export function textAnimationTl(name: gsap.DOMTarget, trigger: gsap.DOMTarget, tl: gsap.core.Timeline) {
     gsap.set(name, {opacity: 0, y: 30});
 
+    // Add to the existing timeline with a delay for staggered effect
     tl.to(name, {
         opacity: 1,
         y: 0,
         duration: 0.5,
         ease: 'power3.out',
-        scrollTrigger: {
-            trigger: trigger,
-            start: 'top 80%',
-        },
-    });
-
+    }, "+=0.2");
 }

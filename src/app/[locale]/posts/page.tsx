@@ -4,13 +4,26 @@ import PostsList from "../../components/postsList";
 import BackgroundAnimation from "@/app/components/BackgroundAnimation";
 import {nowSize} from "@/app/functions/now-size";
 import { useTranslations } from "next-intl";
+import {useRef} from "react";
+import {useGSAP} from "@gsap/react";
+import {textAnimation, textAnimationTl} from "@/app/functions/text.animation";
 
 export default function Posts() {
     const {lg} = nowSize();
     const t = useTranslations('posts');
 
+    // refs
+    const titleRef = useRef<HTMLHeadingElement>(null);
+    const descriptionRef = useRef<HTMLParagraphElement>(null);
+    const elementRef = useRef<HTMLDivElement>(null);
+
+    useGSAP(() => {
+        const tl = textAnimation(titleRef.current, elementRef.current);
+        textAnimationTl(descriptionRef.current, elementRef.current, tl);
+    })
+
     return (
-        <div className="relative w-full pt-[87px] overflow-hidden -mb-40">
+        <div ref={elementRef} className="relative w-full pt-[87px] overflow-hidden -mb-40">
             <div className="absolute top-[-30%] left-[-90%] w-[1600px] h-[1000px] z-0 flex md:hidden">
                 <BackgroundAnimation/>
             </div>
@@ -30,14 +43,14 @@ export default function Posts() {
                         />
 
                         <div className="flex flex-col mb-20 order-first md:order-none">
-                            <h1 className="md:text-6xl text-2xl text-black font-bold md:mb-6">
+                            <h1 ref={titleRef} className="md:text-6xl text-2xl text-black font-bold md:mb-6">
                                 {t('title')}
                                 <br className="flex md:hidden"/>
                                 <span className="text-gray-400 md:ml-4">{t('subtitle')}</span>
                             </h1>
-                            <p className="text-sm md:text-2xl text-gray-600 max-w-3xl leading-relaxed">
+                            <span ref={descriptionRef} className="text-sm md:text-2xl text-gray-600 max-w-3xl leading-relaxed">
                                 {t('description')}
-                            </p>
+                            </span>
                         </div>
                     </div>
                 </div>

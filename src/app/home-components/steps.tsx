@@ -1,16 +1,22 @@
 import { useGSAP } from "@gsap/react";
 import { GlassElement } from "../components/GlassElement/GlassElement";
 import gsap from "gsap";
-import { useEffect, useState } from "react";
+import {useEffect, useRef, useState} from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { nowSize } from "@/app/functions/now-size";
 import { useTranslations } from 'next-intl';
 import "./steps.css";
+import {textAnimation, textAnimationTl} from "@/app/functions/text.animation";
 
 export default function Steps() {
     const [activeStep, setActiveStep] = useState(0);
     const t = useTranslations('steps');
     const { md } = nowSize();
+
+    // refs
+    const titleRef = useRef<HTMLDivElement>(null);
+    const descriptionRef = useRef<HTMLDivElement>(null);
+    const elementRef = useRef<HTMLDivElement>(null);
 
     const steps = [
         {
@@ -76,6 +82,9 @@ export default function Steps() {
                 });
             }
         }, 100);
+
+        const tl = textAnimation(titleRef.current, elementRef.current);
+        textAnimationTl(descriptionRef.current, elementRef.current, tl);
     });
 
     const scrollTo = (step: number) => {
@@ -92,15 +101,16 @@ export default function Steps() {
         <section
             id="steps"
             className="bg-black text-white flex justify-center pt-20 sm:pt-30 md:pt-40"
+            ref={elementRef}
         >
             <div className="flex w-full items-center flex-col px-4 sm:px-6 lg:px-8">
                 <div className="container mb-12 sm:mb-16 lg:mb-20">
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2">
+                    <h2 ref={titleRef} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2">
                         {t('title')} <span className="text-[#929292]">{t('subtitle')}</span>
                     </h2>
-                    <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-[#929292]">
+                    <span ref={descriptionRef} className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-[#929292]">
                         {t('description')}
-                    </p>
+                    </span>
                 </div>
 
                 <div className="flex flex-col gap-10 w-full lg:h-150 h-auto justify-center relative">

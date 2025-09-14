@@ -1,13 +1,27 @@
 import { Link } from "@/i18n/navigation";
 import PostsList from "../components/postsList";
 import { useTranslations } from "next-intl";
+import {useRef} from "react";
+import {useGSAP} from "@gsap/react";
+import {textAnimation, textAnimationTl} from "@/app/functions/text.animation";
 
 export default function History() {
   const t = useTranslations('history');
 
+  // refs
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const descriptionRef = useRef<HTMLParagraphElement>(null);
+  const elementRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+      const tl = textAnimation(titleRef.current, elementRef.current);
+      textAnimationTl(descriptionRef.current, elementRef.current, tl);
+  })
+
   return (
     <section
       id="product-list"
+      ref={elementRef}
       className="bg-black flex justify-center w-full pt-10 sm:pt-10 md:pt-20 relative z-20"
     >
       <div
@@ -31,12 +45,12 @@ export default function History() {
       <div className="container px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="mb-12 sm:mb-16 lg:mb-20 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 sm:gap-0">
           <div className="">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 sm:mb-2 lg:mb-4 text-white">
+            <h2 ref={titleRef} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 sm:mb-2 lg:mb-4 text-white">
               {t('title')} <span className="text-[#929292]">{t('subtitle')}</span>
             </h2>
-            <p className="text-lg sm:text-xl lg:text-2xl font-light text-[#929292]">
+            <span ref={descriptionRef} className="text-lg sm:text-xl lg:text-2xl font-light text-[#929292]">
               {t('description')}
-            </p>
+            </span>
           </div>
 
           <Link
