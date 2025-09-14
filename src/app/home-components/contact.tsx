@@ -63,7 +63,7 @@ export default function Contact() {
             {
                 opacity: 1,
                 scale: 1,
-                delay: 1.2,
+                delay: 2.5,
                 duration: 0.6,
                 stagger: 0.2,
                 ease: 'power3.out',
