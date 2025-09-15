@@ -118,7 +118,7 @@ export default function Navbar({locale}: { locale: string}) {
                     <a href="/#product-list">
                         <GlassElement
                             className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
-                            width={150}
+                            width={locale === 'uz' ? 160 : 150}
                             height={50}
                             radius={43}
                             depth={10}

@@ -2,7 +2,7 @@ import Image from "next/image";
 import {useRef, useState} from "react";
 import "./contact.css";
 import {useTranslations} from "next-intl";
-import {getAxios, postAxios} from "@/api/api.functions";
+import {postAxios} from "@/api/api.functions";
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
 import {textAnimation, textAnimationTl} from "@/app/functions/text.animation";
@@ -108,22 +108,22 @@ export default function Contact() {
 
                     <div className="flex flex-wrap gap-2 sm:gap-4 mb-8 sm:mb-12 w-full lg:w-2/3">
                         {[
-                            "Telegram - bot",
-                            "Telegram - app",
-                            "Сайт (лендинг)",
-                            "Сайт (многостраничный)",
-                            "Мобильное приложение",
-                            "CRM",
-                            "Аутстафф",
-                            "Другое",
+                            "telegram",
+                            "telegram-app",
+                            "website",
+                            "website-multi",
+                            "mobile-app",
+                            "crm",
+                            "outsourcing",
+                            "other",
                         ].map((item, index) => (
                             <button
                                 key={index}
                                 type="button"
-                                onClick={() => addOrRemoveService(item)}
-                                className={`type px-3 py-1 sm:px-4 sm:py-2 rounded-full shadow-sm shadow-gray-200 select-none cursor-pointer text-gray-800 font-medium text-sm sm:text-base transition-colors duration-700 ${service === item ? 'bg-[#00C8FF4D]' : ''}`}
+                                onClick={() => addOrRemoveService(t(item))}
+                                className={`type px-3 py-1 sm:px-4 sm:py-2 rounded-full shadow-sm shadow-gray-200 select-none cursor-pointer text-gray-800 font-medium text-sm sm:text-base transition-colors duration-700 ${service === t(item) ? 'bg-[#00C8FF4D]' : ''}`}
                             >
-                                {item}
+                                {t(item)}
                             </button>
                         ))}
                     </div>
@@ -131,7 +131,7 @@ export default function Contact() {
                     <div className="space-y-6 sm:space-y-8">
                         <div>
                             <label className="block text-gray-800 text-lg sm:text-xl md:text-2xl mb-2">
-                                Имя*
+                                {t('name')}*
                             </label>
                             <input
                                 type="text"
@@ -142,7 +142,7 @@ export default function Contact() {
                         </div>
                         <div>
                             <label className="block text-gray-800 text-lg sm:text-xl md:text-2xl mb-2">
-                                Телефон*
+                                {t('phone')}*
                             </label>
                             <input
                                 type="tel"
@@ -153,7 +153,7 @@ export default function Contact() {
                         </div>
                         <div>
                             <label className="block text-gray-800 text-lg sm:text-xl md:text-2xl mb-2">
-                                Email*
+                                {t('email')}*
                             </label>
                             <input
                                 type="email"
@@ -164,7 +164,7 @@ export default function Contact() {
                         </div>
                         <div>
                             <label className="block text-gray-800 text-lg sm:text-xl md:text-2xl mb-2">
-                                Краткое техническое задание
+                                {t('message')}
                             </label>
                             <textarea
                                 name="description"
@@ -184,7 +184,7 @@ export default function Contact() {
                                 className="w-6 h-6 sm:w-8 sm:h-8 rounded border-2 border-gray-300 mt-1 sm:mt-0"
                             />
                             <span className="text-gray-500 text-sm sm:text-lg md:text-xl">
-                                Я соглашаюсь на обработку персональных данных
+                                {t('agreement')}
                             </span>
                         </div>
 
@@ -194,7 +194,7 @@ export default function Contact() {
                             type="submit"
                             disabled={!agreed}
                         >
-                            Оставить заявку
+                            {t('send')}
                         </button>
                     </div>
                 </form>

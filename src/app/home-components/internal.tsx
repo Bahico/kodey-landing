@@ -5,6 +5,7 @@ import {getAxios, photoUrl} from "@/api/api.functions";
 import {useTranslations} from "next-intl";
 import {useGSAP} from "@gsap/react";
 import {textAnimation, textAnimationTl} from "@/app/functions/text.animation";
+import {Link} from "@/i18n/navigation";
 
 
 export default function Internal() {
@@ -84,39 +85,40 @@ export default function Internal() {
                 {/* Blog Posts Grid */}
                 <div className="flex items-center gap-10 overflow-x-auto">
                     {posts.map((post, index) => (
-                        <div
-                            key={post._id}
-                            className="min-w-1/3 w-1/3 lg:min-w-[300px]"
-                            onClick={() => handleClick(index)}
-                        >
+                        <Link href={'/articles/'+post._id} key={post._id}>
                             <div
-                                className={`flex flex-col gap-6 transition-all duration-300 ${activeIndex === index ? "" : "pt-10 pb-20 unactive"}`}
+                                className="min-w-1/3 w-1/3 lg:min-w-[300px]"
+                                onClick={() => handleClick(index)}
                             >
                                 <div
-                                    className={`relative w-full overflow-hidden rounded-lg transition-all duration-300 ${activeIndex === index ? "h-[180px] lg:h-[444px]" : "h-[120px] lg:h-[296px]"}`}
+                                    className={`flex flex-col gap-6 transition-all duration-300 ${activeIndex === index ? "" : "pt-10 pb-20 unactive"}`}
                                 >
-                                    <img
-                                        src={photoUrl(post.photo)}
-                                        alt={post.title}
-                                        className="object-cover w-full h-full"
-                                    />
-                                </div>
-                                <div className="flex flex-col gap-3">
-                                    <div className="flex items-center justify-between text-sm md:text-base">
-                                        <span className="text-cyan-400 text-xl">#{post.tags.join(', #')}</span>
-                                        <span className="text-gray-500">{post.publishedAt}</span>
+                                    <div
+                                        className={`relative w-full overflow-hidden rounded-lg transition-all duration-300 ${activeIndex === index ? "h-[180px] lg:h-[444px]" : "h-[120px] lg:h-[296px]"}`}
+                                    >
+                                        <img
+                                            src={photoUrl(post.photo)}
+                                            alt={post.title}
+                                            className="object-cover w-full h-full"
+                                        />
                                     </div>
-                                    <div className="flex flex-col gap-6">
-                                        <h3 className="text-2xl md:text-3xl font-medium text-gray-300 leading-tight">
-                                            {post.title}
-                                        </h3>
-                                        <p className="text-gray-500 text-sm md:text-base leading-relaxed">
-                                            {post.excerpt}
-                                        </p>
+                                    <div className="flex flex-col gap-3">
+                                        <div className="flex items-center justify-between text-sm md:text-base">
+                                            <span className="text-cyan-400 text-xl">#{post.tags.join(', #')}</span>
+                                            <span className="text-gray-500">{post.publishedAt}</span>
+                                        </div>
+                                        <div className="flex flex-col gap-6">
+                                            <h3 className="text-2xl md:text-3xl font-medium text-gray-300 leading-tight">
+                                                {post.title}
+                                            </h3>
+                                            <p className="text-gray-500 text-sm md:text-base leading-relaxed">
+                                                {post.excerpt}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </div>

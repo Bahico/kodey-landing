@@ -2,7 +2,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useTranslations } from "next-intl";
 import {useEffect, useRef, useState} from "react";
-import { getAxios } from "@/api/api.functions";
+import {getAxios, photoUrl} from "@/api/api.functions";
 import {textAnimation, textAnimationTl} from "@/app/functions/text.animation";
 
 export default function Services() {
@@ -16,9 +16,6 @@ export default function Services() {
     const elementRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        const panelsContainer = document.querySelector("#services-container");
-        setHeight(panelsContainer.scrollWidth - window.innerWidth + panelsContainer.scrollHeight + 400);
-
         getAxios('services').then((res: any) => {
             setServices(res.data);
         });
@@ -26,13 +23,15 @@ export default function Services() {
 
     useGSAP(() => {
         setTimeout(() => {
-            const panels = gsap.utils.toArray("#services-container .service");
             const panelsContainer = document.querySelector("#services-container");
+            setHeight(panelsContainer.scrollWidth - window.innerWidth + panelsContainer.scrollHeight + 440);
+
+            const panels = gsap.utils.toArray("#services-container .service");
             gsap.to(panels, {
                 x: () => -1 * (panelsContainer.scrollWidth - innerWidth),
                 ease: "none",
             });
-        }, 100);
+        }, 1000);
 
     }, [services]);
 
@@ -79,14 +78,14 @@ export default function Services() {
                             <div
                                 className="absolute top-0 w-full h-[320px] sm:h-[400px] md:h-[480px] lg:h-[600px] flex justify-center items-center z-10">
                                 <img
-                                    src={`/images/bot/${service.image}`}
-                                    className="grayscale group-hover:grayscale-0 transition-all duration-300 w-2/3 h-full object-contain"
+                                    src={photoUrl(service.photo)}
+                                    className="grayscale group-hover:grayscale-0 transition-all duration-300 w-2/3 h-full object-cover"
                                     alt=""
                                 />
                             </div>
 
                             <div
-                                className="card-shadow p-4 sm:p-6 lg:p-8 h-[280px] sm:h-[320px] md:h-[380px] lg:h-[465px] rounded-xl sm:rounded-2xl flex flex-col justify-end bg-[#0C0C0C99] group-hover:bg-[#0C0C0CE5] transition-all duration-300">
+                                className="card-shadow p-4 w-full sm:p-6 lg:p-8 h-[280px] sm:h-[320px] md:h-[380px] lg:h-[465px] rounded-xl sm:rounded-2xl flex flex-col justify-end bg-[#0C0C0C99] group-hover:bg-[#0C0C0CE5] transition-all duration-300">
                                 <div>
                                     <h3
                                         className={`text-lg sm:text-xl lg:text-2xl font-semibold mb-2 sm:mb-3 lg:mb-4 text-[#929292] group-hover:text-gray-200 transition-all duration-300`}

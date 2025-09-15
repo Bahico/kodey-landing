@@ -22,37 +22,37 @@ export default function Steps() {
         {
             title: t('step1.title'),
             description: t('step1.description'),
-            image: "images/home/5ef3e749c7570d2f0dbd733d4b1f59e6037e1402.png",
+            image: "/images/home/5ef3e749c7570d2f0dbd733d4b1f59e6037e1402.png",
         },
         {
             title: t('step2.title'),
             description: t('step2.description'),
-            image: "images/home/Frame 1337.png",
+            image: "/images/home/Frame 1337.png",
         },
         {
             title: t('step3.title'),
             description: t('step3.description'),
-            image: "images/home/Frame 1345.png",
+            image: "/images/home/Frame 1345.png",
         },
         {
             title: t('step4.title'),
             description: t('step4.description'),
-            image: "images/home/Frame 1314.png",
+            image: "/images/home/Frame 1314.png",
         },
         {
             title: t('step5.title'),
             description: t('step5.description'),
-            image: "images/home/Frame 1346.png",
+            image: "/images/home/Frame 1346.png",
         },
         {
             title: t('step6.title'),
             description: t('step6.description'),
-            image: "images/home/Frame 1347.png",
+            image: "/images/home/Frame 1347.png",
         },
         {
             title: t('step7.title'),
             description: t('step7.description'),
-            image: "images/home/Frame 1348.png",
+            image: "/images/home/Frame 1348.png",
         },
     ];
 

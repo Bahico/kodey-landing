@@ -1,22 +1,20 @@
 'use client';
 import {useParams} from "next/navigation";
 import {useEffect, useState} from "react";
-import {getAxios} from "@/api/api.functions";
 import {CaseModel} from "@/models/case.model";
+import {getAxios} from "@/api/api.functions";
 import DetailComponent from "@/app/components/detailComponent";
 
-export default function Post() {
+export default function Article() {
     const params = useParams();
     const id = params.id as string;
     const [post, setPost] = useState<CaseModel | null>(null);
 
     useEffect(() => {
-        getAxios(`cases/${id}`).then(res => {
+        getAxios(`articles/${id}`).then(res => {
             setPost(res.data);
         });
     }, [id]);
 
-    return (
-        <DetailComponent post={post} />
-    );
+    return <DetailComponent post={post} />
 }
