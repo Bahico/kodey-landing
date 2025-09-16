@@ -9,7 +9,10 @@
   "home": {
     "title": "of mobile applications and digital services",
     "button": "Submit a request",
-    "description": "We will contact you within 24 hours after submitting your request."
+    "description": "We will contact you within 24 hours after submitting your request.",
+    "development": "Development",
+    "design": "Design",
+    "support": "Support"
   },
   "human-factor": {
     "title1": "Human",

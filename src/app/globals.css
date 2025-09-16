@@ -88,7 +88,7 @@ body {
   top: 0;
   right: 0;
   transform: translate(50%, 0);
-  background-image: url("../../public/images/background/background.svg");
+  background-image: url("../../public/images/background/background.png");
   background-size: 101% 101%; /* Safari fix for SVG background gaps */
   background-position: right center;
   background-repeat: no-repeat;

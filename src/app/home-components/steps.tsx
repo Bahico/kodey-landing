@@ -294,7 +294,7 @@ function StepImage({ steps }: {
                         ))}
                     </GlassElement>
                     <img
-                        src="images/background/background.svg"
+                        src="images/background/background.png"
                         alt=""
                         className="absolute flex top-[-275px] right-[-275px] w-[1100px] h-[1100px] z-0"
                     />
@@ -323,7 +323,7 @@ function StepImage({ steps }: {
                 ))}
             </div>
             <img
-                src="images/background/background.svg"
+                src="images/background/background.png"
                 alt=""
                 className="absolute flex top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] z-0"
             />

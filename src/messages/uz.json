@@ -1,111 +1,114 @@
 {
-    "navigation": {
-        "home": "Bosh sahifa",
-        "cases": "Keyslar",
-        "services": "Xizmatlar",
-        "blog": "Blog",
-        "contact": "Bogʻlanish"
+  "navigation": {
+    "home": "Bosh sahifa",
+    "cases": "Keyslar",
+    "services": "Xizmatlar",
+    "blog": "Blog",
+    "contact": "Bogʻlanish"
+  },
+  "home": {
+    "title": "ilovalar va raqamli servislarni ishlab chiqish",
+    "button": "Ariza qoldirish",
+    "description": "Ariza topshirilganidan keyin 24 soat ichida siz bilan bogʻlanamiz.",
+    "development": "Rivojlanish",
+    "design": "Dizayn",
+    "support": "Qo'llab-quvvatlash"
+  },
+  "human-factor": {
+    "title1": "Inson",
+    "title2": "omili",
+    "description": "Biz robot emasmiz. Lekin avtomatlashtirishni yaxshi koʻramiz",
+    "description1": "Biz kichik, ammo jips IT-jamoamiz, turli tajriba va ixtisoslikka ega dasturchilarni birlashtiramiz. Saytlar, mobil ilovalar, Telegram-botlar va ichki servislar yaratamiz.",
+    "description2": "Biz uchun muloqotdagi soddalik, ishdagi shaffoflik va uyalmaydigan natija muhim",
+    "description3": "Biz yagona mexanizm kabi ishlaymiz: har kim oʻz ishini biladi va jamoani kuchaytiradi.",
+    "btn": "Bizni kuzating"
+  },
+  "services": {
+    "title": "Digital",
+    "subtitle": "asboblar toʻplami",
+    "description": "Biz nimalarni qila olamiz — va ularni yaxshi bajarimiz"
+  },
+  "history": {
+    "title": "Amalga oshirish",
+    "subtitle": "arxivi",
+    "description": "Gʻoyadan prodakshngacha — biz hayotga tatbiq etgan hamma narsalar",
+    "button": "Barcha bloglar"
+  },
+  "location": {
+    "title": "Operatsiyalar",
+    "subtitle": "bazasi",
+    "description": "Bizning haqiqiy dunyodagi manzilimiz",
+    "place": "Oʻzbekiston - Samarkand"
+  },
+  "internal": {
+    "title": "Ichki",
+    "subtitle": "efir",
+    "description": "Jarayonimizning ort sahnadagi kontenti — faqat koʻrsatish uchun emas"
+  },
+  "contact": {
+    "title": "Signal",
+    "subtitle": "yuborish",
+    "description": "Vazifani tasvirlab bering — biz aloqadamiz va maʼlumotlarni qabul qilishga tayyormiz",
+    "question": "Qaysi vazifa bizni kutmoqda?",
+    "telegram": "Telegram - bot",
+    "telegram-app": "Telegram - app",
+    "website": "Sayt (landings)",
+    "website-multi": "Sayt (koʻp sahifali)",
+    "mobile-app": "Mobil ilova",
+    "crm": "CRM",
+    "outsourcing": "Austaf",
+    "other": "Boshqa",
+    "name": "Ism",
+    "email": "Email",
+    "phone": "Telefon",
+    "message": "Qisqa texnik topshiriq",
+    "send": "Ariza qoldirish",
+    "agreement": "Shaxsiy maʼlumotlarni qayta ishlashga roziman"
+  },
+  "steps": {
+    "title": "Prodyukshnga",
+    "subtitle": "yoʻl",
+    "description": "Har bir qadam natijaga olib boradigan aniq tizim",
+    "step1": {
+      "title": "Ariza qabul qilish",
+      "description": "Biz sizning arizangizni diqqat bilan oʻrganamiz, proyekt maqsadini, kutgan natijalaringiz va masalaning xususiyatlarini tushunish uchun. Bu sifatli ishlash uchun asosiy nuqta."
     },
-    "home": {
-        "title": "ilovalar va raqamli servislarni ishlab chiqish",
-        "button": "Ariza qoldirish",
-        "description": "Ariza topshirilganidan keyin 24 soat ichida siz bilan bogʻlanamiz."
+    "step2": {
+      "title": "Talablarni yigʻish",
+      "description": "Kelajakdagi mahsulotning barcha xohishlari, cheklovlari va xususiyatlarini aniqlash uchun savollar beramiz, intervyu yoki brifing oʻtkazamiz."
     },
-    "human-factor": {
-        "title1": "Inson",
-        "title2": "omili",
-        "description": "Biz robot emasmiz. Lekin avtomatlashtirishni yaxshi koʻramiz",
-        "description1": "Biz kichik, ammo jips IT-jamoamiz, turli tajriba va ixtisoslikka ega dasturchilarni birlashtiramiz. Saytlar, mobil ilovalar, Telegram-botlar va ichki servislar yaratamiz.",
-        "description2": "Biz uchun muloqotdagi soddalik, ishdagi shaffoflik va uyalmaydigan natija muhim",
-        "description3": "Biz yagona mexanizm kabi ishlaymiz: har kim oʻz ishini biladi va jamoani kuchaytiradi.",
-        "btn": "Bizni kuzating"
+    "step3": {
+      "title": "Texnik topshiriqni kelishish",
+      "description": "Loyihaning bosqichlari, funksiyalari va natijalari aniq yozilgan texnik topshiriqni tayyorlaymiz. Uni loyiha boshlanishidan oldin siz bilan kelishamiz."
     },
-    "services": {
-        "title": "Digital",
-        "subtitle": "asboblar toʻplami",
-        "description": "Biz nimalarni qila olamiz — va ularni yaxshi bajarimiz"
+    "step4": {
+      "title": "Interfeys dizayni",
+      "description": "Qulay, intuitiv va vizual jihatdan jozibador boʻladigan UX/UI dizayn ishlab chiqamiz. Prototiplar va vizual yechimlar yaratamiz."
     },
-    "history": {
-        "title": "Amalga oshirish",
-        "subtitle": "arxivi",
-        "description": "Gʻoyadan prodakshngacha — biz hayotga tatbiq etgan hamma narsalar",
-        "button": "Barcha bloglar"
+    "step5": {
+      "title": "Ishlab chiqish",
+      "description": "Ushbu bosqichda loyiha jonlanadi — dasturchilar barcha funksiyalarni texnik topshiriq va dizayn-maketlarga muvofiq amalga oshiradilar."
     },
-    "location": {
-        "title": "Operatsiyalar",
-        "subtitle": "bazasi",
-        "description": "Bizning haqiqiy dunyodagi manzilimiz",
-        "place": "Oʻzbekiston - Samarkand"
+    "step6": {
+      "title": "Sinov",
+      "description": "Tizimni xatoliklar, nosozliklar va kamchiliklar mavjudligini tekshiramiz. Hammasi turli qurilmalarda va brauzerlarda barqaror ishlashiga ishonch hosil qilamiz."
     },
-    "internal": {
-        "title": "Ichki",
-        "subtitle": "efir",
-        "description": "Jarayonimizning ort sahnadagi kontenti — faqat koʻrsatish uchun emas"
-    },
-    "contact": {
-        "title": "Signal",
-        "subtitle": "yuborish",
-        "description": "Vazifani tasvirlab bering — biz aloqadamiz va maʼlumotlarni qabul qilishga tayyormiz",
-        "question": "Qaysi vazifa bizni kutmoqda?",
-        "telegram": "Telegram - bot",
-        "telegram-app": "Telegram - app",
-        "website": "Sayt (landings)",
-        "website-multi": "Sayt (koʻp sahifali)",
-        "mobile-app": "Mobil ilova",
-        "crm": "CRM",
-        "outsourcing": "Austaf",
-        "other": "Boshqa",
-        "name": "Ism",
-        "email": "Email",
-        "phone": "Telefon",
-        "message": "Qisqa texnik topshiriq",
-        "send": "Ariza qoldirish",
-        "agreement": "Shaxsiy maʼlumotlarni qayta ishlashga roziman"
-    },
-    "steps": {
-        "title": "Prodyukshnga",
-        "subtitle": "yoʻl",
-        "description": "Har bir qadam natijaga olib boradigan aniq tizim",
-        "step1": {
-            "title": "Ariza qabul qilish",
-            "description": "Biz sizning arizangizni diqqat bilan oʻrganamiz, proyekt maqsadini, kutgan natijalaringiz va masalaning xususiyatlarini tushunish uchun. Bu sifatli ishlash uchun asosiy nuqta."
-        },
-        "step2": {
-            "title": "Talablarni yigʻish",
-            "description": "Kelajakdagi mahsulotning barcha xohishlari, cheklovlari va xususiyatlarini aniqlash uchun savollar beramiz, intervyu yoki brifing oʻtkazamiz."
-        },
-        "step3": {
-            "title": "Texnik topshiriqni kelishish",
-            "description": "Loyihaning bosqichlari, funksiyalari va natijalari aniq yozilgan texnik topshiriqni tayyorlaymiz. Uni loyiha boshlanishidan oldin siz bilan kelishamiz."
-        },
-        "step4": {
-            "title": "Interfeys dizayni",
-            "description": "Qulay, intuitiv va vizual jihatdan jozibador boʻladigan UX/UI dizayn ishlab chiqamiz. Prototiplar va vizual yechimlar yaratamiz."
-        },
-        "step5": {
-            "title": "Ishlab chiqish",
-            "description": "Ushbu bosqichda loyiha jonlanadi — dasturchilar barcha funksiyalarni texnik topshiriq va dizayn-maketlarga muvofiq amalga oshiradilar."
-        },
-        "step6": {
-            "title": "Sinov",
-            "description": "Tizimni xatoliklar, nosozliklar va kamchiliklar mavjudligini tekshiramiz. Hammasi turli qurilmalarda va brauzerlarda barqaror ishlashiga ishonch hosil qilamiz."
-        },
-        "step7": {
-            "title": "Ishga tushirish va qoʻllab-quvvatlash",
-            "description": "Loyihani ishga tushiramiz va uning toʻgʻri ishlashini kuzatib boramiz. Texnik yordam, yangilanishlar va zarurat tugʻilganda takomillashtirishni amalga oshiramiz."
-        }
-    },
-    "posts": {
-        "title": "Ichki",
-        "subtitle": "efir",
-        "description": "Foydali maqolalar, kesimlar va mobil dasturlash dunyasidagi yangiliklar"
-    },
-    "footer": {
-        "title": "Doim",
-        "subtitle": "aloqadamiz",
-        "description": "12:00 dan 20:00 gacha",
-        "description2": "MSK vaqti",
-        "place": "140158, Oʻzbekiston, Samarqand shahri, Avesto koʻchasi, 78B uy",
-        "privacy": "Maxfiylik siyosati"
+    "step7": {
+      "title": "Ishga tushirish va qoʻllab-quvvatlash",
+      "description": "Loyihani ishga tushiramiz va uning toʻgʻri ishlashini kuzatib boramiz. Texnik yordam, yangilanishlar va zarurat tugʻilganda takomillashtirishni amalga oshiramiz."
     }
+  },
+  "posts": {
+    "title": "Ichki",
+    "subtitle": "efir",
+    "description": "Foydali maqolalar, kesimlar va mobil dasturlash dunyasidagi yangiliklar"
+  },
+  "footer": {
+    "title": "Doim",
+    "subtitle": "aloqadamiz",
+    "description": "12:00 dan 20:00 gacha",
+    "description2": "MSK vaqti",
+    "place": "140158, Oʻzbekiston, Samarqand shahri, Avesto koʻchasi, 78B uy",
+    "privacy": "Maxfiylik siyosati"
+  }
 }

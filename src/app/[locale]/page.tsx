@@ -65,7 +65,7 @@ export default function SimpleHome() {
         // First text animation
         tl.to("#title-home", {
             duration: 1,
-            text: "Разработка",
+            text: t('development'),
         })
             // Wait a bit
             .to("#title-home", {
@@ -80,7 +80,7 @@ export default function SimpleHome() {
             // Write the second text
             .to("#title-home", {
                 duration: 1,
-                text: "Дизайн",
+                text: t('design'),
             })
             // Wait a bit
             .to("#title-home", {
@@ -94,7 +94,7 @@ export default function SimpleHome() {
             })
             .to("#title-home", {
                 duration: 1,
-                text: "Поддержка",
+                text: t('support'),
             })
             // Wait a bit
             .to("#title-home", {
