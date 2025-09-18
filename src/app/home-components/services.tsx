@@ -1,6 +1,6 @@
-import { useGSAP } from "@gsap/react";
+import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
-import { useTranslations } from "next-intl";
+import {useTranslations} from "next-intl";
 import {useEffect, useRef, useState} from "react";
 import {getAxios, photoUrl} from "@/api/api.functions";
 import {textAnimation, textAnimationTl} from "@/app/functions/text.animation";
@@ -17,35 +17,44 @@ export default function Services() {
 
     useEffect(() => {
         getAxios('services').then((res: any) => {
-            setServices(res.data);
+            setServices([...res.data, ...res.data]);
+
+            setTimeout(() => {
+                const panelsContainer = document.querySelector("#services-container");
+                setHeight(panelsContainer.scrollWidth - window.innerWidth + panelsContainer.scrollHeight + (window.innerWidth > 768 ? 440 : 280));
+            }, 100)
         });
     }, []);
 
     useGSAP(() => {
-        setTimeout(() => {
-            const panelsContainer = document.querySelector("#services-container");
-            setHeight(panelsContainer.scrollWidth - window.innerWidth + panelsContainer.scrollHeight + 440);
 
+        const tl = textAnimation(titleRef.current, elementRef.current);
+        textAnimationTl(descriptionRef.current, elementRef.current, tl);
+
+        setTimeout(() => {
             const panels = gsap.utils.toArray("#services-container .service");
+            const panelsContainer = document.querySelector("#services-container");
+
             gsap.to(panels, {
                 x: () => -1 * (panelsContainer.scrollWidth - innerWidth),
                 ease: "none",
+                scrollTrigger: {
+                    trigger: "#services-container",
+                    pin: true,
+                    start: "top top",
+                    scrub: 1,
+                    end: () => "+=" + (panelsContainer.scrollWidth - innerWidth)
+                }
             });
-        }, 1000);
-
-    }, [services]);
-
-    useGSAP(() => {
-        const tl = textAnimation(titleRef.current, elementRef.current);
-        textAnimationTl(descriptionRef.current, elementRef.current, tl);
-    });
+        }, 1000)
+    })
 
     return (
         <section
             id="services"
             ref={elementRef}
-            className={`bg-black flex justify-center w-full pt-20 sm:pt-30 md:pt-40 relative`}
-            style={{ height: `${height}px` }}
+            className="bg-black flex justify-center w-full pt-20 sm:pt-30 md:pt-40 relative min-h-[1000px]"
+            style={{height: `${height}px`}}
         >
             <div
                 className="absolute top-20 sm:top-40 md:top-120 left-4 sm:left-6 md:left-10 w-[300px] h-[400px] sm:w-[500px] sm:h-[600px] md:w-[700px] md:h-[800px] lg:w-[900px] lg:h-[1000px] z-0">
@@ -58,10 +67,12 @@ export default function Services() {
 
             <div className="w-full flex flex-col items-center px-6 lg:px-8 relative">
                 <div className="sticky top-5 left-10 container mb-12 sm:mb-16 lg:mb-20">
-                    <h2 ref={titleRef} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 lg:mb-8 text-white">
+                    <h2 ref={titleRef}
+                        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 lg:mb-8 text-white">
                         {t('title')} <span className="text-[#929292]">— {t('subtitle')}</span>
                     </h2>
-                    <span ref={descriptionRef} className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-[#929292]">
+                    <span ref={descriptionRef}
+                          className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-[#929292]">
                         {t('description')}
                     </span>
                 </div>
@@ -85,7 +96,7 @@ export default function Services() {
                             </div>
 
                             <div
-                                className="card-shadow p-4 w-full sm:p-6 lg:p-8 h-[280px] sm:h-[320px] md:h-[380px] lg:h-[465px] rounded-xl sm:rounded-2xl flex flex-col justify-end bg-[#0C0C0C99] group-hover:bg-[#0C0C0CE5] transition-all duration-300">
+                                className="card-shadow p-4 sm:p-6 lg:p-8 h-[280px] sm:h-[320px] md:h-[380px] lg:h-[465px] rounded-xl sm:rounded-2xl flex flex-col justify-end bg-[#0C0C0C99] group-hover:bg-[#0C0C0CE5] transition-all duration-300">
                                 <div>
                                     <h3
                                         className={`text-lg sm:text-xl lg:text-2xl font-semibold mb-2 sm:mb-3 lg:mb-4 text-[#929292] group-hover:text-gray-200 transition-all duration-300`}

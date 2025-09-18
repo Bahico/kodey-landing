@@ -187,15 +187,11 @@ export default function Contact() {
                                 {t('agreement')}
                             </span>
                         </div>
-
-                        <button
+                        <input
                             className="text-white btn-gradient rounded-2xl text-lg sm:text-xl md:text-2xl font-semibold hover:shadow-lg transition-shadow w-full sm:w-[280px] md:w-[320px] h-[60px] sm:h-[70px] md:h-[80px] disabled:opacity-50 disabled:cursor-not-allowed"
-                            onClick={() => handleOpen()}
                             type="submit"
-                            disabled={!agreed}
-                        >
-                            {t('send')}
-                        </button>
+                            value={t('send')}
+                        />
                     </div>
                 </form>
 

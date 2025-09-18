@@ -44,12 +44,15 @@ export default async function LocaleLayout({ children, params }: Props) {
 
     return (
         <html lang={locale} data-theme="light" data-scroll-behavior="smooth">
-            <link rel="icon" href="/images/logos/favicon.svg" />
+            <head>
+                <link rel="icon" href="/images/logos/favicon.svg" className="rotate-y-190" />
+                <title>Kodey</title>
+            </head>
 
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col items-center w-full`}
             >
-                <NextIntlClientProvider messages={messages}>
+                <NextIntlClientProvider locale={locale} messages={messages}>
                     {/* SVG Gradient Definitions */}
                     <svg width="0" height="0" style={{ position: "absolute" }}>
                         <defs>
@@ -96,25 +99,25 @@ export default async function LocaleLayout({ children, params }: Props) {
                                         {(messages.navigation as any)?.home || 'Главная'}
                                     </a>
                                     <a
-                                        href="#"
+                                        href={`/${locale}/#product-list`}
                                         className="block text-base sm:text-lg md:text-xl font-medium hover:text-blue-400 transition-colors"
                                     >
                                         {(messages.navigation as any)?.cases || 'Кейсы'}
                                     </a>
                                     <a
-                                        href="#"
+                                        href={`/${locale}/#services`}
                                         className="block text-base sm:text-lg md:text-xl font-medium hover:text-blue-400 transition-colors"
                                     >
                                         {(messages.navigation as any)?.services || 'Услуги'}
                                     </a>
                                     <a
-                                        href="#"
+                                        href={`/${locale}/#internal`}
                                         className="block text-base sm:text-lg md:text-xl font-medium hover:text-blue-400 transition-colors"
                                     >
                                         {(messages.navigation as any)?.blog || 'Блог'}
                                     </a>
                                     <a
-                                        href="#"
+                                        href={`/${locale}/#contact`}
                                         className="block text-base sm:text-lg md:text-xl font-medium hover:text-blue-400 transition-colors"
                                     >
                                         {(messages.navigation as any)?.contact || 'Связаться'}

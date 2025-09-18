@@ -32,7 +32,7 @@ export default function Navbar({locale}: { locale: string}) {
             const route = pathname.split('/')[2];
 
             if (route === undefined) {
-                const contact = document.getElementById('contact').offsetTop;
+                const contact = document.getElementById('contact')?.offsetTop;
 
                 return setBlur(window.scrollY > routes[''] && window.scrollY < contact);
             }
@@ -71,16 +71,16 @@ export default function Navbar({locale}: { locale: string}) {
                 className={`flex items-center justify-between container py-2 px-1 md:px-4 rounded-[80px] transition-colors duration-500 ${blur ? "text-white bg-[#151515A6]" : ""}`}>
                 <Link href="/" className="flex items-center gap-4 ml-2 sm:ml-0">
                     <img
-                        src="/images/logos/favicon.svg"
+                        src="/images/logos/logo.png"
                         alt="Logo"
-                        className="w-14 h-16 rotate-y-190"
+                        className="w-14 h-16"
                     />
                     <Image src="/images/logos/logo.svg" alt="logo" width={100} height={100}/>
                 </Link>
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex items-center gap-5">
-                    <Link href="/">
+                    <a href={`/${locale}`}>
                         <GlassElement
                             className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md text-white hover:bg-gray-50 transition-colors"
                             width={locale === 'uz' ? 210 : 180}
@@ -113,9 +113,9 @@ export default function Navbar({locale}: { locale: string}) {
                                 {t('home')}
                             </span>
                         </GlassElement>
-                    </Link>
+                    </a>
 
-                    <a href="/#product-list">
+                    <a href={`/${locale}/#product-list`}>
                         <GlassElement
                             className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
                             width={locale === 'uz' ? 160 : 150}
@@ -149,7 +149,7 @@ export default function Navbar({locale}: { locale: string}) {
                             </span>
                         </GlassElement>
                     </a>
-                    <a href="/#services">
+                    <a href={`/${locale}/#services`}>
                         <GlassElement
                             className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
                             width={180}
@@ -184,7 +184,7 @@ export default function Navbar({locale}: { locale: string}) {
                             </span>
                         </GlassElement>
                     </a>
-                    <a href="/#internal">
+                    <a href={`/${locale}/#internal`}>
                         <GlassElement
                             className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
                             width={150}
@@ -215,7 +215,7 @@ export default function Navbar({locale}: { locale: string}) {
                             </span>
                         </GlassElement>
                     </a>
-                    <a href="/#contact">
+                    <a href={`/${locale}/#contact`}>
                         <GlassElement
                             className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
                             width={190}
@@ -249,7 +249,7 @@ export default function Navbar({locale}: { locale: string}) {
                 </nav>
 
                 {/* Mobile Navigation */}
-                <MobileNavbar />
+                <MobileNavbar locale={locale} />
             </div>
         </header>
     );

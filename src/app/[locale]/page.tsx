@@ -19,7 +19,6 @@ import {useTranslations} from "next-intl";
 import {textAnimation, textAnimationTl} from "@/app/functions/text.animation";
 import {Employees} from "@/app/home-components/employees";
 
-
 gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -144,13 +143,13 @@ export default function SimpleHome() {
                             </div>
                             <h1
                                 ref={titleRef}
-                                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl h-12 md:h-20 z-10 flex mb-4 sm:mb-6 lg:mb-8"
+                                className="text-4xl md:text-[72px] lg:text-[92px] z-10 flex mb-4 sm:mb-6 lg:mb-8"
                             >
                                 <span id="title-home" className="primary-gradient font-bold"></span>
                                 <span className="text-[#242424] ml-2 overflow-hidden flex" id="title-home-separator">|</span>
                             </h1>
 
-                            <h1 ref={descriptionRef} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-[#929292] mb-4 sm:mb-10 lg:mb-30 z-10 w-[471px] md:w-[850px]">
+                            <h1 ref={descriptionRef} className="text-[30px] md:text-[42px] lg:text-[72px] font-light text-[#929292] mb-4 sm:mb-10 lg:mb-30 z-10 w-[471px] md:w-[850px]">
                                 {t('title')}
                             </h1>
                             <Link href="/#contact">

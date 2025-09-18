@@ -154,16 +154,17 @@ export function Employees() {
                                 ))}
 
                                 <GlassElement
-                                    className="flex flex-col justify-center z-10 items-center border border-gray-200 person bg-opacity-30 backdrop-blur-md rounded-xl sm:rounded-2xl h-[70px] sm:h-[80px] lg:h-[100px] w-[calc(100%-32px)] sm:w-[calc(100%-48px)] lg:w-[calc(100%-64px)] text-center absolute bottom-4 sm:bottom-6 lg:bottom-8 left-4 sm:left-6 lg:left-8"
+                                    className="flex flex-col justify-center z-10 items-center border borde
+                                    r-gray-200 person bg-opacity-30 backdrop-blur-md rounded-xl sm:rounded-2xl h-[70px] sm:h-[80px] lg:h-[100px] w-[calc(100%-32px)] sm:w-[calc(100%-48px)] lg:w-[calc(100%-64px)] text-center absolute bottom-4 sm:bottom-6 lg:bottom-8 left-4 sm:left-6 lg:left-8"
                                     width={lg ? 420 : 320}
-                                    height={80}
+                                    height={100}
                                     radius={31}
                                     depth={5}
                                     blur={5}
                                     chromaticAberration={1}
                                 >
                                     <div
-                                        className="absolute top-0 left-0 h-full flex justify-center items-center cursor-pointer"
+                                        className="absolute top-0 left-4 h-full flex justify-center items-center cursor-pointer"
                                         onClick={() => handleEmployeeChange(activeEmployee - 1)}
                                     >
                                         <svg
@@ -190,7 +191,7 @@ export function Employees() {
                                         </svg>
                                     </div>
                                     <div
-                                        className="absolute top-0 right-0 h-full flex justify-center items-center cursor-pointer"
+                                        className="absolute top-0 right-4 h-full flex justify-center items-center cursor-pointer"
                                         onClick={() => handleEmployeeChange(activeEmployee + 1)}
                                     >
                                         <svg
@@ -217,7 +218,7 @@ export function Employees() {
                                         </svg>
                                     </div>
 
-                                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-white mb-1 sm:mb-2">
+                                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-white">
                                         {employees[activeEmployee].name}
                                     </h3>
                                     <div

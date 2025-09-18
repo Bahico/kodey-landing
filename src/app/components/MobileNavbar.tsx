@@ -3,40 +3,45 @@ import {useState} from "react";
 import Link from "next/link";
 import {GlassElement} from "@/app/components/GlassElement/GlassElement";
 import './mobile-navbar.css';
+import LanguageSwitcher from "@/app/components/LanguageSwitcher";
 
-export default function MobileNavbar() {
+export default function MobileNavbar({locale}: {locale: string}) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
         <>
             {/* Mobile Menu Button */}
 
-            <GlassElement
-                width={50}
-                height={50}
-                radius={50}
-                depth={10}
-                blur={0}
-                chromaticAberration={0}
-                debug={false}
-                onClick={() => setIsMobileMenuOpen(true)}
-                className="md:hidden flex items-center justify-center w-12 h-12 rounded-full shadow-md transition-colors mr-2 sm:mr-0 "
-            >
-                <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+            <div className="flex gap-2 md:hidden ">
+                <LanguageSwitcher currentLocale={locale}/>
+
+                <GlassElement
+                    width={50}
+                    height={50}
+                    radius={50}
+                    depth={10}
+                    blur={0}
+                    chromaticAberration={0}
+                    debug={false}
+                    onClick={() => setIsMobileMenuOpen(true)}
+                    className="flex items-center justify-center w-12 h-12 rounded-full shadow-md transition-colors mr-2 sm:mr-0 "
                 >
-                    <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        fill="currentColor"
-                        strokeWidth={2}
-                        d="M4 6h16M4 12h16M4 18h16"
-                    />
-                </svg>
-            </GlassElement>
+                    <svg
+                        className="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            fill="currentColor"
+                            strokeWidth={2}
+                            d="M4 6h16M4 12h16M4 18h16"
+                        />
+                    </svg>
+                </GlassElement>
+            </div>
 
             <div
                 className={`fixed w-[250px] right-0 top-5 z-50 md:hidden ${isMobileMenuOpen ? "mobile-navbar-open" : "mobile-navbar-close"} transition-transform duration-300 ease-in-out`}

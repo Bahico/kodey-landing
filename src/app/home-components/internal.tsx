@@ -1,3 +1,4 @@
+'use client';
 import {useEffect, useRef, useState} from "react";
 import "./internal.css";
 import {ArticleModel} from "@/models/article.model";
@@ -25,20 +26,18 @@ export default function Internal() {
     })
 
     useEffect(() => {
-        setIntervalId(setInterval(() => {
-            setActiveIndex(activeIndex + 1 <= posts.length - 1 ? activeIndex + 1 : 0);
-        }, 10000));
+        getAxios('articles').then(res => {
+            setPosts(res.data);
+            setIntervalId(setInterval(() => {
+                setActiveIndex(activeIndex + 1 <= res.data.length - 1 ? activeIndex + 1 : 0);
+            }, 10000));
+        });
+
         return () => {
             if (intervalId) {
                 clearInterval(intervalId);
             }
         };
-    }, [activeIndex]);
-
-    useEffect(() => {
-        getAxios('articles').then(res => {
-            setPosts(res.data);
-        });
     }, []);
 
     const handleClick = (index: number) => {
@@ -79,42 +78,43 @@ export default function Internal() {
                     </h2>
                     <span ref={descriptionRef} className="text-xl md:text-2xl text-[#929292] font-light">
                         {t('description')}
+                        {activeIndex}
                     </span>
                 </div>
 
                 {/* Blog Posts Grid */}
                 <div className="flex items-center gap-10 overflow-x-auto">
                     {posts.map((post, index) => (
-                        <Link href={'/articles/'+post._id} key={post._id}>
+                        <Link
+                            className="min-w-1/3 w-1/3 lg:min-w-[300px]"
+                            href={'/articles/' + post._id}
+                            key={post._id}
+                            onClick={() => handleClick(index)}
+                        >
                             <div
-                                className="min-w-1/3 w-1/3 lg:min-w-[300px]"
-                                onClick={() => handleClick(index)}
+                                className={`flex w-full flex-col gap-6 transition-all duration-300 ${activeIndex === index ? "" : "pt-10 pb-20 unactive"}`}
                             >
                                 <div
-                                    className={`flex flex-col gap-6 transition-all duration-300 ${activeIndex === index ? "" : "pt-10 pb-20 unactive"}`}
+                                    className={`relative w-full overflow-hidden rounded-lg transition-all duration-300 ${activeIndex === index ? "h-[180px] lg:h-[444px]" : "h-[120px] lg:h-[296px]"}`}
                                 >
-                                    <div
-                                        className={`relative w-full overflow-hidden rounded-lg transition-all duration-300 ${activeIndex === index ? "h-[180px] lg:h-[444px]" : "h-[120px] lg:h-[296px]"}`}
-                                    >
-                                        <img
-                                            src={photoUrl(post.photo)}
-                                            alt={post.title}
-                                            className="object-cover w-full h-full"
-                                        />
+                                    <img
+                                        src={photoUrl(post.photo)}
+                                        alt={post.title}
+                                        className="object-cover w-full h-full"
+                                    />
+                                </div>
+                                <div className="flex flex-col gap-3">
+                                    <div className="flex items-center justify-between text-sm md:text-base">
+                                        <span className="text-cyan-400 text-xl">#{post.tags.join(', #')}</span>
+                                        {/*<span className="text-gray-500">{post.publishedAt}</span>*/}
                                     </div>
-                                    <div className="flex flex-col gap-3">
-                                        <div className="flex items-center justify-between text-sm md:text-base">
-                                            <span className="text-cyan-400 text-xl">#{post.tags.join(', #')}</span>
-                                            <span className="text-gray-500">{post.publishedAt}</span>
-                                        </div>
-                                        <div className="flex flex-col gap-6">
-                                            <h3 className="text-2xl md:text-3xl font-medium text-gray-300 leading-tight">
-                                                {post.title}
-                                            </h3>
-                                            <p className="text-gray-500 text-sm md:text-base leading-relaxed">
-                                                {post.excerpt}
-                                            </p>
-                                        </div>
+                                    <div className="flex flex-col gap-6">
+                                        <h3 className="text-2xl md:text-3xl font-medium text-gray-300 leading-tight">
+                                            {post.title}
+                                        </h3>
+                                        <p className="text-gray-500 text-sm md:text-base leading-relaxed">
+                                            {post.excerpt}
+                                        </p>
                                     </div>
                                 </div>
                             </div>

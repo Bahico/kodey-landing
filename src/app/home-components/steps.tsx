@@ -11,7 +11,7 @@ import {textAnimation, textAnimationTl} from "@/app/functions/text.animation";
 export default function Steps() {
     const [activeStep, setActiveStep] = useState(0);
     const t = useTranslations('steps');
-    const {md } = nowSize();
+    const {md} = nowSize();
 
     // refs
     const titleRef = useRef<HTMLDivElement>(null);
@@ -96,75 +96,77 @@ export default function Steps() {
         // Mobile scroll synchronization
         const setupMobileScrollSync = () => {
             if (md) return; // Only run on mobile
-            
+
             const stepsIcons = document.querySelector('.steps-icons') as HTMLElement;
             const trigger1 = document.getElementById('trigger-1');
-            
+
             if (stepsIcons && trigger1) {
                 let isScrollingSyncFromIcons = false;
                 let isScrollingSyncFromTrigger = false;
-                
+
                 const handleStepsIconsScroll = () => {
                     if (isScrollingSyncFromTrigger) return;
                     isScrollingSyncFromIcons = true;
-                    
+
                     const scrollPercentage = stepsIcons.scrollTop / (stepsIcons.scrollHeight - stepsIcons.clientHeight);
                     const trigger1ScrollTop = scrollPercentage * (trigger1.scrollHeight - trigger1.clientHeight);
-                    
+
                     trigger1.scrollTo({
                         top: trigger1ScrollTop,
                         behavior: 'auto'
                     });
-                    
+
                     setTimeout(() => {
                         isScrollingSyncFromIcons = false;
                     }, 50);
                 };
-                
+
                 const handleTrigger1Scroll = () => {
                     if (isScrollingSyncFromIcons) return;
                     isScrollingSyncFromTrigger = true;
-                    
+
                     const scrollPercentage = trigger1.scrollTop / (trigger1.scrollHeight - trigger1.clientHeight);
                     const stepsIconsScrollTop = scrollPercentage * (stepsIcons.scrollHeight - stepsIcons.clientHeight);
-                    
+
                     stepsIcons.scrollTo({
                         top: stepsIconsScrollTop,
-                        behavior: 'auto'
+                        behavior: 'smooth',
+                        // @ts-ignore
+                        block: "nearest"
                     });
-                    
+
                     setTimeout(() => {
                         isScrollingSyncFromTrigger = false;
                     }, 50);
                 };
-                
+
                 stepsIcons.addEventListener('scroll', handleStepsIconsScroll);
                 trigger1.addEventListener('scroll', handleTrigger1Scroll);
-                
+
                 return () => {
                     stepsIcons.removeEventListener('scroll', handleStepsIconsScroll);
                     trigger1.removeEventListener('scroll', handleTrigger1Scroll);
                 };
             }
         };
-        
+
         const timeoutId = setTimeout(() => {
             setupMobileScrollSync();
         }, 300);
-        
+
         return () => {
             clearTimeout(timeoutId);
         };
     }, [md]);
 
     const scrollTo = (step: number) => {
-        const stepElement = document.getElementById(`step-image-${step}`);
-        if (stepElement) {
-            stepElement.scrollIntoView({
-                behavior: "smooth",
-                block: "nearest"
-            });
-        }
+        // const stepElement = document.getElementById(`step-image-${step}`);
+        // if (stepElement) {
+        //     stepElement.scrollIntoView({
+        //         behavior: "smooth",
+        //         block: "nearest"
+        //     });
+        // }
     }
 
     return (
@@ -178,7 +180,8 @@ export default function Steps() {
                     <h2 ref={titleRef} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2">
                         {t('title')} <span className="text-[#929292]">{t('subtitle')}</span>
                     </h2>
-                    <span ref={descriptionRef} className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-[#929292]">
+                    <span ref={descriptionRef}
+                          className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-[#929292]">
                         {t('description')}
                     </span>
                 </div>
@@ -192,7 +195,7 @@ export default function Steps() {
                         className="snap-mandatory snap-y h-[290px] lg:h-[450px] flex flex-col items-center overflow-y-scroll scrollbar-hide w-full relative z-20"
                     >
                         <div className="snap-center relative w-full flex mb-24 sm:mb-28 lg:mb-36"
-                            id="trigger-padding"></div>
+                             id="trigger-padding"></div>
                         {steps.map((step, index) => (
                             <div
                                 key={index}
@@ -203,32 +206,32 @@ export default function Steps() {
                                     className={`text-xl flex items-center gap-2 sm:text-2xl md:text-3xl select-none lg:text-4xl font-semibold mb-2 sm:mb-3 lg:mb-4 ${activeStep === index ? "primary-gradient lg:text-5xl" : "text-gray-500"}`}
                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" width={md ? "80" : "40"}
-                                        height={md ? "80" : "40"} viewBox="0 0 80 80" fill="none"
-                                        className={`max-w-0 overflow-hidden transition-all duration-700 ${activeStep === index ? "max-w-full" : ""}`}>
+                                         height={md ? "80" : "40"} viewBox="0 0 80 80" fill="none"
+                                         className={`max-w-0 overflow-hidden transition-all duration-700 ${activeStep === index ? "max-w-full" : ""}`}>
                                         <path d="M33.3333 56.6667L50 40.0001" stroke="white" strokeWidth="6.66667"
-                                            strokeLinecap="round" strokeLinejoin="round"
-                                            className="transition-all duration-700" />
+                                              strokeLinecap="round" strokeLinejoin="round"
+                                              className="transition-all duration-700"/>
                                         <path d="M33.3333 56.6667L50 40.0001" stroke="url(#paint0_radial_2226_743)"
-                                            strokeWidth="6.66667" strokeLinecap="round" strokeLinejoin="round"
-                                            className="transition-all duration-700" />
+                                              strokeWidth="6.66667" strokeLinecap="round" strokeLinejoin="round"
+                                              className="transition-all duration-700"/>
                                         <path d="M50 40L33.3333 23.3333" stroke="white" strokeWidth="6.66667"
-                                            strokeLinecap="round" strokeLinejoin="round"
-                                            className="transition-all duration-700" />
+                                              strokeLinecap="round" strokeLinejoin="round"
+                                              className="transition-all duration-700"/>
                                         <path d="M50 40L33.3333 23.3333" stroke="url(#paint1_radial_2226_743)"
-                                            strokeWidth="6.66667" strokeLinecap="round" strokeLinejoin="round"
-                                            className="transition-all duration-700" />
+                                              strokeWidth="6.66667" strokeLinecap="round" strokeLinejoin="round"
+                                              className="transition-all duration-700"/>
                                         <defs>
                                             <radialGradient id="paint0_radial_2226_743" cx="0" cy="0" r="1"
-                                                gradientTransform="matrix(-32.4573 -13.1155 15.5965 -25.4819 65.3175 54.6992)"
-                                                gradientUnits="userSpaceOnUse">
-                                                <stop offset="0.44" stopColor="#00C8FF" />
-                                                <stop offset="1" stopColor="#004DFF" />
+                                                            gradientTransform="matrix(-32.4573 -13.1155 15.5965 -25.4819 65.3175 54.6992)"
+                                                            gradientUnits="userSpaceOnUse">
+                                                <stop offset="0.44" stopColor="#00C8FF"/>
+                                                <stop offset="1" stopColor="#004DFF"/>
                                             </radialGradient>
                                             <radialGradient id="paint1_radial_2226_743" cx="0" cy="0" r="1"
-                                                gradientTransform="matrix(-32.4573 -13.1155 15.5965 -25.4819 65.3175 38.0324)"
-                                                gradientUnits="userSpaceOnUse">
-                                                <stop offset="0.44" stopColor="#00C8FF" />
-                                                <stop offset="1" stopColor="#004DFF" />
+                                                            gradientTransform="matrix(-32.4573 -13.1155 15.5965 -25.4819 65.3175 38.0324)"
+                                                            gradientUnits="userSpaceOnUse">
+                                                <stop offset="0.44" stopColor="#00C8FF"/>
+                                                <stop offset="1" stopColor="#004DFF"/>
                                             </radialGradient>
                                         </defs>
                                     </svg>
@@ -248,22 +251,23 @@ export default function Steps() {
                         ></div>
                         {/* <div className="snap-center snap-always relative w-full flex snap-start mb-14 sm:mb-18 lg:mb-24"></div> */}
                     </div>
-                    <div className="absolute top-[250px] md:bottom-14 z-10 pointer-events-none left-0 w-full md:w-2/4 h-[50px] md:h-1/2 scroll-smoothly"></div>
+                    <div
+                        className="absolute top-[250px] md:bottom-14 z-10 pointer-events-none left-0 w-full md:w-2/4 h-[50px] md:h-1/2 scroll-smoothly"></div>
 
 
                     {/* Interactive Carousel */}
-                    <StepImage steps={steps} />
+                    <StepImage steps={steps}/>
                 </div>
             </div>
         </section>
     );
 }
 
-function StepImage({ steps }: {
+function StepImage({steps}: {
     steps: { title: string; description: string; image: string }[];
     isScrolling?: boolean;
 }) {
-    const { lg } = nowSize();
+    const {lg} = nowSize();
 
     if (lg)
         return (

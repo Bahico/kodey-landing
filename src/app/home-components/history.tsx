@@ -1,12 +1,12 @@
-import { Link } from "@/i18n/navigation";
+import {Link} from "@/i18n/navigation";
 import PostsList from "../components/postsList";
-import { useTranslations } from "next-intl";
+import {useTranslations} from "next-intl";
 import {useRef} from "react";
 import {useGSAP} from "@gsap/react";
 import {textAnimation, textAnimationTl} from "@/app/functions/text.animation";
 
 export default function History() {
-  const t = useTranslations('history');
+    const t = useTranslations('history');
 
   // refs
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -22,7 +22,7 @@ export default function History() {
     <section
       id="product-list"
       ref={elementRef}
-      className="bg-black flex justify-center w-full pt-10 sm:pt-10 md:pt-20 relative z-20"
+      className="bg-black flex justify-center w-full relative z-20"
     >
       <div
         className="absolute pointer-events-none top-0 md:top-40 right-4 sm:right-6 md:right-10 w-[300px] h-[400px] sm:w-[500px] sm:h-[600px] md:w-[700px] md:h-[800px] lg:w-[900px] lg:h-[1000px] z-0">
