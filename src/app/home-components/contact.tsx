@@ -19,13 +19,12 @@ export default function Contact() {
     const titleRef = useRef<HTMLHeadingElement>(null);
     const descriptionRef = useRef<HTMLParagraphElement>(null);
     const formTitleRef = useRef<HTMLParagraphElement>(null);
+    const robotRef = useRef<HTMLDivElement>(null);
 
-    const handleSubmit = () => {
-        setSuccess(true);
-    };
 
     const handleOpen = () => {
         setSuccess(true);
+        robotRef.current?.scrollIntoView({behavior: "smooth"});
         setTimeout(() => {
             setSuccess(false);
         }, 6000)
@@ -45,11 +44,11 @@ export default function Contact() {
             description: formData.get('description')
         }
 
-        await postAxios('support', rawFormData)
-            .then((res) => {
-                handleSubmit();
+        // await postAxios('support', rawFormData)
+        //     .then((res) => {
+                handleOpen();
                 formRef.current?.reset();
-            })
+            // })
     }
 
     useGSAP(() => {
@@ -176,13 +175,30 @@ export default function Contact() {
 
                     <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 items-start sm:items-center">
                         <div className="flex items-start sm:items-center gap-3 sm:gap-4 mt-6 sm:mt-8 mb-6 sm:mb-8">
-                            <input
-                                type="checkbox"
-                                required
-                                checked={agreed}
-                                onChange={(e) => setAgreed(e.target.checked)}
-                                className="w-6 h-6 sm:w-8 sm:h-8 rounded border-2 border-gray-300 mt-1 sm:mt-0"
-                            />
+
+                            <div className="h-10 w-10 relative">
+                                <input
+                                    id="custom-checkbox"
+                                    type="checkbox"
+                                    required
+                                    checked={agreed}
+                                    onChange={(e) => setAgreed(e.target.checked)}
+                                    className="peer relative h-full w-full shrink-0 appearance-none rounded-md border-1 duration-500 transition-colors border-black bg-white input-gradient focus:outline-none focus:ring-offset-0"
+                                />
+                                <svg
+                                    className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-4 w-4 opacity-0 transition-opacity duration-200 peer-checked:opacity-100 peer-checked:text-white"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="4"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                >
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+
                             <span className="text-gray-500 text-sm sm:text-lg md:text-xl">
                                 {t('agreement')}
                             </span>
@@ -196,7 +212,9 @@ export default function Contact() {
                 </form>
 
                 <div
-                    className="relative lg:absolute top-0 -right-10 w-full lg:w-[50%] lg:h-full bg-gradient-to-br rounded-3xl">
+                    className="relative lg:absolute top-0 -right-10 w-full lg:w-[50%] lg:h-full bg-gradient-to-br rounded-3xl"
+                    ref={robotRef}
+                >
                     <div
                         className={`flex absolute top-60 md:top-1/4 md:right-[65%] z-20 h-[192px] w-[333px] md:h-[203px] md:w-[565px] ${success ? "message-open" : "message-close"}`}>
                         <div className="absolute w-full h-full left-0 top-0 z-0">

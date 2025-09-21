@@ -1,5 +1,5 @@
 import {GlassElement} from "@/app/components/GlassElement/GlassElement";
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {useTranslations} from "next-intl";
 import {nowSize} from "@/app/functions/now-size";
 import {useGSAP} from "@gsap/react";
@@ -10,6 +10,7 @@ export function Employees() {
     const {lg} = nowSize();
     const tHumanFactor = useTranslations('human-factor');
     const [activeEmployee, setActiveEmployee] = useState(0);
+    const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
 
     // refs
     const titleRef = useRef<HTMLHeadingElement>(null);
@@ -75,7 +76,18 @@ export function Employees() {
                 ease: 'power3.inOut',
             }
         )
-    })
+    });
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setActiveEmployee((currentActiveIndex) =>
+                (currentActiveIndex + 1) % employees.length
+            );
+        }, 5000);
+
+        // Cleanup the interval when the component unmounts
+        return () => clearInterval(interval);
+    }, []);
 
     const handleEmployeeChange = (index: number) => {
         if (index < 0) {
@@ -142,13 +154,13 @@ export function Employees() {
 
                         <div className="flex-1 flex justify-center lg:justify-end pr-0 lg:pr-20 lg:order-last">
                             <div
-                                className="rounded-2xl sm:rounded-3xl w-[360px] h-[480px] md:w-[420px] md:h-[560px] lg:w-[480px] lg:h-[640px] relative overflow-hidden scroll-smooth">
+                                className="rounded-2xl group sm:rounded-3xl w-[360px] h-[480px] md:w-[420px] md:h-[560px] lg:w-[480px] lg:h-[640px] relative overflow-hidden scroll-smooth">
                                 {employees.map((employee, index) => (
                                     <img
                                         src={employee.image}
                                         key={index}
                                         id={`employee-image-${index}`}
-                                        className={`w-full object-cover h-full rounded-2xl sm:rounded-3xl none-select lg:mr-[-40px] absolute top-0 left-0 transition-all duration-700 ${index === activeEmployee ? "opacity-100" : "opacity-0"}`}
+                                        className={`w-full grayscale group-hover:grayscale-0 object-cover h-full rounded-2xl sm:rounded-3xl none-select lg:mr-[-40px] absolute top-0 left-0 transition-all duration-700 ${index === activeEmployee ? "opacity-100" : "opacity-0"}`}
                                         alt=""
                                     />
                                 ))}

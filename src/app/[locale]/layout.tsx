@@ -74,7 +74,7 @@ export default async function LocaleLayout({ children, params }: Props) {
                     {children}
 
                     <footer
-                        className="bg-[#0D0D0D] text-white flex justify-center py-8 sm:py-12 md:py-16 w-full rounded-t-[50px] sm:rounded-t-[75px] md:rounded-t-[100px] relative z-10 px-4 sm:px-6 lg:px-8">
+                        className="bg-[#0D0D0D] text-white flex justify-center py-8 sm:py-12 md:py-16 w-full rounded-t-[50px] sm:rounded-t-[75px] md:rounded-t-[100px] relative z-10 px-8 lg:px-8">
                         <div className="container">
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-12 md:gap-16">
                                 <div className="col-span-4 lg:col-span-1 text-center lg:text-left">
@@ -82,7 +82,7 @@ export default async function LocaleLayout({ children, params }: Props) {
                                         {(messages.footer as any)?.title || 'Всегда'}
                                         <br className="hidden sm:block" />
                                         <span
-                                            className="text-[#595959]">{(messages.footer as any)?.subtitle || 'на связи'}</span>
+                                            className="text-[#595959] ml-2 md:ml-0">{(messages.footer as any)?.subtitle || 'на связи'}</span>
                                     </h3>
                                     <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-white lg:mb-6 sm:mb-8">
                                         {(messages.footer as any)?.description || 'С 12:00 до 20:00'}

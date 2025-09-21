@@ -189,7 +189,7 @@ export default function Steps() {
                 <div className="flex flex-col gap-10 w-full lg:h-150 h-auto justify-center relative">
                     {/* Timeline Steps */}
                     <div
-                        className="absolute top-0 md:top-10 z-11 pointer-events-none left-0 w-full md:w-2/4 h-[50px] md:h-1/2 scroll-smoothly rotate-180"></div>
+                        className="absolute top-0 md:top-10 z-30 pointer-events-none left-0 w-full md:w-2/4 h-[50px] md:h-1/2 scroll-smoothly rotate-180"></div>
                     <div
                         id="trigger-1"
                         className="snap-mandatory snap-y h-[290px] lg:h-[450px] flex flex-col items-center overflow-y-scroll scrollbar-hide w-full relative z-20"
@@ -238,7 +238,7 @@ export default function Steps() {
                                     {step.title}
                                 </div>
                                 <div
-                                    className={`text-xs sm:text-sm select-none leading-relaxed w-[300px] md:w-[550px] ${activeStep === index ? "text-white" : "text-gray-400"}`}
+                                    className={`text-md sm:text-sm select-none leading-relaxed w-[300px] md:w-[550px] ${activeStep === index ? "text-white" : "text-gray-400"}`}
                                 >
                                     {step.description}
                                 </div>
@@ -252,7 +252,7 @@ export default function Steps() {
                         {/* <div className="snap-center snap-always relative w-full flex snap-start mb-14 sm:mb-18 lg:mb-24"></div> */}
                     </div>
                     <div
-                        className="absolute top-[250px] md:bottom-14 z-10 pointer-events-none left-0 w-full md:w-2/4 h-[50px] md:h-1/2 scroll-smoothly"></div>
+                        className="absolute top-[250px] md:bottom-14 z-20 pointer-events-none left-0 w-full md:w-2/4 h-[50px] md:h-1/2 scroll-smoothly"></div>
 
 
                     {/* Interactive Carousel */}

@@ -17,6 +17,6 @@ export default function Post() {
     }, [id]);
 
     return (
-        <DetailComponent post={post} />
+        <DetailComponent first={false} post={post} />
     );
 }

@@ -249,7 +249,7 @@ export default function Navbar({locale}: { locale: string}) {
                 </nav>
 
                 {/* Mobile Navigation */}
-                <MobileNavbar locale={locale} />
+                <MobileNavbar locale={locale} showNavbar={showNavbar} />
             </div>
         </header>
     );

@@ -7,6 +7,8 @@ import {useTranslations} from "next-intl";
 import {useGSAP} from "@gsap/react";
 import {textAnimation, textAnimationTl} from "@/app/functions/text.animation";
 import {Link} from "@/i18n/navigation";
+import { format, parseISO } from 'date-fns';
+import { ru } from 'date-fns/locale';
 
 
 export default function Internal() {
@@ -43,6 +45,13 @@ export default function Internal() {
     const handleClick = (index: number) => {
         setActiveIndex(index);
     };
+
+    const GetDate = ({dateString}: {dateString: string}) => {
+        const date = parseISO(dateString);
+        const formattedDate = format(date, 'd MMMM yyyy', { locale: ru });
+
+        return <time dateTime={dateString}>{formattedDate}</time>;
+    }
 
 
     return (
@@ -86,8 +95,9 @@ export default function Internal() {
                 <div className="flex items-center gap-10 overflow-x-auto">
                     {posts.map((post, index) => (
                         <Link
-                            className="min-w-1/3 w-1/3 lg:min-w-[300px]"
+                            className="min-w-[300px] md:min-w-1/3 md:w-1/3"
                             href={'/articles/' + post._id}
+                            id={"internal-post-" + index}
                             key={post._id}
                             onClick={() => handleClick(index)}
                         >
@@ -106,7 +116,9 @@ export default function Internal() {
                                 <div className="flex flex-col gap-3">
                                     <div className="flex items-center justify-between text-sm md:text-base">
                                         <span className="text-cyan-400 text-xl">#{post.tags.join(', #')}</span>
-                                        {/*<span className="text-gray-500">{post.publishedAt}</span>*/}
+                                        <span className="text-gray-500">
+                                            <GetDate dateString={post.createdAt} />
+                                        </span>
                                     </div>
                                     <div className="flex flex-col gap-6">
                                         <h3 className="text-2xl md:text-3xl font-medium text-gray-300 leading-tight">

@@ -1,12 +1,16 @@
 "use client";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Link from "next/link";
 import {GlassElement} from "@/app/components/GlassElement/GlassElement";
 import './mobile-navbar.css';
 import LanguageSwitcher from "@/app/components/LanguageSwitcher";
 
-export default function MobileNavbar({locale}: {locale: string}) {
+export default function MobileNavbar({locale, showNavbar}: {locale: string, showNavbar: boolean}) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    useEffect(() => {
+        setIsMobileMenuOpen(showNavbar && isMobileMenuOpen);
+    }, [showNavbar]);
 
     return (
         <>
@@ -44,7 +48,7 @@ export default function MobileNavbar({locale}: {locale: string}) {
             </div>
 
             <div
-                className={`fixed w-[250px] right-0 top-5 z-50 md:hidden ${isMobileMenuOpen ? "mobile-navbar-open" : "mobile-navbar-close"} transition-transform duration-300 ease-in-out`}
+                className={`fixed w-[250px] right-0 top-5 z-50 md:hidden ${isMobileMenuOpen && showNavbar ? "mobile-navbar-open" : "mobile-navbar-close"} transition-transform duration-300 ease-in-out`}
             >
                 {/* Modal Content */}
                 <GlassElement
