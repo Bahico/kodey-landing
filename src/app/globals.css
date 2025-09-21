@@ -86,6 +86,10 @@ body {
   --gradient-end: #004dff;
 }
 
+.translate-none2 {
+  transform: translate(0px, 0px) !important;
+}
+
 .right-background::after {
   @apply md:w-[895px] md:h-[1035px] w-[350px] h-[400px];
   content: "";

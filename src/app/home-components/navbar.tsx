@@ -6,9 +6,10 @@ import {GlassElement} from "@/app/components/GlassElement/GlassElement";
 import LanguageSwitcher from "@/app/components/LanguageSwitcher";
 import MobileNavbar from "@/app/components/MobileNavbar";
 import {useTranslations} from "next-intl";
-import { useParams, usePathname } from 'next/navigation';
+import {usePathname} from 'next/navigation';
 import "./navbar.css";
-import { setLocale } from "@/api/api.constans";
+import {setLocale} from "@/api/api.constans";
+import {scrollToId} from "@/app/functions/scroll-to";
 
 export default function Navbar({locale}: { locale: string}) {
     const [blur, setBlur] = useState(false);
@@ -80,7 +81,7 @@ export default function Navbar({locale}: { locale: string}) {
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex items-center gap-5">
-                    <a href={`/${locale}`}>
+                    <Link href="/">
                         <GlassElement
                             className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md text-white hover:bg-gray-50 transition-colors"
                             width={locale === 'uz' ? 210 : 180}
@@ -113,9 +114,9 @@ export default function Navbar({locale}: { locale: string}) {
                                 {t('home')}
                             </span>
                         </GlassElement>
-                    </a>
+                    </Link>
 
-                    <a href={`/${locale}/#product-list`}>
+                    <Link href={`/${locale}/#product-list`} scroll={false} onClick={() => scrollToId("product-list")}>
                         <GlassElement
                             className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
                             width={locale === 'uz' ? 160 : 150}
@@ -148,8 +149,8 @@ export default function Navbar({locale}: { locale: string}) {
                                 {t('cases')}
                             </span>
                         </GlassElement>
-                    </a>
-                    <a href={`/${locale}/#services`}>
+                    </Link>
+                    <Link href={`/${locale}/#services`} scroll={false} onClick={() => scrollToId("services")}>
                         <GlassElement
                             className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
                             width={180}
@@ -183,8 +184,8 @@ export default function Navbar({locale}: { locale: string}) {
                                 {t('services')}
                             </span>
                         </GlassElement>
-                    </a>
-                    <a href={`/${locale}/#internal`}>
+                    </Link>
+                    <Link href={`/${locale}/#internal`} scroll={false} onClick={() => scrollToId('internal')}>
                         <GlassElement
                             className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
                             width={150}
@@ -214,8 +215,8 @@ export default function Navbar({locale}: { locale: string}) {
                                 {t('blog')}
                             </span>
                         </GlassElement>
-                    </a>
-                    <a href={`/${locale}/#contact`}>
+                    </Link>
+                    <Link href={`/${locale}/#contact`} scroll={false} onClick={() => scrollToId('contact')}>
                         <GlassElement
                             className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md hover:bg-gray-50 transition-colors"
                             width={190}
@@ -243,7 +244,7 @@ export default function Navbar({locale}: { locale: string}) {
                                 {t('contact')}
                             </span>
                         </GlassElement>
-                    </a>
+                    </Link>
 
                     <LanguageSwitcher currentLocale={locale}/>
                 </nav>

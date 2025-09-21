@@ -28,12 +28,14 @@ export default function Internal() {
     })
 
     useEffect(() => {
-        getAxios('articles').then(res => {
-            setPosts(res.data);
-            setIntervalId(setInterval(() => {
-                setActiveIndex(activeIndex + 1 <= res.data.length - 1 ? activeIndex + 1 : 0);
-            }, 10000));
-        });
+        (async () => {
+            getAxios('articles').then(res => {
+                setPosts(res.data);
+                setIntervalId(setInterval(() => {
+                    setActiveIndex(activeIndex + 1 <= res.data.length - 1 ? activeIndex + 1 : 0);
+                }, 10000));
+            });
+        })()
 
         return () => {
             if (intervalId) {

@@ -1,9 +1,13 @@
+"use client";
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
+import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {useTranslations} from "next-intl";
 import {useEffect, useRef, useState} from "react";
 import {getAxios, photoUrl} from "@/api/api.functions";
 import {textAnimation, textAnimationTl} from "@/app/functions/text.animation";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Services() {
     const t = useTranslations('services');
@@ -14,40 +18,43 @@ export default function Services() {
     const titleRef = useRef<HTMLHeadingElement>(null);
     const descriptionRef = useRef<HTMLParagraphElement>(null);
     const elementRef = useRef<HTMLDivElement>(null);
+    const panelsContainerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        getAxios('services').then((res: any) => {
-            setServices([...res.data, ...res.data]);
-
-            setTimeout(() => {
-                const panelsContainer = document.querySelector("#services-container");
-                setHeight(panelsContainer.scrollWidth - window.innerWidth + panelsContainer.scrollHeight + (window.innerWidth > 768 ? 440 : 280));
-            }, 100)
-        });
-    }, []);
-
-    useGSAP(() => {
-
         const tl = textAnimation(titleRef.current, elementRef.current);
         textAnimationTl(descriptionRef.current, elementRef.current, tl);
 
-        setTimeout(() => {
+        (async () => {
+            getAxios('services').then((res: any) => {
+                setServices([...res.data, ...res.data]);
+
+                setTimeout(() => {
+                    const panelsContainer = panelsContainerRef.current;
+                    setHeight(panelsContainer.scrollWidth - window.innerWidth + panelsContainer.scrollHeight + (window.innerWidth > 768 ? 440 : 280));
+                }, 100)
+            });
+        })()
+    }, []);
+
+    useGSAP(() => {
+        const timeout = setTimeout(() => {
+            const panelsContainer = panelsContainerRef.current;
             const panels = gsap.utils.toArray("#services-container .service");
-            const panelsContainer = document.querySelector("#services-container");
 
             gsap.to(panels, {
                 x: () => -1 * (panelsContainer.scrollWidth - innerWidth),
                 ease: "none",
                 scrollTrigger: {
-                    trigger: "#services-container",
+                    trigger: panelsContainerRef.current,
                     pin: true,
                     start: "top top",
                     scrub: 1,
                     end: () => "+=" + (panelsContainer.scrollWidth - innerWidth)
                 }
             });
-        }, 1000)
-    })
+        }, 1000);
+        return () => clearTimeout(timeout);
+    }, [])
 
     return (
         <section
@@ -79,7 +86,8 @@ export default function Services() {
 
                 <div
                     id="services-container"
-                    className="services-container w-full flex overflow-hidden pb-6 sm:pb-8 lg:pb-10 gap-4 sm:gap-6 md:gap-8 lg:gap-12"
+                    ref={panelsContainerRef}
+                    className="w-full flex overflow-hidden pb-6 sm:pb-8 lg:pb-10 gap-4 sm:gap-6 md:gap-8 lg:gap-12"
                 >
                     {services.map((service, index) => (
                         <div

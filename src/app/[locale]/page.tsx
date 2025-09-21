@@ -6,7 +6,7 @@ import History from "../home-components/history";
 import Location from "../home-components/location";
 import Internal from "../home-components/internal";
 import Contact from "../home-components/contact";
-import {useEffect, useRef} from "react";
+import {useRef} from "react";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {ScrollToPlugin} from "gsap/ScrollToPlugin";
 import gsap from "gsap";
@@ -14,7 +14,6 @@ import {useGSAP} from "@gsap/react";
 import {TextPlugin} from "gsap/TextPlugin";
 import Link from "next/link";
 import BackgroundAnimation from "@/app/components/BackgroundAnimation";
-import {usePathname} from "next/navigation";
 import {useTranslations} from "next-intl";
 import {textAnimation, textAnimationTl} from "@/app/functions/text.animation";
 import {Employees} from "@/app/home-components/employees";
@@ -24,7 +23,6 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 
 export default function SimpleHome() {
-    const pathname = usePathname();
     const t = useTranslations('home');
 
     // refs
@@ -33,18 +31,6 @@ export default function SimpleHome() {
     const buttonRef = useRef<HTMLButtonElement>(null);
     const buttonDescriptionRef = useRef<HTMLButtonElement>(null);
     const elementRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            const hash = window.location.hash;
-            if (hash) {
-                const el = document.querySelector(hash);
-                if (el) {
-                    el.scrollIntoView({ behavior: "smooth" });
-                }
-            }
-        }
-    }, [pathname]);
 
     useGSAP(() => {
         const tl = gsap.timeline({
@@ -127,7 +113,7 @@ export default function SimpleHome() {
     return (
         <div className="relative w-full overflow-hidden smooth-scroll">
             <div className="absolute top-[-6%] left-[-90%] w-[1600px] h-[1000px] z-0 flex md:hidden">
-                <BackgroundAnimation />
+                <BackgroundAnimation/>
             </div>
             {/* Hero Section */}
             <section className="relative flex justify-center w-full pt-6 sm:pt-8 md:pt-10" ref={elementRef}>
@@ -139,17 +125,19 @@ export default function SimpleHome() {
 
                         <div className="flex flex-col relative z-10">
                             <div className="absolute top-0 left-[-40%] w-full hidden md:block z-0">
-                                <BackgroundAnimation />
+                                <BackgroundAnimation/>
                             </div>
                             <h1
                                 ref={titleRef}
                                 className="text-4xl md:text-[72px] lg:text-[92px] z-10 flex mb-4 sm:mb-6 lg:mb-8"
                             >
                                 <span id="title-home" className="primary-gradient font-bold"></span>
-                                <span className="text-[#242424] ml-2 overflow-hidden flex" id="title-home-separator">|</span>
+                                <span className="text-[#242424] ml-2 overflow-hidden flex"
+                                      id="title-home-separator">|</span>
                             </h1>
 
-                            <h1 ref={descriptionRef} className="text-[30px] md:text-[42px] lg:text-[72px] font-light text-[#929292] mb-4 sm:mb-10 lg:mb-30 z-10 w-[471px] md:w-[850px]">
+                            <h1 ref={descriptionRef}
+                                className="text-[30px] md:text-[42px] lg:text-[72px] font-light text-[#929292] mb-4 sm:mb-10 lg:mb-30 z-10 w-[471px] md:w-[850px]">
                                 {t('title')}
                             </h1>
                             <Link href="/#contact">
@@ -159,7 +147,8 @@ export default function SimpleHome() {
                                     {t('button')}
                                 </button>
                             </Link>
-                            <span ref={buttonDescriptionRef} className="text-base sm:text-lg lg:text-xl text-[#929292] md:w-[400px]">
+                            <span ref={buttonDescriptionRef}
+                                  className="text-base sm:text-lg lg:text-xl text-[#929292] md:w-[400px]">
                                 {t('description')}
                             </span>
                         </div>
@@ -169,7 +158,8 @@ export default function SimpleHome() {
                                 className="w-full h-[600px] md:w-[500px] md:h-[750px] lg:w-[583px] lg:h-[875px] lg:mr-[-40px]"
                                 autoPlay loop muted
                             >
-                                <source src="/images/background/af62712a280d485aa53e25537cd5d6d8.webm" type="video/webm" />
+                                <source src="/images/background/af62712a280d485aa53e25537cd5d6d8.webm"
+                                        type="video/webm"/>
                             </video>
                             {/*<video width="320" height="240" controls>*/}
                             {/*    <source src="movie.mp4" type="video/mp4"/>*/}
@@ -183,25 +173,25 @@ export default function SimpleHome() {
             </section>
 
             {/* Human Factor Section */}
-            <Employees />
+            <Employees/>
 
             {/* Route to Production Section */}
-            <Steps />
+            <Steps/>
 
             {/* Services Section */}
-            <Services />
+            <Services/>
 
             {/* History Section */}
-            <History />
+            <History/>
 
             {/* Location Section */}
-            <Location />
+            <Location/>
 
             {/* Internal Section */}
-            <Internal />
+            <Internal/>
 
             {/* Contact Section */}
-            <Contact />
+            <Contact/>
         </div>
     )
 }

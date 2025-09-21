@@ -17,7 +17,7 @@
     0px 0px 20px 0px #0083cf;
 }
 
-.services-container {
+#services-container {
   --container-width: 42rem;
   padding-left: calc((100vw - var(--container-width)) / 2);
   padding-right: calc((100vw - var(--container-width)) / 2);

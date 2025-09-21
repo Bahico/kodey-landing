@@ -1,6 +1,6 @@
 'use client';
 
-import {usePathname, useRouter} from 'next/navigation';
+import {usePathname} from 'next/navigation';
 import {GlassElement} from './GlassElement/GlassElement';
 import {useEffect, useState} from 'react';
 import {setLocale} from '@/api/api.constans';
@@ -12,7 +12,6 @@ type Props = {
 
 export default function LanguageSwitcher({currentLocale}: Props) {
     const {sm} = nowSize()
-    const router = useRouter();
     const pathname = usePathname();
     const [open, setOpen] = useState(false);
 
@@ -20,7 +19,7 @@ export default function LanguageSwitcher({currentLocale}: Props) {
         setOpen(false);
         const newPathname = pathname.replace(`/${currentLocale}`, `/${locale}`);
         setLocale(locale as 'ru' | 'uz' | 'en');
-        router.push(newPathname);
+        location.href = newPathname;
     };
 
     useEffect(() => {

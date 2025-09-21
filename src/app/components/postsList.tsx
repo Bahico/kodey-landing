@@ -7,9 +7,11 @@ export default function PostsList() {
   const [history, setHistory] = useState<CaseModel[]>([]);
 
   useEffect(() => {
-    getAxios('cases').then(res => {
-      setHistory(res.data);
-    })
+      (async () => {
+          getAxios('cases').then(res => {
+              setHistory(res.data);
+          })
+      })()
   }, [])
 
   return (
