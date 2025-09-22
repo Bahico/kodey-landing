@@ -108,6 +108,41 @@ export default function SimpleHome() {
                 duration: 0.5,
                 maxWidth: "100%",
             })
+
+        gsap.fromTo(
+            elementRef.current,
+            {
+                scale: 1,
+                y: 0,
+                opacity: 1,
+            },
+            {
+                scale: 0.8,
+                y: '-10vh',
+                opacity: 0.9,
+                scrollTrigger: {
+                    trigger: elementRef.current,
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: 0.3,
+                    pin: true,
+                    pinSpacing: false,
+                    markers: false,
+                },
+            }
+        )
+
+        gsap.to(elementRef.current, {
+            scrollTrigger: {
+                trigger: elementRef.current,
+                start: 'top top',
+                end: 'bottom top',
+                onEnter: () =>
+                    gsap.to(elementRef.current, {duration: 1, y: '-50vh', ease: 'power4.out'}),
+                onLeaveBack: () =>
+                    gsap.to(elementRef.current, {duration: 1, y: '0', ease: 'power4.out'})
+            },
+        })
     });
 
     return (

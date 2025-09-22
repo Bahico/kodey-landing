@@ -58,7 +58,7 @@ export default function Contact() {
 
         gsap.fromTo(
             '.type',
-            {opacity: 0, scale: 0.8},
+            {opacity: 0, scale: 0.5},
             {
                 opacity: 1,
                 scale: 1,
@@ -67,11 +67,34 @@ export default function Contact() {
                 stagger: 0.2,
                 ease: 'power3.out',
                 scrollTrigger: {
-                    trigger: elementRef.current,
+                    trigger: "#internal",
                     start: 'top 80%',
                 },
             }
         )
+
+        gsap.fromTo(
+            elementRef.current,
+            {
+                scale: 0.5,
+                y: '-20vh',
+                opacity: 0.9,
+            },
+            {
+                scale: 1,
+                y: 0,
+                opacity: 1,
+                scrollTrigger: {
+                    trigger: "#internal",
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: 0.3,
+                    pin: true,
+                    pinSpacing: false,
+                    markers: false,
+                },
+            }
+        );
     })
 
     return (

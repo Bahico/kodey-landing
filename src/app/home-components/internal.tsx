@@ -9,6 +9,7 @@ import {textAnimation, textAnimationTl} from "@/app/functions/text.animation";
 import {Link} from "@/i18n/navigation";
 import { format, parseISO } from 'date-fns';
 import { ru } from 'date-fns/locale';
+import gsap from "gsap";
 
 
 export default function Internal() {
@@ -25,6 +26,35 @@ export default function Internal() {
     useGSAP(() => {
         const tl = textAnimation(titleRef.current, elementRef.current);
         textAnimationTl(descriptionRef.current, elementRef.current, tl);
+
+        const tl2 = gsap.timeline({
+            scrollTrigger: {
+                trigger: elementRef.current,
+                start: 'bottom bottom',
+                end: 'bottom 0%',
+                scrub: 1.5,
+                toggleActions: 'play none reverse none'
+            },
+        });
+
+        tl2.fromTo(
+            elementRef.current,
+            {
+                // clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+                // backgroundColor: '#000',
+                scale: 1,
+                rotation: 0,
+            },
+            {
+                // clipPath: 'polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)',
+                // backgroundColor: '#fff',
+                y: "-100vh",
+                scale: 0,
+                // rotation: -15,
+                duration: 1.5,
+                ease: 'power3.inOut',
+            }
+        );
     })
 
     useEffect(() => {
@@ -57,85 +87,87 @@ export default function Internal() {
 
 
     return (
-        <section
-            id="internal"
-            ref={elementRef}
-            className="relative w-full bg-black py-20 rounded-b-[60px]"
-        >
-            <div
-                className="absolute top-20 sm:top-40 md:top-120 left-4 sm:left-6 md:left-10 w-[300px] h-[400px] sm:w-[500px] sm:h-[600px] md:w-[700px] md:h-[800px] lg:w-[900px] lg:h-[1000px] z-0">
-                <img
-                    src="images/background/background.png"
-                    className="w-3/4 absolute background-1"
-                    alt=""
-                />
-            </div>
-
-            <div
-                className="absolute top-0 md:top-40 right-4 sm:right-6 md:right-10 w-[300px] h-[400px] sm:w-[500px] sm:h-[600px] md:w-[700px] md:h-[800px] lg:w-[900px] lg:h-[1000px] z-0">
-                <img
-                    src="images/background/background.png"
-                    className="w-3/4 absolute background-2"
-                    alt=""
-                />
-            </div>
-
-            <div className="container mx-auto px-4">
-                {/* Header Section */}
-                <div className="mb-16">
-                    <h2 ref={titleRef} className="text-5xl md:text-6xl font-bold text-white mb-4">
-                        <span>{t('title')}</span>
-                        <span className="text-[#929292] ml-2">{t('subtitle')}</span>
-                    </h2>
-                    <span ref={descriptionRef} className="text-xl md:text-2xl text-[#929292] font-light">
-                        {t('description')}
-                        {activeIndex}
-                    </span>
+        <>
+            <section
+                id="internal"
+                ref={elementRef}
+                className="relative w-full bg-black py-20 z-30 rounded-b-[60px]"
+            >
+                <div
+                    className="absolute top-20 sm:top-40 md:top-120 left-4 sm:left-6 md:left-10 w-[300px] h-[400px] sm:w-[500px] sm:h-[600px] md:w-[700px] md:h-[800px] lg:w-[900px] lg:h-[1000px] z-0">
+                    <img
+                        src="images/background/background.png"
+                        className="w-3/4 absolute background-1"
+                        alt=""
+                    />
                 </div>
 
-                {/* Blog Posts Grid */}
-                <div className="flex items-center gap-10 overflow-x-auto">
-                    {posts.map((post, index) => (
-                        <Link
-                            className="min-w-[300px] md:min-w-1/3 md:w-1/3"
-                            href={'/articles/' + post._id}
-                            id={"internal-post-" + index}
-                            key={post._id}
-                            onClick={() => handleClick(index)}
-                        >
-                            <div
-                                className={`flex w-full flex-col gap-6 transition-all duration-300 ${activeIndex === index ? "" : "pt-10 pb-20 unactive"}`}
+                <div
+                    className="absolute top-0 md:top-40 right-4 sm:right-6 md:right-10 w-[300px] h-[400px] sm:w-[500px] sm:h-[600px] md:w-[700px] md:h-[800px] lg:w-[900px] lg:h-[1000px] z-0">
+                    <img
+                        src="images/background/background.png"
+                        className="w-3/4 absolute background-2"
+                        alt=""
+                    />
+                </div>
+
+                <div className="container mx-auto px-4">
+                    {/* Header Section */}
+                    <div className="mb-16">
+                        <h2 ref={titleRef} className="text-5xl md:text-6xl font-bold text-white mb-4">
+                            <span>{t('title')}</span>
+                            <span className="text-[#929292] ml-2">{t('subtitle')}</span>
+                        </h2>
+                        <span ref={descriptionRef} className="text-xl md:text-2xl text-[#929292] font-light">
+                        {t('description')}
+                            {activeIndex}
+                    </span>
+                    </div>
+
+                    {/* Blog Posts Grid */}
+                    <div className="flex items-center gap-10 overflow-x-auto">
+                        {posts.map((post, index) => (
+                            <Link
+                                className="min-w-[300px] md:min-w-1/3 md:w-1/3"
+                                href={'/articles/' + post._id}
+                                id={"internal-post-" + index}
+                                key={post._id}
+                                onClick={() => handleClick(index)}
                             >
                                 <div
-                                    className={`relative w-full overflow-hidden rounded-lg transition-all duration-300 ${activeIndex === index ? "h-[180px] lg:h-[444px]" : "h-[120px] lg:h-[296px]"}`}
+                                    className={`flex w-full flex-col gap-6 transition-all duration-300 ${activeIndex === index ? "" : "pt-10 pb-20 unactive"}`}
                                 >
-                                    <img
-                                        src={photoUrl(post.photo)}
-                                        alt={post.title}
-                                        className="object-cover w-full h-full"
-                                    />
-                                </div>
-                                <div className="flex flex-col gap-3">
-                                    <div className="flex items-center justify-between text-sm md:text-base">
-                                        <span className="text-cyan-400 text-xl">#{post.tags.join(', #')}</span>
-                                        <span className="text-gray-500">
+                                    <div
+                                        className={`relative w-full overflow-hidden rounded-lg transition-all duration-300 ${activeIndex === index ? "h-[180px] lg:h-[444px]" : "h-[120px] lg:h-[296px]"}`}
+                                    >
+                                        <img
+                                            src={photoUrl(post.photo)}
+                                            alt={post.title}
+                                            className="object-cover w-full h-full"
+                                        />
+                                    </div>
+                                    <div className="flex flex-col gap-3">
+                                        <div className="flex items-center justify-between text-sm md:text-base">
+                                            <span className="text-cyan-400 text-xl">#{post.tags.join(', #')}</span>
+                                            <span className="text-gray-500">
                                             <GetDate dateString={post.createdAt} />
                                         </span>
-                                    </div>
-                                    <div className="flex flex-col gap-6">
-                                        <h3 className="text-2xl md:text-3xl font-medium text-gray-300 leading-tight">
-                                            {post.title}
-                                        </h3>
-                                        <p className="text-gray-500 text-sm md:text-base leading-relaxed">
-                                            {post.excerpt}
-                                        </p>
+                                        </div>
+                                        <div className="flex flex-col gap-6">
+                                            <h3 className="text-2xl md:text-3xl font-medium text-gray-300 leading-tight">
+                                                {post.title}
+                                            </h3>
+                                            <p className="text-gray-500 text-sm md:text-base leading-relaxed">
+                                                {post.excerpt}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </Link>
-                    ))}
+                            </Link>
+                        ))}
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </>
     );
 }

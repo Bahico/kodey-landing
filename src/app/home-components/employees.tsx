@@ -62,16 +62,18 @@ export function Employees() {
         tl2.fromTo(
             elementRef.current,
             {
-                clipPath: 'polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)',
-                backgroundColor: '#fff',
-                scale: 0.8,
-                rotation: -15,
+                // clipPath: 'polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)',
+                // backgroundColor: '#fff',
+                scale: 0,
+                // y: "100vh",
+                // rotation: -15,
             },
             {
-                clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-                backgroundColor: '#000',
+                // clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+                // backgroundColor: '#000',
                 scale: 1,
-                rotation: 0,
+                // y: "0vh",
+                // rotation: 0,
                 duration: 1.5,
                 ease: 'power3.inOut',
             }
