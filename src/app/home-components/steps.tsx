@@ -61,37 +61,33 @@ export default function Steps() {
         const tl = textAnimation(titleRef.current, elementRef.current);
         textAnimationTl(descriptionRef.current, elementRef.current, tl);
 
-        let loaded = false;
-
         setTimeout(() => {
             for (let i = 0; i < steps.length; i++) {
                 gsap.to(".scroller", {
+                    // xPercent: -100 * (steps.length - 1),
+                    ease: "none",
                     scrollTrigger: {
                         trigger: `#step-${i}`,
                         endTrigger: `#step-${i + 1}`,
-                        start: "center 180",
+                        start: "10% 180",
                         end: "center center",
                         scroller: "#trigger-1",
                         toggleActions: "play reverse play reverse",
-                        markers: false,
+                        scrub: 1,
+                        snap: 1 / (steps.length - 1),
                         onToggle: (self) => {
-                            if (self.isActive && loaded) {
+                            if (self.isActive) {
                                 setActiveStep(i);
                                 scrollTo(i);
                             }
                         }
                     },
                     duration: 0.5,
-                    ease: "power2.out",
                     stagger: 0.3,
                     immediateRender: false,
                 });
             }
         }, 100);
-
-        setTimeout(() => {
-            loaded = true;
-        }, 110);
 
         // Mobile scroll synchronization
         const setupMobileScrollSync = () => {

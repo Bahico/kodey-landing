@@ -12,6 +12,7 @@
     "@gsap/react": "^2.1.2",
     "@lottiefiles/react-lottie-player": "^3.6.0",
     "@pbe/react-yandex-maps": "^1.2.5",
+    "@yandex/ymaps3-types": "^0.0.17",
     "axios": "^1.11.0",
     "date-fns": "^4.1.0",
     "gsap": "^3.13.0",
