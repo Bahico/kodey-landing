@@ -123,7 +123,7 @@ export default function Services() {
                                     <p
                                         className={`text-right text-xs sm:text-sm text-[#929292] group-hover:text-gray-200 transition-all duration-300`}
                                     >
-                                        от {formatNumber(service.amount) } сум
+                                        от {formatNumber(service.amount) }$
                                     </p>
                                 </div>
                             </div>

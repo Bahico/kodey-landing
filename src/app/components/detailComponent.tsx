@@ -42,7 +42,7 @@ export default function DetailComponent({post, first}: { post: CaseModel, first:
                                 <h3 className="text-xl md:text-4xl text-white font-bold">
                                     {block.title}
                                 </h3>
-                                <p className="text-sm md:text-xl text-white">
+                                <p className="text-sm md:text-xl text-white" style={{ whiteSpace: "pre-line" }}>
                                     {block.description}
                                 </p>
                             </div>

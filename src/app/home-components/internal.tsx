@@ -22,38 +22,43 @@ export default function Internal() {
     const titleRef = useRef<HTMLHeadingElement>(null);
     const descriptionRef = useRef<HTMLParagraphElement>(null);
     const elementRef = useRef<HTMLDivElement>(null);
+    const triggerRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
         const tl = textAnimation(titleRef.current, elementRef.current);
         textAnimationTl(descriptionRef.current, tl);
+        const timeout = setTimeout(() => {
+            const tl2 = gsap.timeline({
+                scrollTrigger: {
+                    trigger: triggerRef.current,
+                    start: 'bottom center',
+                    end: 'bottom center',
+                    scrub: 1.5,
+                    // toggleActions: 'play none reverse none'
+                },
+            });
 
-        const tl2 = gsap.timeline({
-            scrollTrigger: {
-                trigger: elementRef.current,
-                start: 'bottom bottom',
-                end: 'bottom 0%',
-                scrub: 1.5,
-                toggleActions: 'play none reverse none'
-            },
-        });
+            tl2.fromTo(
+                elementRef.current,
+                {
+                    // clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+                    // backgroundColor: '#000',
+                    y: "0",
+                    scale: 1
+                },
+                {
+                    // clipPath: 'polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)',
+                    // backgroundColor: '#fff',
+                    y: "-100vh",
+                    scale: 0,
+                    // rotation: -15,
+                    duration: 1.5,
+                    ease: 'power3.inOut',
+                }
+            );
+        }, 100);
 
-        tl2.fromTo(
-            elementRef.current,
-            {
-                // clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-                // backgroundColor: '#000',
-                scale: 1
-            },
-            {
-                // clipPath: 'polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)',
-                // backgroundColor: '#fff',
-                y: "-100vh",
-                scale: 0,
-                // rotation: -15,
-                duration: 1.5,
-                ease: 'power3.inOut',
-            }
-        );
+        return () => clearTimeout(timeout);
     })
 
     useEffect(() => {
@@ -167,6 +172,7 @@ export default function Internal() {
                     </div>
                 </div>
             </section>
+            <div ref={triggerRef} style={{height: "1px"}}></div>
         </>
     );
 }
