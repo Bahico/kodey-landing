@@ -245,10 +245,9 @@ export default function Steps() {
                             id="step-7"
                             className="snap-center relative w-full flex mb-16 sm:mb-22 lg:mb-22 scroll-item container lg:pr-[30%]"
                         ></div>
-                        {/* <div className="snap-center snap-always relative w-full flex snap-start mb-14 sm:mb-18 lg:mb-24"></div> */}
                     </div>
-                    <div
-                        className="absolute top-[250px] md:bottom-14 z-20 pointer-events-none left-0 w-full md:w-2/4 h-[50px] md:h-1/2 scroll-smoothly"></div>
+
+                    <div className="absolute top-[250px] md:bottom-14 z-20 pointer-events-none left-0 w-full md:w-2/4 h-[50px] md:h-1/2 scroll-smoothly"></div>
 
 
                     {/* Interactive Carousel */}
@@ -270,7 +269,7 @@ function StepImage({steps}: {
             <div className="flex absolute top-0 bottom-0 justify-center items-center h-full z-10 w-full">
                 <div className="container flex justify-end relative mr-20">
                     <GlassElement
-                        className="relative flex-col steps-icons scroller w-[280px] snap-mandatory snap-y h-[290px] sm:w-[400px] sm:h-[415px] md:w-[500px] md:h-[520px] lg:w-[549px] lg:h-[568px] z-10 rounded-full overflow-y-auto scrollbar-hide border border-gray-600 backdrop-blur-sm mx-auto lg:mx-0"
+                        className="relative flex-col steps-icons scroller snap-mandatory snap-y w-[549px] h-[568px] z-10 rounded-full overflow-y-auto border border-gray-600 scrollbar-hide"
                         width={549}
                         height={568}
                         radius={300}
@@ -290,7 +289,6 @@ function StepImage({steps}: {
                                     className="w-[90%] object-cover"
                                 />
                             </div>
-
                         ))}
                     </GlassElement>
                     <img
