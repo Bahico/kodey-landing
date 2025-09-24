@@ -30,7 +30,7 @@ export default function Services() {
 
         (async () => {
             getAxios('services').then((res: any) => {
-                setServices([...res.data, ...res.data]);
+                setServices(res.data);
 
                 setTimeout(() => {
                     const panelsContainer = panelsContainerRef.current;
