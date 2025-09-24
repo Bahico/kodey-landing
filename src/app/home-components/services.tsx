@@ -9,6 +9,10 @@ import {textAnimation, textAnimationTl} from "@/app/functions/text.animation";
 
 gsap.registerPlugin(ScrollTrigger);
 
+function formatNumber(value: number, options?: any) {
+    return new Intl.NumberFormat('en-US', options).format(value);
+}
+
 export default function Services() {
     const t = useTranslations('services');
     const [height, setHeight] = useState(0);
@@ -22,7 +26,7 @@ export default function Services() {
 
     useEffect(() => {
         const tl = textAnimation(titleRef.current, elementRef.current);
-        textAnimationTl(descriptionRef.current, elementRef.current, tl);
+        textAnimationTl(descriptionRef.current, tl);
 
         (async () => {
             getAxios('services').then((res: any) => {
@@ -119,7 +123,7 @@ export default function Services() {
                                     <p
                                         className={`text-right text-xs sm:text-sm text-[#929292] group-hover:text-gray-200 transition-all duration-300`}
                                     >
-                                        {service.price}
+                                        от {formatNumber(service.amount) } сум
                                     </p>
                                 </div>
                             </div>

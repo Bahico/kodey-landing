@@ -53,8 +53,8 @@ export default function Contact() {
 
     useGSAP(() => {
         const tl = textAnimation(titleRef.current, elementRef.current);
-        textAnimationTl(descriptionRef.current, elementRef.current, tl);
-        textAnimationTl(formTitleRef.current, elementRef.current, tl);
+        textAnimationTl(descriptionRef.current, tl);
+        textAnimationTl(formTitleRef.current, tl);
 
         gsap.fromTo(
             '.type',

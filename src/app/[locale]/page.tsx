@@ -31,6 +31,8 @@ export default function SimpleHome() {
     const buttonRef = useRef<HTMLButtonElement>(null);
     const buttonDescriptionRef = useRef<HTMLButtonElement>(null);
     const elementRef = useRef<HTMLDivElement>(null);
+    const triggerRef = useRef<HTMLDivElement>(null);
+    const blackRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
         const tl = gsap.timeline({
@@ -43,9 +45,9 @@ export default function SimpleHome() {
 
         const tl1 = textAnimation(titleRef.current, elementRef.current);
 
-        textAnimationTl(descriptionRef.current, elementRef.current, tl1);
-        textAnimationTl(buttonRef.current, elementRef.current, tl1);
-        textAnimationTl(buttonDescriptionRef.current, elementRef.current, tl1);
+        textAnimationTl(descriptionRef.current, tl1);
+        textAnimationTl(buttonRef.current, tl1);
+        textAnimationTl(buttonDescriptionRef.current, tl1);
 
         // First text animation
         tl.to("#title-home", {
@@ -142,7 +144,37 @@ export default function SimpleHome() {
                 onLeaveBack: () =>
                     gsap.to(elementRef.current, {duration: 1, y: '0', ease: 'power4.out'})
             },
-        })
+        });
+
+        const tl3 = gsap.timeline({
+            scrollTrigger: {
+                trigger: triggerRef.current,
+                start: 'top 90%',
+                end: '40% top',
+                scrub: 1.5,
+                toggleActions: 'play none reverse none'
+            },
+        });
+
+        tl3.fromTo(
+            blackRef.current,
+            {
+                // clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+                // backgroundColor: '#000',
+                y: "-20vh",
+                scale: 0.6
+            },
+            {
+                // clipPath: 'polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)',
+                // backgroundColor: '#fff',
+                scale: 1,
+                y: "0",
+                // rotation: -15,
+                duration: 1.5,
+                ease: 'power3.inOut',
+            }
+        );
+
     });
 
     return (
@@ -207,11 +239,15 @@ export default function SimpleHome() {
                 </div>
             </section>
 
-            {/* Human Factor Section */}
-            <Employees/>
+            <div ref={triggerRef} style={{height: "1px"}}></div>
+            <div ref={blackRef}
+                 className="bg-black w-full rounded-[30px] sm:rounded-[40px] md:rounded-[50px] lg:rounded-[60px]">
+                {/* Human Factor Section */}
+                <Employees/>
 
-            {/* Route to Production Section */}
-            <Steps/>
+                {/* Route to Production Section */}
+                <Steps/>
+            </div>
 
             {/* Services Section */}
             <Services/>
@@ -224,6 +260,7 @@ export default function SimpleHome() {
 
             {/* Internal Section */}
             <Internal/>
+
 
             {/* Contact Section */}
             <Contact/>

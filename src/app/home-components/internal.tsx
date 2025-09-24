@@ -25,7 +25,7 @@ export default function Internal() {
 
     useGSAP(() => {
         const tl = textAnimation(titleRef.current, elementRef.current);
-        textAnimationTl(descriptionRef.current, elementRef.current, tl);
+        textAnimationTl(descriptionRef.current, tl);
 
         const tl2 = gsap.timeline({
             scrollTrigger: {
@@ -42,8 +42,7 @@ export default function Internal() {
             {
                 // clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
                 // backgroundColor: '#000',
-                scale: 1,
-                rotation: 0,
+                scale: 1
             },
             {
                 // clipPath: 'polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)',

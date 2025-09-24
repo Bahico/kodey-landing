@@ -18,8 +18,8 @@ export default function Location() {
 
     useGSAP(() => {
         const tl = textAnimation(titleRef.current, elementRef.current);
-        textAnimationTl(descriptionRef.current, elementRef.current, tl);
-        textAnimationTl(placeRef.current, elementRef.current, tl);
+        textAnimationTl(descriptionRef.current, tl);
+        textAnimationTl(placeRef.current, tl);
     })
 
     return (

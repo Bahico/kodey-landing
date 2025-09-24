@@ -10,7 +10,6 @@ export function Employees() {
     const {lg} = nowSize();
     const tHumanFactor = useTranslations('human-factor');
     const [activeEmployee, setActiveEmployee] = useState(0);
-    const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
 
     // refs
     const titleRef = useRef<HTMLHeadingElement>(null);
@@ -18,7 +17,6 @@ export function Employees() {
     const infoRef = useRef<HTMLParagraphElement>(null);
     const buttonRef = useRef<HTMLButtonElement>(null);
     const elementRef = useRef<HTMLDivElement>(null);
-    const triggerRef = useRef<HTMLDivElement>(null);
 
     const employees = [
         {
@@ -45,39 +43,9 @@ export function Employees() {
 
     useGSAP(() => {
         const tl = textAnimation(titleRef.current, elementRef.current);
-        textAnimationTl(descriptionRef.current, elementRef.current, tl);
-        textAnimationTl(infoRef.current, elementRef.current, tl);
-        textAnimationTl(buttonRef.current, elementRef.current, tl);
-
-        const tl2 = gsap.timeline({
-            scrollTrigger: {
-                trigger: triggerRef.current,
-                start: 'top 90%',
-                end: '40% top',
-                scrub: 1.5,
-                toggleActions: 'play none reverse none',
-            },
-        })
-
-        tl2.fromTo(
-            elementRef.current,
-            {
-                // clipPath: 'polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)',
-                // backgroundColor: '#fff',
-                scale: 0,
-                // y: "100vh",
-                // rotation: -15,
-            },
-            {
-                // clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-                // backgroundColor: '#000',
-                scale: 1,
-                // y: "0vh",
-                // rotation: 0,
-                duration: 1.5,
-                ease: 'power3.inOut',
-            }
-        )
+        textAnimationTl(descriptionRef.current, tl, 0.2);
+        textAnimationTl(infoRef.current, tl, 0.2);
+        textAnimationTl(buttonRef.current, tl, 0.2);
     });
 
     useEffect(() => {
@@ -103,11 +71,10 @@ export function Employees() {
 
     return (
         <>
-            <div ref={triggerRef} style={{ height: '1px' }}></div>
             <section
                 id="dark-section"
                 ref={elementRef}
-                className="bg-black text-white w-full flex justify-center rounded-t-[30px] sm:rounded-t-[40px] md:rounded-t-[50px] lg:rounded-t-[60px] relative right-background"
+                className=" text-white w-full flex justify-center rounded-t-[30px] sm:rounded-t-[40px] md:rounded-t-[50px] lg:rounded-t-[60px] relative right-background"
             >
                 <div
                     className="absolute top-20 sm:top-40 md:top-60 left-4 sm:left-6 md:left-10 w-[300px] h-[400px] sm:w-[500px] sm:h-[600px] md:w-[700px] md:h-[800px] lg:w-[900px] lg:h-[1000px] z-0">

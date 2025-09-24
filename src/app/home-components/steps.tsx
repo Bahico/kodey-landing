@@ -59,7 +59,7 @@ export default function Steps() {
 
     useGSAP(() => {
         const tl = textAnimation(titleRef.current, elementRef.current);
-        textAnimationTl(descriptionRef.current, elementRef.current, tl);
+        textAnimationTl(descriptionRef.current, tl);
 
         setTimeout(() => {
             for (let i = 0; i < steps.length; i++) {

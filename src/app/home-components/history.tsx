@@ -15,7 +15,7 @@ export default function History() {
 
   useGSAP(() => {
       const tl = textAnimation(titleRef.current, elementRef.current);
-      textAnimationTl(descriptionRef.current, elementRef.current, tl);
+      textAnimationTl(descriptionRef.current, tl);
   })
 
   return (
