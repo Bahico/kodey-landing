@@ -256,7 +256,7 @@ export default async function LocaleLayout({ children, params }: Props) {
                                             <img src="/images/icons/instagram.svg" id="instagram"
                                                 className="drop-shadow-2xl animate-instagram w-full md:w-auto"
                                                 alt="" />
-                                            <div className="absolute top-0 left-5 h-20 items-center flex gap-10">
+                                            <div className="absolute top-0 left-5 h-20 items-center flex gap-5 md:gap-10">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
                                                     viewBox="0 0 50 50"
                                                     fill="none">
@@ -265,7 +265,7 @@ export default async function LocaleLayout({ children, params }: Props) {
                                                         stroke="white" strokeWidth="4.16667" strokeLinecap="round"
                                                         strokeLinejoin="round" />
                                                 </svg>
-                                                <span className="font-bold text-2xl md:text-xl">Instagram</span>
+                                                <span className="font-bold text-xl">Instagram</span>
                                             </div>
                                         </a>
                                     </div>
@@ -276,7 +276,7 @@ export default async function LocaleLayout({ children, params }: Props) {
                                                 className="drop-shadow-2xl animate-telegram w-full md:w-auto" style={{ animationDelay: "1s" }}
                                                 alt="" />
                                             <div className="absolute bottom-0 right-5 h-20 items-center flex gap-10">
-                                                <span className="font-bold text-2xl md:text-xl">Telegram</span>
+                                                <span className="font-bold text-xl">Telegram</span>
                                                 <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path

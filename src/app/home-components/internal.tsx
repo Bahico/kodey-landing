@@ -7,8 +7,8 @@ import {useTranslations} from "next-intl";
 import {useGSAP} from "@gsap/react";
 import {textAnimation, textAnimationTl} from "@/app/functions/text.animation";
 import {Link} from "@/i18n/navigation";
-import { format, parseISO } from 'date-fns';
-import { ru } from 'date-fns/locale';
+import {format, parseISO} from 'date-fns';
+import {ru} from 'date-fns/locale';
 import gsap from "gsap";
 
 
@@ -82,9 +82,9 @@ export default function Internal() {
         setActiveIndex(index);
     };
 
-    const GetDate = ({dateString}: {dateString: string}) => {
+    const GetDate = ({dateString}: { dateString: string }) => {
         const date = parseISO(dateString);
-        const formattedDate = format(date, 'd MMMM yyyy', { locale: ru });
+        const formattedDate = format(date, 'd MMMM yyyy', {locale: ru});
 
         return <time dateTime={dateString}>{formattedDate}</time>;
     }
@@ -118,14 +118,14 @@ export default function Internal() {
                 <div className="container mx-auto px-4">
                     {/* Header Section */}
                     <div className="mb-16">
-                        <h2 ref={titleRef} className="text-5xl md:text-6xl font-bold text-white mb-4">
+                        <h2 ref={titleRef}
+                            className="text-5xl md:text-6xl font-bold text-white mb-4 flex flex-col md:flex-row">
                             <span>{t('title')}</span>
                             <span className="text-[#929292] ml-2">{t('subtitle')}</span>
                         </h2>
-                        <span ref={descriptionRef} className="text-xl md:text-2xl text-[#929292] font-light">
-                        {t('description')}
-                            {activeIndex}
-                    </span>
+                        <div ref={descriptionRef} className="text-xl md:text-2xl w-full flex text-[#929292] font-light">
+                            {t('description')}
+                        </div>
                     </div>
 
                     {/* Blog Posts Grid */}
@@ -154,7 +154,7 @@ export default function Internal() {
                                         <div className="flex items-center justify-between text-sm md:text-base">
                                             <span className="text-cyan-400 text-xl">#{post.tags.join(', #')}</span>
                                             <span className="text-gray-500">
-                                            <GetDate dateString={post.createdAt} />
+                                            <GetDate dateString={post.createdAt}/>
                                         </span>
                                         </div>
                                         <div className="flex flex-col gap-6">
