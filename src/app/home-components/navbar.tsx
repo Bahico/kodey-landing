@@ -15,13 +15,15 @@ export default function Navbar({locale}: { locale: string}) {
     const [blur, setBlur] = useState(false);
     const [showNavbar, setShowNavbar] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
+    const [currentScrollY, setCurrentScrollY] = useState(0);
 
     const pathname = usePathname();
     const t = useTranslations('navigation');
     const routes = {
         '': 800,
         'privacy-policy': 0,
-        'posts': 400
+        'posts': 200,
+        'articles': 200,
     }
 
     useEffect(() => {
@@ -48,7 +50,8 @@ export default function Navbar({locale}: { locale: string}) {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
 
-            if (currentScrollY > lastScrollY) {
+            if (currentScrollY > lastScrollY && currentScrollY > 0) {
+                setCurrentScrollY(currentScrollY);
                 // Scrolling down
                 setShowNavbar(false);
             } else {

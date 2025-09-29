@@ -23,6 +23,17 @@ export default function Location() {
         textAnimationTl(placeRef.current, tl);
     });
 
+    useEffect(() => {
+        try {
+            if (ymaps) {
+                loadMap();
+            }
+        } catch (e) {
+            console.log(e);
+        }
+
+    }, []);
+
     const loadMap = () => {
         ymaps.ready(function(){
 
@@ -37,17 +48,12 @@ export default function Location() {
                 avoidFractionalZoom: false
             });
             const placemark = new ymaps.Placemark([39.661507, 66.924519], {}, {
-                // Задаем стиль метки (метка в виде круга).
                 preset: "islands#darkBlueDotIcon",
-                // Задаем цвет метки (в формате RGB).
-                // iconColor: '#ff0000'
             });
             myMap.geoObjects.add(placemark);
             setMapLayer(myMap, 'dark');
 
             myMap.controls.remove('directionControl');
-            // myMap.controls.remove('trafficControl');
-            // myMap.controls.remove('searchControl');
         });
     }
 
