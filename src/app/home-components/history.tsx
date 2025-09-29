@@ -86,7 +86,7 @@ export default function History() {
           </Link>
         </div>
 
-        <PostsList />
+        <PostsList limit={6} />
       </div>
     </section>
   );

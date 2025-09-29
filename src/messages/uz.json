@@ -63,7 +63,9 @@
     "phone": "Telefon",
     "message": "Qisqa texnik topshiriq",
     "send": "Ariza qoldirish",
-    "agreement": "Shaxsiy maʼlumotlarni qayta ishlashga roziman"
+    "agreement": "Shaxsiy maʼlumotlarni qayta ishlashga roziman",
+    "sendDescription": "Tez orada mutaxassis siz bilan bog'lanadi va sizga maslahat beradi.",
+    "sendTitle": "Ariza qabul qilindi"
   },
   "steps": {
     "title": "Prodyukshnga",

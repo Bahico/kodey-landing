@@ -221,20 +221,7 @@ export default function SimpleHome() {
                         </div>
 
                         <div className="relative">
-                            <img src="/video/output.webp" className="w-full h-[600px] md:w-[500px] md:h-[750px] lg:w-[583px] lg:h-[875px] lg:mr-[-40px]" alt=""/>
-                            {/*<video*/}
-                            {/*    className="w-full h-[600px] md:w-[500px] md:h-[750px] lg:w-[583px] lg:h-[875px] lg:mr-[-40px]"*/}
-                            {/*    autoPlay loop muted*/}
-                            {/*>*/}
-                            {/*    <source src="/video/output.webp"*/}
-                            {/*            type="video/webp"*/}
-                            {/*    />*/}
-                            {/*</video>*/}
-                            {/*<video width="320" height="240" controls>*/}
-                            {/*    <source src="movie.mp4" type="video/mp4"/>*/}
-                            {/*    <source src="movie.ogg" type="video/ogg"/>*/}
-                            {/*    Your browser does not support the video tag.*/}
-                            {/*</video>*/}
+                            <img src="/video/output7.webp" className="w-full h-[600px] md:w-[500px] md:h-[750px] lg:w-[583px] lg:h-[875px] lg:mr-[-40px]" alt=""/>
 
                         </div>
                     </div>

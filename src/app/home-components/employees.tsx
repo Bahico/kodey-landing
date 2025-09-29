@@ -20,24 +20,29 @@ export function Employees() {
 
     const employees = [
         {
-            name: "Евгений",
+            name: "Карен",
             position: "Back-end developer",
-            image: "/images/home/f4bdbf1790d07ba513b62e141ee9ed8f8ff6e090.png",
+            image: "/images/employees/IMG_8413.JPG",
         },
         {
             name: "Кристина",
             position: "Project manager",
-            image: "/images/home/Rectangle 15.png",
+            image: "/images/employees/photo_2025-09-29_23-19-32.jpg",
         },
         {
             name: "Лазиз",
-            position: "Project manager",
-            image: "/images/home/Rectangle 16.png",
+            position: "Founder",
+            image: "/images/employees/photo_2025-09-29_23-19-44.jpg",
         },
         {
-            name: "Александр",
-            position: "Full-stack developer",
-            image: "/images/home/Rectangle 17.png",
+            name: "Фаррух",
+            position: "Frontend Developer",
+            image: "/images/employees/photo_2025-09-29_23-19-36.jpg",
+        },
+        {
+            name: "Виктор",
+            position: "UX/UI Designer",
+            image: "/images/employees/photo_2025-09-29_23-19-41.jpg",
         },
     ];
 

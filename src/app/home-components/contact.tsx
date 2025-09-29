@@ -44,11 +44,11 @@ export default function Contact() {
             description: formData.get('description')
         }
 
-        // await postAxios('support', rawFormData)
-        //     .then((res) => {
+        await postAxios('support', rawFormData)
+            .then((res) => {
                 handleOpen();
                 formRef.current?.reset();
-            // })
+            })
     }
 
     useGSAP(() => {
@@ -77,7 +77,7 @@ export default function Contact() {
             elementRef.current,
             {
                 scale: 0.5,
-                y: '-20vh',
+                y: '-30vh',
                 opacity: 0.9,
             },
             {
@@ -312,16 +312,16 @@ export default function Contact() {
                         <div
                             className="relative z-10 flex flex-col md:pt-10 gap-2 md:gap-5 p-10 pt-14 w-full">
                             <span className="text-xl md:text-2xl font-semibold flex gap-2 w-full">
-                                Заявка принята !{" "}
+                                {t("sendTitle")}!
                                   <Image
                                       src="/images/icons/congrats.png"
                                       width="30"
                                       height="24"
                                       alt=""
-                                  />{" "}
+                                  />
                             </span>
                             <span className="md:text-xl flex gap-2 relative">
-                                Скоро с вами свяжется специалист и проконсультирует вас !{" "}
+                                {t("sendDescription")}!
                                 <Image
                                     className="absolute bottom-0 right-0 md:right-[48%]"
                                     src="/images/icons/smile.png"

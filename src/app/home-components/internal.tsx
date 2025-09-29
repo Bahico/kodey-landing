@@ -34,6 +34,7 @@ export default function Internal() {
                     start: 'bottom center',
                     end: 'bottom center',
                     scrub: 1.5,
+                    markers: true,
                     // toggleActions: 'play none reverse none'
                 },
             });
@@ -51,7 +52,7 @@ export default function Internal() {
                     // backgroundColor: '#fff',
                     y: "-100vh",
                     scale: 0,
-                    // rotation: -15,
+                    rotation: -15,
                     duration: 1.5,
                     ease: 'power3.inOut',
                 }
@@ -142,7 +143,7 @@ export default function Internal() {
                                     className={`flex w-full flex-col gap-6 transition-all duration-300 ${activeIndex === index ? "" : "pt-10 pb-20 unactive"}`}
                                 >
                                     <div
-                                        className={`relative w-full overflow-hidden rounded-lg transition-all duration-300 ${activeIndex === index ? "h-[180px] lg:h-[444px]" : "h-[120px] lg:h-[296px]"}`}
+                                        className={`relative w-full overflow-hidden rounded-lg transition-all duration-300 ${activeIndex === index ? "h-[180px] md:h-[360px] lg:h-[400px]" : "h-[120px] lg:h-[296px]"}`}
                                     >
                                         <img
                                             src={photoUrl(post.photo)}

@@ -91,7 +91,7 @@ export default function Services() {
                 <div
                     id="services-container"
                     ref={panelsContainerRef}
-                    className="w-full flex overflow-hidden pb-6 sm:pb-8 lg:pb-10 gap-4 sm:gap-6 md:gap-8 lg:gap-12"
+                    className="w-full flex overflow-hidden pb-6 sm:pb-8 lg:pb-10 gap-4 sm:gap-6 md:gap-8 lg:gap-12 !pl-10 md:pl-0"
                 >
                     {services.map((service, index) => (
                         <div

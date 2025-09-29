@@ -19,7 +19,7 @@ export default function DetailComponent({post, first}: { post: CaseModel, first:
                         </div>
                         <Image
                             src={`/images/bot/bot${first ? '1' : '7'}.png`}
-                            className={`rotate-y-190 ${first ? 'md:!rotate-y-0' : ''} order-2 md:order-none -mb-40`}
+                            className={`rotate-y-190 ${first ? 'md:!rotate-y-0' : ''} order-2 md:order-none sm:-mb-20 md:-mb-40`}
                             alt="background"
                             width={400}
                             height={400}
@@ -47,13 +47,12 @@ export default function DetailComponent({post, first}: { post: CaseModel, first:
                                 </p>
                             </div>
 
-                            <div className="w-full md:w-[450px] h-[460px]">
+                            <div className="w-full md:w-[450px] max-h-[460px]">
                                 <img
                                     src={photoUrl(block.photo)}
                                     alt="background"
                                     className="w-full h-full object-contain"
                                     width={400}
-                                    height={400}
                                 />
                             </div>
                         </div>

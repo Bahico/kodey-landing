@@ -1,96 +1,61 @@
 "use client";
 
-import {useEffect, useRef} from "react";
+import {useEffect, useRef, useState} from "react";
 import gsap from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
+import "./test.css";
 
 gsap.registerPlugin(ScrollTrigger);
+const items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7"];
 
 export default function ScrollSection() {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const innerRef = useRef<HTMLDivElement>(null);
+    const containerRef = useRef(null);
+    const [active, setActive] = useState(0);
 
     useEffect(() => {
-        if (!containerRef.current || !innerRef.current) return;
+        const container = containerRef.current;
+        const handleScroll = () => {
+            const items = container.querySelectorAll(".item");
+            const center = container.offsetHeight / 2;
 
-        // container divni gorizontal scroll uchun pin qilamiz
-        gsap.to(containerRef.current, {
-            x: "-100vw", // 200vw → 100vw ni scroll qilib ko‘rsatamiz
-            ease: "none",
-            scrollTrigger: {
-                trigger: containerRef.current,
-                start: "top top",
-                end: "+=1000", // scroll masofasini sozlashingiz mumkin
-                scrub: true,
-                pin: true,
-            },
-        });
+            items.forEach((item, i) => {
+                const rect = item.getBoundingClientRect();
+                const itemCenter = rect.top + rect.height / 2;
+                const distance = itemCenter - center;
 
-        // ichki divni vertical scroll qilamiz
-        gsap.to(innerRef.current, {
-            y: "-100%", // yuqoriga ko‘tariladi
-            ease: "none",
-            scrollTrigger: {
-                trigger: containerRef.current,
-                start: "top top",
-                end: "+=1000", // yuqoridagiga mos bo‘lishi kerak
-                scrub: true,
-            },
-        });
+                // Masofaga qarab X ni o'zgartiramiz
+                const offsetX = Math.min(40, Math.max(-40, distance / 5));
+                item.style.transform = `translateX(${offsetX}px)`;
+            });
+        };
+
+        container.addEventListener("scroll", handleScroll);
+        return () => container.removeEventListener("scroll", handleScroll);
     }, []);
 
     return (
         <html>
         <body>
         <div
-            style={{
-                height: "200vh",
-                overflow: "hidden",
-            }}
+            ref={containerRef}
+            className="scroll-container"
+            style={{ height: "400px", overflowY: "scroll" }}
         >
-            <div
-                ref={containerRef}
-                style={{
-                    display: "flex",
-                    width: "200vw", // katta container
-                    height: "100vh",
-                    background: "#ddd",
-                }}
-            >
+            {Array.from({ length: 10 }).map((_, i) => (
                 <div
+                    key={i}
+                    className="item"
                     style={{
-                        width: "100vw",
-                        height: "100%",
-                        background: "lightcoral",
+                        height: "100px",
+                        background: i % 2 ? "#ddd" : "#bbb",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
                     }}
                 >
-                    <h1>1-Page (scroll qiling ➡️)</h1>
+                    Item {i + 1}
                 </div>
-                <div
-                    style={{
-                        width: "100vw",
-                        height: "100%",
-                        background: "lightblue",
-                        position: "relative",
-                    }}
-                >
-                    <div
-                        ref={innerRef}
-                        style={{
-                            width: "200px",
-                            height: "200px",
-                            background: "purple",
-                            position: "absolute",
-                            left: "50%",
-                            top: "50%",
-                            transform: "translate(-50%, -50%)",
-                        }}
-                    />
-                </div>
-            </div>
+            ))}
         </div>
         </body>
         </html>

@@ -63,7 +63,9 @@
     "phone": "Phone",
     "message": "Brief technical specification",
     "send": "Submit a request",
-    "agreement": "I agree to the processing of personal data"
+    "agreement": "I agree to the processing of personal data",
+    "sendDescription": "A specialist will contact you soon and provide you with advice.",
+    "sendTitle": "Application accepted"
   },
   "posts": {
     "title": "Internal",

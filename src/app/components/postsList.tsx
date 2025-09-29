@@ -3,13 +3,13 @@ import { useEffect, useState } from "react";
 import { getAxios, photoUrl } from "@/api/api.functions";
 import { CaseModel } from "@/models/case.model";
 
-export default function PostsList() {
+export default function PostsList({limit}: {limit?: number} = {}) {
   const [history, setHistory] = useState<CaseModel[]>([]);
 
   useEffect(() => {
       (async () => {
           getAxios('cases').then(res => {
-              setHistory(res.data);
+              setHistory(limit ? res.data.slice(0, limit) : res.data);
           })
       })()
   }, [])

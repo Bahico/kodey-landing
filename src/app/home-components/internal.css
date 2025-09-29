@@ -11,10 +11,16 @@
 }
 
 .card-group:hover .card-shadow {
-  box-shadow:
-    0 -100px 80px -20px #0083cf,
-    0 -20px 40px -20px #0083cf,
-    0px 0px 20px 0px #0083cf;
+    box-shadow:
+            0 -50px 40px -10px #0083cf,
+            0 -10px 20px -10px #0083cf,
+            0px 0px 10px 0px #0083cf;
+  @media (width >= 40rem) {
+      box-shadow:
+              0 -100px 80px -20px #0083cf,
+              0 -20px 40px -20px #0083cf,
+              0px 0px 20px 0px #0083cf;
+  }
 }
 
 #services-container {
