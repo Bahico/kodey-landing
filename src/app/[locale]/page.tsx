@@ -223,7 +223,7 @@ export default function SimpleHome() {
                         </div>
 
                         <div className="relative">
-                            <img src="/video/output7.webp" className="w-full h-[600px] md:w-[500px] md:h-[750px] lg:w-[583px] lg:h-[875px] lg:mr-[-40px]" alt=""/>
+                            <img src="/video/output7.webp" className="w-full object-contain h-[600px] md:w-[500px] md:h-[750px] lg:w-[583px] lg:h-[875px] lg:mr-[-40px]" alt=""/>
 
                         </div>
                     </div>
