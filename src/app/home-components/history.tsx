@@ -22,7 +22,7 @@ export default function History() {
     <section
       id="product-list"
       ref={elementRef}
-      className="bg-black flex justify-center w-full relative z-20"
+      className="bg-black flex justify-center w-full relative z-30"
     >
       <div
         className="absolute pointer-events-none top-0 md:top-40 right-4 sm:right-6 md:right-10 w-[300px] h-[400px] sm:w-[500px] sm:h-[600px] md:w-[700px] md:h-[800px] lg:w-[900px] lg:h-[1000px] z-0">
@@ -34,10 +34,10 @@ export default function History() {
       </div>
 
       <div
-        className="absolute pointer-events-none bottom-0 left-4 sm:left-6 md:left-10 w-[300px] h-[400px] sm:w-[500px] sm:h-[600px] md:w-[700px] md:h-[800px] lg:w-[900px] lg:h-[1000px] z-0">
+        className="absolute pointer-events-none bottom-0 left-4 sm:left-6 md:left-10 w-[300px] h-[400px] sm:w-[500px] sm:h-[600px] md:w-[700px] md:h-[800px] lg:w-[900px] lg:h-[1000px]">
         <img
           src="images/background/background.png"
-          className="w-3/4 absolute -left-100 -bottom-80"
+          className="w-3/4 absolute -left-100 -bottom-80 z-60"
           alt=""
         />
       </div>

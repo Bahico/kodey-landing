@@ -17,6 +17,7 @@ import BackgroundAnimation from "@/app/components/BackgroundAnimation";
 import {useTranslations} from "next-intl";
 import {textAnimation, textAnimationTl} from "@/app/functions/text.animation";
 import {Employees} from "@/app/home-components/employees";
+import {useLocale} from "use-intl";
 
 gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
@@ -24,6 +25,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 export default function SimpleHome() {
     const t = useTranslations('home');
+    const locale = useLocale();
 
     // refs
     const titleRef = useRef<HTMLHeadingElement>(null);
@@ -207,7 +209,7 @@ export default function SimpleHome() {
                                 className="text-[30px] md:text-[42px] lg:text-[72px] font-light text-[#929292] mb-4 sm:mb-10 lg:mb-30 z-10 w-[471px] md:w-[850px]">
                                 {t('title')}
                             </h1>
-                            <Link href="/#contact">
+                            <Link href={`/${locale}/#contact`}>
                                 <button
                                     ref={buttonRef}
                                     className="z-10 relative btn-gradient text-white px-6 mb-4 sm:px-8 lg:px-30 py-3 sm:py-4 lg:py-5 rounded-xl sm:rounded-2xl text-lg sm:text-xl lg:text-2xl font-semibold hover:shadow-lg transition-shadow w-full sm:w-auto">

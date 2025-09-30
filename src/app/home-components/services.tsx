@@ -64,7 +64,7 @@ export default function Services() {
         <section
             id="services"
             ref={elementRef}
-            className="bg-black flex justify-center w-full pt-20 sm:pt-30 md:pt-40 relative min-h-[1000px]"
+            className="bg-black flex justify-center w-full pt-20 sm:pt-30 md:pt-40 relative min-h-[1000px] relative z-20"
             style={{height: `${height}px`}}
         >
             <div
@@ -102,7 +102,7 @@ export default function Services() {
                                 className="absolute top-0 w-full h-[280px] md:h-[480px] lg:h-[600px] flex justify-center items-center z-10">
                                 <img
                                     src={photoUrl(service.photo)}
-                                    className="grayscale group-hover:grayscale-0 transition-all duration-300 w-2/3 h-full object-contain"
+                                    className="grayscale group-hover:grayscale-0 transition-all duration-300 w-full h-full object-contain"
                                     alt=""
                                 />
                             </div>

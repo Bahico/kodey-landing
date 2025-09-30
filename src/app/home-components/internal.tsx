@@ -34,7 +34,7 @@ export default function Internal() {
                     start: 'bottom center',
                     end: 'bottom center',
                     scrub: 1.5,
-                    markers: true,
+                    // markers: true,
                     // toggleActions: 'play none reverse none'
                 },
             });
@@ -96,7 +96,7 @@ export default function Internal() {
             <section
                 id="internal"
                 ref={elementRef}
-                className="relative w-full bg-black py-20 z-30 rounded-b-[60px]"
+                className="relative w-full bg-black py-20 z-10 rounded-b-[60px]"
             >
                 <div
                     className="absolute top-20 sm:top-40 md:top-120 left-4 sm:left-6 md:left-10 w-[300px] h-[400px] sm:w-[500px] sm:h-[600px] md:w-[700px] md:h-[800px] lg:w-[900px] lg:h-[1000px] z-0">
