@@ -90,6 +90,12 @@ body {
   transform: translate(0px, 0px) !important;
 }
 
+/*.backdrop-blur-2xl {*/
+/*    --tw-backdrop-blur: blur(32px);*/
+/*    -webkit-backdrop-filter: var(--tw-backdrop-blur);*/
+/*    backdrop-filter: var(--tw-backdrop-blur);*/
+/*}*/
+
 .right-background::after {
   @apply md:w-[895px] md:h-[1035px] w-[350px] h-[400px];
   content: "";

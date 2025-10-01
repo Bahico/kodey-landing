@@ -21,7 +21,7 @@ export function Employees() {
         {
             name: "karen",
             position: "Back-end developer",
-            image: "/images/employees/IMG_8413.JPG",
+            image: "/images/employees/IMG_7796.JPG",
         },
         {
             name: "kristina",
@@ -57,7 +57,7 @@ export function Employees() {
             setActiveEmployee((currentActiveIndex) =>
                 (currentActiveIndex + 1) % employees.length
             );
-        }, 5000);
+        }, 10000);
 
         // Cleanup the interval when the component unmounts
         return () => clearInterval(interval);
@@ -100,18 +100,20 @@ export function Employees() {
                             </h2>
                             <span ref={descriptionRef}
                                   className="text-lg sm:text-xl block md:text-2xl text-[#929292] mb-6 sm:mb-8 lg:mb-12">
-                            {t('description')}
-                        </span>
-                            <span ref={infoRef}
-                                  className="text-base block sm:text-lg md:text-xl leading-relaxed text-white mb-8 sm:mb-12 lg:mb-16 pl-0 sm:pl-8 lg:pl-16">
-                            {t('description1')}
+                                {t('description')}
+                            </span>
+                            <span
+                                ref={infoRef}
+                                className="text-base block sm:text-lg md:text-xl leading-relaxed text-white mb-8 sm:mb-12 lg:mb-16 pl-0 sm:pl-8 lg:pl-16"
+                            >
+                                {t('description1')}
                                 <br/>
-                            <br/>
+                                <br/>
                                 {t('description2')}
                                 <br/>
-                            <br/>
+                                <br/>
                                 {t('description3')}
-                        </span>
+                            </span>
                             <button
                                 ref={buttonRef}
                                 className="btn-gradient sm:ml-8 lg:ml-16 text-white px-6 sm:px-8 lg:px-20 py-3 sm:py-4 lg:py-5 rounded-xl sm:rounded-2xl text-base sm:text-lg lg:text-xl font-medium flex items-center gap-2 sm:gap-4 hover:shadow-lg transition-shadow w-full sm:w-auto justify-center lg:justify-start">

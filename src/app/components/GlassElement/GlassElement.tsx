@@ -18,8 +18,10 @@ type GlassElementProps = DisplacementOptions & {
 };
 
 function isSafari() {
-  const userAgent = navigator.userAgent.toLowerCase();
-  return userAgent.includes('safari') && !userAgent.includes('chrome');
+    if (typeof window === 'undefined') return false;
+    if (typeof navigator === 'undefined') return false;
+    const userAgent = navigator.userAgent.toLowerCase();
+    return userAgent.includes('safari') && !userAgent.includes('chrome');
 }
 
 export const GlassElement = ({

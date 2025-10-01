@@ -1,6 +1,6 @@
+'use client'
 import {CaseModel} from "@/models/case.model";
 import BackgroundAnimation from "@/app/components/BackgroundAnimation";
-import Image from "next/image";
 import {photoUrl} from "@/api/api.functions";
 
 export default function DetailComponent({post, first}: { post: CaseModel, first: boolean }) {
@@ -17,15 +17,13 @@ export default function DetailComponent({post, first}: { post: CaseModel, first:
                         <div className="absolute top-0 left-[-50%] w-full hidden md:block z-0">
                             <BackgroundAnimation/>
                         </div>
-                        <Image
+                        <img
                             src={`/images/bot/bot${first ? '1' : '7'}.png`}
-                            className={`rotate-y-190 ${first ? 'md:!rotate-y-0' : ''} order-2 md:order-none sm:-mb-20 md:-mb-40`}
+                            className={`md:rotate-y-190 ${first ? 'md:!rotate-y-0' : ''} object-contain order-2 md:order-none -mb-20 md:-mb-40 w-[200px] h-[300px] md:h-[400px] md:w-[400px]`}
                             alt="background"
-                            width={400}
-                            height={400}
                         />
 
-                        <div className={`flex flex-col order-first ${!first ? 'md:order-none' : ''}`}>
+                        <div className={`flex flex-col order-first min-w-[200px] md:min-w-0 ${!first ? 'md:order-none' : ''}`}>
                             <h1 className="md:text-6xl text-2xl text-black font-bold mb-2 md:mb-6">{post?.title}</h1>
                             <p className="text-sm md:text-xl text-gray-600 max-w-4xl mb-8">
                                 {post?.excerpt}
@@ -47,12 +45,11 @@ export default function DetailComponent({post, first}: { post: CaseModel, first:
                                 </p>
                             </div>
 
-                            <div className="w-full md:w-[450px] max-h-[460px]">
+                            <div className="w-full md:w-[450px] max-h-[460px] h-full">
                                 <img
                                     src={photoUrl(block.photo)}
                                     alt="background"
                                     className="w-full h-full object-contain"
-                                    width={400}
                                 />
                             </div>
                         </div>

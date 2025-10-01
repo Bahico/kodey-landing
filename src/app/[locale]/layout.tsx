@@ -92,7 +92,7 @@ export default async function LocaleLayout({ children, params }: Props) {
                                     <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-white lg:mb-6 sm:mb-8">
                                         {(messages.footer as any)?.description || 'С 12:00 до 20:00'}
                                         <br className="hidden sm:block" />
-                                        {(messages.footer as any)?.description2 || 'по МСК'}
+                                        {(messages.footer as any)?.description2 || ' по МСК'}
                                     </p>
                                 </div>
 
