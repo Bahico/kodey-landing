@@ -17,6 +17,11 @@ type GlassElementProps = DisplacementOptions & {
   style?: CSSProperties;
 };
 
+function isSafari() {
+  const userAgent = navigator.userAgent.toLowerCase();
+  return userAgent.includes('safari') && !userAgent.includes('chrome');
+}
+
 export const GlassElement = ({
   height,
   width,
@@ -40,16 +45,19 @@ export const GlassElement = ({
     ...style,
     height: `${height}px`,
     width: `${width}px`,
-    borderRadius: `${radius}px`,
-    backdropFilter: `blur(${blur / 2}px) url('${getDisplacementFilter({
+    borderRadius: `${radius}px`
+  };
+
+  if (!isSafari()) {
+    style1.backdropFilter = `blur(${blur / 2}px) url('${getDisplacementFilter({
       height,
       width,
       radius,
       depth,
       strength,
       chromaticAberration,
-    })}') blur(${blur}px) brightness(1.1) saturate(1.5) `,
-  };
+    })}') blur(${blur}px) brightness(1.1) saturate(1.5) `;
+  }
 
   /* Debug mode: display the displacement map instead of actual effect */
   if (debug === true) {
@@ -63,7 +71,7 @@ export const GlassElement = ({
   }
   return (
     <div
-      className={`${styles.box} ${className}`}
+      className={`${styles.box} ${className} backdrop-blur-xl`}
       style={style1}
       onMouseDown={() => setClicked(true)}
       onMouseUp={() => setClicked(false)}
