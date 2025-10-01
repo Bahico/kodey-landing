@@ -138,15 +138,8 @@ export function Employees() {
                                     />
                                 ))}
 
-                                <GlassElement
-                                    className="flex flex-col justify-center z-10 items-center border borde
-                                    r-gray-200 person bg-opacity-30 backdrop-blur-md rounded-xl sm:rounded-2xl h-[70px] sm:h-[80px] lg:h-[100px] w-[calc(100%-32px)] sm:w-[calc(100%-48px)] lg:w-[calc(100%-64px)] text-center absolute bottom-4 sm:bottom-6 lg:bottom-8 left-4 sm:left-6 lg:left-8"
-                                    width={lg ? 420 : 320}
-                                    height={100}
-                                    radius={31}
-                                    depth={5}
-                                    blur={5}
-                                    chromaticAberration={1}
+                                <div
+                                    className="backdrop-blur-xl flex flex-col justify-center z-10 items-center border border-gray-200 person bg-opacity-30 rounded-2xl md:rounded-[31px] h-[100px] w-[325px] lg:w-[420px] text-center absolute bottom-4 sm:bottom-6 lg:bottom-8 left-4 sm:left-6 lg:left-8"
                                 >
                                     <div
                                         className="absolute top-0 left-4 h-full flex justify-center items-center cursor-pointer"
@@ -214,7 +207,7 @@ export function Employees() {
                                         </span>
                                         {">"}
                                     </div>
-                                </GlassElement>
+                                </div>
                             </div>
                         </div>
                     </div>

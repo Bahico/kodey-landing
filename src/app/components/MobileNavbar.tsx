@@ -89,14 +89,14 @@ export default function MobileNavbar({locale, showNavbar}: {locale: string, show
                                 href="/"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
-                                <GlassElement
+                                <div
                                     className="flex items-center gap-3 px-12 py-3 rounded-3xl shadow-md"
-                                    width={230}
-                                    height={45}
-                                    radius={43}
-                                    depth={10}
-                                    blur={6}
-                                    chromaticAberration={1}
+                                    // width={230}
+                                    // height={45}
+                                    // radius={43}
+                                    // depth={10}
+                                    // blur={6}
+                                    // chromaticAberration={1}
                                 >
                                     <svg
                                         className="w-5 h-5"
@@ -115,21 +115,21 @@ export default function MobileNavbar({locale, showNavbar}: {locale: string, show
                                     <span className="text-lg font-medium primary-gradient">
                                       Главная
                                     </span>
-                                </GlassElement>
+                                </div>
                             </Link>
 
                             <Link
                                 href="/#product-list"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
-                                <GlassElement
+                                <div
                                     className="flex items-center gap-3 px-12 py-3 rounded-3xl shadow-md"
-                                    width={230}
-                                    height={45}
-                                    radius={43}
-                                    depth={10}
-                                    blur={6}
-                                    chromaticAberration={1}
+                                    // width={230}
+                                    // height={45}
+                                    // radius={43}
+                                    // depth={10}
+                                    // blur={6}
+                                    // chromaticAberration={1}
                                 >
                                     <svg
                                         className="w-5 h-5"
@@ -148,21 +148,21 @@ export default function MobileNavbar({locale, showNavbar}: {locale: string, show
                                     <span className="text-lg font-medium primary-gradient">
                                       Кейсы
                                     </span>
-                                </GlassElement>
+                                </div>
                             </Link>
 
                             <Link
                                 href="/#services"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
-                                <GlassElement
+                                <div
                                     className="flex items-center gap-3 px-12 py-3 rounded-3xl shadow-md"
-                                    width={230}
-                                    height={45}
-                                    radius={43}
-                                    depth={10}
-                                    blur={6}
-                                    chromaticAberration={1}
+                                    // width={230}
+                                    // height={45}
+                                    // radius={43}
+                                    // depth={10}
+                                    // blur={6}
+                                    // chromaticAberration={1}
                                 >
                                     <svg
                                         className="w-5 h-5"
@@ -181,21 +181,21 @@ export default function MobileNavbar({locale, showNavbar}: {locale: string, show
                                     <span className="text-lg font-medium primary-gradient">
                                       Услуги
                                     </span>
-                                </GlassElement>
+                                </div>
                             </Link>
 
                             <Link
                                 href="/#internal"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
-                                <GlassElement
+                                <div
                                     className="flex items-center gap-3 px-12 py-3 rounded-3xl shadow-md"
-                                    width={230}
-                                    height={45}
-                                    radius={43}
-                                    depth={10}
-                                    blur={6}
-                                    chromaticAberration={1}
+                                    // width={230}
+                                    // height={45}
+                                    // radius={43}
+                                    // depth={10}
+                                    // blur={6}
+                                    // chromaticAberration={1}
                                 >
                                     <svg
                                         className="w-5 h-5"
@@ -214,21 +214,21 @@ export default function MobileNavbar({locale, showNavbar}: {locale: string, show
                                     <span className="text-lg font-medium primary-gradient">
                                       Блог
                                     </span>
-                                </GlassElement>
+                                </div>
                             </Link>
 
                             <Link
                                 href="/#contact"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
-                                <GlassElement
+                                <div
                                     className="flex items-center gap-3 px-12 py-3 rounded-3xl shadow-md"
-                                    width={230}
-                                    height={45}
-                                    radius={43}
-                                    depth={10}
-                                    blur={6}
-                                    chromaticAberration={1}
+                                    // width={230}
+                                    // height={45}
+                                    // radius={43}
+                                    // depth={10}
+                                    // blur={6}
+                                    // chromaticAberration={1}
                                 >
                                     <svg
                                         className="w-5 h-5"
@@ -247,7 +247,7 @@ export default function MobileNavbar({locale, showNavbar}: {locale: string, show
                                     <span className="text-lg font-medium primary-gradient">
                                       Связаться
                                     </span>
-                                </GlassElement>
+                                </div>
                             </Link>
                         </nav>
                     </div>
