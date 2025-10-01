@@ -8,7 +8,7 @@ import {gsap} from "gsap";
 
 export function Employees() {
     const {lg} = nowSize();
-    const tHumanFactor = useTranslations('human-factor');
+    const t = useTranslations('employees');
     const [activeEmployee, setActiveEmployee] = useState(0);
 
     // refs
@@ -20,27 +20,27 @@ export function Employees() {
 
     const employees = [
         {
-            name: "Карен",
+            name: "karen",
             position: "Back-end developer",
             image: "/images/employees/IMG_8413.JPG",
         },
         {
-            name: "Кристина",
+            name: "kristina",
             position: "Project manager",
             image: "/images/employees/photo_2025-09-29_23-19-32.jpg",
         },
         {
-            name: "Лазиз",
+            name: "laziz",
             position: "Founder",
             image: "/images/employees/photo_2025-09-29_23-19-44.jpg",
         },
         {
-            name: "Фаррух",
+            name: "farrux",
             position: "Frontend Developer",
             image: "/images/employees/photo_2025-09-29_23-19-36.jpg",
         },
         {
-            name: "Виктор",
+            name: "viktor",
             position: "UX/UI Designer",
             image: "/images/employees/photo_2025-09-29_23-19-41.jpg",
         },
@@ -96,22 +96,22 @@ export function Employees() {
                         <div className="flex-1">
                             <h2 ref={titleRef}
                                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 lg:mb-8 flex">
-                                {tHumanFactor('title1')}
-                                <span className="text-[#929292] ml-2">{tHumanFactor('title2')}</span>
+                                {t('title1')}
+                                <span className="text-[#929292] ml-2">{t('title2')}</span>
                             </h2>
                             <span ref={descriptionRef}
                                   className="text-lg sm:text-xl block md:text-2xl text-[#929292] mb-6 sm:mb-8 lg:mb-12">
-                            {tHumanFactor('description')}
+                            {t('description')}
                         </span>
                             <span ref={infoRef}
                                   className="text-base block sm:text-lg md:text-xl leading-relaxed text-white mb-8 sm:mb-12 lg:mb-16 pl-0 sm:pl-8 lg:pl-16">
-                            {tHumanFactor('description1')}
+                            {t('description1')}
                                 <br/>
                             <br/>
-                                {tHumanFactor('description2')}
+                                {t('description2')}
                                 <br/>
                             <br/>
-                                {tHumanFactor('description3')}
+                                {t('description3')}
                         </span>
                             <button
                                 ref={buttonRef}
@@ -122,7 +122,7 @@ export function Employees() {
                                         d="M0.438252 10.674C3.24385 9.1286 6.37565 7.83876 9.30185 6.54236C14.3361 4.41896 19.3903 2.33236 24.4955 0.389758C25.4887 0.0587785 27.2735 -0.264861 27.4485 1.20708C27.3526 3.29068 26.9584 5.36208 26.688 7.43348C26.0018 11.9887 25.2085 16.5283 24.435 21.0685C24.1685 22.5808 22.274 23.3637 21.0618 22.3959C18.1486 20.4281 15.213 18.4795 12.337 16.4661C11.3949 15.5088 12.2686 14.1341 13.1099 13.4505C15.5093 11.0859 18.0539 9.07686 20.3279 6.59006C20.9413 5.10884 19.1289 6.35716 18.5311 6.73969C15.2463 9.00329 12.0419 11.4051 8.57869 13.3945C6.80969 14.3683 4.74789 13.5361 2.97969 12.9927C1.39431 12.3363 -0.928908 11.675 0.438092 10.6741L0.438252 10.674Z"
                                         fill="white"/>
                                 </svg>
-                                {tHumanFactor('btn')}
+                                {t('btn')}
                             </button>
                         </div>
 
@@ -205,7 +205,7 @@ export function Employees() {
                                     </div>
 
                                     <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-white">
-                                        {employees[activeEmployee].name}
+                                        {t(employees[activeEmployee].name)}
                                     </h3>
                                     <div
                                         className="text-purple-200 flex gap-2 sm:gap-3 text-sm sm:text-base lg:text-lg">

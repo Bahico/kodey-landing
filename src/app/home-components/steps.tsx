@@ -98,7 +98,7 @@ export default function Steps() {
 
         if (!trigger1) return;
 
-        setTimeout(() => {
+        const timeoutId = setTimeout(() => {
             steps.forEach((step, i) => {
                 const stepElement = document.getElementById(`step-${i}`);
 
@@ -126,6 +126,7 @@ export default function Steps() {
         }, 200);
 
         return () => {
+            clearTimeout(timeoutId);
             scrollTriggersRef.current.forEach(st => st.kill());
             scrollTriggersRef.current = [];
         };
