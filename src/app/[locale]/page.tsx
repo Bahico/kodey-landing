@@ -190,7 +190,7 @@ export default function SimpleHome() {
                     {/*<div className="absolute inset-0 animated-gradient-overlay background-glow"></div>*/}
 
                     <div
-                        className="z-10 flex flex-col lg:flex-row md:items-center justify-between w-full gap-8 lg:gap-0 mt-20 md:mt-0">
+                        className="z-10 flex flex-col lg:flex-row md:items-center justify-between w-full gap-0 lg:gap-0 mt-20 md:mt-0">
 
                         <div className="flex flex-col relative z-10">
                             <div className="absolute top-0 left-[-40%] w-full hidden md:block z-0">
@@ -223,7 +223,7 @@ export default function SimpleHome() {
                         </div>
 
                         <div className="relative">
-                            <img src="/video/output7.webp" className="w-full object-contain h-[600px] md:w-[500px] md:h-[750px] lg:w-[583px] lg:h-[875px] lg:mr-[-40px]" alt=""/>
+                            <img src="/video/output7.webp" className="w-full object-contain h-[600px] md:w-[500px] md:h-[750px] lg:w-[583px] lg:h-[875px] -mt-10 md:mt-0 lg:mr-[-40px]" alt=""/>
 
                         </div>
                     </div>
