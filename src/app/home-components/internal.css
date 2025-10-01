@@ -23,6 +23,13 @@
   }
 }
 
+.group-black:hover {
+    .black-item {
+        --tw-grayscale: grayscale(0);
+        filter: grayscale(0);
+    }
+}
+
 #services-container {
   --container-width: 42rem;
   padding-left: calc((100vw - var(--container-width)) / 2);

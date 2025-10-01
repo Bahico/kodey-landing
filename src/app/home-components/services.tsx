@@ -96,13 +96,13 @@ export default function Services() {
                     {services.map((service, index) => (
                         <div
                             key={index}
-                            className="group service card-group relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[730px] flex items-end w-[280px] sm:w-[320px] md:w-[380px] lg:w-[465px] min-w-[280px] sm:min-w-[320px] md:min-w-[380px] lg:min-w-[465px] rounded-xl sm:rounded-2xl hover:bg-opacity-90 bg-opacity-60"
+                            className="group group-black service card-group relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[730px] flex items-end w-[280px] sm:w-[320px] md:w-[380px] lg:w-[465px] min-w-[280px] sm:min-w-[320px] md:min-w-[380px] lg:min-w-[465px] rounded-xl sm:rounded-2xl hover:bg-opacity-90 bg-opacity-60"
                         >
                             <div
                                 className="absolute top-0 w-full h-[280px] md:h-[480px] lg:h-[600px] flex justify-center items-center z-10">
                                 <img
                                     src={photoUrl(service.photo)}
-                                    className="grayscale group-hover:grayscale-0 transition-all duration-300 w-full h-full object-contain"
+                                    className="grayscale black-item group-hover:grayscale-0 transition-all duration-300 w-full h-full object-contain"
                                     alt=""
                                 />
                             </div>

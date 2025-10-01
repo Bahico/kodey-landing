@@ -14,14 +14,19 @@
     "design": "Design",
     "support": "Support"
   },
-  "human-factor": {
+  "employees": {
     "title1": "Human",
     "title2": "factor",
     "description": "We are not robots. Although we love automation",
     "description1": "We are a small but close-knit IT team that brings together developers with different experiences and specializations. We create websites, mobile applications, Telegram bots, and internal services.",
     "description2": "We value simplicity in communication, transparency in work, and results that we are not ashamed of.",
     "description3": "We work as a single mechanism: each knows its job and strengthens the team.",
-    "btn": "Follow us"
+    "btn": "Follow us",
+    "karen": "Karen",
+    "kristina": "Kristina",
+    "laziz": "Laziz",
+    "farrux": "Farrux",
+    "viktor": "Viktor"
   },
   "services": {
     "title": "Digital",

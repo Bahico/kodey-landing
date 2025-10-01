@@ -24,7 +24,7 @@ export default function Posts() {
 
     return (
         <div ref={elementRef} className="relative w-full pt-[87px] overflow-hidden -mb-40">
-            <div className="absolute top-[-10%] left-[-90%] w-[1600px] h-[1000px] z-0 flex md:hidden">
+            <div className="absolute top-[-20%] left-[-90%] w-[1600px] h-[1000px] z-0 flex md:hidden">
                 <BackgroundAnimation/>
             </div>
             {/* Hero Section */}

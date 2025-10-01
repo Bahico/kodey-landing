@@ -4,7 +4,6 @@ import {useTranslations} from "next-intl";
 import {nowSize} from "@/app/functions/now-size";
 import {useGSAP} from "@gsap/react";
 import {textAnimation, textAnimationTl} from "@/app/functions/text.animation";
-import {gsap} from "gsap";
 
 export function Employees() {
     const {lg} = nowSize();
@@ -128,13 +127,13 @@ export function Employees() {
 
                         <div className="flex-1 flex justify-center lg:justify-end pr-0 lg:pr-20 lg:order-last">
                             <div
-                                className="rounded-2xl group sm:rounded-3xl w-[360px] h-[480px] md:w-[420px] md:h-[560px] lg:w-[480px] lg:h-[640px] relative overflow-hidden scroll-smooth">
+                                className="rounded-2xl group-black group sm:rounded-3xl w-[360px] h-[480px] md:w-[420px] md:h-[560px] lg:w-[480px] lg:h-[640px] relative overflow-hidden scroll-smooth">
                                 {employees.map((employee, index) => (
                                     <img
                                         src={employee.image}
                                         key={index}
                                         id={`employee-image-${index}`}
-                                        className={`w-full grayscale group-hover:grayscale-0 object-cover h-full rounded-2xl sm:rounded-3xl none-select lg:mr-[-40px] absolute top-0 left-0 transition-all duration-700 ${index === activeEmployee ? "opacity-100" : "opacity-0"}`}
+                                        className={`w-full grayscale group-hover:grayscale-0 black-item object-cover h-full rounded-2xl sm:rounded-3xl none-select lg:mr-[-40px] absolute top-0 left-0 transition-all duration-700 ${index === activeEmployee ? "opacity-100" : "opacity-0"}`}
                                         alt=""
                                     />
                                 ))}

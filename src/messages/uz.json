@@ -14,14 +14,19 @@
     "design": "Dizayn",
     "support": "Qo'llab-quvvatlash"
   },
-  "human-factor": {
+  "employees": {
     "title1": "Inson",
     "title2": "omili",
     "description": "Biz robot emasmiz. Lekin avtomatlashtirishni yaxshi koʻramiz",
     "description1": "Biz kichik, ammo jips IT-jamoamiz, turli tajriba va ixtisoslikka ega dasturchilarni birlashtiramiz. Saytlar, mobil ilovalar, Telegram-botlar va ichki servislar yaratamiz.",
     "description2": "Biz uchun muloqotdagi soddalik, ishdagi shaffoflik va uyalmaydigan natija muhim",
     "description3": "Biz yagona mexanizm kabi ishlaymiz: har kim oʻz ishini biladi va jamoani kuchaytiradi.",
-    "btn": "Bizni kuzating"
+    "btn": "Bizni kuzating",
+    "karen": "Karen",
+    "kristina": "Kristina",
+    "laziz": "Laziz",
+    "farrux": "Farrux",
+    "viktor": "Viktor"
   },
   "services": {
     "title": "Digital",
