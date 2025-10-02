@@ -7,6 +7,8 @@ import "../globals.css";
 import Navbar from "@/app/home-components/navbar";
 import { Link } from "@/i18n/navigation";
 import { Metadata } from "next";
+import {scrollToId} from "@/app/functions/scroll-to";
+import {FooterLinks} from "@/app/components/footerLinks";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -103,38 +105,7 @@ export default async function LocaleLayout({ children, params }: Props) {
                                     </p>
                                 </div>
 
-                                <div className="col-span-4 lg:col-span-1 space-y-4 sm:space-y-6 text-center lg:text-left">
-                                    <a
-                                        href="#"
-                                        className="block text-base sm:text-lg md:text-xl font-medium hover:text-blue-400 transition-colors"
-                                    >
-                                        {(messages.navigation as any)?.home || 'Главная'}
-                                    </a>
-                                    <a
-                                        href={`/${locale}/#product-list`}
-                                        className="block text-base sm:text-lg md:text-xl font-medium hover:text-blue-400 transition-colors"
-                                    >
-                                        {(messages.navigation as any)?.cases || 'Кейсы'}
-                                    </a>
-                                    <a
-                                        href={`/${locale}/#services`}
-                                        className="block text-base sm:text-lg md:text-xl font-medium hover:text-blue-400 transition-colors"
-                                    >
-                                        {(messages.navigation as any)?.services || 'Услуги'}
-                                    </a>
-                                    <a
-                                        href={`/${locale}/#internal`}
-                                        className="block text-base sm:text-lg md:text-xl font-medium hover:text-blue-400 transition-colors"
-                                    >
-                                        {(messages.navigation as any)?.blog || 'Блог'}
-                                    </a>
-                                    <a
-                                        href={`/${locale}/#contact`}
-                                        className="block text-base sm:text-lg md:text-xl font-medium hover:text-blue-400 transition-colors"
-                                    >
-                                        {(messages.navigation as any)?.contact || 'Связаться'}
-                                    </a>
-                                </div>
+                                <FooterLinks locale={locale} />
 
                                 <div className="space-y-4 sm:space-y-6 col-span-4 lg:col-span-1 mt-10 lg:mt-0">
                                     <div className="flex items-center gap-3 sm:gap-4">

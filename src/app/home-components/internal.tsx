@@ -101,7 +101,7 @@ export default function Internal() {
                 <div
                     className="absolute top-20 sm:top-40 md:top-120 left-4 sm:left-6 md:left-10 w-[300px] h-[400px] sm:w-[500px] sm:h-[600px] md:w-[700px] md:h-[800px] lg:w-[900px] lg:h-[1000px] z-0">
                     <img
-                        src="images/background/background.png"
+                        src="/images/background/background.png"
                         className="w-3/4 absolute background-1"
                         alt=""
                     />
@@ -110,7 +110,7 @@ export default function Internal() {
                 <div
                     className="absolute top-0 md:top-40 right-4 sm:right-6 md:right-10 w-[300px] h-[400px] sm:w-[500px] sm:h-[600px] md:w-[700px] md:h-[800px] lg:w-[900px] lg:h-[1000px] z-0">
                     <img
-                        src="images/background/background.png"
+                        src="/images/background/background.png"
                         className="w-3/4 absolute background-2"
                         alt=""
                     />

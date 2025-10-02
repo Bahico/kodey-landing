@@ -106,7 +106,7 @@ export default function Contact() {
             <div
                 className="absolute top-20 sm:top-40 md:top-120 left-4 sm:left-6 md:left-10 w-[400px] h-[400px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[700px] z-0">
                 <img
-                    src="images/background/background.png"
+                    src="/images/background/background.png"
                     className="w-full absolute background-contact"
                     alt=""
                 />
@@ -335,7 +335,7 @@ export default function Contact() {
 
                     <div className="relative mr-0 md:-mr-0">
                         <img
-                            src="images/background/background.png"
+                            src="/images/background/background.png"
                             className="w-full absolute left-0 -top-30 z-0 hidden md:block"
                             alt=""
                         />

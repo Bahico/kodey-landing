@@ -267,7 +267,7 @@ function StepImage({steps, activeStep}: {
                         ))}
                     </GlassElement>
                     <img
-                        src="images/background/background.png"
+                        src="/images/background/background.png"
                         alt=""
                         className="absolute flex top-[-275px] right-[-275px] w-[1100px] h-[1100px] z-0 pointer-events-none"
                     />
