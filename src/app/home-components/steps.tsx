@@ -109,7 +109,7 @@ export default function Steps() {
                     scroller: trigger1,
                     start: "20% 60%",
                     end: "bottom 40%",
-                    markers: true,
+                    // markers: true,
                     onEnter: () => {
                         setActiveStep(i);
                         scrollToImage(i);
