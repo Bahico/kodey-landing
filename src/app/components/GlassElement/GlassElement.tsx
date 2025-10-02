@@ -1,6 +1,6 @@
 "use client";
 
-import { CSSProperties, ReactNode, useState } from "react";
+import {CSSProperties, ReactNode, useEffect, useState} from "react";
 import {
   getDisplacementFilter,
   DisplacementOptions,
@@ -16,13 +16,6 @@ type GlassElementProps = DisplacementOptions & {
   onClick?: () => void;
   style?: CSSProperties;
 };
-
-function isSafari() {
-    if (typeof window === 'undefined') return false;
-    if (typeof navigator === 'undefined') return false;
-    const userAgent = navigator.userAgent.toLowerCase();
-    return userAgent.includes('safari') && !userAgent.includes('chrome');
-}
 
 export const GlassElement = ({
   height,
@@ -43,34 +36,50 @@ export const GlassElement = ({
   let depth = baseDepth / (clicked ? 0.7 : 1);
 
   /* Dynamic CSS properties */
-  const style1: CSSProperties = {
-    ...style,
-    height: `${height}px`,
-    width: `${width}px`,
-    borderRadius: `${radius}px`
-  };
+  const [style1, setStyle1]  = useState<CSSProperties>({
+      ...style,
+      height: `${height}px`,
+      width: `${width}px`,
+      borderRadius: `${radius}px`
+  })
 
-  if (!isSafari()) {
-    style1.backdropFilter = `blur(${blur / 2}px) url('${getDisplacementFilter({
-      height,
-      width,
-      radius,
-      depth,
-      strength,
-      chromaticAberration,
-    })}') blur(${blur}px) brightness(1.1) saturate(1.5) `;
+  const isSafari = () => {
+        if (typeof window === 'undefined') return false;
+        if (typeof navigator === 'undefined') return false;
+        const userAgent = navigator.userAgent.toLowerCase();
+        return userAgent.includes('safari') && !userAgent.includes('chrome');
   }
 
-  /* Debug mode: display the displacement map instead of actual effect */
-  if (debug === true) {
-    style1.background = `url("${getDisplacementMap({
-      height,
-      width,
-      radius,
-      depth,
-    })}")`;
-    style1.boxShadow = "none";
-  }
+  useEffect(() => {
+      if (!isSafari()) {
+          setStyle1({
+              ...style1,
+              backdropFilter: `blur(${blur / 2}px) url('${getDisplacementFilter({
+                  height,
+                  width,
+                  radius,
+                  depth,
+                  strength,
+                  chromaticAberration,
+              })}') blur(${blur}px) brightness(1.1) saturate(1.5)`
+          })
+      }
+
+      /* Debug mode: display the displacement map instead of actual effect */
+      if (debug === true) {
+          setStyle1({
+              ...style1,
+              background:  `url("${getDisplacementMap({
+                  height,
+                  width,
+                  radius,
+                  depth,
+              })}")`,
+              boxShadow: "none",
+          })
+      }
+  }, []);
+
   return (
     <div
       className={`${styles.box} ${className} backdrop-blur-xl`}
