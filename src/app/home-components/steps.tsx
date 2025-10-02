@@ -286,7 +286,7 @@ function StepImage({steps, activeStep}: {
                         src={step.image}
                         id={`step-image-${index}`}
                         alt={step.title}
-                        className="w-full object-contain h-[268px] flex-shrink-0 transition-opacity duration-500"
+                        className="w-full object-contain h-[268px] flex-shrink-0 border-0 transition-opacity duration-500"
                         style={{
                             opacity: activeStep === index ? 1 : 0.4
                         }}
@@ -294,7 +294,7 @@ function StepImage({steps, activeStep}: {
                 ))}
             </div>
             <img
-                src="images/background/background.png"
+                src="/images/background/background.png"
                 alt=""
                 className="absolute flex top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] z-0"
             />

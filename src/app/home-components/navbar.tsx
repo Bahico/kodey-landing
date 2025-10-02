@@ -15,7 +15,6 @@ export default function Navbar({locale}: { locale: string}) {
     const [blur, setBlur] = useState(false);
     const [showNavbar, setShowNavbar] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
-    const [currentScrollY, setCurrentScrollY] = useState(0);
 
     const pathname = usePathname();
     const t = useTranslations('navigation');
@@ -33,7 +32,7 @@ export default function Navbar({locale}: { locale: string}) {
     useEffect(() => {
         const handleScroll = () => {
             const route = pathname.split('/')[2];
-
+            console.log(route)
             if (route === undefined) {
                 const contact = document.getElementById('contact')?.offsetTop;
 
@@ -44,14 +43,13 @@ export default function Navbar({locale}: { locale: string}) {
 
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    }, [pathname]);
 
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
 
             if (currentScrollY > lastScrollY && currentScrollY > 0) {
-                setCurrentScrollY(currentScrollY);
                 // Scrolling down
                 setShowNavbar(false);
             } else {
