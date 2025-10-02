@@ -60,7 +60,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             <meta name="keywords"
                   content="IT-компания Узбекистан, разработка сайтов, создание сайтов в Узбекистане, веб-разработка, разработка интернет-магазинов, корпоративный сайт, лендинг пейдж, разработка приложений, мобильные приложения iOS Android, создание мобильных приложений, разработка мобильных приложений, дизайн интерфейсов, UX UI дизайн, поддержка сайтов, продвижение сайтов, SEO оптимизация, разработка ПО, создание Telegram ботов, разработка Telegram ботов, чат-боты для бизнеса, автоматизация бизнес-процессов, CRM системы, ERP системы, внедрение CRM, программирование Узбекистан, IT услуги, IT услуги Ташкент, IT услуги Самарканд, IT услуги Узбекистан, заказной софт, кастомные решения, digital solutions Uzbekistan, web development Uzbekistan, mobile app development, software development company Uzbekistan, IT outsourcing, backend frontend разработка, стартап решения, IT консалтинг, raqamli echimlar, veb dasturlash, mobil ilovalar yaratish, Telegram bot yaratish, ichki tizimlar yaratish, biznes jarayonlarini avtomatlashtirish, dizayn va foydalanuvchi interfeysi, dasturlash xizmatlari, O‘zbekiston IT kompaniyasi, IT xizmatlari"/>
             <meta name="robots" content="index, follow"/>
-            <title>Kodey</title>
+            <title>Kodey — IT-решения: сайты, приложения, чат-боты</title>
 
             <meta name="google-site-verification" content="google-site-verification=fBjmyki2A9Ko7N_Vvl0mMfIr9b5k_BvHErAWadQEDfY" />
 
