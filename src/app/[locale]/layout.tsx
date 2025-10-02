@@ -62,7 +62,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             <meta name="robots" content="index, follow"/>
             <title>Kodey</title>
 
-            <meta name="google-site-verification" content="fBjmyki2A9Ko7N_Vvl0mMfIr9b5k_BvHErAWadQEDfY" />
+            <meta name="google-site-verification" content="google-site-verification=fBjmyki2A9Ko7N_Vvl0mMfIr9b5k_BvHErAWadQEDfY" />
 
         </head>
 
