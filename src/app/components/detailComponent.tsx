@@ -19,11 +19,11 @@ export default function DetailComponent({post, first}: { post: CaseModel, first:
                 {JSON.stringify({
                     "@context": "https://schema.org",
                     "@type": "Article",
-                    headline: post.title,
-                    description: post.excerpt,
+                    headline: post?.title,
+                    description: post?.excerpt,
                     image: `/images/bot/bot${first ? '1' : '7'}.png`,
                     author: { "@type": "Person", name: "Author Name" },
-                    datePublished: post.createdAt
+                    datePublished: post?.createdAt
                 })}
             </script>
 
