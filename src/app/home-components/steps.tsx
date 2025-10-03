@@ -99,7 +99,7 @@ export default function Steps() {
         if (!trigger1) return;
 
         const timeoutId = setTimeout(() => {
-            steps.forEach((step, i) => {
+            steps.forEach((_, i) => {
                 const stepElement = document.getElementById(`step-${i}`);
 
                 if (!stepElement) return;
@@ -107,8 +107,9 @@ export default function Steps() {
                 const st = ScrollTrigger.create({
                     trigger: stepElement,
                     scroller: trigger1,
-                    start: "top 60%",
+                    start: "20% 60%",
                     end: "bottom 40%",
+                    // markers: true,
                     onEnter: () => {
                         setActiveStep(i);
                         scrollToImage(i);
