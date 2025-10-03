@@ -22,7 +22,8 @@ const geistMono = Geist_Mono({
 
 export const metaData: Metadata = {
     title: "Kodey",
-    description: "Kodey is a development company"
+    description: "Kodey is a development company",
+
 };
 
 type Props = {
@@ -47,10 +48,15 @@ export default async function LocaleLayout({ children, params }: Props) {
     return (
         <html lang={locale} data-theme="light" data-scroll-behavior="smooth">
         <head>
-            <link rel="icon" type="image/png" href="https://kodey.uz/images/logos/favicon.png" className="rotate-y-190"/>
+            <link rel="icon" type="image/png" href="/images/logos/favicon.png" sizes="112x112" className="rotate-y-190"/>
             <meta charSet="utf-8"/>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <link rel="apple-touch-icon" type="image/png" href="https://kodey.uz/images/logos/favicon.png" className="rotate-y-190"/>
+            <link
+                rel="apple-touch-icon"
+                href="/images/logos/favicon.png"
+                type="image/png"
+                sizes="112x112"
+            />
             <meta name="description"
                   content="Kodey — IT-компания в Узбекистане, профессиональная разработка сайтов, мобильных приложений, Telegram-ботов, CRM и ERP систем. Мы предлагаем веб-разработку, создание интернет-магазинов, корпоративных сайтов, приложений под iOS и Android, чат-ботов и автоматизацию бизнес-процессов. Качественный дизайн, программирование и поддержка — ваши идеи превращаем в успешные цифровые решения."/>
             <meta name="description"
@@ -69,7 +75,7 @@ export default async function LocaleLayout({ children, params }: Props) {
                     "@context": "https://schema.org",
                     "@type": "Organization",
                     "url": "https://kodey.uz",
-                    "logo": "https://kodey.uz/images/logos/favicon.png"
+                    "logo": "/images/logos/favicon.png"
                 })}
             </script>
 
