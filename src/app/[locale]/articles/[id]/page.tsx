@@ -16,9 +16,5 @@ export default function Article() {
         });
     }, [id]);
 
-    return(
-        post ?
-            <DetailComponent first={true} post={post} />
-            : <></>
-    )
+    return <DetailComponent first={true} post={post} />
 }

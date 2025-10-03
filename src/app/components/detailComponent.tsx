@@ -8,10 +8,10 @@ export default function DetailComponent({post, first}: { post: CaseModel, first:
     return (
         <>
             <Head>
-                <title>{post.title} | Kodey</title>
-                <meta name="description" content={post.excerpt}/>
-                <meta property="og:title" content={post.title}/>
-                <meta property="og:description" content={post.excerpt}/>
+                <title>{post?.title} | Kodey</title>
+                <meta name="description" content={post?.excerpt}/>
+                <meta property="og:title" content={post?.title}/>
+                <meta property="og:description" content={post?.excerpt}/>
                 <meta property="og:image" content={`/images/bot/bot${first ? '1' : '7'}.png`}/>
             </Head>
 

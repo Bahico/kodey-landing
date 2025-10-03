@@ -16,9 +16,5 @@ export default function Post() {
         });
     }, [id]);
 
-    return (
-        post ?
-        <DetailComponent first={false} post={post} />
-            : <></>
-    );
+    return <DetailComponent first={false} post={post} />;
 }
