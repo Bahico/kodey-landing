@@ -47,7 +47,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     return (
         <html lang={locale} data-theme="light" data-scroll-behavior="smooth">
         <head>
-            <link rel="icon" type="image/svg" href="/images/logos/favicon.svg" className="rotate-y-190"/>
+            <link rel="icon" type="image/svg" href="/images/logos/favicon.png" className="rotate-y-190"/>
             <meta charSet="utf-8"/>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="apple-touch-icon" type="image/svg" href="https://kodey.uz/en/images/logos/favicon.svg" className="rotate-y-190"/>
@@ -63,6 +63,15 @@ export default async function LocaleLayout({ children, params }: Props) {
             <title>Kodey — IT-решения: сайты, приложения, чат-боты</title>
 
             <meta name="google-site-verification" content="fBjmyki2A9Ko7N_Vvl0mMfIr9b5k_BvHErAWadQEDfY" />
+
+            <script type="application/ld+json">
+                {JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "Organization",
+                    "url": "https://kodey.uz",
+                    "logo": "https://kodey.uz/images/logos/favicon.png"
+                })}
+            </script>
 
         </head>
 
