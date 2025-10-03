@@ -48,12 +48,12 @@ export default async function LocaleLayout({ children, params }: Props) {
     return (
         <html lang={locale} data-theme="light" data-scroll-behavior="smooth">
         <head>
-            <link rel="icon" type="image/png" href="/images/logos/favicon.png" sizes="112x112" className="rotate-y-190"/>
+            <link rel="icon" type="image/png" href="/favicon.ico" sizes="112x112" className="rotate-y-190"/>
             <meta charSet="utf-8"/>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link
                 rel="apple-touch-icon"
-                href="/images/logos/favicon.png"
+                href="/favicon.ico"
                 type="image/png"
                 sizes="112x112"
             />
@@ -75,7 +75,7 @@ export default async function LocaleLayout({ children, params }: Props) {
                     "@context": "https://schema.org",
                     "@type": "Organization",
                     "url": "https://kodey.uz",
-                    "logo": "/images/logos/favicon.png"
+                    "logo": "/favicon.ico"
                 })}
             </script>
 
