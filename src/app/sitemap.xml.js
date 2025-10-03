@@ -1,4 +1,4 @@
-import {getAxios} from "../../../api/api.functions";
+import {getAxios} from "../api/api.functions";
 
 export const getServerSideProps = async ({ res }) => {
     const posts = await getAxios('cases'); // DB yoki API'dan olingan postlar
@@ -19,3 +19,7 @@ export const getServerSideProps = async ({ res }) => {
 
     return { props: {} };
 };
+
+export default function Sitemap() {
+    return null;
+}
