@@ -86,6 +86,31 @@ export default function Steps() {
         }
     };
 
+    const scrollToStep = (index: number) => {
+        if (isScrollingRef.current) return;
+
+        const stepsIcons = document.querySelector('#trigger-1') as HTMLElement;
+        const imageElement = document.getElementById(`step-${index}`);
+
+        if (imageElement && stepsIcons) {
+            isScrollingRef.current = true;
+            const containerHeight = stepsIcons.clientHeight;
+            const imageHeight = imageElement.clientHeight;
+            const imageTop = imageElement.offsetTop;
+
+            const scrollPosition = imageTop - (containerHeight / 2) + (imageHeight / 2);
+
+            stepsIcons.scrollTo({
+                top: scrollPosition,
+                behavior: "smooth"
+            });
+
+            setTimeout(() => {
+                isScrollingRef.current = false;
+            }, 600);
+        }
+    };
+
     useGSAP(() => {
         const tl = textAnimation(titleRef.current, elementRef.current);
         textAnimationTl(descriptionRef.current, tl);
@@ -95,12 +120,14 @@ export default function Steps() {
         scrollTriggersRef.current = [];
 
         const trigger1 = document.getElementById('trigger-1');
+        const trigger2 = document.getElementById('trigger-2');
 
-        if (!trigger1) return;
+        if (!trigger1 || !trigger2) return;
 
         const timeoutId = setTimeout(() => {
             steps.forEach((_, i) => {
                 const stepElement = document.getElementById(`step-${i}`);
+                const imageElement = document.getElementById(`step-image-${i}`);
 
                 if (!stepElement) return;
 
@@ -109,7 +136,6 @@ export default function Steps() {
                     scroller: trigger1,
                     start: "20% 60%",
                     end: "bottom 40%",
-                    // markers: true,
                     onEnter: () => {
                         setActiveStep(i);
                         scrollToImage(i);
@@ -120,11 +146,27 @@ export default function Steps() {
                     },
                 });
 
+                const img = ScrollTrigger.create({
+                    trigger: imageElement,
+                    scroller: trigger2,
+                    start: "20% 60%",
+                    end: "bottom 40%",
+                    onEnter: () => {
+                        scrollToStep(i);
+                        setActiveStep(i);
+                    },
+                    onEnterBack: () => {
+                        scrollToStep(i);
+                        setActiveStep(i);
+                    }
+                });
+
                 scrollTriggersRef.current.push(st);
+                scrollTriggersRef.current.push(img);
             });
 
             ScrollTrigger.refresh();
-        }, 200);
+        }, 500);
 
         return () => {
             clearTimeout(timeoutId);
@@ -280,6 +322,8 @@ function StepImage({steps, activeStep}: {
         <div className="flex justify-center items-center relative mb-20 mt-10">
             <div
                 className="relative steps-icons w-[249px] h-[268px] z-10 rounded-full overflow-y-auto scrollbar-hide border border-gray-500"
+                id="trigger-2"
+                style={{scrollBehavior: 'smooth'}}
             >
                 {steps.map((step, index) => (
                     <img
