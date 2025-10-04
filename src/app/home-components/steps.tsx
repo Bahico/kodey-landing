@@ -331,7 +331,7 @@ function StepImage({steps, activeStep}: {
                                 src={step.image}
                                 id={`step-image-sm-${index}`}
                                 alt={step.title}
-                                className="w-full object-contain h-[268px] flex-shrink-0 border-0 transition-opacity duration-500"
+                                className="w-full object-contain min-h-[268px] h-[268px] flex-shrink-0 border-0 transition-opacity duration-500"
                                 style={{
                                     opacity: activeStep === index ? 1 : 0.4
                                 }}
