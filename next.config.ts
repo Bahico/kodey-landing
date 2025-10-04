@@ -4,7 +4,10 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const nextConfig: NextConfig = {
     experimental: {
         optimizeRouterScrolling: true,
-    }
+    },
+    compiler: {
+        removeConsole: false,
+    },
 };
 
 const withNextIntl = createNextIntlPlugin();
