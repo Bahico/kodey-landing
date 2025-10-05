@@ -149,7 +149,7 @@ export default function Steps() {
                     scroller: trigger1,
                     start: "20% 60%",
                     end: "bottom 40%",
-                    markers: true,
+                    // markers: true,
                     onEnter: () => {
                         if (isScrollingRef.current) return;
                         setActiveStep(i);
@@ -168,7 +168,7 @@ export default function Steps() {
                         scroller: trigger2,
                         start: "20% 60%",
                         end: "bottom 40%",
-                        markers: true,
+                        // markers: true,
                         onEnter: () => {
                             if (isScrollingRef.current) return;
                             scrollToStep(i);
