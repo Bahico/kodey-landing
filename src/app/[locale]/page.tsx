@@ -10,7 +10,6 @@ import {useEffect, useRef} from "react";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {ScrollToPlugin} from "gsap/ScrollToPlugin";
 import gsap from "gsap";
-import {useGSAP} from "@gsap/react";
 import {TextPlugin} from "gsap/TextPlugin";
 import Link from "next/link";
 import BackgroundAnimation from "@/app/components/BackgroundAnimation";
@@ -205,10 +204,10 @@ export default function SimpleHome() {
                                       id="title-home-separator">|</span>
                             </h1>
 
-                            <h1 ref={descriptionRef}
-                                className="text-[30px] md:text-[42px] lg:text-[72px] font-light text-[#929292] mb-4 sm:mb-10 lg:mb-30 z-10 w-[471px] md:w-[850px]">
+                            <h4 ref={descriptionRef}
+                                className="text-[30px] md:text-[42px] lg:text-[72px] font-light text-[#929292] mb-4 sm:mb-10 lg:mb-30 z-10 w-full md:w-[850px]">
                                 {t('title')}
-                            </h1>
+                            </h4>
                             <Link href={`/${locale}/#contact`}>
                                 <button
                                     ref={buttonRef}

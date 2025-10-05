@@ -1,6 +1,7 @@
 'use client';
 import {GlassElement} from "../components/GlassElement/GlassElement";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
+import gsap from "gsap";
 import {useEffect, useRef, useState} from "react";
 import {nowSize} from "@/app/functions/now-size";
 import {useTranslations} from 'next-intl';
@@ -11,7 +12,7 @@ import {textAnimation, textAnimationTl} from "@/app/functions/text.animation";
 export default function Steps() {
     const [activeStep, setActiveStep] = useState(0);
     const t = useTranslations('steps');
-    const {md, lg, sm} = nowSize();
+    const {md, lg} = nowSize();
 
     // refs
     const titleRef = useRef<HTMLDivElement>(null);
@@ -67,15 +68,22 @@ export default function Steps() {
 
         if (imageElement && stepsIcons) {
             isScrollingRef.current = true;
-            const containerHeight = stepsIcons.clientHeight;
-            const imageHeight = imageElement.clientHeight;
-            const imageTop = imageElement.offsetTop;
-
-            const scrollPosition = imageTop - (containerHeight / 2) + (imageHeight / 2);
+            // const containerHeight = stepsIcons.clientHeight;
+            // const imageHeight = imageElement.clientHeight;
+            // const imageTop = imageElement.offsetTop;
+            //
+            // const scrollPosition = imageTop - (containerHeight / 2) + (imageHeight / 2);
+            //
+            // stepsIcons.scrollTo({
+            //     top: scrollPosition,
+            //     behavior: "smooth"
+            // });
 
             stepsIcons.scrollTo({
-                top: scrollPosition,
-                behavior: "smooth"
+                top: imageElement.offsetTop,
+                behavior: 'smooth',
+                // @ts-ignore
+                block: "nearest"
             });
 
             setTimeout(() => {
@@ -92,15 +100,21 @@ export default function Steps() {
 
         if (imageElement && stepsIcons) {
             isScrollingRef.current = true;
-            const containerHeight = stepsIcons.clientHeight;
-            const imageHeight = imageElement.clientHeight;
-            const imageTop = imageElement.offsetTop;
+            // const containerHeight = stepsIcons.clientHeight;
+            // const imageHeight = imageElement.clientHeight;
+            // const imageTop = imageElement.offsetTop;
+            //
+            // const scrollPosition = imageTop - (containerHeight / 2) + (imageHeight / 2);
 
-            const scrollPosition = imageTop - (containerHeight / 2) + (imageHeight / 2);
-
+            // stepsIcons.scrollTo({
+            //     top: scrollPosition,
+            //     behavior: "smooth"
+            // });
             stepsIcons.scrollTo({
-                top: scrollPosition,
-                behavior: "smooth"
+                top: imageElement.offsetTop,
+                behavior: 'smooth',
+                // @ts-ignore
+                block: "nearest"
             });
 
             setTimeout(() => {
@@ -122,7 +136,7 @@ export default function Steps() {
 
         if (!trigger1 || !trigger2) return;
 
-        const timeoutId = setTimeout(() => {
+        const ctx = gsap.context(() => {
             steps.forEach((_, i) => {
                 const stepElement = document.getElementById(`step-${i}`);
                 const imageElement = document.getElementById(`step-image-sm-${i}`);
@@ -135,12 +149,14 @@ export default function Steps() {
                     scroller: trigger1,
                     start: "20% 60%",
                     end: "bottom 40%",
-                    // markers: true,
+                    markers: true,
                     onEnter: () => {
+                        if (isScrollingRef.current) return;
                         setActiveStep(i);
                         scrollToImage(i);
                     },
                     onEnterBack: () => {
+                        if (isScrollingRef.current) return;
                         setActiveStep(i);
                         scrollToImage(i);
                     },
@@ -152,12 +168,14 @@ export default function Steps() {
                         scroller: trigger2,
                         start: "20% 60%",
                         end: "bottom 40%",
-                        // markers: true,
+                        markers: true,
                         onEnter: () => {
+                            if (isScrollingRef.current) return;
                             scrollToStep(i);
                             setActiveStep(i);
                         },
                         onEnterBack: () => {
+                            if (isScrollingRef.current) return;
                             scrollToStep(i);
                             setActiveStep(i);
                         }
@@ -168,15 +186,19 @@ export default function Steps() {
                 scrollTriggersRef.current.push(st);
             });
 
+            // ScrollTrigger.refresh();
+        });
+
+        setTimeout(() => {
             ScrollTrigger.refresh();
         }, 1000);
 
         return () => {
-            clearTimeout(timeoutId);
+            ctx.revert()
             scrollTriggersRef.current.forEach(st => st.kill());
             scrollTriggersRef.current = [];
         };
-    }, [md, lg]);
+    });
 
     return (
         <section
