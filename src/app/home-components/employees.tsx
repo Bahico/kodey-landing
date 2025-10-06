@@ -114,17 +114,19 @@ export function Employees() {
                                 <br/>
                                 {t('description3')}
                             </span>
-                            <button
-                                ref={buttonRef}
-                                className="btn-gradient sm:ml-8 lg:ml-16 text-white px-6 sm:px-8 lg:px-20 py-3 sm:py-4 lg:py-5 rounded-xl sm:rounded-2xl text-base sm:text-lg lg:text-xl font-medium flex items-center gap-2 sm:gap-4 hover:shadow-lg transition-shadow w-full sm:w-auto justify-center lg:justify-start">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="23" viewBox="0 0 28 23"
-                                     fill="none">
-                                    <path
-                                        d="M0.438252 10.674C3.24385 9.1286 6.37565 7.83876 9.30185 6.54236C14.3361 4.41896 19.3903 2.33236 24.4955 0.389758C25.4887 0.0587785 27.2735 -0.264861 27.4485 1.20708C27.3526 3.29068 26.9584 5.36208 26.688 7.43348C26.0018 11.9887 25.2085 16.5283 24.435 21.0685C24.1685 22.5808 22.274 23.3637 21.0618 22.3959C18.1486 20.4281 15.213 18.4795 12.337 16.4661C11.3949 15.5088 12.2686 14.1341 13.1099 13.4505C15.5093 11.0859 18.0539 9.07686 20.3279 6.59006C20.9413 5.10884 19.1289 6.35716 18.5311 6.73969C15.2463 9.00329 12.0419 11.4051 8.57869 13.3945C6.80969 14.3683 4.74789 13.5361 2.97969 12.9927C1.39431 12.3363 -0.928908 11.675 0.438092 10.6741L0.438252 10.674Z"
-                                        fill="white"/>
-                                </svg>
-                                {t('btn')}
-                            </button>
+                            <a href="https://t.me/KodeyDev" target="_blank">
+                                <button
+                                    ref={buttonRef}
+                                    className="btn-gradient sm:ml-8 lg:ml-16 text-white px-6 sm:px-8 lg:px-20 py-3 sm:py-4 lg:py-5 rounded-xl sm:rounded-2xl text-base sm:text-lg lg:text-xl font-medium flex items-center gap-2 sm:gap-4 hover:shadow-lg transition-shadow w-full sm:w-auto justify-center lg:justify-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="23" viewBox="0 0 28 23"
+                                         fill="none">
+                                        <path
+                                            d="M0.438252 10.674C3.24385 9.1286 6.37565 7.83876 9.30185 6.54236C14.3361 4.41896 19.3903 2.33236 24.4955 0.389758C25.4887 0.0587785 27.2735 -0.264861 27.4485 1.20708C27.3526 3.29068 26.9584 5.36208 26.688 7.43348C26.0018 11.9887 25.2085 16.5283 24.435 21.0685C24.1685 22.5808 22.274 23.3637 21.0618 22.3959C18.1486 20.4281 15.213 18.4795 12.337 16.4661C11.3949 15.5088 12.2686 14.1341 13.1099 13.4505C15.5093 11.0859 18.0539 9.07686 20.3279 6.59006C20.9413 5.10884 19.1289 6.35716 18.5311 6.73969C15.2463 9.00329 12.0419 11.4051 8.57869 13.3945C6.80969 14.3683 4.74789 13.5361 2.97969 12.9927C1.39431 12.3363 -0.928908 11.675 0.438092 10.6741L0.438252 10.674Z"
+                                            fill="white"/>
+                                    </svg>
+                                    {t('btn')}
+                                </button>
+                            </a>
                         </div>
 
                         <div className="flex-1 flex justify-center lg:justify-end pr-0 lg:pr-20 lg:order-last">
