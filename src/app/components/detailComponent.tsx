@@ -3,8 +3,24 @@ import {CaseModel} from "@/models/case.model";
 import BackgroundAnimation from "@/app/components/BackgroundAnimation";
 import {photoUrl} from "@/api/api.functions";
 import Head from "next/head";
+import Linkify from "linkify-react";
 
 export default function DetailComponent({post, first}: { post: CaseModel, first: boolean }) {
+    const options = {
+        target: "_blank",
+        rel: "noopener noreferrer",
+        className: "text-blue-600 underline",
+        formatHref: {
+            url: (href: string) => {
+                // agar https yo‘q bo‘lsa, qo‘shamiz
+                if (href.startsWith("http")) {
+                    return "https://" + href.replace(/^http?:\/\//, "");
+                }
+                return href;
+            },
+        },
+    };
+
     return (
         <>
             <Head>
@@ -49,7 +65,7 @@ export default function DetailComponent({post, first}: { post: CaseModel, first:
                                 className={`flex flex-col order-first min-w-[200px] md:min-w-0 ${!first ? 'md:order-none' : ''}`}>
                                 <h1 className="md:text-6xl text-2xl text-black font-bold mb-2 md:mb-6">{post?.title}</h1>
                                 <p className="text-sm md:text-xl text-gray-600 max-w-4xl mb-8">
-                                    {post?.excerpt}
+                                    <Linkify options={options}>{post?.excerpt}</Linkify>
                                 </p>
                             </div>
                         </div>
@@ -64,7 +80,7 @@ export default function DetailComponent({post, first}: { post: CaseModel, first:
                                         {block.title}
                                     </h3>
                                     <p className="text-sm md:text-xl text-white" style={{whiteSpace: "pre-line"}}>
-                                        {block.description}
+                                        <Linkify options={options}>{block.description}</Linkify>
                                     </p>
                                 </div>
 
