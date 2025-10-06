@@ -7,6 +7,7 @@ import {nowSize} from "@/app/functions/now-size";
 import {useTranslations} from 'next-intl';
 import "./steps.css";
 import {textAnimation, textAnimationTl} from "@/app/functions/text.animation";
+import {useGSAP} from "@gsap/react";
 
 
 export default function Steps() {
@@ -123,9 +124,12 @@ export default function Steps() {
         }
     };
 
-    useEffect(() => {
+    useGSAP(() => {
         const tl = textAnimation(titleRef.current, elementRef.current);
         textAnimationTl(descriptionRef.current, tl);
+    })
+
+    useEffect(() => {
 
         // Clear old scroll triggers
         scrollTriggersRef.current.forEach(st => st.kill());
@@ -185,8 +189,6 @@ export default function Steps() {
 
                 scrollTriggersRef.current.push(st);
             });
-
-            // ScrollTrigger.refresh();
         });
 
         setTimeout(() => {
