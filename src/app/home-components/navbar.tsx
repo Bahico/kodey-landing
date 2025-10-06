@@ -82,7 +82,7 @@ export default function Navbar({locale}: { locale: string}) {
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex items-center gap-5">
-                    <Link href="/">
+                    <Link href={`/${locale}`}>
                         <GlassElement
                             className="flex items-center gap-2 px-8 py-4 rounded-full shadow-md text-white hover:bg-gray-50 transition-colors"
                             width={locale === 'uz' ? 210 : 180}
