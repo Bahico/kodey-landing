@@ -1,15 +1,13 @@
 'use client';
-import {useGSAP} from "@gsap/react";
 import {GlassElement} from "../components/GlassElement/GlassElement";
-import gsap from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
-import {useRef, useState} from "react";
+import gsap from "gsap";
+import {useEffect, useRef, useState} from "react";
 import {nowSize} from "@/app/functions/now-size";
 import {useTranslations} from 'next-intl';
 import "./steps.css";
 import {textAnimation, textAnimationTl} from "@/app/functions/text.animation";
 
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Steps() {
     const [activeStep, setActiveStep] = useState(0);
@@ -64,20 +62,28 @@ export default function Steps() {
     const scrollToImage = (index: number) => {
         if (isScrollingRef.current) return;
 
-        const stepsIcons = document.querySelector('.steps-icons') as HTMLElement;
-        const imageElement = document.getElementById(`step-image-${index}`);
+        const isMd = window.innerWidth > 768;
+        const stepsIcons = document.querySelector(isMd ? '.steps-icons' : '#trigger-2') as HTMLElement;
+        const imageElement = document.getElementById(`step-image-${isMd ? 'md' : 'sm'}-${index}`);
 
         if (imageElement && stepsIcons) {
             isScrollingRef.current = true;
-            const containerHeight = stepsIcons.clientHeight;
-            const imageHeight = imageElement.clientHeight;
-            const imageTop = imageElement.offsetTop;
-
-            const scrollPosition = imageTop - (containerHeight / 2) + (imageHeight / 2);
+            // const containerHeight = stepsIcons.clientHeight;
+            // const imageHeight = imageElement.clientHeight;
+            // const imageTop = imageElement.offsetTop;
+            //
+            // const scrollPosition = imageTop - (containerHeight / 2) + (imageHeight / 2);
+            //
+            // stepsIcons.scrollTo({
+            //     top: scrollPosition,
+            //     behavior: "smooth"
+            // });
 
             stepsIcons.scrollTo({
-                top: scrollPosition,
-                behavior: "smooth"
+                top: imageElement.offsetTop,
+                behavior: 'smooth',
+                // @ts-ignore
+                block: "nearest"
             });
 
             setTimeout(() => {
@@ -86,7 +92,38 @@ export default function Steps() {
         }
     };
 
-    useGSAP(() => {
+    const scrollToStep = (index: number) => {
+        if (isScrollingRef.current) return;
+
+        const stepsIcons = document.querySelector('#trigger-1') as HTMLElement;
+        const imageElement = document.getElementById(`step-${index}`);
+
+        if (imageElement && stepsIcons) {
+            isScrollingRef.current = true;
+            // const containerHeight = stepsIcons.clientHeight;
+            // const imageHeight = imageElement.clientHeight;
+            // const imageTop = imageElement.offsetTop;
+            //
+            // const scrollPosition = imageTop - (containerHeight / 2) + (imageHeight / 2);
+
+            // stepsIcons.scrollTo({
+            //     top: scrollPosition,
+            //     behavior: "smooth"
+            // });
+            stepsIcons.scrollTo({
+                top: imageElement.offsetTop,
+                behavior: 'smooth',
+                // @ts-ignore
+                block: "nearest"
+            });
+
+            setTimeout(() => {
+                isScrollingRef.current = false;
+            }, 600);
+        }
+    };
+
+    useEffect(() => {
         const tl = textAnimation(titleRef.current, elementRef.current);
         textAnimationTl(descriptionRef.current, tl);
 
@@ -95,13 +132,16 @@ export default function Steps() {
         scrollTriggersRef.current = [];
 
         const trigger1 = document.getElementById('trigger-1');
+        const trigger2 = document.getElementById('trigger-2');
 
-        if (!trigger1) return;
+        if (!trigger1 || !trigger2) return;
 
-        const timeoutId = setTimeout(() => {
+        const ctx = gsap.context(() => {
             steps.forEach((_, i) => {
                 const stepElement = document.getElementById(`step-${i}`);
+                const imageElement = document.getElementById(`step-image-sm-${i}`);
 
+                const isMd = window.innerWidth > 768;
                 if (!stepElement) return;
 
                 const st = ScrollTrigger.create({
@@ -111,27 +151,54 @@ export default function Steps() {
                     end: "bottom 40%",
                     // markers: true,
                     onEnter: () => {
+                        if (isScrollingRef.current) return;
                         setActiveStep(i);
                         scrollToImage(i);
                     },
                     onEnterBack: () => {
+                        if (isScrollingRef.current) return;
                         setActiveStep(i);
                         scrollToImage(i);
                     },
                 });
 
+                if (!isMd) {
+                    const img = ScrollTrigger.create({
+                        trigger: imageElement,
+                        scroller: trigger2,
+                        start: "20% 60%",
+                        end: "bottom 40%",
+                        // markers: true,
+                        onEnter: () => {
+                            if (isScrollingRef.current) return;
+                            scrollToStep(i);
+                            setActiveStep(i);
+                        },
+                        onEnterBack: () => {
+                            if (isScrollingRef.current) return;
+                            scrollToStep(i);
+                            setActiveStep(i);
+                        }
+                    });
+                    scrollTriggersRef.current.push(img);
+                }
+
                 scrollTriggersRef.current.push(st);
             });
 
+            // ScrollTrigger.refresh();
+        });
+
+        setTimeout(() => {
             ScrollTrigger.refresh();
-        }, 200);
+        }, 1000);
 
         return () => {
-            clearTimeout(timeoutId);
+            ctx.revert()
             scrollTriggersRef.current.forEach(st => st.kill());
             scrollTriggersRef.current = [];
         };
-    }, [md, lg]);
+    });
 
     return (
         <section
@@ -152,7 +219,8 @@ export default function Steps() {
 
                 <div className="flex flex-col gap-10 w-full lg:h-150 h-auto justify-center relative">
                     {/* Gradient Overlays */}
-                    <div className="absolute top-0 md:top-10 z-30 pointer-events-none left-0 w-full md:w-2/4 h-[80px] md:h-1/2 scroll-smoothly rotate-180"></div>
+                    <div
+                        className="absolute top-0 md:top-10 z-30 pointer-events-none left-0 w-full md:w-2/4 h-[80px] md:h-1/2 scroll-smoothly rotate-180"></div>
 
                     {/* Timeline Steps */}
                     <div
@@ -235,70 +303,69 @@ function StepImage({steps, activeStep}: {
     steps: { title: string; description: string; image: string }[];
     activeStep: number;
 }) {
-    const {lg} = nowSize();
-
-    if (lg)
         return (
-            <div className="flex absolute top-0 bottom-0 justify-center items-center h-full z-10 w-full pointer-events-none">
-                <div className="container flex justify-end relative mr-20">
-                    <GlassElement
-                        className="relative flex-col steps-icons w-[549px] h-[568px] z-10 rounded-full overflow-y-auto border border-gray-600 scrollbar-hide pointer-events-auto"
-                        width={549}
-                        height={568}
-                        radius={300}
-                        depth={20}
-                        blur={1}
-                        chromaticAberration={0}
+            <>
+                <div className="hidden md:flex absolute top-0 bottom-0 justify-center items-center h-full z-10 w-full pointer-events-none">
+                    <div className="container flex justify-end relative mr-20">
+                        <GlassElement
+                            className="relative flex-col steps-icons w-[549px] h-[568px] z-10 rounded-full overflow-y-auto border border-gray-600 scrollbar-hide pointer-events-auto"
+                            width={549}
+                            height={568}
+                            radius={300}
+                            depth={20}
+                            blur={1}
+                            chromaticAberration={0}
+                        >
+                            {steps.map((step, index) => (
+                                <div
+                                    key={index}
+                                    className="w-full h-[568px] flex justify-center items-center flex-shrink-0"
+                                    id={`step-image-md-${index}`}
+                                >
+                                    <img
+                                        src={step.image}
+                                        alt={step.title}
+                                        className="w-[90%] object-cover transition-opacity duration-500"
+                                        style={{
+                                            opacity: activeStep === index ? 1 : 0.4
+                                        }}
+                                    />
+                                </div>
+                            ))}
+                        </GlassElement>
+                        <img
+                            src="/images/background/background.png"
+                            alt=""
+                            className="absolute flex top-[-275px] right-[-275px] w-[1100px] h-[1100px] z-0 pointer-events-none"
+                        />
+                    </div>
+                </div>
+
+                <div className="flex md:hidden justify-center items-center relative mb-20 mt-10">
+                    <div
+                        className="relative w-[268px] h-[268px] z-10 rounded-full overflow-y-auto scrollbar-hide border border-gray-500"
+                        id="trigger-2"
+                        style={{scrollBehavior: 'smooth'}}
                     >
                         {steps.map((step, index) => (
-                            <div
+                            <img
                                 key={index}
-                                className="w-full h-[568px] flex justify-center items-center flex-shrink-0"
-                                id={`step-image-${index}`}
-                            >
-                                <img
-                                    src={step.image}
-                                    alt={step.title}
-                                    className="w-[90%] object-cover transition-opacity duration-500"
-                                    style={{
-                                        opacity: activeStep === index ? 1 : 0.4
-                                    }}
-                                />
-                            </div>
+                                src={step.image}
+                                id={`step-image-sm-${index}`}
+                                alt={step.title}
+                                className="w-full object-contain min-h-[268px] h-[268px] flex-shrink-0 border-0 transition-opacity duration-500"
+                                style={{
+                                    opacity: activeStep === index ? 1 : 0.4
+                                }}
+                            />
                         ))}
-                    </GlassElement>
+                    </div>
                     <img
                         src="/images/background/background.png"
                         alt=""
-                        className="absolute flex top-[-275px] right-[-275px] w-[1100px] h-[1100px] z-0 pointer-events-none"
+                        className="absolute flex top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] z-0"
                     />
                 </div>
-            </div>
-        );
-
-    return (
-        <div className="flex justify-center items-center relative mb-20 mt-10">
-            <div
-                className="relative steps-icons w-[249px] h-[268px] z-10 rounded-full overflow-y-auto scrollbar-hide border border-gray-500"
-            >
-                {steps.map((step, index) => (
-                    <img
-                        key={index}
-                        src={step.image}
-                        id={`step-image-${index}`}
-                        alt={step.title}
-                        className="w-full object-contain h-[268px] flex-shrink-0 border-0 transition-opacity duration-500"
-                        style={{
-                            opacity: activeStep === index ? 1 : 0.4
-                        }}
-                    />
-                ))}
-            </div>
-            <img
-                src="/images/background/background.png"
-                alt=""
-                className="absolute flex top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] z-0"
-            />
-        </div>
-    );
+            </>
+        )
 }

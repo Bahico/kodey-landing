@@ -6,11 +6,10 @@ import History from "../home-components/history";
 import Location from "../home-components/location";
 import Internal from "../home-components/internal";
 import Contact from "../home-components/contact";
-import {useRef} from "react";
+import {useEffect, useRef} from "react";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {ScrollToPlugin} from "gsap/ScrollToPlugin";
 import gsap from "gsap";
-import {useGSAP} from "@gsap/react";
 import {TextPlugin} from "gsap/TextPlugin";
 import Link from "next/link";
 import BackgroundAnimation from "@/app/components/BackgroundAnimation";
@@ -36,7 +35,7 @@ export default function SimpleHome() {
     const triggerRef = useRef<HTMLDivElement>(null);
     const blackRef = useRef<HTMLDivElement>(null);
 
-    useGSAP(() => {
+    useEffect(() => {
         const tl = gsap.timeline({
             repeat: 1,
             yoyo: false,
@@ -136,17 +135,17 @@ export default function SimpleHome() {
             }
         )
 
-        gsap.to(elementRef.current, {
-            scrollTrigger: {
-                trigger: elementRef.current,
-                start: 'top top',
-                end: 'bottom top',
-                onEnter: () =>
-                    gsap.to(elementRef.current, {duration: 1, y: '-50vh', ease: 'power4.out'}),
-                onLeaveBack: () =>
-                    gsap.to(elementRef.current, {duration: 1, y: '0', ease: 'power4.out'})
-            },
-        });
+        // gsap.to(elementRef.current, {
+        //     scrollTrigger: {
+        //         trigger: elementRef.current,
+        //         start: 'top top',
+        //         end: 'bottom top',
+        //         onEnter: () =>
+        //             gsap.to(elementRef.current, {duration: 1, y: '-50vh', ease: 'power4.out'}),
+        //         onLeaveBack: () =>
+        //             gsap.to(elementRef.current, {duration: 1, y: '0', ease: 'power4.out'})
+        //     },
+        // });
 
         const tl3 = gsap.timeline({
             scrollTrigger: {
@@ -177,7 +176,7 @@ export default function SimpleHome() {
             }
         );
 
-    });
+    }, []);
 
     return (
         <div className="relative w-full overflow-hidden smooth-scroll">
@@ -185,7 +184,7 @@ export default function SimpleHome() {
                 <BackgroundAnimation/>
             </div>
             {/* Hero Section */}
-            <section className="relative flex justify-center w-full pt-6 sm:pt-8 md:pt-10" ref={elementRef}>
+            <section className="relative flex justify-center min-h-screen w-full pt-6 sm:pt-8 md:pt-10" ref={elementRef}>
                 <div className="container px-4 sm:px-6 lg:px-8 relative">
                     {/*<div className="absolute inset-0 animated-gradient-overlay background-glow"></div>*/}
 
@@ -205,10 +204,10 @@ export default function SimpleHome() {
                                       id="title-home-separator">|</span>
                             </h1>
 
-                            <h1 ref={descriptionRef}
-                                className="text-[30px] md:text-[42px] lg:text-[72px] font-light text-[#929292] mb-4 sm:mb-10 lg:mb-30 z-10 w-[471px] md:w-[850px]">
+                            <h4 ref={descriptionRef}
+                                className="text-[30px] md:text-[42px] lg:text-[72px] font-light text-[#929292] mb-4 sm:mb-10 lg:mb-30 z-10 w-full md:w-[850px]">
                                 {t('title')}
-                            </h1>
+                            </h4>
                             <Link href={`/${locale}/#contact`}>
                                 <button
                                     ref={buttonRef}
