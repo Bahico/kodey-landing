@@ -70,6 +70,31 @@ export default async function LocaleLayout({ children, params }: Props) {
 
             <meta name="google-site-verification" content="fBjmyki2A9Ko7N_Vvl0mMfIr9b5k_BvHErAWadQEDfY" />
 
+            {/* Google tag (gtag.js) */}
+            <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18101457955"></script>
+            <script
+                dangerouslySetInnerHTML={{
+                    __html: `
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'AW-18101457955');
+                    `,
+                }}
+            />
+            {/* Event snippet for lead form submission conversion */}
+            <script
+                dangerouslySetInnerHTML={{
+                    __html: `
+                        gtag('event', 'conversion', {
+                            'send_to': 'AW-18101457955/6P-iCO7lsJ4cEKOoubdD',
+                            'value': 1.0,
+                            'currency': 'USD'
+                        });
+                    `,
+                }}
+            />
+
             <script type="application/ld+json">
                 {JSON.stringify({
                     "@context": "https://schema.org",
